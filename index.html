@@ -1,0 +1,98 @@
+﻿<!doctype html>
+<?php
+    include("conexion/conexion.php");
+?>
+<html lang="en">
+  <head>
+  	<title>Sistema de Información para el Restablecimiento de Derechos de Niños, Niñas y Adolescentes</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="login/css/style.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center ">
+					<h2 class="heading-section"></h2>
+					
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="img" style="background-image: url(login/images/bg-1.png);">
+			      </div>
+						<div class="login-wrap p-4 p-md-5">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h3 class="mb-4">Ingresar</h3>
+			      		</div>
+								<div class="w-100">
+									<p class="social-media d-flex justify-content-end">
+										<a href="https://www.facebook.com/SecIntegracionSocialBoyaca/" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
+										<a href="https://twitter.com/SecSocialBoyaca?t=SnJchcm_Tbu7DVYQeEuxiw&s=09" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+									</p>
+								</div>
+			      	</div>
+							<form action="script_acceso_usuario.php" method="post" class="signin-form">
+			      		<div class="form-group mb-3">
+			      			<label class="label" for="name">Usuario</label>
+			      			<input id="nombre" name="usuario" type="text" placeholder="" class="form-control input-md" onclick="javascript: limpia(this);" onblur="javascript: verifica(this);">
+			      		</div>
+		            <div class="form-group mb-3">
+		            	<label class="label" for="password">Password</label>
+		              <input id="mail" name="contrasena" type="password" placeholder="" class="form-control input-md" onclick="javascript: limpia(this);" onBlur="javascript: verifica(this);" required>
+		            </div>
+		            <div class="form-group">
+		            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Ingresar</button>
+		            </div>
+		            <div class="form-group d-md-flex">
+		            	<div class="w-50 text-left">
+			            	
+									</div>
+									<div class="w-50 text-md-right">
+										<a href="recuperar_contrasena.php">Olvide mi contraseña</a>
+									</div>
+		            </div>
+		          </form>
+		          <p class="text-center hide">No estoy registrado <a data-toggle="tab" href="RegistarUsuario.php">Registrar</a></p>
+		        
+				</div>
+				
+		      </div>
+			  <div  class="justify-content-center align-items-center" style="background-color:#64AF59;">
+				<img class="img-fluid" src="img/logo_integracion_social.png"/><div>	
+				</div>
+				</div>
+			</div>
+		
+		
+	</section>
+
+   <script src="login/js/jquery.min.js"></script>
+  <script src="login/js/popper.js"></script>
+  <script src="login/js/bootstrap.min.js"></script>
+  <script src="login/js/main.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+  <script src="js/main.js"></script>        
+        <script>
+            function limpia(elemento) {
+                elemento.value = "";
+            }
+            
+            function verifica(elemento) {
+                if(elemento.value === "")
+                    elemento.value = "";
+            }
+        </script>        
+
+	</body>
+</html>
+
