@@ -1,91 +1,6 @@
-<?php
-include("../../conexion/conexion.php");
 
-//$id_ninnos=$_GET['id_ninnos'];
-//Iniciar Sesión
-session_start();
 
-//Validar si se está ingresando con sesión correctamente
-if (!$_SESSION) {
-    echo '<script language = javascript>
-            alert("usuario no autenticado")
-            self.location = "index.html"
-            </script>';
-}
-
-$id_usuario = $_SESSION['numero_documento'];
-$consulta = "SELECT * FROM usuarios where numero_documento = '$id_usuario' ";
-$resultado = mysqli_query($con, $consulta) or die(mysqli_error($con));
-$fila = mysqli_fetch_array($resultado);
-$nombres = $fila['nombres'];
-$apellido = $fila['apellidos'];
-$id_municipio = $fila['id_municipio'];
-?>
-
-<!doctype html>
-<html class="no-js" lang="">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Sistema de Informaci&oacute;</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="../../css/bootstrap.css">
-    <style>
-        body {
-            padding-top: 0px;
-            padding-bottom: 0px;
-        }
-    </style>
-    <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="../../css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,600italic' rel='stylesheet' type='text/css'>
-    <script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <!-- Start WOWSlider.com HEAD section -->
-    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-    <script type="text/javascript" src="engine1/jquery.js"></script> <!-- End WOWSlider.com HEAD section -->
-</head>
-
-<body class="fblanco">
-    <script language="JavaScript">
-        function Borra(idcliente) {
-            var agree = confirm("¿Realmente desea eliminar el cliente seleccionado?");
-            if (agree) {
-                document.location = "eliminar.php?id=" + idcliente;
-            } else return false;
-        }
-    </script>
-
-    <header style="background-color: #64AF59;">
-        <div class="container">
-            <div class="row clearfix ps pi2x">
-                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6"> <br>
-                    <div align="center" class="letra n700  azulo centrar">
-                        <h1><b>Sistema de Informaci&oacute;n para el Restablecimiento de Derechos de Ni&ntilde;os, Ni&ntilde;as o Adolescentes</b></h1>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 ps pi"></div>
-
-                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 ps pi linku">
-                    <h3 class="centrar letra azulo n400"><strong>Bienvenido Comisar&iacute;a de Familia</strong></h3>
-                    <h4 class="centrar letra azulo n500"><b>Municipio:</b>
-                        <?php $busqueda1 = mysqli_query($con, "SELECT * FROM municipios where id_municipio='$id_municipio' ");
-                        while ($row1 = mysqli_fetch_array($busqueda1)) {
-                            $id_municipio1 = $row1['id_municipio'];
-                            $des_municipio = $row1['descripcion'];
-                        }
-                        echo $des_municipio ?></h4>
-                    <h4 class="centrar letra azulo n500"><?php echo $nombres ?>&nbsp;<?php echo $apellido ?></h4>
-                    <h4 class="centrar letra azulo n500"><a href="../../desconectar_usuario.php"><b>Cerrar Sesión</b></a> </h4>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <section style="background-color: #BDBDBD;">
+    <section style="background-color: #FFFF;">
         <div class="container ps ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
@@ -100,10 +15,10 @@ $id_municipio = $fila['id_municipio'];
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500"><a href="../../MenuComisariaFamilia.php">Volver Men&uacute; Principal</a></li>
-                        <li role="presentation" class="letra n500"><a id="consultaBtn" href="../../MenuExpediente.php">Consultar Expedientes</a></li>
-                        <li role="presentation" class="letra n500"><a href="ConsultarExpedienteRemi.php">Consultar Expedientes Remitidos</a></li>
-                        <li role="presentation" class="letra n500"><a href="../TotalExpedientes/ConsultarTotalExpediente.php">Consultar Total de Expedientes</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=0">Volver Men&uacute; Principal</a></li>
+                        <li role="presentation" class="letra n500"><a a href="main.php?key=3">Consultar Expedientes</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=12">Consultar Expedientes Remitidos</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
                     </ul>
                     <input type="button" id="refresh" value="Actualizar" onclick="location.reload()" style="display:none" />
                 </div>
@@ -112,7 +27,7 @@ $id_municipio = $fila['id_municipio'];
     </section>
 
 
-    <form name="form1" method="post" action="ConsultarExpedienteRemi.php" id="cdr">
+    <form name="form1" method="post" action="#" id="cdr">
         <center>
             <h3 class="centrar letra n600 azulo pi">Registrar Expediente</h3> <br>
             <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescente</h5>
@@ -125,10 +40,10 @@ $id_municipio = $fila['id_municipio'];
                 if (isset($_POST['Submit'])) {
                 ?>
                     <div class="table-responsive">
-                        <table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                        <table class="table table-striped table-bordered">
                             <tr>
                                 <td colspan="10" class="letra n600 azulo">Total Niños, Niñas o Adolescentes Registrados:
-                                    <?php include("../../conexion/conexion.php");
+                                    <?php 
                                     if (!empty($id_usuario88)) {
                                         $con44 = mysqli_query($con, "SELECT count(id_remite), 	id_usuario, id_ninnos FROM remite where id_usuario = '$id_usuario88'");
                                         while ($row44 = mysqli_fetch_array($con44)) {
@@ -215,11 +130,10 @@ $id_municipio = $fila['id_municipio'];
                         <section class="fblanco">
                             <div class="container pu pi">
                                 <div class="table-responsive">
-                                    <table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                                    <table class="table table-striped table-bordered">
                                         <tr>
                                             <td colspan="11" class="letra n600 azulo">Total Niños, Niñas o Adolescentes Registrados:
                                                 <?php
-                                                include("../../conexion/conexion.php");
                                                 $con44 = mysqli_query($con, "SELECT count(id_remite), 	id_usuario, id_ninnos FROM remite where id_usuario = '$id_usuario'");
                                                 while ($row44 = mysqli_fetch_array($con44)) {
                                                     echo $nom_asignatura44 = $row44['count(id_remite)'];
@@ -239,7 +153,7 @@ $id_municipio = $fila['id_municipio'];
                                             <td class="col-md-4 control-label letra n600 azulo">Consultar Expedientes</td>
                                         </tr>
                                         <tbody>
-                                            <?php include("../../conexion/conexion.php");
+                                            <?php
                                             $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_usuario = '$id_usuario' and id_ninnos='$id_ninnos44'  order by id_ninnos desc"); //cambiar nombre de la tabla de busqueda
                                             while ($row = mysqli_fetch_array($busqueda)) {
                                                 $apellidos = $row['Apellidos'];
@@ -265,7 +179,7 @@ $id_municipio = $fila['id_municipio'];
                                                     <td align="center">
                                                         <?php
                                                         $busqueda2 = mysqli_query($con, "SELECT * FROM provincias where id_provincia='$id_provincia'  ");
-                                                        while ($row2 = mysqli_fetch_array($busqueda2)) {
+                                                       while ($row2 = mysqli_fetch_array($busqueda2)) {
                                                             echo $row2['descripcion'];
                                                         } ?>
                                                     </td>
@@ -281,6 +195,115 @@ $id_municipio = $fila['id_municipio'];
                                                 </tr>
                                     </table>
     </form>
+    <div class="clearfix"></div>
+    </section>
+
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- Datatables -->
+    <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="css/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="css/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="css/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="css/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="css/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="css/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+
+    <!-- PNotify -->
+    <script src="css/pnotify/dist/pnotify.js"></script>
+    <script src="css/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="css/pnotify/dist/pnotify.nonblock.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ui-pnotify').remove();
+        });
+    </script>
+
+    <script src="js/jsAddExpediente.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+
+        function numeros(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " 0123456789";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
+    </script>
+</body>
+
+</html>
     </div>
     </div>
     </section>

@@ -24,7 +24,7 @@
                 if (isset($_POST['Submit'])) {
                 ?>
                     <div class="table-responsive">
-                        <table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                        <table class="table table-striped table-bordered">
                             <tr>
                                 <td colspan="10" class="letra n600 azulo">Total Usuarios Registrados:
                                     <?php
@@ -109,11 +109,13 @@
                                                 } ?>
 
                                                 <?php if ($id_ninos == $id_ninos21) {
+                                                echo '<h5 class="letra n500 azulo centrar ps linku "><a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="linku">Consultar</a></h5>';
+
                                                 ?>
-                                                    <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarRegistrosMPC.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar</a></h5>
                                                 <?php
                                                 } else {
                                                     echo "NO tiene Cuidador asignado";
+                                                    echo '<a href="main.php?key=10&id_ninnos='.$id_ninos.'">Registrar</a>';
                                                 } ?>
                                             </td>
                                     <?php
@@ -127,7 +129,7 @@
                         <section class="fblanco">
                             <div class="container pu pi">
                                 <div class="table-responsive">
-                                    <table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                                    <table class="table table-striped table-bordered">
                                         <tr>
                                             <td colspan="11" class="letra n600 azulo">Total Usuarios Registrados:
                                                 <?php
@@ -210,11 +212,14 @@
                                                     <td align="center">
                                                         <?php
                                                         if ($id_ninos == $id_ninos21) {
-                                                        ?>
-                                                            <h5 class="letra n500 azulo centrar ps linku "><a href="ConsultarRegistrosMPC.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar</a></h5>
-                                                        <?php
+                                                        
+                                                        echo '<h5 class="letra n500 azulo centrar ps linku "><a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="linku">Consultar</a></h5>';
+                                                        
                                                         } else {
                                                             echo "NO tiene Cuidador asignado";
+                                                            
+                                                            echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'">Registrar</a>';
+                                                      
                                                         } ?>
                                                     </td>
                                             <?php

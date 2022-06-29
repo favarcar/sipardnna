@@ -1,5 +1,4 @@
 <?php
-include("../conexion/conexion.php");
 
 	echo $id_ninnos=$_GET['id_ninnos'];
 

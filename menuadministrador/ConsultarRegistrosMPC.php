@@ -1,33 +1,6 @@
-<!doctype htnl>
-
-<html class="no-js" lang="">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Menú Principal dos</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <style>
-        body {
-            padding-top: 0px;
-            padding-bottom: 0px;
-        }
-    </style>
-    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,600italic' rel='stylesheet' type='text/css'>
-    <script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-    <script type="text/javascript" src="engine1/jquery.js"></script>
-</head>
 
-<body>
     <?php
-    include("../conexion/conexion.php");
     $id_ninnos = $_GET['id_ninnos'];
     $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_ninnos = '$id_ninnos' "); //cambiar nombre de la tabla de busqueda 
     while ($row = mysqli_fetch_array($busqueda)) {
@@ -70,8 +43,6 @@
     ?>
     <?php
 
-    //Iniciar Sesión
-    session_start();
 
     //Validar si se está ingresando con sesión correctamente
     if (!$_SESSION) {
@@ -182,7 +153,6 @@
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
                         <div class="col-md-4">
                             <?php
-                            include("../conexion/conexion.php");
                             $busqueda3 = mysqli_query($con, "SELECT * FROM generos WHERE id_genero='$id_genero' ");
                             while ($row3 = mysqli_fetch_array($busqueda3)) {
                                 $id_genero = $row3['id_genero'];

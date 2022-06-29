@@ -3,7 +3,7 @@
 include("conexion/conexion.php");
 
 //Inicio de variables de sesi�n
-if (!isset($_SESSION)) {
+if (!isset($_SESSION)) { 
   session_start();
 }
 
@@ -36,10 +36,13 @@ else //opcion2: Usuario logueado correctamente
 	$con1= "SELECT * FROM usuarios WHERE usuario = '".$usuario."' AND clave='".$contrasena_md5."' AND estado = 1";
 	$resultado1 = mysqli_query ($con,$con1) or die (mysqli_error());
 
+header("Location: main.php?key=0");
+
 	 while($row=mysqli_fetch_array($resultado1)){
 	 $consecutivo= $row['consecutivo'];
 	  $id_usuario= $row['id_usuario'];
 	  $id_perfil= $row['id_perfil'];
+	  $nuser=$row['Nivel'];
 	 }
 	date_default_timezone_set('America/Bogota');
     $time = time();
@@ -48,127 +51,8 @@ else //opcion2: Usuario logueado correctamente
 
 	 mysqli_query($con,"INSERT INTO `logins` VALUES ('$consecutivo','$id_usuario','$fecha','$hora')") or die(mysql_error());
 
-if($id_perfil == 10 )
-    {
-	 header("Location: MenuSuperUsuario.php");
-	}
-	else
-	 {
-	  echo '<script language = javascript>
-	  alert("Usuario o Password errados, por favor verifique.")
-	  self.location = "index.html"
-	  </script>';
-	 }
+  }
 
-      if($id_perfil == 9 )
-      {
-	   header("Location: MenuJuezFamilia.php");
-	  }
-	   else
-	    {
-		 echo '<script language = javascript>
-	     alert("Usuario o Password errados, por favor verifique.")
-	     self.location = "index.html"
-	     </script>';
-	    }
 
-		 if($id_perfil == 8 )
-         {
-          header("Location: MenuProcura.php");
-	     }
-	      else
-	       {
-		    echo '<script language = javascript>
-	        alert("Usuario o Password errados, por favor verifique.")
-	        self.location = "index.html"
-	        </script>';
-	       }
-
-			if($id_perfil == 7 )
-            {
-	         header("Location: MenuPersoneria.php");
-	        }
-	         else
-	          {
-		       echo '<script language = javascript>
-	           alert("Usuario o Password errados, por favor verifique.")
-	           self.location = "index.html"
-	           </script>';
-	          }
-
-	           if($id_perfil == 6 )
-               {
-              //header("Location: MenuComisariaFamilia.php");
-              header("Location: main.php?key=7&Id_perfil=6;");
-	           }
-	            else
-	             {
-		          echo '<script language = javascript>
-	              alert("Usuario o Password errados, por favor verifique.")
-	              self.location = "index.html"
-	              </script>';
-		         }
-
-	              if($id_perfil == 5 )
-                  {
-                   header("Location: MenuInvitado.php");
-	              }
-	               else
-	                {
-		             echo '<script language = javascript>
-	                 alert("Usuario o Password errados, por favor verifique.")
-	                 self.location = "index.html"
-	                 </script>';
-	                }
-
-					 if($id_perfil == 4 )
-                     {
-                       //header("Location: MenuEnlaceMunicipal.php");
-					   header("Location: main.php?key=0&Id_perfil=4;");
-	                 }
-	                  else
-	                   {
-		                echo '<script language = javascript>
-	                    alert("Usuario o Password errados, por favor verifique.")
-	                    self.location = "index.html"
-	                    </script>';
-		     	       }
-
-	                    if($id_perfil == 3 )
-                        {
-		                 header("Location: MenuSupervisor.php");
-		                }
-	                     else
-	                      {
-		                   echo '<script language = javascript>
-	                       alert("Usuario o Password errados, por favor verifique.")
-	                       self.location = "index.html"
-	                       </script>';
-		                   }
-
-	                        if($id_perfil == 2 )
-                            {
-	                      	 header("Location: MenuDirector.php");
-		                    }
-	                         else
-	                          {
-		                       echo '<script language = javascript>
-	                           alert("Usuario o Password errados, por favor verifique.")
-	                           self.location = "index.html"
-	                           </script>';
-		               	      }
-
-	                           if($id_perfil == 1 )
-                               {
-	        	                header("Location: MenuAdministrador.php");
-	                           }
-	                            else
-	                             {
-		                          echo '<script language = javascript>
-	                              alert("Usuario o Password errados, por favor verifique.")
-	                              self.location = "index.html"
-	                              </script>';
-			                     }
-}
 
 ?>

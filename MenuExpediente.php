@@ -1,143 +1,5 @@
-﻿<?php
-//Proceso de conexión con la base de datos
-include("conexion/conexion.php");
-
-//Iniciar Sesión
-session_start();
-
-//Validar si se está ingresando con sesión correctamente
-if (!$_SESSION) {
-    echo '<script language = javascript>
-            alert("usuario no autenticado")
-            self.location = "index.html"
-            </script>';
-}
-
-$id_usuario = $_SESSION['numero_documento'];
-$consulta = "SELECT * FROM usuarios where numero_documento = '$id_usuario' ";
-$resultado = mysqli_query($con, $consulta) or die(mysqli_error($con));
-$fila = mysqli_fetch_array($resultado);
-$nombres = $fila['nombres'];
-$apellido = $fila['apellidos'];
-$id_municipio = $fila['id_municipio'];
-?>
-
-<!doctype html>
-<html class="no-js" lang="">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Sistema de Informaci&oacute;n</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="img/logo-ggg.jpg">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <style>
-        body {
-            padding-top: 0px;
-            padding-bottom: 0px;
-        }
-
-        .wrap2 {
-            width: 100px;
-            white-space: pre-wrap;
-            /* CSS3 */
-            white-space: -moz-pre-wrap;
-            /* Firefox */
-            white-space: -pre-wrap;
-            /* Opera <7 */
-            white-space: -o-pre-wrap;
-            /* Opera 7 */
-            word-wrap: break-word;
-            /* IE */
-        }
-
-        .wrap2 {
-            height: 50px;
-            overflow: auto;
-            width: 400px;
-        }
-    </style>
-
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-
-    <!-- Datatables -->
-    <link href="css/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="css/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="css/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="css/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="css/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,600italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <!-- Start WOWSlider.com HEAD section -->
-    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-    <script type="text/javascript" src="engine1/jquery.js"></script>
-
-    <link href="css/pnotify/dist/pnotify.css" rel="stylesheet">
-    <link href="css/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
-    <link href="css/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
-    <!-- End WOWSlider.com HEAD section -->
-    <script>
-        function autofitIframea(id) {
-            if (!window.opera && document.all && document.getElementById) {
-                id.style.height = id.contentWindow.document.body.scrollHeight;
-            } else if (document.getElementById) {
-                id.style.height = id.contentDocument.body.scrollHeight + "px";
-            }
-        }
-
-        function valida(e) {
-            tecla = (document.all) ? e.keyCode : e.which;
-            //Tecla de retroceso para borrar, siempre la permite
-            if (tecla == 8) {
-                return true;
-            }
-
-            // Patron de entrada, en este caso solo acepta numeros
-            patron = /[0-9]/;
-            tecla_final = String.fromCharCode(tecla);
-            return patron.test(tecla_final);
-        }
-    </script>
-</head>
-
-<body style="background-color: #64AF59;">
-    <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-    <header style="background-color: #64AF59;">
-        <div class="container">
-            <div class="row clearfix ps pi2x">
-                <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6"> <br>
-                    <div align="center" class="letra n700  azulo centrar">
-                        <h1><b>Sistema de Informaci&oacute;n para el Restablecimiento de Derechos de Ni&ntilde;os, Ni&ntilde;as o Adolescentes</b></h1>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 ps pi"></div>
-
-                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 ps pi linku">
-                    <h3 class="centrar letra azulo n400"><strong>Bienvenido Comisar&iacute;a de Familia</strong></h3>
-                    <h4 class="centrar letra azulo n500"><b>Municipio:</b>
-                        <?php $busqueda1 = mysqli_query($con, "SELECT * FROM municipios where id_municipio='$id_municipio' ");
-                        while ($row1 = mysqli_fetch_array($busqueda1)) {
-                            $id_municipio1 = $row1['id_municipio'];
-                            $des_municipio = $row1['descripcion'];
-                        }
-                        echo $des_municipio ?></h4>
-                    <h4 class="centrar letra azulo n500"><?php echo $nombres ?>&nbsp;<?php echo $apellido ?></h4>
-                    <h4 class="centrar letra azulo n500"><a href="desconectar_usuario.php"><b>Cerrar Sesión</b></a> </h4>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <section style="background-color: #BDBDBD;">
+﻿
+    <section style="background-color: #FFFF;">
         <div class="container ps ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
@@ -152,10 +14,10 @@ $id_municipio = $fila['id_municipio'];
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500"><a href="MenuComisariaFamilia.php">Volver Men&uacute; Principal</a></li>
-                        <li role="presentation" class="letra n500"><a id="consultaBtn" href="MenuExpediente.php">Consultar Expedientes</a></li>
-                        <li role="presentation" class="letra n500"><a href="Expediente/ExpedientesRemitidos/ConsultarExpedienteRemi.php">Consultar Expedientes Remitidos</a></li>
-                        <li role="presentation" class="letra n500"><a href="Expediente/TotalExpedientes/ConsultarTotalExpediente.php">Consultar Total de Expedientes</a></li>
+                        <li role="presentation" class="letra n500 active"><a href="main.php?key=0">Volver Men&uacute; Principal</a></li>
+                        <li role="presentation" class="letra n500"><a id="consultaBtn" href="#">Consultar Expedientes</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Consultar Expedientes Remitidos</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
                     </ul>
                     <input type="button" id="refresh" value="Actualizar" onclick="location.reload()" style="display:none" />
                 </div>
@@ -172,7 +34,7 @@ $id_municipio = $fila['id_municipio'];
                             <input type="hidden" id="EstadoExp">
                             <input type="hidden" id="idIExp">
                             <input type="hidden" id="idExp">
-                            <table id="expeTable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                            <table id="expeTable" table class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
                                         <td colspan="11" class="letra n600 azulo">Total Niños, Niñas o Adolescentes Registrados:
@@ -689,19 +551,6 @@ $id_municipio = $fila['id_municipio'];
     </script>
 
 
-
-    <footer class="f4 borde_top">
-        <div class="container">
-            <div class="row clearfix pi2x ps">
-                <div>
-                    <img class="img-responsive  center-block  borde_blanco " src="img/logo_integracion_social.png" width="60%" alt="" />
-                </div>
-                <div align="center">
-                    <b>GOBERNACI&Oacute;N DE BOYAC&Aacute; <br> SECRETAR&Iacute;A DE INTEGRACI&Oacute;N SOCIAL <br> Sistema de Informaci&oacute;n a&ntilde;o 2021, Versi&oacute;n 2.0</b>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

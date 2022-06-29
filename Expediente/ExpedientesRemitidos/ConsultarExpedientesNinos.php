@@ -1,8 +1,3 @@
-<meta charset="utf-8" />
-
-
-<html class="no-js" lang="">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -12,29 +7,6 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
     <link rel="stylesheet" href="../../css/bootstrap.css">
-
-    <style>
-        body {
-            padding-top: 0px;
-            padding-bottom: 0px;
-        }
-    </style>
-
-
-    <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="../../css/font-awesome.min.css">
-
-
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,600italic' rel='stylesheet' type='text/css'>
-
-    <script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <!-- Start WOWSlider.com HEAD section -->
-    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-    <script type="text/javascript" src="engine1/jquery.js"></script>
-    <!-- End WOWSlider.com HEAD section -->
-
-</head>
 
 <body class="fblanco">
     <script language="JavaScript">
@@ -89,7 +61,7 @@ self.location = "index.html"
                     <div class="container pu pi">
 
                         <div class="table-responsive">
-                            <table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                            <table class="table table-striped table-bordered"">
                                 <tr>
                                     <td colspan="9" class="letra n600 azulo">Total de Expedientes Registrados: <?php
                                                                                                                 $con4 = mysqli_query($con, "SELECT count(id_ninnos) FROM expediente where id_usuario_exp='$id_usuario' and id_ninnos = '$id_ninnos' ");

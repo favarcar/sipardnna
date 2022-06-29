@@ -1,4 +1,4 @@
-    <script language="JavaScript">
+<script language="JavaScript">
         function Borra(idcliente) {
             var agree = confirm("¿Realmente desea eliminar el cliente seleccionado?");
             if (agree) {
@@ -23,7 +23,7 @@
                 if (isset($_POST['Submit'])) {
                 ?>
                     <div class="table-responsive">
-                        <table width="100%" border="1" id="tab" align="center" class="table-striped">
+                        <table class="table table-striped table-bordered">
                             <tr>
                                 <th colspan="10" class="letra n600 azulo">Total Ni&ntilde;os, Ni&ntilde;as Adolescentes Registrados:
                                     <?php $con4 = mysqli_query($con, "SELECT count(id_ninnos) FROM ninnosnna");
@@ -102,7 +102,7 @@
     <?php
                 } else { ?>
                   <div class="table-responsive">
-                    <table width="100%" border="1" id="tab" style="background:#FFFFFF" align="center" class="table-striped table-hover">
+                    <table class="table table-striped table-bordered">
                         <tr>
                             <td colspan="11" class="letra n600 azulo">Total Ni&ntilde;os, Ni&ntilde;as Adolescentes Registrados:
                                 <?php

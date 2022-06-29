@@ -14,13 +14,7 @@
                 padding-bottom: 0px;
             }
         </style>
-        <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="../../css/main.css">
-        <link rel="stylesheet" href="../../css/font-awesome.min.css">
-        <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,600italic' rel='stylesheet' type='text/css'>
-        <script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-        <script type="text/javascript" src="engine1/jquery.js"></script>
+
     </head>
 
     <body class="fblanco">

@@ -69,10 +69,11 @@ $fila=mysqli_fetch_array($resultado);
 $nombres = $fila['nombres'];
 $apellido = $fila['apellidos'];
 $id_municipio = $fila['id_municipio'];
-$nuser = $fila['id_perfil'];
+$id_perfil = $fila['id_perfil']; 
+$nuser = $fila['Nivel'];
 date_default_timezone_set('UTC');
 // Una forma de expresar la fecha
-$fecha = strftime( "%Y-%m-%d", time() );
+//$fecha = strftime( "%Y-%m-%d", time() );
 //codigo para consultar el municipio
 $municipio=mysqli_query($con,"SELECT * FROM municipios where id_municipio='$id_municipio' ");
  while($row1=mysqli_fetch_array($municipio)){
@@ -87,6 +88,8 @@ switch ($nuser){
 	case 1:
 	$colormenu = "#C00";
 	$visible = "inline"; $visible_cell = "table-cell"; $visibleadm = "none";
+  
+
 
 		break;
 	//Comisaria (registro)
@@ -96,7 +99,7 @@ switch ($nuser){
 
 	break;
 	//Consulta
-	case 3 || 4:
+	case 3:
 	$colormenu = "#00AEE7";
 	$visibleinsp = "hide"; $visibleinsp2 = "none"; $visible = "none"; $visible_cell = "none"; $visible_cell_cls = "hide";
 	//Solo invisible para el curador
@@ -174,8 +177,19 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
           <li><a href="main.php?key=3">Expedientes</a></li>
         </ul>
       </li>
-	  <li><a href="main.php?key=4">Mi usuario</a></li>
-
+     <?php if($nuser == 1 || $nuser == 2){?>
+      <li class="dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Registrar
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="main.php?key=1">Niños niñas o adolescentes</a></li>
+          <li><a href="main.php?key=2">Madres padres o cuidadores</a></li>
+          <li><a href="main.php?key=3">Expedientes</a></li>
+        </ul>
+      </li>
+	  <?php } ?>
+      <li><a href="main.php?key=4">Mi usuario</a></li>
+     
     </ul>
     <ul class="nav navbar-nav navbar-right center-block">
       <li><i class="glyphicon glyphicon-user"></i><strong>Usuario:</strong> <?php echo $nombres?>&nbsp;<?php echo $apellido?>
@@ -192,22 +206,29 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
 
 
 <section class="fblanco">
-<div class="container">
+<div class="container"> 
 <?php
-if ($verdato == 0 && $nuser == 4) {include("home_consulta.php");}
-if ($verdato == 0 && $nuser == 6) {include("home_registro.php");}
-if ($verdato == 1) {include("menuadministrador/ConsultarNNA.php");}
-if ($verdato == 2) {include("menuadministrador/ConsultarMPC.php");}
+if ($verdato == 0 &&  $nuser == 3){include("home_consulta.php");}
+if ($verdato == 0 && $nuser == 2){include("home_registro.php");}
+if ($verdato == 1){include("menuadministrador/ConsultarNNA.php");}
+if ($verdato == 2){include("menuadministrador/ConsultarMPC.php");}
 if ($verdato == 3){include("menuadministrador/TotalExpedientes/ConsultarTotalExpediente.php");}
-if ($verdato == 4) {include("Usuarios/ModificarUsuario.php");}
-if ($verdato == 5) {include("menuadministrador/ModificarNNA.php");}
+if ($verdato == 4){include("Usuarios/ModificarUsuario.php");}
+if ($verdato == 5){include("menuadministrador/ModificarNNA.php");}
 if ($verdato == 6){include("menuadministrador/TotalExpedientes/ConsultarTotalExpedientesNinos.php");}
-if ($verdato == 7){include("home_registro.php");}
+//if ($verdato == 7){include("home_registro.php");}
 if ($verdato == 8){include("MenuNinosNinasAdo.php");}
+if ($verdato == 9){include("MenuComisariaFamilia.php");}
 if ($verdato == 10){include("MPC/IngresarMPC.php");}
 if ($verdato == 11){include("MenuMPC.php");}
-
-
+if ($verdato == 12){include("MenuExpediente.php");}
+if ($verdato == 13){include("notificaciones.php");}
+if ($verdato == 14){include("NNA/ConsultarNNA.php");}
+if ($verdato == 15){include("Expediente/ExpedientesRemitidos/ConsultarExpedienteRemi.php");}
+if ($verdato == 16){include("Expediente/TotalExpedientes/ConsultarTotalExpediente.php");}
+if ($verdato == 17){include("NNA/EliminarNNA.php");}
+if ($verdato == 18){include("menuadministrador/ConsultarRegistrosMPC.php");}
+                      
 
 if ($verdato == 102) {include("user_list.php");}
 if ($verdato == 105) {include("user_update.php");}

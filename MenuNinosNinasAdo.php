@@ -1,89 +1,4 @@
-    <script>
-        function autofitIframea(id) {
-            if (!window.opera && document.all && document.getElementById) {
-                id.style.height = id.contentWindow.document.body.scrollHeight;
-            } else if (document.getElementById) {
-                id.style.height = id.contentDocument.body.scrollHeight + "px";
-            }
-        }
-
-        function valida(e) {
-            tecla = (document.all) ? e.keyCode : e.which;
-            //Tecla de retroceso para borrar, siempre la permite
-            if (tecla == 8) {
-                return true;
-            }
-            // Patron de entrada, en este caso solo acepta numeros
-            patron = /[0-9]/;
-            tecla_final = String.fromCharCode(tecla);
-            return patron.test(tecla_final);
-        }
-
-        function obtenerPais(val) {
-            $.ajax({
-                type: "POST",
-                url: "get_pais.php",
-                data: 'id_pais=' + val,
-                success: function(data) {
-                    $("#pais_nna").html(data);
-                }
-            });
-        }
-
-        function obtenerDepartamento(val, iden) {
-            $.ajax({
-                type: "POST",
-                url: "get_departamentos.php",
-                data: {
-                    id: val,
-                    identificador: iden
-                },
-                success: function(data) {
-
-                    if (iden == '1' && val != '42') {
-
-                        $("#departamento_nna").html(data);
-                        $("#municipio_nna").html(data);
-                        $("#provincia_nna").html(data);
-
-                    } else if (iden == '1' && val == '42') {
-                        $("#departamento_nna").html(data);
-                    }
-
-                    if (iden == '2') {
-
-                        $("#municipio_nna").html(data);
-                    }
-                    if (iden == '3') {
-
-                        $("#provincia_nna").html(data);
-                    }
-
-                }
-            });
-        }
-        /*
-         */
-        function obtenerEps(val) {
-            $.ajax({
-                type: "POST",
-                url: "get_eps.php",
-                data: 'id_regimen=' + val,
-                success: function(data) {
-                    $("#eps_nna").html(data);
-                }
-            });
-        }
-    </script>
-
-</head>
-
-<body style="background-color: #64AF59;">
-    <!--[if lt IE 8]>
-                        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-    <section style="background-color: #BDBDBD;">
+<section style="background-color: #FFFF;">
         <div class="container ps ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
@@ -101,8 +16,8 @@
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500"><a href="MenuComisariaFamilia.php">Volver Men&uacute; Principal</a></li>
-                        <li role="presentation" class="letra n500"><a href="NNA/ConsultarNNA.php">Consultar NNA</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=0">Volver Men&uacute; Principal</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=14">Consultar NNA</a></li>
 
                     </ul>
                 </div>
@@ -477,7 +392,7 @@
 
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                                     <label>Puntaje del sisbén</label>
-                                    <input id='sisben_nna' name='sisben_nna' class="form-control" placeholder="Ingrese el puntaje del sisben" style="text-transform: uppercase;" required>
+                                <input id='sisben_nna' name='sisben_nna' class="form-control" placeholder="Ingrese el puntaje del sisben" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$" style="text-transform: uppercase;" required>
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">

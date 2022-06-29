@@ -383,7 +383,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Puntaje del Sisb&eacute;n</label>
                         <div class="col-md-4">
-                            <input id="textinput" name="sisben_nna" type="text" placeholder="" class="form-control input-md" required>
+                            <input id="textinput" name="sisben_nna" type="text" placeholder="" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$"class="form-control input-md" required>
                         </div>
                     </div>
 

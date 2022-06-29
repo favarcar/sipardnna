@@ -1,7 +1,9 @@
 <h1 class="centrar letra n600 azulo pi">Menú Principal</h1>
 
+
+
 <div class="row clearfix ps pi">
-      <div class="col-lg-3">
+      <div class="col-lg-3"> 
 	  <div class="col-md-12 col-sm-12 ps pi">
       <a href="main.php?key=8"><img src="iconos/ninos.png" alt="..." width="100" height="100" class="center-block pic"></a>
       <h4 class="centrar letra azulo n400 ps"><strong>Registrar Ni&ntilde;os, Ni&ntilde;as o Adolescentes</strong></h4>
@@ -17,13 +19,17 @@
 
 	  <div class="col-lg-3">
       <div class="col-md-12 col-sm-12 ps pi">
-      <a href="main.php?key=3"><img src="iconos/expe.png" alt="..." width="100" height="100" class="center-block pic"></a>
+      <a href="main.php?key=12"><img src="iconos/expe.png" alt="..." width="100" height="100" class="center-block pic"></a>
       <h4 class="centrar letra azulo n400 ps"><strong>Consultar Expedientes </strong></h4>
       </div>
 
       <div class="col-md-12 col-sm-12 ps pi">
       <a href="main.php?key=4"><img src="iconos/usuario.png" alt="..." width="100" height="100" class="center-block pic"></a>
       <h4 class="centrar letra azulo n400 ps"><strong>Mi Usuario</strong></h4>
+      </div>
+      <div class="col-md-12 col-sm-12 ps pi">
+      <a href="main.php?key=13" class="btn btn-primary"><img class="fa fa-exclamation-circle"class="center-block pic">Notificaciones</a>
+      <h4 class="centrar letra azulo n400 ps"><strong>Notificaciones</strong></h4>
       </div>
 	  </div>
    </div>
