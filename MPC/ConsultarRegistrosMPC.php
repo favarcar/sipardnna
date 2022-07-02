@@ -187,18 +187,17 @@ self.location = "index.html"
 
     <section class="fblanco">
         <div class="container pi3x">
-
-            <form class="form-horizontal ps2x" method="post" enctype="multipart/form-data">
+        <h3 class="centrar letra n600 azulo pi">Consultar/Editar Formulario Madres, Padres o Cuidadores</h3>
+            <form class="form-horizontal num-columnas2 ps2x" method="post" enctype="multipart/form-data">
                 <fieldset>
 
                     <!-- Form Name -->
-                    <h3 class="centrar letra n600 azulo pi">Consultar/Editar Formulario Madres, Padres o Cuidadores</h3>
                     <!-- Appended checkbox -->
                     <!-- Appended checkbox -->
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Ni&ntilde;o, Ni&ntilde;a o Adolescente</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="nom_nna1" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
 
                         </div>
@@ -209,7 +208,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescente </label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="num_nino" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" value="<?php echo $No_identificacion; ?>" readonly>
 
                         </div>
@@ -218,7 +217,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="nom_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" value="<?php echo $NombresCuida ?>" required>
 
                         </div>
@@ -229,7 +228,7 @@ self.location = "index.html"
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Apellidos</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="ape_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" value="<?php echo $ApellidosCuida ?>" required>
 
                         </div>
@@ -237,7 +236,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Tipo de Documento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
 
                             <?php $busqueda2 = mysqli_query($con, "SELECT * FROM tipos_documentos where id_tipo_documento='$id_tipo_documento' ");
                             while ($row2 = mysqli_fetch_array($busqueda2)) {
@@ -267,7 +266,7 @@ self.location = "index.html"
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="num_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_Cedula ?>" required>
 
                         </div>
@@ -276,7 +275,7 @@ self.location = "index.html"
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha Nacimiento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="fecha_nna" name="fecha_nna" type="date" placeholder="" class="form-control input-md" onchange="calculate_age()" value="<?php echo  $Fecha_Nacimiento ?>" required>
 
                         </div>
@@ -295,7 +294,7 @@ self.location = "index.html"
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Edad</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="edad_nna" name="edad_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Edad ?>">
 
                         </div>
@@ -303,7 +302,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             include("../conexion/conexion.php");
                             $busqueda33 = mysqli_query($con, "SELECT * FROM generos where id_genero='$id_genero' ");
@@ -339,7 +338,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Pais de nacimiento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="pais_nna" id="pais_nna" class="form-control" onchange="obtenerDepartamento(this.value, '1')" required>
                                 <option value=''>SELECCIONE</option>
                                 <?php
@@ -353,7 +352,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Departamento de nacimiento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="departamento_nna" id="departamento_nna" class="form-control" style="text-transform: uppercase;" onchange="obtenerDepartamento(this.value, '2')" required>
                                 <?php
                                 $busqueda13 = mysqli_query($con, "SELECT * FROM departamentos WHERE id = '$id_departamento' ");
@@ -373,7 +372,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Municipio de nacimiento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="municipio_nna" id="municipio_nna" class="form-control" style="text-transform: uppercase;" onchange="obtenerDepartamento(this.value, '3')" required>
                                 <?php
                                 $busqueda23 = mysqli_query($con, "SELECT * FROM municipios WHERE id_municipio = '$id_municipio' ");
@@ -394,7 +393,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Provincia</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="provincia_nna" id="provincia_nna" class="form-control" style="text-transform: uppercase;" required>
                                 <?php
                                 $busqueda14 = mysqli_query($con, "SELECT * FROM provincias WHERE id_provincia = '$id_provincia' ");
@@ -415,7 +414,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="dir_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" value="<?php echo $Direccion ?>">
 
                         </div>
@@ -423,7 +422,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="tel_nna" type="tel_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil ?>" required>
 
                         </div>
@@ -431,7 +430,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Email</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="email_nna" type="email" placeholder="" class="form-control input-md" value="<?php echo $correo_electronico ?>" required>
 
                         </div>
@@ -439,7 +438,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Estrato</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php $busqueda1 = mysqli_query($con, "SELECT * FROM estratos where 	id_estrato='$id_estrato' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
 
@@ -467,7 +466,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Nivel Educativo</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php $busqueda1 = mysqli_query($con, "SELECT * FROM nivel_educativo where id_niveleducativo='$id_niveleducativo' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
 
@@ -495,7 +494,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Reg&iacute;menes</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="regimen_nna" id="regimen_nna" class="form-control" style="text-transform: uppercase;" onchange="obtenerEps(this.value);" required>
                                 <?php
                                 $busqueda15 = mysqli_query($con, "SELECT * FROM regimenes WHERE id_regimen = '$id_regimen' ");
@@ -516,7 +515,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">SGSSS</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <div class="input-group">
                                 <select name="eps_nna" id="eps_nna" class="form-control" style="text-transform: uppercase;" required>
                                     <?php
@@ -542,7 +541,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Etnias</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
 
                             <?php $busqueda1 = mysqli_query($con, "SELECT * FROM etnias where id_etnia='$id_etnia' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
@@ -571,7 +570,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Puntaje del Sisb&eacute;n</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="sisben_nna" type="sisben_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" required>
 
                         </div>
@@ -579,7 +578,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Zona</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php $busqueda1 = mysqli_query($con, "SELECT * FROM zonas where id_zona='$id_zona' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
 
@@ -607,7 +606,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Parentesco</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
 
                             <?php $busqueda1 = mysqli_query($con, "SELECT * FROM parentescos where id_parentesco='$id_parentesco' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
@@ -637,7 +636,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Estado Civil</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php $busqueda1 = mysqli_query($con, "SELECT * FROM estados_civiles where id_estado='$id_estado' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
 
@@ -667,7 +666,7 @@ self.location = "index.html"
 
                     <div class="form-group" style="display:none">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha Ingreso</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="fecha_ingre" type="sisben_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $fecha_cuida ?>" required>
 
                         </div>
@@ -675,7 +674,7 @@ self.location = "index.html"
 
                     <div class="form-group" style="display:none">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_usuario </label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="id_usuario" type="sisben_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $id_usuario ?>" required>
 
                         </div>
@@ -683,7 +682,7 @@ self.location = "index.html"
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="singlebutton"></label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <button id="singlebutton" name="actualizar" class="btn btn-primary">Actualizar</button>
                         </div>
                     </div>

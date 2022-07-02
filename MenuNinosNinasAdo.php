@@ -403,6 +403,18 @@
 
                                     </select>
                                 </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12 form-group">
+                                    <label>Teléfono Móvil</label>
+                                    <input id='telefono_nna' type="int" name='telefono_nna' class="form-control" placeholder="Ingrese el número telefónico" required>
+                                    <!--<p class="help-block">Example block-level help text here.</p> -->
+                                </div>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12 form-group">
+                                    <label>Correo electronico</label>
+                                    <input id='correo_nna' type="text" name='correo_nna' class="form-control" placeholder="Ingrese el correo electronico" required>
+                                    <!--<p class="help-block">Example block-level help text here.</p> -->
+                                </div>                                
 
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                                     <label>Nivel educativo (Último nivel cursado)</label>
@@ -561,7 +573,6 @@
 
     <?php
     if ($_POST) { //si se ha presionado enviar
-        include("../conexion/conexion.php");
         $nom_nna = strtoupper($_POST['nom_nna']);
         $ape_nna = strtoupper($_POST['ape_nna']);
         $tip_doc_nna = $_POST['tip_doc_nna'];
@@ -573,6 +584,8 @@
         $municipio_nna = $_POST['municipio_nna'];
         $provincia_nna = $_POST['provincia_nna'];
         $dir_nna = $_POST['dir_nna'];
+        $telefono_nna = $_POST['telefono_nna'];
+        $correo_nna = $_POST['correo_nna'];
         $estrato_nna = $_POST['estrato_nna'];
         $nivel_educa_nna = $_POST['nivel_educa_nna'];
         $regimen_nna = $_POST['regimen_nna'];
@@ -581,11 +594,11 @@
         $sisben_nna = $_POST['sisben_nna'];
         $zona_nna = $_POST['zona_nna'];
         $pais_nna = $_POST['pais_nna'];
-        $fecha_ing = $fecha;
+        //$fecha_ing = $fecha;
         $cuidadores_nna = 0;
         $motivoingreso = $_POST['motivo_ingreso'];
         $fecha_hechos = $_POST['fecha_hechos'];
-        //$municipio_in=$_POST['municipio_in'];
+        $municipio_in=$_POST['municipio_in'];
 
         if ($_POST['municipio_in'] == "OTRO") {
             $municipio_in = $_POST['mun_aux'];
@@ -613,15 +626,15 @@
         $edad_agresor = $_POST['edad_agresor'];
         $nivel_escolaridad = $_POST['nivel_escolaridad'];
 
-        $sql = "INSERT INTO ninnosnna (id_ninnos, id_tipo_documento, No_identificacion, Nombres,
-					Apellidos, Fecha_Nacimiento, Edad, Direccion,
+        $sql = "INSERT INTO ninnosnna (id_tipo_documento, No_identificacion, Nombres,
+					Apellidos, Fecha_Nacimiento, Edad, Direccion, telefono_movil, correo_electronico,
 					id_genero, id_estrato, id_niveleducativo, id_cuidadores, id_departamento, id_municipio, id_provincia,
-					id_regimen, id_eps, id_etnia, Puntaje_Sisben, id_zona, fecha_ingreso, id_usuario,
+					id_regimen, id_eps, id_etnia, Puntaje_Sisben, id_zona, id_usuario,
 					id_motivo_ingreso, fecha_hechos, id_municipio_hechos, id_lugar_hechos, vinculo_agresor,
-					edad_agresor, nivel_escolaridad,id_pais) VALUES('$id_ninos','$tip_doc_nna','$num_nna','$nom_nna',
-					'$ape_nna','$fecha_nna','$edad_nna','$dir_nna','$genero_nna',
+					edad_agresor, nivel_escolaridad,id_pais) VALUES('$tip_doc_nna','$num_nna','$nom_nna',
+					'$ape_nna','$fecha_nna','$edad_nna','$dir_nna','$telefono_nna','$correo_nna','$genero_nna',
 					'$estrato_nna','$nivel_educa_nna','$cuidadores_nna','$departamento_nna','$municipio_nna','$provincia_nna',
-					'$regimen_nna','$eps_nna','$etnias_nna','$sisben_nna','$zona_nna','$fecha_ing','$id_usuario',
+					'$regimen_nna','$eps_nna','$etnias_nna','$sisben_nna','$zona_nna','$id_usuario',
 					'$motivoingreso','$fecha_hechos','$municipio_in','$lugar_hechos','$vinculo_agresor','$edad_agresor','$nivel_escolaridad','$pais_nna')";
 
         if (mysqli_query($con, $sql)) {

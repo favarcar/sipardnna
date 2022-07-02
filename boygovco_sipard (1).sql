@@ -307,7 +307,7 @@ CREATE TABLE `etnias` (
 --
 
 INSERT INTO `etnias` (`id_etnia`, `descripcion`) VALUES
-(1, 'MAYORITARIA'),
+(1, 'NINGUNA'),
 (2, 'AFRODESCENDIENTE'),
 (3, 'INDIGENA COMUNIDAD UWA'),
 (4, 'INDIGENA COMUNIDAD EMBERA'),

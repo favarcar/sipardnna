@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.11 (32 bit)
 MySQL - 5.5.5-10.1.13-MariaDB : Database - sipardnna
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -195,7 +196,7 @@ CREATE TABLE `etnias` (
 
 /*Data for the table `etnias` */
 
-insert  into `etnias`(`id_etnia`,`descripcion`) values (1,'MAYORITARIA'),(2,'AFRODESCENDIENTE'),(3,'INDIGENA COMUNIDAD UWA'),(4,'INDIGENA COMUNIDAD EMBERA'),(5,'INDIGENA OTRA COMUNIDAD'),(6,'GITANO'),(7,'OTRA');
+insert  into `etnias`(`id_etnia`,`descripcion`) values (1,'NINGUNA'),(2,'AFRODESCENDIENTE'),(3,'INDIGENA COMUNIDAD UWA'),(4,'INDIGENA COMUNIDAD EMBERA'),(5,'INDIGENA OTRA COMUNIDAD'),(6,'GITANO'),(7,'OTRA');
 
 /*Table structure for table `expediente` */
 

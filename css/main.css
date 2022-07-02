@@ -39,12 +39,12 @@ header{
 }
 
 ::-moz-selection {
-    background: #b3d4fc;
+    background: #2de409;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: #03f153;
     text-shadow: none;
 }
 
@@ -819,7 +819,7 @@ float: left;
 
     pre,
     blockquote {
-        border: 1px solid #999;
+        border: 1px solid rgb(153, 153, 153);
         page-break-inside: avoid;
     }
 

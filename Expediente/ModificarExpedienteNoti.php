@@ -32,8 +32,10 @@
         <div class="row clearfix centrar">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
             <h2 class=" letra n600 azulo pi">
-              <h5 class="letra n500  azulo " align="right"><a href="ExportarPDF.php?codigo_expediente=<?php echo $row50['codigo_expediente']; ?>" class=" btn btn-primary">Exportar PDF</a></h5>
-            </h2>
+             <?php
+              echo'<h5 class="letra n500  azulo " align="right"><a href="main.php?key=24&codigo_expediente='.$codigo_expediente.'" class=" btn btn-primary">Exportar PDF</a></h5>';
+            ?>
+              </h2>
           </div>
         </div>
       </div>
@@ -84,18 +86,14 @@
   ?>
   <section class="fblanco">
     <div class="container pi3x">
-
-      <form class="form-horizontal ps2x" method="post" enctype="multipart/form-data">
+    <h3 class="centrar letra n600 azulo pi">Modificar Expediente</h3>
+      <form class="form-horizontal num-columnas2 ps2x" method="post" enctype="multipart/form-data">
         <fieldset>
-
-          <!-- Form Name -->
-          <h3 class="centrar letra n600 azulo pi">Modificar Expediente</h3>
-          <!-- Appended checkbox -->
           <!-- Appended checkbox -->
           <!-- Text input-->
           <div class="form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">Codigo del expediente</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <input id="textinput" name="cod_exp" type="text" placeholder="" class="form-control input-md" value="<?php
                                                                                                                     $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
                                                                                                                     while ($row = mysqli_fetch_array($busqueda)) {
@@ -108,14 +106,14 @@
 
           <div class="form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha de Inicio del Expediente</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <input id="textinput" name="fecha_exp" type="text" placeholder="" class="form-control input-md" value="<?php echo $Fecha_inicio_expediente ?>" readonly>
 
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Ni&ntilde;o, Ni&ntilde;a o Adolecente</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <input id="textinput" name="nom_nna_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
 
             </div>
@@ -126,14 +124,14 @@
 
           <div class="form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolecente </label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <input id="textinput" name="num_nna_exp" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" readonly>
 
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Madre, Padre o Acudiente</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <input id="textinput" name="nom_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $ApellidosCuida ?> <?php echo $NombresCuida ?> " readonly>
 
             </div>
@@ -141,7 +139,7 @@
 
           <div class="form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Madre, Padre o Acudiente</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <input id="textinput" name="num_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $No_Cedula ?>" readonly>
 
             </div>
@@ -149,7 +147,7 @@
 
           <div class="form-group" style="display:none">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_cuidadores</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <input id="textinput" name="cuidadores_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $id_cuidadores ?>" readonly>
 
             </div>
@@ -159,7 +157,7 @@
 
           <div class="form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Restablecimiento de Derechos</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
 
               <?php $busqueda1 = mysqli_query($con, "SELECT * FROM derechos where id_derecho='$id_derecho' ");
               while ($row1 = mysqli_fetch_array($busqueda1)) {
@@ -190,7 +188,7 @@
 
           <div class="form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <?php
 
               $busqueda1 = mysqli_query($con, "SELECT * FROM discapacidades where id_discapacidad='$id_discapacidad' ");
@@ -217,6 +215,10 @@
               </select>
             </div>
           </div>
+              </fieldset>
+
+      </form>
+
 
           <div class="col-md-12 col-sm-6 col-xs-12 form-group well">
             <label>Indicadores</label>
@@ -231,9 +233,10 @@
           </div>
 
 
-          <div class="form-group">
+
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Maltrato</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
 
               <?php
 
@@ -263,9 +266,9 @@
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group"">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victimas</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
 
               <?php
 
@@ -296,40 +299,37 @@
           </div>
 
           <!-- Text input-->
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">Descripci&oacute;n</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <textarea class="form-control input-md" name="descripcion_exp" required><?php echo $Descripcion_expediente ?></textarea>
 
 
             </div>
           </div>
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">Observaciones</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <textarea class="form-control input-md" name="obs_exp" required><?php echo  $Observacion ?></textarea>
 
 
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">Veredicto del Caso</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <textarea class="form-control input-md" name="veredicto_exp" required><?php echo $Veredicto_Caso ?></textarea>
 
 
             </div>
           </div>
 
-
-
-
           <!-- Text input-->
           <!-- Text input-->
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha De Finalizaci&oacute;n del Expediente</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
 
               <input id="textinput" name="finalizacion_exp" type="date" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Fecha_finalizacion_expediente ?>">
             </div>
@@ -338,9 +338,9 @@
 
           <!-- Text input-->
 
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Entidad</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
 
               <?php
 
@@ -370,9 +370,9 @@
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group"">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Estado del Expediente</label>
-            <div class="col-md-4">
+            <div class="col-md-8">
 
               <?php
 
@@ -401,9 +401,10 @@
               </select>
             </div>
           </div>
+
           <div class="form-group" style="display:none">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_usuario </label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <input id="textinput" name="id_usuario_exp" type="sisben_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $id_usuario ?>" required>
 
             </div>
@@ -425,7 +426,7 @@
 
           <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
-            <div class="col-md-4">
+            <div class="col-md-8">
               <button id="singlebutton" name="singlebutton" class="btn btn-primary">Actualizar</button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 

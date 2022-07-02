@@ -234,7 +234,7 @@ if ($verdato == 20){include("IngresarNuevoDerecho/ConsultarDerecho.php");}
 if ($verdato == 21){include("IngresarNuevoDerecho/IngresarDerecho.php");}
 if ($verdato == 22){include("IngresarNuevoDerecho/IngresarDerecho.php");}
 if ($verdato == 23){include("MPC/ConsultarMPC.php");}
-
+if ($verdato == 24){include("Expediente/ExportarPDF.php");}
 
 if ($verdato == 102) {include("user_list.php");}
 if ($verdato == 105) {include("user_update.php");}
