@@ -8,14 +8,14 @@
             </div>
         </div>
     </section>
-
+ 
     <section class="fblanco">
         <div class="container ps2x ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500 active"><a href="main.php?key=0">Volver Men&uacute; Principal</a></li>
-                        <li role="presentation" class="letra n500"><a id="consultaBtn" href="#">Consultar Expedientes</a></li>
+                        <li role="presentation" class="letra n500"><a id="consultaBtn" href="main.php?key=12">Consultar Expedientes</a></li>
                         <li role="presentation" class="letra n500"><a href="main.php?key=15">Consultar Expedientes Remitidos</a></li>
                         <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
                     </ul>
@@ -145,8 +145,9 @@
                                             } while ($reg66 = mysqli_fetch_array($con66));
                                             ?>
                                         </select>
-                                        <h5 class="letra n500  azulo "><a href="IngresarNuevoDerecho/ConsultarDerecho.php" class=" btn btn-primary">Registrar Nuevo Derecho</a></h5>
-                                    </div>
+                                        <h5 class="letra n500  azulo "><a href="main.php?key=20" class=" btn btn-primary">Registrar Nuevo Derecho</a></h5>
+                                       
+                                        </div>
                                     <div class="col-md-8 col-sm-4 col-xs-12 form-group">
                                         <label>Discapacidad</label> <select name="discapacidad_exp" id="discapacidad_exp" class="form-control" font style="text-transform: uppercase;" required>
                                             <option value="">Seleccione</option>
@@ -254,7 +255,7 @@
                                         <select name="entidad_exp" id="entidad_exp" class="form-control" font style="text-transform: uppercase;" required>
                                             <option value="">Seleccione</option>
                                             <?php
-                                            include("../conexion/conexion.php");
+                                        
 
                                             $con33 = mysqli_query($con, "select * from  entidades");
                                             $reg33 = mysqli_fetch_array($con33);

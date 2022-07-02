@@ -51,7 +51,7 @@
                     if(isset($_POST['Submit'])){
                 ?>                                 
                     <div class="table-responsive"> 
-                        <table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                        <table class="table table-striped table-bordered">
                             <tr>
                                 <td colspan="10" class="letra n600 azulo">Total Usuarios Denegados: 
                                 <?php 
@@ -139,7 +139,7 @@
             <section class="fblanco">
                 <div class="container pu pi">                                                                      
                     <div class="table-responsive"> 
-                        <table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                        <table class="table table-striped table-bordered">
                             <tr>
                                 <td colspan="11" class="letra n600 azulo">Total Usuarios Denegados: 
                                 <?php

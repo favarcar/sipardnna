@@ -41,7 +41,7 @@ $id_usuario = $_GET['id_usuario'];
         <div class="container pu pi">
             <div class="table-responsive">
                 <form>
-                    <table width="90%" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                    <table class="table table-striped table-bordered">
                         <tr>
                             <td colspan="2" class="letra n600 azulo">Nombre del Usuario:
                                 <?php $con4 = mysqli_query($con, "SELECT apellidos, nombres, id_perfil FROM usuarios WHERE id_usuario = '$id_usuario'");

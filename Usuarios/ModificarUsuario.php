@@ -41,23 +41,24 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
 
   <section class="fblanco" >
     <div class="container pi3x">
-        <form class="form-horizontal ps2x" method="post" enctype="multipart/form-data">
+    <h3 class="centrar letra n600 azulo pi">Modificar Usuario</h3>        
+        <form class="form-horizontal num-columnas2 ps2x" method="post" enctype="multipart/form-data">
             <fieldset>
 
                 <!-- Form Name -->
-                <h3 class="centrar letra n600 azulo pi">Modificar Usuario</h3>
+
 
                 <!-- Appended checkbox --><!-- Text input-->
                 <div class="form-group" style="display:none">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_usuario</label>  
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input id="textinput" name="id_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $id_usuario1; ?>">
                     </div>
                 </div>           
                 
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres</label>  
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input id="textinput" name="nom_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo  $nombres; ?>" >                    
                     </div>
                 </div>
@@ -65,14 +66,14 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Apellidos</label>  
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input id="textinput" name="ape_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" value="<?php echo  $apellidos; ?>">                 
                     </div>
                 </div>
                 <!-- Multiple Radios (inline) -->
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Tipo de Documento</label>  
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <div class="input-group">
                             <select name="tip_doc_usu" id="tip_doc_usu">
                             <?php
@@ -102,13 +103,13 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                 
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. Documento </label>                 
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input id="textinput" name="num_doc_usu" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $numero_documento; ?>" >                    
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <div class="input-group">
                             <select name="genero_usu" id="genero_usu"> 
                             <?php
@@ -137,7 +138,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                  </div>
                     <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Municipio</label>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <div class="input-group">
                             <select name="municipio_usu" id="municipio_usu">
                              <option value="<?php echo $id_municipio1; ?>"><?php echo $des_municipio;  ?></option>
@@ -160,32 +161,32 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono</label>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input id="textinput" name="tel_usu" type="tel" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required value="<?php echo $telefono?>" >                    
                     </div>
                 </div>   
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Email</label>  
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input id="textinput" name="email_usu" type="email" placeholder="" class="form-control input-md" required value="<?php echo $correo ?>" >  
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Usuario</label>  
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input id="textinput" name="usuario_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $usuario ?>">    
                     </div>
                 </div>                                     
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Tipo de</label>  
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <input id="textinput" name="id_entidad" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $id_entidad ?>" >                       
                     </div>
                 </div>
                            
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="singlebutton"></label>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <button id="singlebutton" name="singlebutton" class="btn btn-primary">Actualizar</button>
                     </div>
                 </div>               
@@ -193,7 +194,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
     </div>                
                 <div class="form-group" style="display:none">
                     <label class="col-md-4 control-label letra n600 azulo" for="radios">Autorizar Acceso<span class="centrar letra n600 azulo pi"></span></label>
-                    <div class="col-md-4"> 
+                    <div class="col-md-8"> 
                         <label class="radio-inline" for="radios-0">
                             <input <?php if($estado=="1"){echo "checked";} ?> value="1" type="radio" name="estado"/>Autorizado 
                         </label> 

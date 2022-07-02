@@ -1,5 +1,4 @@
 
-
     <section style="background-color: #FFFF;">
         <div class="container ps ">
             <div class="row clearfix centrar">
@@ -12,12 +11,12 @@
 
     <section class="fblanco">
         <div class="container ps2x ">
-            <div class="row clearfix centrar">
+            <div class="row clearfix centrar"> 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500"><a href="main.php?key=0">Volver Men&uacute; Principal</a></li>
-                        <li role="presentation" class="letra n500"><a a href="main.php?key=3">Consultar Expedientes</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=12">Consultar Expedientes Remitidos</a></li>
+                        <li role="presentation" class="letra n500"><a a href="main.php?key=12">Consultar Expedientes</a></li>
+                        <li role="presentation" class="letra n500"><a href="#">Consultar Expedientes Remitidos</a></li>
                         <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
                     </ul>
                     <input type="button" id="refresh" value="Actualizar" onclick="location.reload()" style="display:none" />
@@ -29,7 +28,6 @@
 
     <form name="form1" method="post" action="#" id="cdr">
         <center>
-            <h3 class="centrar letra n600 azulo pi">Registrar Expediente</h3> <br>
             <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescente</h5>
             <input name="busca" type="text" id="busqueda">
             <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />

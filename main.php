@@ -47,7 +47,7 @@ if ((isset($_GET['doLogout'])) &&($_GET['doLogout']=="true")){
   //to fully log out a visitor we need to clear the session varialbles
   $_SESSION['numero_documento'] = NULL;
     //Borra la variable de sesion numero_documento
-   $logoutGoTo = "../index.php";
+   $logoutGoTo = "index.php";
   if ($logoutGoTo) {
     header("Location: $logoutGoTo");
     exit;
@@ -88,22 +88,23 @@ switch ($nuser){
 	case 1:
 	$colormenu = "#C00";
 	$visible = "inline"; $visible_cell = "table-cell"; $visibleadm = "none";
-  
+  $visiblemod = "visible";
+  $dis = "";
 
 
 		break;
 	//Comisaria (registro)
 	case 2:
 	$colormenu = "#00AEE7";
-	$visibleinsp="show"; $visibleinsp="inline"; $visible = "none"; $visible_cell = "none"; $visible_cell_cls = "hide";
-
+	$visiblemod="visible"; $visibleinsp="inline"; $visible = "none"; $visible_cell = "none"; $visible_cell_cls = "hide";
+  $dis= "";  
 	break;
 	//Consulta
 	case 3:
 	$colormenu = "#00AEE7";
-	$visibleinsp = "hide"; $visibleinsp2 = "none"; $visible = "none"; $visible_cell = "none"; $visible_cell_cls = "hide";
+	$visiblemod = "invisible"; $visibleinsp2 = "none"; $visible = "none"; $visible_cell = "none"; $visible_cell_cls = "hide";
 	//Solo invisible para el curador
-	$visible_cur = "none";
+	$dis = "disabled";
 
 	break;
 }
@@ -174,7 +175,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
         <ul class="dropdown-menu">
           <li><a href="main.php?key=1">Niños niñas o adolescentes</a></li>
           <li><a href="main.php?key=2">Madres padres o cuidadores</a></li>
-          <li><a href="main.php?key=3">Expedientes</a></li>
+          <li><a href="main.php?key=16">Expedientes</a></li>
         </ul>
       </li>
      <?php if($nuser == 1 || $nuser == 2){?>
@@ -182,9 +183,9 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Registrar
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="main.php?key=1">Niños niñas o adolescentes</a></li>
-          <li><a href="main.php?key=2">Madres padres o cuidadores</a></li>
-          <li><a href="main.php?key=3">Expedientes</a></li>
+          <li><a href="main.php?key=8">Niños niñas o adolescentes</a></li>
+          <li><a href="main.php?key=11">Madre, Padre o Cuidador</a></li>
+          <li><a href="main.php?key=12">Expedientes</a></li>
         </ul>
       </li>
 	  <?php } ?>
@@ -228,7 +229,12 @@ if ($verdato == 15){include("Expediente/ExpedientesRemitidos/ConsultarExpediente
 if ($verdato == 16){include("Expediente/TotalExpedientes/ConsultarTotalExpediente.php");}
 if ($verdato == 17){include("NNA/EliminarNNA.php");}
 if ($verdato == 18){include("menuadministrador/ConsultarRegistrosMPC.php");}
-                      
+if ($verdato == 19){include("Expediente/ModificarExpedienteNoti.php");}
+if ($verdato == 20){include("IngresarNuevoDerecho/ConsultarDerecho.php");}
+if ($verdato == 21){include("IngresarNuevoDerecho/IngresarDerecho.php");}
+if ($verdato == 22){include("IngresarNuevoDerecho/IngresarDerecho.php");}
+if ($verdato == 23){include("MPC/ConsultarMPC.php");}
+
 
 if ($verdato == 102) {include("user_list.php");}
 if ($verdato == 105) {include("user_update.php");}
@@ -266,7 +272,8 @@ if ($verdato == 402) {include("cargar_archivos.php");}
 </html>
 
         <!-- page content -->
-<?php echo mysqli_close($con); ?>
+
+//<?php echo mysqli_close($con); ?>
 <!-- JAVASCRIPT -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>

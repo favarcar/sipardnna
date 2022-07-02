@@ -65,10 +65,10 @@
     $nombres = $fila['nombres'];
     $apellido = $fila['apellidos'];
     ?>
+    <h3 class="centrar letra n600 azulo pi">Registrar Madres, Padres o Cuidadores</h3>
+    <form name="form1" method="post" action="ConsultarMPC.php" id="cdr" >
 
-    <form name="form1" method="post" action="ConsultarMPC.php" id="cdr">
         <center>
-            <h3 class="centrar letra n600 azulo pi">Registrar Madres, Padres o Cuidadores</h3>
             <br>
             <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento del Ni&ntilde;o Ni&ntilde;a o Adolescente</h5>
             <input name="busca" type="text" id="busqueda">
@@ -82,7 +82,7 @@
                 if (isset($_POST['Submit'])) {
                 ?>
                     <div class="table-responsive">
-                        <table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                        <table class="table table-striped table-bordered">
                             <tr>
                                 <td colspan="10" class="letra n600 azulo">Total Usuarios Registrados:
                                     <?php
@@ -194,7 +194,7 @@
                         <section class="fblanco">
                             <div class="container pu pi">
                                 <div class="table-responsive">
-                                    <table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                                    <table class="table table-striped table-bordered">
                                         <tr>
                                             <td colspan="11" class="letra n600 azulo">Total Usuarios Registrados:
                                                 <?php

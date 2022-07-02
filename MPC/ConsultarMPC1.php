@@ -88,7 +88,7 @@ $apellido   = $fila['apellidos'];
   
   if(isset($_POST['Submit'])){ ?>                                                                      
               <div class="table-responsive"> 
-<table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+<table class="table table-striped table-bordered">
     <tr>
         <td colspan="10" class="letra n600 azulo">Total Usuarios Registrados: <?php 			
             $con4=mysqli_query($con,"SELECT count(id_cuidadores) FROM cuidadores where id_usuario='$id_usuario'");
@@ -167,7 +167,7 @@ $apellido   = $fila['apellidos'];
            <div class="container pu pi">
                                                                         
               <div class="table-responsive"> 
-<table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+<table class="table table-striped table-bordered">
 <tr>
 <td colspan="11" class="letra n600 azulo">Total Usuarios Registrados: <?php 			
 		  $con4=mysqli_query($con,"SELECT count(id_cuidadores) FROM cuidadores where id_usuario='$id_usuario'");

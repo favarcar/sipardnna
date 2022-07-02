@@ -89,7 +89,7 @@ self.location = "index.html"
                     <div class="container pu pi">
 
                         <div class="table-responsive">
-                            <table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                            <table class="table table-striped table-bordered">
                                 <tr>
                                     <td colspan="9" class="letra n600 azulo">Total de Expedientes Registrados: <?php
                                                                                                                 $con4 = mysqli_query($con, "SELECT count(id_ninnos) FROM expediente where id_usuario_exp='$id_usuario' and id_ninnos = '$id_ninnos' ");

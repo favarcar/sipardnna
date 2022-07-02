@@ -39,11 +39,8 @@ while ($row = mysqli_fetch_array($busqueda)) {
         <div class="container pi3x">
           <h3 class="centrar letra n600 azulo pi">Consultar Formulario Ni&ntilde;os Ni&ntilde;as y Adolescentes</h3>
             <form class="form-horizontal num-columnas2 ps2x" method="post" enctype="multipart/form-data">
-                <fieldset>
-
+                <fieldset> 
                     <!-- Form Name -->
-
-
                     <!-- Appended checkbox -->
                     <!-- Appended checkbox -->
                     <!-- Text input-->
@@ -57,7 +54,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="nom_nna" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Nombres; ?>" disabled>
+                            <input id="textinput" name="nom_nna" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Nombres; ?>" <?= $dis ?>>
                         </div>
                     </div>
 
@@ -65,7 +62,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Apellidos</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="ape_nna" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?>" disabled>
+                            <input id="textinput" name="ape_nna" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?>" <?= $dis ?>>
                         </div>
                     </div>
 
@@ -78,7 +75,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                                 $descripcion = $row1['descripcion'];
                             }
                             ?>
-                            <select name="tip_doc_nna" id="tip_doc_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="tip_doc_nna" id="tip_doc_nna" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_tipo_documento; ?>"><?php echo $descripcion; ?></option>
                                 <?php $con1 = mysqli_query($con, "SELECT * FROM tipos_documentos");
                                 $reg = mysqli_fetch_array($con1);
@@ -96,7 +93,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="num_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" disabled>
+                            <input id="textinput" name="num_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" <?= $dis ?>>
                         </div>
                     </div>
 
@@ -104,7 +101,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha Nacimiento</label>
                         <div class="col-md-8">
-                            <input id="fecha_nna" name="fecha_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Fecha_Nacimiento; ?>" disabled>
+                            <input id="fecha_nna" name="fecha_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Fecha_Nacimiento; ?>" <?= $dis ?>>
                         </div>
                     </div>
 
@@ -112,7 +109,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Edad</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="edad_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Edad ?>" disabled>
+                            <input id="textinput" name="edad_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Edad ?>" <?= $dis ?>>
                         </div>
                     </div>
 
@@ -126,7 +123,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                                 $id_genero = $row2['id_genero'];
                                 $des_genero = $row2['descripcion'];
                             } ?>
-                            <select name="genero_nna" id="genero_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="genero_nna" id="genero_nna" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_genero; ?>"><?php echo $des_genero;  ?></option>
                                 <?php
                                 $con1 = mysqli_query($con, "SELECT * FROM generos");
@@ -153,7 +150,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                                 $des_municipio = $row1['descripcion'];
                             }
                             ?>
-                            <select name="municipio_nna" id="municipio_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="municipio_nna" id="municipio_nna" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_municipio; ?>"><?php echo $des_municipio; ?></option>
                                 <?php
                                 $con2 = mysqli_query($con, "SELECT * FROM municipios");
@@ -179,7 +176,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                                 $id_provincia = $row1['id_provincia'];
                                 $des_provincia = $row1['descripcion_prov'];
                             } ?>
-                            <select name="provincia_nna" id="provincia_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="provincia_nna" id="provincia_nna" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_provincia; ?>"><?php echo $des_provincia; ?></option>
                                 <?php
                                 $con3 = mysqli_query($con, "SELECT * FROM provincias");
@@ -199,21 +196,21 @@ while ($row = mysqli_fetch_array($busqueda)) {
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="dir_nna" type="text" placeholder="" class="form-control input-md" value="<?php echo $Direccion ?>" disabled>
+                            <input id="textinput" name="dir_nna" type="text" placeholder="" class="form-control input-md" value="<?php echo $Direccion ?>" <?= $dis ?>>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono</label>
                         <div class="col-md-8">
-                            <input id="tel_nna" name="tel_nna" type="tel" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil;  ?>" disabled>
+                            <input id="tel_nna" name="tel_nna" type="tel" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil;  ?>" <?= $dis ?>>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Email</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="email_nna" type="email" placeholder="" class="form-control input-md" value="<?php echo $correo_electronico ?>" disabled>
+                            <input id="textinput" name="email_nna" type="email" placeholder="" class="form-control input-md" value="<?php echo $correo_electronico ?>" <?= $dis ?>>
                         </div>
                     </div>
 
@@ -226,7 +223,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                                 $id_estrato = $row1['id_estrato'];
                                 $des_estrato = $row1['descripcion'];
                             } ?>
-                            <select name="estrato_nna" id="estrato_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="estrato_nna" id="estrato_nna" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_estrato; ?>"><?php echo $des_estrato; ?></option>
                                 <?php
                                 $con4 = mysqli_query($con, "SELECT * FROM estratos");
@@ -252,7 +249,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                                 $id_niveleducativo = $row1['id_niveleducativo'];
                                 $des_niveleducativo = $row1['descripcion'];
                             } ?>
-                            <select name="nivel_educa_nna" id="nivel_educa_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="nivel_educa_nna" id="nivel_educa_nna" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_niveleducativo;  ?>"><?php echo $des_niveleducativo; ?></option>
                                 <?php
                                 $con5 = mysqli_query($con, "SELECT * FROM nivel_educativo");
@@ -278,7 +275,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                                 $id_regimen = $row1['id_regimen'];
                                 $des_regimen = $row1['descripcion'];
                             } ?>
-                            <select name="regimen_nna" id="regimen_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="regimen_nna" id="regimen_nna" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_regimen;  ?>"><?php echo  $des_regimen; ?></option>
                                 <?php
                                 $con6 = mysqli_query($con, "select * from regimenes");
@@ -304,7 +301,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                                 $id_eps1 = $row1['id_eps'];
                                 $des_eps = $row1['descripcion'];
                             } ?>
-                            <select name="eps_nna" id="eps_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="eps_nna" id="eps_nna" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_eps1;  ?>"><?php echo $des_eps;   ?></option>
                                 <?php
                                 $con7 = mysqli_query($con, "SELECT * FROM eps");
@@ -330,7 +327,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                                 $id_etnia = $row1['id_etnia'];
                                 $des_etnia = $row1['descripcion'];
                             } ?>
-                            <select name="etnias_nna" id="etnias_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="etnias_nna" id="etnias_nna" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_etnia;  ?>"><?php echo $des_etnia; ?></option>
                                 <?php
                                 $con8 = mysqli_query($con, "select * from etnias");
@@ -350,7 +347,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Puntaje del Sisb&eacute;n</label>
                         <div class="col-md-8">
-                            <input id="sisben_nna" name="sisben_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" disabled>
+                            <input id="sisben_nna" name="sisben_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" <?= $dis ?>>
                         </div>
                     </div>
 
@@ -363,7 +360,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                                 $id_zona = $row1['id_zona'];
                                 $des_zona = $row1['descripcion'];
                             } ?>
-                            <select name="zona_nna" id="zona_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="zona_nna" id="zona_nna" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_zona;  ?>"><?php echo $des_zona;  ?></option>
                                 <?php
                                 $con9 = mysqli_query($con, "select * from zonas");
@@ -391,6 +388,12 @@ while ($row = mysqli_fetch_array($busqueda)) {
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">id Usuario</label>
                         <div class="col-md-8">
                             <input id="id_usuario_nna" name="id_usuario_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $id_usuario ?>" required>
+                        </div>
+                    </div>
+                    <div class="form-group <?= $visiblemod ?>" >
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <button id="singlebutton" name="singlebutton" class="btn btn-primary" >Actualizar</button>
                         </div>
                     </div>
                 </fieldset>
@@ -434,7 +437,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
         mysqli_query($con, "UPDATE `ninnosnna` SET `id_tipo_documento`='$tip_doc_nna',`No_identificacion`='$num_nna',`Nombres`='$nom_nna',`Apellidos`='$ape_nna',`Fecha_Nacimiento`='$fecha_nn',`Edad`='$edad_nna',`Direccion`='$dir_nna',`telefono_movil`='$tel_nna',`correo_electronico`='$email_nna',`id_genero`='$genero_nna',`id_estrato`='$estrato_nna',`id_niveleducativo`='$nivel_educa_nna',`id_cuidadores`='$cuidadores_nna',`id_municipio`='$municipio_nna',`id_provincia`='$provincia_nna',`id_regimen`='$regimen_nna',`id_eps`='$eps_nna',`id_etnia`='$etnias_nna',`Puntaje_Sisben`='$sisben_nna',`id_zona`='$zona_nna',`fecha_ingreso`='$fecha_ing',`id_usuario`='$id_usuario_nna' WHERE id_ninnos='$id_ninnos'") or die(mysqli_error($con));
         echo '<script language = javascript>
                  alert("la Informacion ha sido Guardada Correctamente")
-                 self.location = "ConsultarNNA.php"
+                 self.location = "main.php?key=5&id_ninnos='.$id_ninnos.'"
                  </script>';
     } ?>
     <script>

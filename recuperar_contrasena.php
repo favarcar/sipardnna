@@ -117,7 +117,7 @@ $resultado = $_POST['numero'];
 	{ 
 	?>
    
-    <table width="200" border="0" align="center" >
+    <table class="table table-striped table-bordered">
   <tr>
     <td width="130" height="39"><b>Usuario:</b></td>
     <td width="54"><?php echo  $usu;?></td>

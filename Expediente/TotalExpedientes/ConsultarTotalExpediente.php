@@ -2,7 +2,7 @@
         <div class="container ps ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                    <h2 class="centrar letra n600 azulo pi">Expedientes</h2>
+                    <h2 class="centrar letra n600 azulo pi">Consultar Expedientes</h2>
                 </div>
             </div>        
         </div>        
@@ -36,7 +36,6 @@
                 
                 <form name="form1" method="post" action="ConsultarTotalExpediente.php" id="cdr" >
                     <center>
-                        <h3 class="centrar letra n600 azulo pi">Consultar Expediente</h3><br>
                         <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescente</h5>         
                         <input name="busca"  type="text" id="busqueda">
                         <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
@@ -102,14 +101,17 @@
                                 </td> 
                                     <?php } ?>
                                 <td> 
-		  <?php  if($id_ninnos == $id_ninnos21){ 
-           echo "NO tiene Expediente";
+		  <?php  
+          if($id_ninnos == $id_ninnos21){ 
+            echo "No tiene Expediente";
             ?>
 			  
 			<?php   }
 			   else{ ?>
-                                    <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarTotalExpedientesNinos.php?id_ninnos=<?php echo $row['id_ninnos'];?>" class="linku">Consultar</a></h5>
-			<?php  } ?>
+               <?php
+                                   echo '<h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=6&id_ninnos='.$id_ninnos.'" class="linku">Consultar</a></h5>';
+			    ?>
+                                    <?php  } ?>
                                 </td>
                         <?php } ?>
                             </tr>
@@ -172,8 +174,10 @@
                                                     $id_ninnos21=$row21['id_ninnos'];            
                                                 }		   
                                                 if($id_ninnos==$id_ninnos21){
-                                            ?>                          
-                                                <h5 class="letra n500 azulo centrar ps linku "><a href="ConsultarTotalExpedientesNinos.php?id_ninnos=<?php echo $row['id_ninnos'];?>" class="linku">Consultar</a></h5>	
+                                            ?>   
+                                            <?php                       
+                                            echo '<h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=6&id_ninnos='.$id_ninnos.'" class="linku">Consultar</a></h5>';
+                                            ?>
                                             <?php
                                             } else{
                                                 echo "NO tiene Expediente";

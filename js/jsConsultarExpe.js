@@ -1,4 +1,4 @@
-$.post("../Expediente/getIndicadoresExpe.php",
+$.post("Expediente/getIndicadoresExpe.php",
       {id_exp : $("#idIExp").val()},
       function(data){
         var niño = JSON.parse(data);
@@ -13,7 +13,7 @@ $.post("../Expediente/getIndicadoresExpe.php",
           }
 );
 
-$.post("../Expediente/getActuaciones.php",
+$.post("Expediente/getActuaciones.php",
   {id_exp : $("#idIExp").val()},
 	function(data){
 		var niño = JSON.parse(data);

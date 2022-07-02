@@ -44,7 +44,7 @@
                     <section class="fblanco">
                         <div class="container pu pi">
                             <div class="table-responsive">
-                                <table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+                                <table class="table table-striped table-bordered">
                                     <tr>
                                         <td colspan="9" class="letra n600 azulo">Total de Expedientes Registrados:
                                         <?php
@@ -105,6 +105,10 @@
                                                     echo $row2['Apellidos_cuidadores'];
                                             ?> &nbsp;
                                             <?php
+                                            echo '<h5 class="letra n500 azulo centrar ps linku"><a href="main.php?key=19&id_ninnos='.$id_ninnos.'"class="linku"> Consultar</a></h5>';
+                                            ?>
+
+                                            <?php
                                                 echo $row2['Nombres_cuidadores'];
                                                 }
                                             ?>
@@ -125,8 +129,10 @@
                                             </td>
 
                                             <td>
-                                                <h5 class="letra n500 azulo centrar ps linku"><a href="ModificarTotalExpediente.php?codigo_expediente= <?php echo $codigo_expediente;?>&id_ninnos=<?php echo $id_ninnos1;?>" class="linku"> Consultar</a></h5>
-                                            <td>
+                                                <?php
+                                                echo '<h5 class="letra n500 azulo centrar ps linku"><a href="main.php?key=19&codigo_expediente='.$codigo_expediente.'"class="linku"> Consultar</a></h5>';
+                                                 ?>
+                                                <td>
                                             <?php
                                                 $busqueda21 = mysqli_query($con,"SELECT * FROM remite WHERE codigo_expediente='$codigo_expediente'  ");
                                                 while($row21 = mysqli_fetch_array($busqueda21)){
@@ -134,8 +140,7 @@
                                                 }
                                                     if($codigo_expediente==$codigo_expediente21){
                                                 ?>
-                                                    <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarTotalRemicion.php?codigo_expediente=<?php echo $codigo_expediente;?>&id_ninnos=<?php echo $id_ninnos;?>" class="linku">Consultar Remisi&oacute;n</a></h5>
-                                                    <?php
+                                                <?php
                                                     }
                                                     else{
                                                         echo "Expediente NO Remitido";

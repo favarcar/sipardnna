@@ -40,7 +40,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
             <?php
-include("../conexion/conexion.php");
+
 
 date_default_timezone_set('America/Bogota');
     $time = time();
@@ -125,12 +125,12 @@ if($_POST){ //si se ha presionado enviar
 if (mysqli_query($con, $sql)) {
 echo '<script language = javascript>
 alert("la Informacion ha sido Guardada Correctamente")
-self.location = "../Expediente/ConsultarExpediente.php"
+self.location = "main.php?key=12&id_ninnos='.$id_ninos.'"
 </script>';
 } else {
     echo '<script language = javascript>
 alert("Error")
-self.location = "../Expediente/ConsultarExpediente.php"
+self.location = "/Expediente/ConsultarExpediente.php"
 </script>';
 }
 	

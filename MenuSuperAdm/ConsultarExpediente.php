@@ -76,7 +76,7 @@ include("../conexion/conexion.php");
   
   if(isset($_POST['Submit'])){ ?>                                                                      
               <div class="table-responsive"> 
-<table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+<table class="table table-striped table-bordered">
 <tr>
 <td colspan="10" class="letra n600 azulo">Total Niños, Niñas o Adolescentes Registrados:  <?php 			
 		  $con4=mysql_query("SELECT count(id_ninnos) FROM ninnosnna");
@@ -180,7 +180,7 @@ while($row=mysql_fetch_array($busqueda)){
            <div class="container pu pi">
                                                                         
               <div class="table-responsive"> 
-<table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+<table class="table table-striped table-bordered">
 <tr>
 <td colspan="11" class="letra n600 azulo">Total Niños, Niñas o Adolescentes Registrados:  <?php 			
 		  $con4=mysql_query("SELECT count(id_ninnos) FROM ninnosnna");

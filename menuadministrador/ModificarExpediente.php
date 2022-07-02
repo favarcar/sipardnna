@@ -44,8 +44,6 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
   <?php
-  include("../conexion/conexion.php");
-
 
   $codigo_expediente = $_GET['codigo_expediente'];
   $id_ninnos = $_GET['id_ninnos'];

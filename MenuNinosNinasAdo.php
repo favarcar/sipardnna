@@ -1,3 +1,82 @@
+<script>
+        function autofitIframea(id) {
+            if (!window.opera && document.all && document.getElementById) {
+                id.style.height = id.contentWindow.document.body.scrollHeight;
+            } else if (document.getElementById) {
+                id.style.height = id.contentDocument.body.scrollHeight + "px";
+            }
+        }
+
+        function valida(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            //Tecla de retroceso para borrar, siempre la permite
+            if (tecla == 8) {
+                return true;
+            }
+            // Patron de entrada, en este caso solo acepta numeros
+            patron = /[0-9]/;
+            tecla_final = String.fromCharCode(tecla);
+            return patron.test(tecla_final);
+        }
+
+        function obtenerPais(val) {
+            $.ajax({
+                type: "POST",
+                url: "get_pais.php",
+                data: 'id_pais=' + val,
+                success: function(data) {
+                    $("#pais_nna").html(data);
+                }
+            });
+        }
+
+        function obtenerDepartamento(val, iden) {
+            $.ajax({
+                type: "POST",
+                url: "get_departamentos.php",
+                data: {
+                    id: val,
+                    identificador: iden
+                },
+                success: function(data) {
+
+                    if (iden == '1' && val != '42') {
+
+                        $("#departamento_nna").html(data);
+                        $("#municipio_nna").html(data);
+                        $("#provincia_nna").html(data);
+
+                    } else if (iden == '1' && val == '42') {
+                        $("#departamento_nna").html(data);
+                    }
+
+                    if (iden == '2') {
+
+                        $("#municipio_nna").html(data);
+                    }
+                    if (iden == '3') {
+
+                        $("#provincia_nna").html(data);
+                    }
+
+                }
+            });
+        }
+        /*
+         */
+        function obtenerEps(val) {
+            $.ajax({
+                type: "POST",
+                url: "get_eps.php",
+                data: 'id_regimen=' + val,
+                success: function(data) {
+                    $("#eps_nna").html(data);
+                }
+            });
+        }
+    </script>
+
+</head>
 <section style="background-color: #FFFF;">
         <div class="container ps ">
             <div class="row clearfix centrar">
@@ -126,7 +205,7 @@
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Nivel de escolaridad (Último nivel cursado)</label>
+                                        <label>Nivel de escolaridad del presunto agresor/a (Último nivel cursado)</label>
                                         <select name="nivel_escolaridad" id="nivel_escolaridad" class="form-control" style="text-transform: uppercase;" required>
                                             <option value="">Seleccione</option>
                                             <?php
@@ -158,7 +237,8 @@
                     <div class="panel-heading clearfix" style="font-size:21px">
                         <i class="fa fa-user"></i> Información del niño/a ó adolescente
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" >
+                        
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
 

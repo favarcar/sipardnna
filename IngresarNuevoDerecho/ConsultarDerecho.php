@@ -46,9 +46,8 @@ else return false ;
 
  <?php
    
-include("../conexion/conexion.php");
-//Iniciar Sesión
-session_start();
+
+
 
 //Validar si se está ingresando con sesión correctamente
 if (!$_SESSION){
@@ -79,7 +78,7 @@ $apellido = $fila['apellidos'];
         <input name="busca"  type="text" id="busqueda">
         <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
         
-        <h5 class="letra n500   centrar ps  "><a href="IngresarDerecho.php" class=" btn btn-primary" >Ingresar Nuevo Derecho </a></h5>
+        <h5 class="letra n500   centrar ps  "><a href="main.php?key=21" class=" btn btn-primary" >Ingresar Nuevo Derecho </a></h5>
 </center>
 
     
@@ -93,7 +92,7 @@ $apellido = $fila['apellidos'];
   
   if(isset($_POST['Submit'])){ ?>                                                                      
               <div class="table-responsive"> 
-<table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+<table class="table table-striped table-bordered">
 <tr>
 <td colspan="10" class="letra n600 azulo">Total de Derechos Registrados: <?php 			
 		  $con4=mysqli_query($con,"SELECT count(id_derecho) FROM derechos");
@@ -146,7 +145,7 @@ while($row=mysqli_fetch_array($busqueda)){
            <div class="container pu pi">
                                                                         
               <div class="table-responsive"> 
-<table width="1166" border="1" id="tab" style="background:#FFFFFF" align="center" class="table">
+<table class="table table-striped table-bordered">
 <tr>
 <td colspan="11" class="letra n600 azulo">Total Usuarios Registrados: <?php 			
 		  $con4=mysqli_query($con,"SELECT count(id_derecho) FROM derechos");
@@ -181,9 +180,219 @@ while($row=mysqli_fetch_array($busqueda)){
    <?php } }?>
          </tr>
          </table>
-</form>   
-                          </div>
-            </div>
+        </form>   
+        <div class="clearfix"></div>
+    </section>
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- Datatables -->
+    <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="css/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="css/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="css/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="css/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="css/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="css/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+
+    <!-- PNotify -->
+    <script src="css/pnotify/dist/pnotify.js"></script>
+    <script src="css/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="css/pnotify/dist/pnotify.nonblock.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ui-pnotify').remove();
+        });
+    </script>
+
+    <script src="js/jsAddExpediente.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+
+        function numeros(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " 0123456789";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
+    </script>
+
+<div class="clearfix"></div>
+    </section>
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- Datatables -->
+    <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="css/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="css/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="css/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="css/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="css/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="css/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+
+    <!-- PNotify -->
+    <script src="css/pnotify/dist/pnotify.js"></script>
+    <script src="css/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="css/pnotify/dist/pnotify.nonblock.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ui-pnotify').remove();
+        });
+    </script>
+
+    <script src="js/jsAddExpediente.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+
+        function numeros(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " 0123456789";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
+    </script>
+
         </section>  
       
                        

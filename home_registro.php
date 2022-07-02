@@ -28,11 +28,9 @@
       <h4 class="centrar letra azulo n400 ps"><strong>Mi Usuario</strong></h4>
       </div>
       <div class="col-md-12 col-sm-12 ps pi">
-      <a href="main.php?key=13" class="btn btn-primary"><img class="fa fa-exclamation-circle"class="center-block pic">Notificaciones</a>
-      <h4 class="centrar letra azulo n400 ps"><strong>Notificaciones</strong></h4>
+      <a href="main.php?key=13" class="btn btn-primary"><i class="fa fa-exclamation-circle"class="center-block pic"></i> Notificaciones</a>
+      <h4 class="centrar letra azulo n400 ps"></h4>
       </div>
-	  </div>
    </div>
-
 </div>
     </section>

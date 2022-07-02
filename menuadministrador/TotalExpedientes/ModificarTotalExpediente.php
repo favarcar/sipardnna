@@ -1,35 +1,12 @@
-<!doctype html>
-<html class="no-js" lang="">
-
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Menú Principal dos</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="../../css/bootstrap.css">
-    <style>
-        body {
-            padding-top: 0px;
-            padding-bottom: 0px;
-        }
-    </style>
-    <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="stylesheet" href="../../css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,600italic' rel='stylesheet' type='text/css'>
-    <script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-    <script type="text/javascript" src="engine1/jquery.js"></script>
 </head>
 
 <body>
     <?php
-    include("../../conexion/conexion.php");
-    $codigo_expediente = $_GET['codigo_expediente'];
-    $id_ninnos = $_GET['id_ninnos'];
 
+    $codigo_expediente = $_GET['codigo_expediente'];
+ 
     //echo $codigo_expediente." - ".$id_ninnos;
 
     $busqueda50 = mysqli_query($con, "SELECT * FROM expediente WHERE codigo_expediente = '$codigo_expediente' "); //cambiar nombre de la tabla de busqueda
@@ -51,15 +28,15 @@
         $id_usuario_exp                 = $row50['id_usuario_exp'];
         $id_estadocaso                  = $row50['id_estadocaso'];
     }
-    $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_ninnos = '$id_ninnos' "); //cambiar nombre de la tabla de busqueda
-    while ($row = mysqli_fetch_array($busqueda)) {
+    $consultar_expe = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_ninnos = '$id_ninnos' "); //cambiar nombre de la tabla de busqueda
+    while ($row = mysqli_fetch_array($consultar_expe)) {
         $id_ninnos1         = $row['id_ninnos'];
         $No_identificacion  = $row['No_identificacion'];
         $Nombres            = $row['Nombres'];
         $Apellidos          = $row['Apellidos'];
     }
-    $busqueda1 = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_ninos = '$id_ninnos' "); //cambiar nombre de la tabla de busqueda
-    while ($row1 = mysqli_fetch_array($busqueda1)) {
+    $consultar_expe2 = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_ninos = '$id_ninnos' "); //cambiar nombre de la tabla de busqueda
+    while ($row1 = mysqli_fetch_array($consultar_expe2)) {
         // cuidadores
         $id_cuidadores      = $row1['id_cuidadores'];
         $id_tipo_documento  = $row1['id_tipo_documento'];
@@ -88,8 +65,7 @@
         $id_ninos           = $row1['id_ninos'];
     }
 
-    //Iniciar Sesión
-    session_start();
+   
 
     //Validar si se está ingresando con sesión correctamente
     if (!$_SESSION) {
@@ -179,15 +155,15 @@
                             <select name="derechos_exp" id="derechos_exp" disabled class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_derecho ?>"><?php echo $des_derecho ?></option>
                                 <?php
-                                $con = mysqli_query($con, "SELECT * FROM derechos");
-                                $reg = mysqli_fetch_array($con);
+                                $derechos = mysqli_query($con, "SELECT * FROM derechos");
+                                $reg = mysqli_fetch_array($derechos);
                                 do {
                                     $id_derecho = $reg['id_derecho'];
                                     $des_derecho = $reg['descripcion'];
                                 ?>
                                     <option value="<?php echo $id_derecho; ?>"><?php echo $des_derecho; ?> </option>
                                 <?php
-                                } while ($reg = mysqli_fetch_array($con));
+                                } while ($reg = mysqli_fetch_array($derechos));
                                 ?>
                             </select>
                         </div>
@@ -197,7 +173,6 @@
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
                         <div class="col-md-4">
                             <?php
-                            include("../../conexion/conexion.php");
                             $busqueda1 = mysqli_query($con, "SELECT * FROM discapacidades WHERE id_discapacidad='$id_discapacidad' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
                                 $id_discapacidad = $row1['id_discapacidad'];
@@ -207,53 +182,50 @@
                             <select name="discapacidad_exp" id="discapacidad_exp" disabled class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_discapacidad ?>"><?php echo $des_discapacidad ?></option>
                                 <?php
-                                $con = mysqli_query($con, "SELECT * FROM discapacidades");
-                                $reg = mysqli_fetch_array($con);
+                                $disc = mysqli_query($con, "SELECT * FROM discapacidades");
+                                $reg = mysqli_fetch_array($disc);
                                 do {
                                     $id_discapacidad = $reg['id_discapacidad'];
                                     $des_discapacidad = $reg['descripcion'];
                                 ?>
                                     <option value="<?php echo $id_discapacidad; ?>"><?php echo $des_discapacidad; ?> </option>
                                 <?php
-                                } while ($reg = mysqli_fetch_array($con));
+                                } while ($reg = mysqli_fetch_array($disc));
                                 ?>
                             </select>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Indicador</label>
                         <div class="col-md-4">
                             <?php
-                            include("../../conexion/conexion.php");
-                            $busqueda1 = mysqli_query($con, "SELECT * FROM indicadores WHERE id_indicador='$id_indicador' ");
+                            $busqueda1 = mysqli_query($con, "SELECT * FROM indicadores WHERE id_indicador = $id_indicador ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
-                                $id_indicador = $row1['id_indicador'];
-                                $des_indicador = $row1['descripcion_indicadores'];
+                                $id_indi = $row1['id_indicador'];
+                                $des_indi = $row1['descripcion_indicadores'];
                             }
                             ?>
                             <select name="indicadores_exp" id="indicadores_exp" disabled class="form-control" style="text-transform: uppercase;">
-                                <option value="<?php echo $id_indicador; ?>"><?php echo $des_indicador; ?> </option>
+                                <option value="<?php echo $id_indi ?>"><?php echo $des_indi ?></option>
                                 <?php
-                                $con = mysqli_query($con, "SELECT * FROM indicadores ");
-                                $reg = mysqli_fetch_array($con);
+                                $indi = mysqli_query($con, "SELECT * FROM indicadores");
+                                $reg = mysqli_fetch_array($indi);
                                 do {
-                                    $id_indicador = $reg['id_indicador'];
-                                    $des_indicador = $reg['descripcion'];
+                                    $id_indi = $reg['id_indicador'];
+                                    $des_indi = $reg['descripcion_indicadores'];
                                 ?>
-                                    <option value="<?php echo $id_indicador; ?>"><?php echo $des_indicador; ?> </option>
+                                    <option value="<?php echo $id_indi; ?>"><?php echo $des_indi; ?> </option>
                                 <?php
-                                } while ($reg = mysqli_fetch_array($con));
+                                } while ($reg = mysqli_fetch_array($indi));
                                 ?>
                             </select>
                         </div>
                     </div>
-
+                
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Maltrato</label>
                         <div class="col-md-4">
                             <?php
-                            include("../../conexion/conexion.php");
                             $busqueda1 = mysqli_query($con, "SELECT * FROM maltratos WHERE id_maltrato='$id_maltrato' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
                                 $id_maltrato = $row1['id_maltrato'];
@@ -264,15 +236,15 @@
                             <select name="maltratos_exp" id="maltratos_exp" disabled class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_maltrato  ?>"><?php echo $des_maltrato  ?></option>
                                 <?php
-                                $con = mysqli_query($con, "SELECT * FROM  maltratos");
-                                $reg = mysqli_fetch_array($con);
+                                $maltra = mysqli_query($con, "SELECT * FROM  maltratos");
+                                $reg = mysqli_fetch_array($maltra);
                                 do {
                                     $id_maltrato = $reg['id_maltrato'];
                                     $des_maltrato = $reg['descripcion'];
                                 ?>
                                     <option value="<?php echo $id_maltrato; ?>"><?php echo $des_maltrato; ?> </option>
                                 <?php
-                                } while ($reg = mysqli_fetch_array($con));
+                                } while ($reg = mysqli_fetch_array($maltra));
                                 ?>
                             </select>
                         </div>
@@ -282,7 +254,6 @@
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victimas</label>
                         <div class="col-md-4">
                             <?php
-                            include("../../conexion/conexion.php");
                             $busqueda1 = mysqli_query($con, "SELECT * FROM victimas WHERE id_victima = '$id_victima' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
                                 $id_victima = $row1['id_victima'];
@@ -292,15 +263,15 @@
                             <select name="victima_exp" id="victima_exp" disabled class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo  $id_victima  ?>"><?php echo  $des_victima  ?></option>
                                 <?php
-                                $con = mysqli_query($con, "SELECT * FROM  victimas");
-                                $reg = mysqli_fetch_array($con);
+                                $vict = mysqli_query($con, "SELECT * FROM  victimas");
+                                $reg = mysqli_fetch_array($vict);
                                 do {
                                     $id_victima = $reg['id_victima'];
                                     $des_victima = $reg['descripcion'];
                                 ?>
                                     <option value="<?php echo $id_victima; ?>"><?php echo $des_victima; ?> </option>
                                 <?php
-                                } while ($reg = mysqli_fetch_array($con));
+                                } while ($reg = mysqli_fetch_array($vict));
                                 ?>
                             </select>
                         </div>
@@ -342,7 +313,6 @@
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Entidad</label>
                         <div class="col-md-4">
                             <?php
-                            include("../../conexion/conexion.php");
                             $busqueda1 = mysqli_query($con, "SELECT * FROM entidades WHERE id_entidad='$id_entidad' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
                                 $id_entidad = $row1['id_entidad'];
@@ -352,15 +322,15 @@
                             <select name="entidad_exp" id="entidad_exp" disabled class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_entidad ?>"><?php echo $des_entidad  ?></option>
                                 <?php
-                                $con = mysqli_query($con, "SELECT * FROM entidades");
-                                $reg = mysqli_fetch_array($con);
+                                $ent = mysqli_query($con, "SELECT * FROM entidades");
+                                $reg = mysqli_fetch_array($ent);
                                 do {
                                     $id_entidad = $reg['id_entidad'];
                                     $des_entidad = $reg['descripcion'];
                                 ?>
                                     <option value="<?php echo $id_entidad; ?>"><?php echo $des_entidad; ?> </option>
                                 <?php
-                                } while ($reg = mysqli_fetch_array($con));
+                                } while ($reg = mysqli_fetch_array($ent));
                                 ?>
                             </select>
                         </div>
@@ -370,7 +340,6 @@
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Estado del Expediente</label>
                         <div class="col-md-4">
                             <?php
-                            include("../../conexion/conexion.php");
                             $busqueda1 = mysqli_query($con, "SELECT * FROM estado_caso WHERE id_estadocaso = '$id_estadocaso' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {                                
                                 $des_estadocaso = $row1['descripcion_estado_caso'];
@@ -389,31 +358,10 @@
                     </div>
                 </fieldset>
             </form>
+
         </div>
+        
     </section>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
-    </script>
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        function numeros(e) {
-            key = e.keyCode || e.which;
-            tecla = String.fromCharCode(key).toLowerCase();
-            letras = " 0123456789";
-            especiales = [8, 37, 39, 46];
-            tecla_especial = false
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    tecla_especial = true;
-                    break;
-                }
-            }
-            if (letras.indexOf(tecla) == -1 && !tecla_especial)
-                return false;
-        }
-    </script>
 </body>
 
 </html>

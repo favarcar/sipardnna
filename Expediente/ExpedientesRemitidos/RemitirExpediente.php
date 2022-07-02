@@ -260,7 +260,7 @@ self.location = "index.html"
             </div>
           </div>
 
-          <table width="1166" id="tab" style="background:#FFFFFF" align="center" class="table">
+          <table class="table table-striped table-bordered">
 
 
 

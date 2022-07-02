@@ -104,28 +104,28 @@
 ?>
     <section class="fblanco">
         <div class="container pi3x">
-            <form class="form-horizontal ps2x" method="post" enctype="multipart/form-data">
+        <h3 class="centrar letra n600 azulo pi">Registrar Formulario Madres, Padres o Cuidadores</h3>
+            <form class="form-horizontal num-columnas2 ps2x" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <!-- Form Name -->
-                    <h3 class="centrar letra n600 azulo pi">Registrar Formulario Madres, Padres o Cuidadores</h3>
                     <!-- Appended checkbox -->
                     <!-- Appended checkbox -->
                     <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres de Ni&ntilde;o Ni&ntilde;a o Adolescente</label>
-                        <div class="col-md-4">
+                    <div class="form-group" style="display:none">
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres de Ni&ntilde;o, Ni&ntilde;a o Adolescente</label>
+                        <div class="col-md-8">
                             <input id="textinput" name="nom_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Ni&ntilde;o Ni&ntilde;a o Adolescente </label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="num_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="nom_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" onkeyup="this.value=this.value.toUpperCase()" required>
                         </div>
                     </div>
@@ -133,13 +133,13 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Apellidos</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="ape_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" onkeyup="this.value=this.value.toUpperCase()" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Tipo de Documento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="tip_doc_nna" id="tip_doc_nna" class="form-control" style="text-transform: uppercase;" required>
                                 <option value="">Seleccione</option>
                                 <?php
@@ -158,7 +158,7 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="num_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required>
                         </div>
                     </div>
@@ -166,7 +166,7 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha Nacimiento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="fecha_nna" name="fecha_nna" type="date" placeholder="" class="form-control input-md" onchange="calculate_age()" onkeypress="return numeros(event)">
                             <script type="text/javascript">
                                 function calculate_age() {
@@ -184,14 +184,14 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Edad</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="edad_nna" name="edad_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="genero_nna" id="genero_nna" class="form-control" style="text-transform: uppercase;" required>
                                 <option value="">Seleccione</option>
                                 <?php
@@ -221,7 +221,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Pais de nacimiento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="pais_nna" id="pais_nna" class="form-control" onchange="obtenerDepartamento(this.value, '1')" required>
                                 <option value=''>SELECCIONE</option>
 
@@ -236,7 +236,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Departamento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="departamento_nna" id="departamento_nna" class="form-control" onchange="obtenerDepartamento(this.value, '2')" required>
                                 <option value=''>SELECCIONE</option>
                                 <?php
@@ -250,7 +250,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Municipio</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="municipio_nna" id="municipio_nna" class="form-control" style="text-transform: uppercase;" onchange="obtenerDepartamento(this.value, '3')" required>
                                 <option value="">Seleccione</option>
 
@@ -260,7 +260,7 @@
 
                     <div class="form-group" id="cual_mun">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Escriba el municipio</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="mun_aux" name="mun_aux" type="text" placeholder="¿Escriba cual?" style="text-transform: uppercase;" class="form-control input-md">
 
                         </div>
@@ -268,7 +268,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Provincia</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="provincia_nna" id="provincia_nna" class="form-control" style="text-transform: uppercase;" required>
                                 <option value="">Seleccione</option>
                             </select>
@@ -277,28 +277,28 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="dir_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;">
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="tel_nna" type="tel" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Email</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="email_nna" type="email" placeholder="" class="form-control input-md" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Estrato</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="estrato_nna" id="estrato_nna" class="form-control" style="text-transform: uppercase;" required>
                                 <option value="">Seleccione</option>
                                 <?php
@@ -316,7 +316,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Nivel Educativo</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="nivel_educa_nna" id="nivel_educa_nna" class="form-control" style="text-transform: uppercase;" required>
                                 <option value="">Seleccione</option>
                                 <?php
@@ -334,7 +334,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Reg&iacute;menes</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="regimen_nna" id="regimen_nna" class="form-control" style="text-transform: uppercase;" onchange="obtenerEps(this.value);" required>
                                 <option value="">Seleccione</option>
                                 <?php
@@ -348,7 +348,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">EPS</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <div class="input-group">
                                 <select name="eps_nna" id="eps_nna" class="form-control" style="text-transform: uppercase;" required>
                                     <option value="">Seleccione</option>
@@ -364,7 +364,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Etnias</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="etnias_nna" id="etnias_nna" style="text-transform: uppercase;" class="form-control" required>
                                 <option value="">Seleccione</option>
                                 <?php
@@ -382,14 +382,14 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Puntaje del Sisb&eacute;n</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="textinput" name="sisben_nna" type="text" placeholder="" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$"class="form-control input-md" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Zona</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="zona_nna" id="zona_nna" style="text-transform: uppercase;" class="form-control" required>
                                 <option value="">Seleccione</option>
                                 <?php
@@ -407,7 +407,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Parentesco</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="parentescos" id="parentescos" style="text-transform: uppercase;" class="form-control" required>
                                 <option value="">Seleccione</option>
                                 <?php
@@ -430,7 +430,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Estado Civil</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="estado_civil" id="estado_civil" style="text-transform: uppercase;" class="form-control" required>
                                 <option value="">Seleccione</option>
                                 <?php
@@ -451,7 +451,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="singlebutton"></label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <button id="singlebutton" name="singlebutton" class="btn btn-primary">Guardar</button>
                         </div>
                     </div>

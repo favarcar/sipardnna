@@ -61,32 +61,32 @@
 
     <section class="fblanco">
         <div class="container pi3x">
-            <form class="form-horizontal ps2x" method="post" enctype="multipart/form-data">
+        <h3 class="centrar letra n600 azulo pi">Consultar Formulario Madres, Padres o Cuidadores</h3>
+            <form class="form-horizontal num-columnas2 ps2x" method="post" enctype="multipart/form-data">
                 <fieldset>
 
                     <!-- Form Name -->
-                    <h3 class="centrar letra n600 azulo pi">Consultar Formulario Madres, Padres o Cuidadores</h3>
 
                     <!-- Appended checkbox -->
                     <!-- Appended checkbox -->
                     <!-- Text input-->
-                    <div class="form-group">
+                    <div class="form-group" style="display:none">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Ni&ntilde;o, Ni&ntilde;a o Adolescentes</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="nom_nna1" name="nom_nna1" type="text" placeholder="" class=" form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescentes</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="num_nino" name="num_nino" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="nom_nna" name="nom_nna" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $NombresCuida ?>" readonly>
                         </div>
                     </div>
@@ -94,14 +94,14 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Apellidos</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="ape_nna" name="ape_nna" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $ApellidosCuida ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Tipo de Documento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             $busqueda2 = mysqli_query($con, "SELECT * FROM tipos_documentos WHERE id_tipo_documento='$id_tipo_documento' ");
                             while ($row2 = mysqli_fetch_array($busqueda2)) {
@@ -128,7 +128,7 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="num_nna" name="num_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_Cedula ?>" readonly>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha Nacimiento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="fecha_nna" name="fecha_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Fecha_Nacimiento; ?>" readonly>
                         </div>
                     </div>
@@ -144,14 +144,14 @@
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Edad</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="edad_nna" name="edad_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Edad ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             $busqueda3 = mysqli_query($con, "SELECT * FROM generos WHERE id_genero='$id_genero' ");
                             while ($row3 = mysqli_fetch_array($busqueda3)) {
@@ -182,7 +182,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Pais de nacimiento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="pais_nna" id="pais_nna" class="form-control" required disabled>
                                 <option value=''>SELECCIONE</option>
                                 <?php
@@ -196,7 +196,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Departamento de nacimiento</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <select name="departamento_nna" id="departamento_nna" class="form-control" style="text-transform: uppercase;" required disabled>
                                 <?php
                                 $busqueda13 = mysqli_query($con, "SELECT * FROM departamentos WHERE id = '$id_departamento' ");
@@ -217,7 +217,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Municipio</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             $busqueda1 = mysqli_query($con, "SELECT * FROM municipios where id_municipio='$id_municipio' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
@@ -243,7 +243,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Provincia</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             $busqueda1 = mysqli_query($con, "SELECT * FROM provincias WHERE id_provincia='$id_provincia' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
@@ -269,28 +269,28 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="dir_nna" name="dir_nna" type="text" placeholder="" class="form-control input-md" value="<?php echo $Direccion ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="tel_nna" name="tel_nna" type="tel" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Email</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="email_nna" name="email_nna" type="email" placeholder="" class="form-control input-md" value="<?php echo $correo_electronico ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Estrato</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             $busqueda1 = mysqli_query($con, "SELECT * FROM estratos WHERE id_estrato='$id_estrato' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
@@ -318,7 +318,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Nivel Educativo</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             $busqueda1 = mysqli_query($con, "SELECT * FROM nivel_educativo WHERE id_niveleducativo='$id_niveleducativo' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
@@ -346,7 +346,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Reg&iacute;menes</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             $busqueda1 = mysqli_query($con, "SELECT * FROM regimenes WHERE id_regimen='$id_regimen' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
@@ -374,7 +374,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">EPS</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             $busqueda1 = mysqli_query($con, "SELECT * FROM eps WHERE id_eps='$id_eps' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
@@ -402,7 +402,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Etnias</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php $busqueda1 = mysqli_query($con, "SELECT * FROM etnias WHERE id_etnia='$id_etnia' ");
                             while ($row1 = mysqli_fetch_array($busqueda1)) {
                                 $id_etnia = $row1['id_etnia'];
@@ -430,14 +430,14 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Puntaje del Sisb&eacute;n</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="sisben_nna" name="sisben_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Zona</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             $busqueda4 = mysqli_query($con, "SELECT * FROM zonas WHERE id_zona='$id_zona' ");
                             while ($row4 = mysqli_fetch_array($busqueda4)) {
@@ -465,7 +465,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Parentesco</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             $busqueda5 = mysqli_query($con, "SELECT * FROM parentescos WHERE id_parentesco='$id_parentesco' ");
                             while ($row5 = mysqli_fetch_array($busqueda5)) {
@@ -493,7 +493,7 @@
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Estado Civil</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <?php
                             $busqueda6 = mysqli_query($con, "SELECT * FROM estados_civiles WHERE id_estado = '$id_estado' ");
                             while ($row6 = mysqli_fetch_array($busqueda6)) {
@@ -520,14 +520,14 @@
 
                     <div class="form-group" style="display:none">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha Ingreso</label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="fecha_ingre" name="fecha_ingre" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $fecha_cuida ?>" required>
                         </div>
                     </div>
 
                     <div class="form-group" style="display:none">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_usuario </label>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             <input id="id_usuario" name="id_usuario" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $id_usuario ?>" required>
                         </div>
                     </div>
