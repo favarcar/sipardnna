@@ -73,8 +73,8 @@
         <![endif]-->
     <?php
     $id_ninnos = $_GET['id_ninnos'];
-    $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_ninnos = '$id_ninnos' "); //cambiar nombre de la tabla de busqueda
-    while ($row = mysqli_fetch_array($busqueda)) {
+    $ingresar_mpc = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_ninnos = '$id_ninnos' "); //cambiar nombre de la tabla de busqueda
+    while ($row = mysqli_fetch_array($ingresar_mpc)) {
         $id_ninnos1 = $row['id_ninnos'];
         $id_tipo_documento = $row['id_tipo_documento'];
         $No_identificacion = $row['No_identificacion'];

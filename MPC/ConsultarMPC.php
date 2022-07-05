@@ -171,7 +171,7 @@
                                                     echo "Ya tiene Cuidador asignado";
                                                 } else {
                                                 ?>
-                                                    <h5 class="letra n500  azulo centrar ps linku "><a href="IngresarMPC.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Registrar</a></h5>
+                                                    <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=10&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Registrar</a></h5>
                                             </td>
                                         <?php } ?>
                                         <td align="center">

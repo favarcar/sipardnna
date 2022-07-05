@@ -161,7 +161,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
 
 
  <header>
-<div class="text-center" style="height:30px; color:white; background-color:"><strong>Sistema de Información para el Restablecimiento de Derechos de Niños, Niñas y Adolescentes</strong></div>
+<div class="text-center" style="height:30px; color:white; background-color: #64af59"><strong>Sistema de Información para el Restablecimiento de Derechos de Niños, Niñas y Adolescentes</strong></div>
  <nav class="navbar navbar-default">
   <div class="container-fluid mt-5">
     <div class="navbar-header">
@@ -184,7 +184,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="main.php?key=8">Niños niñas o adolescentes</a></li>
-          <li><a href="main.php?key=11">Madre, Padre o Cuidador</a></li>
+          <li><a href="main.php?key=2">Madre, Padre o Cuidador</a></li>
           <li><a href="main.php?key=12">Expedientes</a></li>
         </ul>
       </li>
@@ -198,6 +198,28 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
 	  <i class="glyphicon glyphicon-flag"></i>
 	  <strong>Municipio:</strong><?= $des_municipio ?> </li>
       <li><a href="desconectar_usuario.php"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+      <br>
+      <li><i class="glyphicon glyphicon-briefcase"></i><strong> Cargo:</strong> <?php if ($id_perfil == 1) {
+    echo "ADMINISTRADOR";
+} elseif ($id_perfil ==  2) {
+    echo "DIRECTOR";
+} elseif ($id_perfil == 3) {
+    echo "SUPERVISOR";
+} elseif ($id_perfil == 4) {
+    echo "ENLACE MUNICIPAL";
+} elseif ($id_perfil == 5) {
+    echo "INVITADO";
+} elseif ($id_perfil == 6) {
+    echo "COMISARIA DE FAMILIA";
+} elseif ($id_perfil == 7) {
+    echo "PERSONERIA";
+} elseif ($id_perfil == 8) {
+    echo "PROCURADURIA";
+} elseif ($id_perfil == 9) {
+    echo "JUEZ DE FAMILIA";
+} else {
+    "SUPERADMINISTRADOR";
+}?>
     </ul>
   </div>
 </nav>
@@ -235,6 +257,7 @@ if ($verdato == 21){include("IngresarNuevoDerecho/IngresarDerecho.php");}
 if ($verdato == 22){include("IngresarNuevoDerecho/IngresarDerecho.php");}
 if ($verdato == 23){include("MPC/ConsultarMPC.php");}
 if ($verdato == 24){include("Expediente/ExportarPDF.php");}
+if ($verdato == 25){include("Expediente/RegistrarConsultarExpediente.php");}
 
 if ($verdato == 102) {include("user_list.php");}
 if ($verdato == 105) {include("user_update.php");}

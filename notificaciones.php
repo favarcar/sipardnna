@@ -86,7 +86,7 @@ date_default_timezone_set('America/Bogota');
                 }else{
                   echo '<span style="color: red;">'.$interval->format('%a días').'</span>';
                 } ?></td>
-                <td align="center"><a href="Expediente/ModificarExpedienteNoti.php?codigo_expediente=<?php echo $datos['codigo_expediente'];?>&id_ninnos=<?php echo $datos['id_ninnos'];?>" class="linku">Ver</a></td>
+                <td align="center"><a href="main.php?key=19&codigo_expediente=<?php echo $datos['codigo_expediente'];?>&id_ninnos=<?php echo $datos['id_ninnos'];?>" class="linku">Ver</a></td>
             </tr>  
                 <?php } } ?>
 

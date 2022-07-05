@@ -105,10 +105,7 @@
                                                     echo $row2['Apellidos_cuidadores'];
                                             ?> &nbsp;
                                             <?php
-                                            echo '<h5 class="letra n500 azulo centrar ps linku"><a href="main.php?key=19&id_ninnos='.$id_ninnos.'"class="linku"> Consultar</a></h5>';
-                                            ?>
 
-                                            <?php
                                                 echo $row2['Nombres_cuidadores'];
                                                 }
                                             ?>

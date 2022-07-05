@@ -44,7 +44,7 @@ header{
 }
 
 ::selection {
-    background: #03f153;
+    background: #46554b;
     text-shadow: none;
 }
 
@@ -158,7 +158,7 @@ textarea {
 
 
 .nav-tabs>li>a:hover {
-    background-color: #00ccff;
+    background-color: #d3d3d3;
 }
 
 /* color menu total   */
@@ -322,7 +322,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5ce0f2', end
 /* links */
 
 a:hover {
-    color: white;}
+    color: #0069ab;}
 
 a {
     color: #3e4094;}
