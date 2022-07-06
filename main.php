@@ -196,10 +196,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
       <li><i class="glyphicon glyphicon-user"></i><strong>Usuario:</strong> <?php echo $nombres?>&nbsp;<?php echo $apellido?>
 	  <br>
 	  <i class="glyphicon glyphicon-flag"></i>
-	  <strong>Municipio:</strong><?= $des_municipio ?> </li>
-      <li><a href="desconectar_usuario.php"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
-      <br>
-      <li><i class="glyphicon glyphicon-briefcase"></i><strong> Cargo:</strong> <?php if ($id_perfil == 1) {
+	  <strong>Municipio:</strong><?= $des_municipio ?> <li><i class="glyphicon glyphicon-briefcase"></i><strong> Cargo:</strong> <?php if ($id_perfil == 1) {
     echo "ADMINISTRADOR";
 } elseif ($id_perfil ==  2) {
     echo "DIRECTOR";
@@ -219,7 +216,10 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
     echo "JUEZ DE FAMILIA";
 } else {
     "SUPERADMINISTRADOR";
-}?>
+}?></li>
+      <li><a href="desconectar_usuario.php"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+      <br>
+
     </ul>
   </div>
 </nav>
@@ -254,7 +254,7 @@ if ($verdato == 18){include("menuadministrador/ConsultarRegistrosMPC.php");}
 if ($verdato == 19){include("Expediente/ModificarExpedienteNoti.php");}
 if ($verdato == 20){include("IngresarNuevoDerecho/ConsultarDerecho.php");}
 if ($verdato == 21){include("IngresarNuevoDerecho/IngresarDerecho.php");}
-if ($verdato == 22){include("IngresarNuevoDerecho/IngresarDerecho.php");}
+if ($verdato == 22){include("IngresarNuevoDerecho/ModificarDerecho.php");}
 if ($verdato == 23){include("MPC/ConsultarMPC.php");}
 if ($verdato == 24){include("Expediente/ExportarPDF.php");}
 if ($verdato == 25){include("Expediente/RegistrarConsultarExpediente.php");}

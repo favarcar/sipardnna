@@ -128,7 +128,7 @@ while($row=mysqli_fetch_array($busqueda)){
                         
           <td align="center"><?php echo $id_derecho;?></td>
           <td align="center"><?php echo $descripcion;?></td>
-           <td align="center"><h5 class="letra n500  azulo centrar ps linku "><a href="ModificarDerecho.php?id_derecho=<?php echo $row['id_derecho'];?>" class="linku">Editar</a></h5></td>
+           <td align="center"><h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=22" id_derecho=<?php echo $row['id_derecho'];?> class="linku">Editar</a></h5></td>
             <td align="center"><h5 class="letra n500  azulo centrar ps linku "><a href="EliminarDerecho.php?id_derecho=<?php echo $row['id_derecho'];?>" class="linku">Eliminar</a></h5></td>
 
    <?php } }?>
@@ -175,7 +175,7 @@ while($row=mysqli_fetch_array($busqueda)){
             
           <td align="center"><?php echo $id_derecho;?></td>
           <td align="center"><?php echo $descripcion;?></td>
-          <td align="center"><h5 class="letra n500  azulo centrar ps linku "><a href="ModificarDerecho.php?id_derecho=<?php echo $row['id_derecho'];?>" class="linku">Editar</a></h5></td>
+          <td align="center"><h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=22" id_derecho=<?php echo $row['id_derecho'];?> class="linku">Editar</a></h5></td>
             <td align="center"><h5 class="letra n500  azulo centrar ps linku "><a href="EliminarDerecho.php?id_derecho=<?php echo $row['id_derecho'];?>" class="linku">Eliminar</a></h5></td>
    <?php } }?>
          </tr>

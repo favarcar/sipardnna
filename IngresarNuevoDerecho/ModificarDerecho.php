@@ -40,16 +40,15 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
             <?php
-include("../conexion/conexion.php");
 
- $id_derecho=$_GET['id_derecho'];
+ //$id_derecho=$_GET['id_derecho'];
 			
 	
-	$busqueda=mysqli_query($con,"SELECT * FROM derechos where id_derecho='$id_derecho' ");//cambiar nombre de la tabla de busqueda
-while($row=mysqli_fetch_array($busqueda)){
+	$busqueda_derechos = mysqli_query($con, "SELECT * FROM derechos WHERE id_derecho='$id_derecho' ");
+while($row=mysqli_fetch_array($busqueda_derechos)){
 		
           $id_derecho=$row['id_derecho'];
-		  $descripcion=$row['descripcion'];
+		  $descripcion=$row['descripcion_derechos'];
 		      
           	  
 }

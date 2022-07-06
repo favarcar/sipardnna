@@ -533,7 +533,7 @@
         if (mysqli_query($con, $sql) or Die(mysqli_error($con))) {
             echo '<script language = javascript>
             alert("la Información ha sido Guardada Correctamente")
-            self.location = "main.php?key=11"
+            self.location = "main.php?key=2"
             </script>';
         } else {
             echo '<script language = javascript>
