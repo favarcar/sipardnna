@@ -126,7 +126,7 @@ $apellido = $fila['apellidos'];
                  <h3 class="centrar letra n600 azulo pi">Consultar Formulario Madres, Padres o Cuidadores</h3>
                  <!-- Appended checkbox --><!-- Appended checkbox --><!-- Text input-->
                  <div class="form-group">
-                  <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Ni&ntilde;o, Ni&ntilde;a o Adolescentes</label>
+                  <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. Documento N.N.A.</label>
                   <div class="col-md-4">
                   <input id="textinput" name="nom_nna1" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly >
                     

@@ -71,14 +71,14 @@
                     <!-- Appended checkbox -->
                     <!-- Text input-->
                     <div class="form-group" style="display:none">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Ni&ntilde;o, Ni&ntilde;a o Adolescentes</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. Documento N.N.A.</label>
                         <div class="col-md-8">
                             <input id="nom_nna1" name="nom_nna1" type="text" placeholder="" class=" form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescentes</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. Documento N.N.A.</label>
                         <div class="col-md-8">
                             <input id="num_nino" name="num_nino" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" readonly>
                         </div>
@@ -127,7 +127,7 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento</label>
                         <div class="col-md-8">
                             <input id="num_nna" name="num_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_Cedula ?>" readonly>
                         </div>

@@ -158,9 +158,10 @@ $resultado = $_POST['numero'];
 
           <footer style="background-color:#64AF59;" class="borde_top">
                         <div class="container">
-                           <div class="row clearfix pi2x ps"> 
+                           <div class="row clearfix pi1x ps"> 
                             <div >        
-                                <img class="img-responsive  center-block  borde_blanco " src="img/logo_integracion_social.png" width="60%" alt=""/>
+                                <img class="img-responsive  center-block  borde_blanco " src="img/logo_integracion_social.png" width="45%" alt=""/>
+                                            <FONT COLOR="Ivory"><h4 align="center">Versión 3.0 - 2022</H4></FONT>
                       </div>
                       
                        <div  align="center">             

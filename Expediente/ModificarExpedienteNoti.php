@@ -4,7 +4,7 @@
   <?php
 
   $codigo_expediente = $_GET['codigo_expediente'];
- // $id_ninnos = $_GET['id_ninnos'];
+  $id_ninnos = $_GET['id_ninnos'];
 
   $busqueda50 = mysqli_query($con, "SELECT * FROM expediente where codigo_expediente='$codigo_expediente' "); //cambiar nombre de la tabla de busqueda
   while ($row50 = mysqli_fetch_array($busqueda50)) {
@@ -86,7 +86,7 @@
   ?>
   <section class="fblanco">
     <div class="container pi3x">
-    <h3 class="centrar letra n600 azulo pi">Modificar Expediente</h3>
+    <h3 class="centrar letra n600 azulo pi">Modificar Expediente </h3>
       <form class="form-horizontal num-columnas2 ps2x" method="post" enctype="multipart/form-data">
         <fieldset>
           <!-- Appended checkbox -->
@@ -123,7 +123,7 @@
 
 
           <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolecente </label>
+            <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. Documento N.N.A. </label>
             <div class="col-md-8">
               <input id="textinput" name="num_nna_exp" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" readonly>
 
@@ -138,7 +138,7 @@
           </div>
 
           <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Madre, Padre o Acudiente</label>
+            <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento de Madre, Padre o Acudiente</label>
             <div class="col-md-8">
               <input id="textinput" name="num_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $No_Cedula ?>" readonly>
 
@@ -266,7 +266,7 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-sm-4 col-xs-12 form-group"">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victimas</label>
             <div class="col-md-8">
 
@@ -370,7 +370,7 @@
             </div>
           </div>
 
-          <div class="col-md-6 col-sm-4 col-xs-12 form-group"">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Estado del Expediente</label>
             <div class="col-md-8">
 
@@ -479,12 +479,14 @@ id_usuario_exp='$id_usuario_exp',
 id_estadocaso='$estadocaso_exp' 
 WHERE codigo_expediente='$codigo_expediente'");
 
+
           mysqli_close($con);
           echo '<script language = javascript>
 alert("la Informacion ha sido Guardada Correctamente")
 self.location = "../MenuComisariaFamilia.php"
 </script>';
-        }
+
+        } 
         ?>
       </form>
 

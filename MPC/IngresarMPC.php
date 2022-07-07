@@ -112,13 +112,13 @@
                     <!-- Appended checkbox -->
                     <!-- Text input-->
                     <div class="form-group" style="display:none">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres de Ni&ntilde;o, Ni&ntilde;a o Adolescente</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. Documento N.N.A.</label>
                         <div class="col-md-8">
                             <input id="textinput" name="nom_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Ni&ntilde;o Ni&ntilde;a o Adolescente </label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. Documento N.N.A.</label>
                         <div class="col-md-8">
                             <input id="textinput" name="num_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" readonly>
                         </div>
@@ -157,7 +157,7 @@
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento</label>
                         <div class="col-md-8">
                             <input id="textinput" name="num_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required>
                         </div>
@@ -533,7 +533,7 @@
         if (mysqli_query($con, $sql) or Die(mysqli_error($con))) {
             echo '<script language = javascript>
             alert("la Información ha sido Guardada Correctamente")
-            self.location = "main.php?key=2"
+            self.location = "main.php?key=12"
             </script>';
         } else {
             echo '<script language = javascript>

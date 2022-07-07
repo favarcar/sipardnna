@@ -196,7 +196,8 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
       <li><i class="glyphicon glyphicon-user"></i><strong>Usuario:</strong> <?php echo $nombres?>&nbsp;<?php echo $apellido?>
 	  <br>
 	  <i class="glyphicon glyphicon-flag"></i>
-	  <strong>Municipio:</strong><?= $des_municipio ?> <li><i class="glyphicon glyphicon-briefcase"></i><strong> Cargo:</strong> <?php if ($id_perfil == 1) {
+	  <strong>Municipio:</strong><?= $des_municipio ?>                                                           
+    <i class="glyphicon glyphicon-briefcase"></i><strong> Cargo:</strong> <?php if ($id_perfil == 1) {
     echo "ADMINISTRADOR";
 } elseif ($id_perfil ==  2) {
     echo "DIRECTOR";
@@ -217,7 +218,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
 } else {
     "SUPERADMINISTRADOR";
 }?></li>
-      <li><a href="desconectar_usuario.php"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+      <li><a href="desconectar_usuario.php"><span class="glyphicon glyphicon-log-out" style="color:orange"></span><FONT COLOR="orange"> Salir</FONT></a></li>
       <br>
 
     </ul>
@@ -283,9 +284,11 @@ if ($verdato == 402) {include("cargar_archivos.php");}
 
                         <footer class="f4 borde_top">
                                 <div class="container">
-                                    <div class="row clearfix pi2x ps">
+                                    <div class="row clearfix pi1x ps">
                                         <div >
-                                            <img class="img-responsive  center-block  borde_blanco " src="img/logo_integracion_social.png" width="60%" alt=""/>
+                                            <img class="img-responsive  center-block  borde_blanco " src="img/logo_integracion_social.png" width="45%" alt=""/>
+                                            <FONT COLOR="Ivory"><h4 align="center">Versión 3.0 - 2022</H4></FONT>
+
                                         </div>
 
                                     </div>
@@ -296,7 +299,7 @@ if ($verdato == 402) {include("cargar_archivos.php");}
 
         <!-- page content -->
 
-//<?php echo mysqli_close($con); ?>
+<?php //echo mysqli_close($con); ?>
 <!-- JAVASCRIPT -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>

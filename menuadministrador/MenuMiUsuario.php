@@ -169,7 +169,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
 
 <footer class="f4 borde_top">
             <div class="container">
-                           <div class="row clearfix pi2x ps"> 
+                           <div class="row clearfix pi1x ps"> 
                                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4  ">
                                         <img class="img-responsive  center-block  borde_blanco "  src="../img/logo Gobernación_02.png" width="60%" alt=""/>
                       </div>

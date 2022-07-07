@@ -172,7 +172,7 @@ En caso de no ser resuelto el caso caduca por vencimiento de términos.
 <br>
 <b>Nombre de Niño, Niña o Adolecente:</b> $Apellidos $Nombres 
 <br>
-<b>No. de Documento de Niño, Niña o Adolescente:</b> $No_identificacion
+<b>No. de Documento de N.N.A.:</b> $No_identificacion
 <br>
 <br>
 <b>Nombre de Madre, Padre o Adolescente:</b> $ApellidosCuida $NombresCuida

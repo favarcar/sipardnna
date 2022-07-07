@@ -172,7 +172,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
 
     <footer style="background-color:#64AF59;" class="borde_top">
     <div class="container">
-      <div class="row clearfix pi2x ps">
+      <div class="row clearfix pi1x ps">
         <div>
           <img class="img-responsive  center-block  borde_blanco " src="img/logo_integracion_social.png" width="60%" alt="" />
         </div>

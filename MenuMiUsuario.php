@@ -169,9 +169,10 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
 
 <footer class="f4 borde_top">
                                 <div class="container">
-                                    <div class="row clearfix pi2x ps"> 
+                                    <div class="row clearfix pi1x ps"> 
                                         <div >        
-                                            <img class="img-responsive  center-block  borde_blanco " src="img/logo_integracion_social.png" width="60%" alt=""/>
+                                            <img class="img-responsive  center-block  borde_blanco " src="img/logo_integracion_social.png" width="45%" alt=""/>
+                                            <FONT COLOR="Ivory"><h4 align="center">Versión 3.0 - 2022</H4></FONT>
                                         </div>
                                         <div  align="center">             
                                             <b>GOBERNACI&Oacute;N DE BOYAC&Aacute; <br> SECRETAR&Iacute;A DE INTEGRACI&Oacute;N SOCIAL <br> Sistema de Informaci&oacute;n a&ntilde;o 2021, Versi&oacute;n 2.0</b>    
