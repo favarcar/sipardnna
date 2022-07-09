@@ -182,7 +182,7 @@ while($row=mysql_fetch_array($busqueda)){
               <div class="table-responsive"> 
 <table class="table table-striped table-bordered">
 <tr>
-<td colspan="11" class="letra n600 azulo">Total Niños, Niñas o Adolescentes Registrados:  <?php 			
+<td colspan="11" class="letra n600 azulo" bgcolor="#ff9933">Total Niños, Niñas o Adolescentes Registrados:  <?php 			
 		  $con4=mysql_query("SELECT count(id_ninnos) FROM ninnosnna");
 			
 			while($row4=mysql_fetch_array($con4)){

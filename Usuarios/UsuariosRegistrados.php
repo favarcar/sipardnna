@@ -125,7 +125,7 @@
                     <div class="table-resposive">
                         <table class="table table-striped table-bordered">
                             <tr>
-                                <td colspan="11" class="letra n600 azulo">Total Usuarios Registrados: <?php $con4=mysqli_query($con,"SELECT count(id_usuario) FROM usuarios");
+                                <td colspan="11" class="letra n600 azulo" bgcolor="#ff9933">Total Usuarios Registrados: <?php $con4=mysqli_query($con,"SELECT count(id_usuario) FROM usuarios");
                                 while($row4=mysqli_fetch_array($con4)){
                                     echo $nom_asignatura11=$row4['count(id_usuario)'];
                                 } ?> </td>

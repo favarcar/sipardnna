@@ -448,14 +448,20 @@
                             </select>
                         </div>
                     </div>
-
+                    <?php if($nuser == 1 || $nuser == 2){?>
+      <li class="dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Registrar
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="singlebutton"></label>
                         <div class="col-md-8">
                             <button id="singlebutton" name="singlebutton" class="btn btn-primary">Guardar</button>
                         </div>
                     </div>
-
+                    </ul>
+      </li>
+	  <?php } ?>
                 </fieldset>
             </form>
 

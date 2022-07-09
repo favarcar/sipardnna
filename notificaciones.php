@@ -55,7 +55,7 @@ date_default_timezone_set('America/Bogota');
             $id_entidad=$datos['id_entidad'];
             $id_usuario_exp=$datos['id_usuario_exp'];
             $id_estadocaso=$datos['id_estadocaso'];
-            $fecha_limite=$datos['fecha_limite'];
+            $fecha_limite=$datos['Fecha_finalizacion_expediente'];
             
             if($fecha == $fecha_limite || $id_estadocaso == 2 ){
             } else{                    

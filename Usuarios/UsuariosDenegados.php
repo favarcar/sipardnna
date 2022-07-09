@@ -141,7 +141,7 @@
                     <div class="table-responsive"> 
                         <table class="table table-striped table-bordered">
                             <tr>
-                                <td colspan="11" class="letra n600 azulo">Total Usuarios Denegados: 
+                                <td colspan="11" class="letra n600 azulo" bgcolor="#ff9933">Total Usuarios Denegados: 
                                 <?php
                                     $con4 = mysqli_query($con,"SELECT count(id_usuario) FROM usuarios WHERE estado = 0");			
                                     while($row4 = mysqli_fetch_array($con4)){

@@ -44,11 +44,9 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
   <?php
-  include("../conexion/conexion.php");
-
 
   $codigo_expediente = $_GET['codigo_expediente'];
-  $id_ninnos = $_GET['id_ninnos'];
+  //$id_ninnos = $_GET['id_ninnos'];
 
   $busqueda50 = mysqli_query($con, "SELECT * FROM expediente where codigo_expediente='$codigo_expediente' "); //cambiar nombre de la tabla de busqueda
   while ($row50 = mysqli_fetch_array($busqueda50)) {
@@ -127,9 +125,6 @@
   ?>
   <?php
 
-
-  //Iniciar Sesión
-  session_start();
 
   //Validar si se está ingresando con sesión correctamente
   if (!$_SESSION) {
@@ -258,7 +253,6 @@ self.location = "index.html"
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
             <div class="col-md-4">
               <?php
-              include("../conexion/conexion.php");
 
               $busqueda1 = mysqli_query($con, "SELECT * FROM discapacidades where id_discapacidad='$id_discapacidad' ");
               while ($row1 = mysqli_fetch_array($busqueda1)) {
@@ -320,7 +314,6 @@ self.location = "index.html"
             <div class="col-md-4">
 
               <?php
-              include("../conexion/conexion.php");
               $busqueda1 = mysqli_query($con, "SELECT * FROM maltratos where id_maltrato='$id_maltrato' ");
               while ($row1 = mysqli_fetch_array($busqueda1)) {
 
@@ -425,7 +418,6 @@ self.location = "index.html"
             <div class="col-md-4">
 
               <?php
-              include("../conexion/conexion.php");
               $busqueda11 = mysqli_query($con, "SELECT * FROM entidades where id_entidad='$id_entidad' ");
               while ($row11 = mysqli_fetch_array($busqueda11)) {
 
@@ -485,7 +477,7 @@ self.location = "index.html"
               <input id="textinput" name="id_usuario_exp" type="sisben_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $id_usuario ?>" required>
 
             </div>
-          </div>
+          </div> 
 
           <div class="form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
@@ -497,8 +489,6 @@ self.location = "index.html"
         </fieldset>
         <?php
         if (isset($_POST['singlebutton'])) { //si se ha presionado enviar
-
-          include("../conexion/conexion.php");
 
           $fecha_exp = $_POST['fecha_exp'];
           $cod_exp = $_POST['cod_exp'];
@@ -519,11 +509,11 @@ self.location = "index.html"
           $estadocaso_exp = $_POST['estadocaso_exp'];
 
 
-
-
-          mysqli_query($con, "UPDATE `expediente` SET `codigo_expediente`='$codigo_expediente',`Fecha_inicio_expediente`='$fecha_exp',`id_ninnos`='$id_ninnos',`id_cuidadores`='$cuidadores_exp',`id_discapacidad`='$discapacidad_exp',`id_indicador`='$indicadores_exp',`id_maltrato`='$maltratos_exp',`id_victima`='$victima_exp',`Descripcion_expediente`='$descripcion_exp',`id_derecho`='$derechos_exp',`Observacion`='$obs_exp',`Veredicto_Caso`='$veredicto_exp',`Fecha_finalizacion_expediente`='$finalizacion_exp',`id_entidad`='$entidad_exp',`id_usuario_exp`='$id_usuario_exp', id_estadocaso='$estadocaso_exp' WHERE codigo_expediente='$codigo_expediente'");
-
-          mysqli_close($con);
+          mysqli_query($con, "UPDATE `expediente` SET `codigo_expediente`='$codigo_expediente',`Fecha_inicio_expediente`='$fecha_exp',`id_ninnos`='$id_ninnos',`id_cuidadores`='$cuidadores_exp',`id_discapacidad`='$discapacidad_exp',`id_indicador`='$indicadores_exp',`id_maltrato`='$maltratos_exp',`id_victima`='$victima_exp',`Descripcion_expediente`='$descripcion_exp',`id_derecho`='$derechos_exp',`Observacion`='$obs_exp',`Veredicto_Caso`='$veredicto_exp',`Fecha_finalizacion_expediente`='$finalizacion_exp',`id_entidad`='$entidad_exp',`id_usuario_exp`='$id_usuario_exp', id_estadocaso='$estadocaso_exp' WHERE codigo_expediente='$codigo_expediente'") or die(mysqli_error($con));
+          '<script language = javascript>
+          alert("la Informacion ha sido Guardada Correctamente")
+          self.location = "main.php?key=12&codigo_expediente='.$codigo_expediente.'"
+          </script>';
 
 
           /*	echo '<script language = javascript>

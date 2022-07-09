@@ -12,7 +12,7 @@
       <a href="main.php?key=2"><img src="iconos/padres2.png" alt="..." width="100" height="100" class="center-block pic"></a>
       <h4 class="centrar letra azulo n400 ps"><strong>Registrar Madres, Padres o Cuidadores</strong></h4>
       </div>
-	  </div>
+	  </div> 
 	  <div class="col-lg-6">
 	  <img width="100%" src="img/bg-1.png">
 	  </div>

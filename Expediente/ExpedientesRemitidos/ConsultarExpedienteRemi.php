@@ -130,7 +130,7 @@
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered">
                                         <tr>
-                                            <td colspan="11" class="letra n600 azulo">Total Niños, Niñas o Adolescentes Registrados:
+                                            <td colspan="11" class="letra n600 azulo" bgcolor="#ff9933">Total Niños, Niñas o Adolescentes Registrados:
                                                 <?php
                                                 $con44 = mysqli_query($con, "SELECT count(id_remite), 	id_usuario, id_ninnos FROM remite where id_usuario = '$id_usuario'");
                                                 while ($row44 = mysqli_fetch_array($con44)) {

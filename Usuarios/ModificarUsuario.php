@@ -41,7 +41,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
 
   <section class="fblanco" >
     <div class="container pi3x">
-    <h3 class="centrar letra n600 azulo pi">Modificar Usuario</h3>        
+    <h3 class="centrar letra n600 azulo pi">Usuario</h3>        
         <form class="form-horizontal num-columnas2 ps2x" method="post" enctype="multipart/form-data">
             <fieldset>
 
@@ -52,14 +52,14 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                 <div class="form-group" style="display:none">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_usuario</label>  
                     <div class="col-md-8">
-                        <input id="textinput" name="id_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $id_usuario1; ?>">
+                        <input id="textinput" name="id_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $id_usuario1; ?>"readonly>
                     </div>
                 </div>           
                 
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres</label>  
                     <div class="col-md-8">
-                        <input id="textinput" name="nom_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo  $nombres; ?>" >                    
+                        <input id="textinput" name="nom_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo  $nombres; ?>"readonly>                    
                     </div>
                 </div>
 
@@ -67,12 +67,12 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Apellidos</label>  
                     <div class="col-md-8">
-                        <input id="textinput" name="ape_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" value="<?php echo  $apellidos; ?>">                 
+                        <input id="textinput" name="ape_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" value="<?php echo  $apellidos; ?>"readonly>                 
                     </div>
                 </div>
                 <!-- Multiple Radios (inline) -->
                 <div class="form-group">
-                    <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Tipo de Documento</label>  
+                    <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Tipo de Documento</label> 
                     <div class="col-md-8">
                         <div class="input-group">
                             <select name="tip_doc_usu" id="tip_doc_usu">
@@ -104,7 +104,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. Documento </label>                 
                     <div class="col-md-8">
-                        <input id="textinput" name="num_doc_usu" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $numero_documento; ?>" >                    
+                        <input id="textinput" name="num_doc_usu" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $numero_documento; ?>"readonly>                   
                     </div>
                 </div>
                  <div class="form-group">
@@ -119,7 +119,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                                     $descripcion=$row1['descripcion'];             	  
                                 }
                             ?>
-                                <option value="<?php echo $id_genero ?>"><?php echo $descripcion ?></option>
+                                <option value="<?php echo $id_genero ?>"readonly><?php echo $descripcion ?></option>
                                 <?php 
                                     $con10 = mysqli_query($con,"SELECT * FROM generos");
                                     $reg = mysqli_fetch_array($con10);
@@ -141,7 +141,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                     <div class="col-md-8">
                         <div class="input-group">
                             <select name="municipio_usu" id="municipio_usu">
-                             <option value="<?php echo $id_municipio1; ?>"><?php echo $des_municipio;  ?></option>
+                             <option value="<?php echo $id_municipio1; ?>"><?php echo $des_municipio; ?></option>
                                 <?php 
                                     
                                     do {
@@ -162,34 +162,42 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono</label>
                     <div class="col-md-8">
-                        <input id="textinput" name="tel_usu" type="tel" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required value="<?php echo $telefono?>" >                    
+                        <input id="textinput" name="tel_usu" type="tel" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required value="<?php echo $telefono?>"readonly>                  
                     </div>
                 </div>   
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Email</label>  
                     <div class="col-md-8">
-                        <input id="textinput" name="email_usu" type="email" placeholder="" class="form-control input-md" required value="<?php echo $correo ?>" >  
+                        <input id="textinput" name="email_usu" type="email" placeholder="" class="form-control input-md" required value="<?php echo $correo ?>"readonly>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Usuario</label>  
                     <div class="col-md-8">
-                        <input id="textinput" name="usuario_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $usuario ?>">    
+                        <input id="textinput" name="usuario_usu" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $usuario ?>"readonly>  
                     </div>
                 </div>                                     
                 <div class="form-group">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Tipo de</label>  
                     <div class="col-md-8">
-                        <input id="textinput" name="id_entidad" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $id_entidad ?>" >                       
+                        <input id="textinput" name="id_entidad" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $id_entidad ?>"readonly>                      
                     </div>
                 </div>
-                           
+
+                <?php if($nuser == 1){?>
+      <li class="dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Registrar
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">                          
                 <div class="form-group">
                     <label class="col-md-4 control-label" for="singlebutton"></label>
                     <div class="col-md-8">
                         <button id="singlebutton" name="singlebutton" class="btn btn-primary">Actualizar</button>
                     </div>
-                </div>               
+                </div>    
+                </ul>
+      </li>
+	  <?php } ?>           
         </form>
     </div>                
                 <div class="form-group" style="display:none">

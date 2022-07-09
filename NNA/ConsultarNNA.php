@@ -105,7 +105,7 @@
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered">
                                         <tr>
-                                            <td colspan="11" class="letra n600 azulo">Total Ni&ntilde;os, Ni&ntilde;as Adolecentes Registrados: <?php
+                                            <td colspan="11" class="letra n600 azulo" bgcolor="#ff9933">Total Ni&ntilde;os, Ni&ntilde;as Adolecentes Registrados: <?php
                                                                                                                                                 $con4 = mysqli_query($con, "SELECT count(id_ninnos) FROM ninnosnna where id_usuario='$id_usuario'");
 
                                                                                                                                                 while ($row4 = mysqli_fetch_array($con4)) {

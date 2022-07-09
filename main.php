@@ -64,7 +64,7 @@ if($_SESSION['numero_documento']=="")
 #CODIGO PARA MOSTRAR DATOS DEL USUARIO CONECTADO
 $id_usuario = $_SESSION['numero_documento'];
 $consulta= "SELECT * FROM usuarios where numero_documento='$id_usuario' ";
-$resultado= mysqli_query($con,$consulta) or die (mysqli_error());
+$resultado= mysqli_query($con,$consulta) or die(mysqli_error($con));
 $fila=mysqli_fetch_array($resultado);
 $nombres = $fila['nombres'];
 $apellido = $fila['apellidos'];
@@ -169,6 +169,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="main.php?key=0">Inicio</a></li>
+      
       <li class="dropdown">
         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Consultar
         <span class="caret"></span></a>
@@ -187,9 +188,10 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
           <li><a href="main.php?key=2">Madre, Padre o Cuidador</a></li>
           <li><a href="main.php?key=12">Expedientes</a></li>
         </ul>
+        <li><a href="main.php?key=4">Mi usuario</a></li>
       </li>
 	  <?php } ?>
-      <li><a href="main.php?key=4">Mi usuario</a></li>
+
      
     </ul>
     <ul class="nav navbar-nav navbar-right center-block">
