@@ -24,7 +24,6 @@ use Dompdf\PhpEvaluator;
  *
  * Dompdf\Adapter\CPDF provides a simple stateless interface to the stateful one
  * provided by the Cpdf class.
- *
  * Unless otherwise mentioned, all dimensions are in points (1/72 in).  The
  * coordinate origin is in the top left corner, and y values increase
  * downwards.

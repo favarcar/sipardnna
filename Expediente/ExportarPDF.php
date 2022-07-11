@@ -1,6 +1,5 @@
 <?php
 // Cargamos la librería dompdf que hemos instalado en la carpeta dompdf
-include("../conexion/conexion.php");
 $codigo_expediente=$_GET['codigo_expediente'];
 
 $busqueda50=mysqli_query($con,"SELECT * FROM expediente where codigo_expediente='$codigo_expediente' ");//cambiar nombre de la tabla de busqueda

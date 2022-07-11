@@ -215,12 +215,15 @@
                                                         
                                                         echo '<h5 class="letra n500 azulo centrar ps linku "><a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="linku">Consultar</a></h5>';
                                                         
-                                                        } else {
-                                                            echo "NO tiene Cuidador asignado";
-                                                            
+                                                        } elseif($nuser == 1 || $nuser == 2) {
+                                                            echo "NO tiene Cuidador asignado";  
                                                             echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'">Registrar</a>';
                                                       
-                                                        } ?>
+                                                        } 
+                                                        elseif($nuser == 3) {
+                                                            echo "NO tiene Cuidador asignado"; 
+                                                        }
+                                                        ?>
                                                     </td>
                                             <?php
                                             }

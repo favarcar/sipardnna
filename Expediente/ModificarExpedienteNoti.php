@@ -35,7 +35,7 @@ while ($row50 = mysqli_fetch_array($busqueda50)) {
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
           <h2 class=" letra n600 azulo pi">
            <?php
-            echo'<h5 class="letra n500  azulo " align="right"><a href="main.php?key=24&codigo_expediente='.$codigo_expediente.'" class=" btn btn-primary">Exportar PDF</a></h5>';
+            echo'<h5 class="letra n500  azulo " align="right"><a href="Expediente/expedientepdf.php?codigo_expediente='.$codigo_expediente.'" class=" btn btn-primary">Exportar PDF</a></h5>';
           ?>
             </h2>
         </div>
@@ -89,11 +89,11 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
 <section class="fblanco">
   <div class="container pi3x">
   <h3 class="centrar letra n600 azulo pi">Modificar Expediente </h3>
-    <form class="form-horizontal num-columnas2 ps2x" method="post" enctype="multipart/form-data">
+    <form class="form-horizontal ps2x" method="post" enctype="multipart/form-data">
       <fieldset>
         <!-- Appended checkbox -->
         <!-- Text input-->
-        <div class="form-group">
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Codigo del expediente</label>
           <div class="col-md-8">
             <input id="textinput" name="cod_exp" type="text" placeholder="" class="form-control input-md" value="<?php
@@ -106,14 +106,14 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha de Inicio del Expediente</label>
           <div class="col-md-8">
             <input id="textinput" name="fecha_exp" type="text" placeholder="" class="form-control input-md" value="<?php echo $Fecha_inicio_expediente ?>" readonly>
 
           </div>
         </div>
-        <div class="form-group">
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Ni&ntilde;o, Ni&ntilde;a o Adolecente</label>
           <div class="col-md-8">
             <input id="textinput" name="nom_nna_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
@@ -121,14 +121,14 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. Documento N.N.A. </label>
           <div class="col-md-8">
             <input id="textinput" name="num_nna_exp" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" readonly>
 
           </div>
         </div>
-        <div class="form-group">
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Madre, Padre o Acudiente</label>
           <div class="col-md-8">
             <input id="textinput" name="nom_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $ApellidosCuida ?> <?php echo $NombresCuida ?> " readonly>
@@ -136,7 +136,7 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento de Madre, Padre o Acudiente</label>
           <div class="col-md-8">
             <input id="textinput" name="num_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $No_Cedula ?>" readonly>
@@ -144,7 +144,7 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
           </div>
         </div>
 
-        <div class="form-group" style="display:none">
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_cuidadores</label>
           <div class="col-md-8">
             <input id="textinput" name="cuidadores_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $id_cuidadores ?>" readonly>
@@ -154,7 +154,7 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
 
 
 
-        <div class="form-group">
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Restablecimiento de Derechos</label>
           <div class="col-md-8">
 
@@ -186,7 +186,7 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
           </div>
         </div>
 
-        <div class="form-group">
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
           <div class="col-md-8">
             <?php
@@ -217,8 +217,7 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
         </div>
             </fieldset>
 
-    </form>
-
+   
 
         <div class="col-md-12 col-sm-6 col-xs-12 form-group well">
           <label>Indicadores</label>
@@ -387,15 +386,15 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
             <select name="estadocaso_exp" id="estadocaso_exp" class="form-control" style="text-transform: uppercase;" required>
               <option value="<?php echo $id_estadocaso  ?>"><?php echo  $des_estadocaso  ?></option>
               <?php
-              $con = mysqli_query($con, "select * from  estado_caso");
-              $reg = mysqli_fetch_array($con);
+              $estado_con = mysqli_query($con, "select * from  estado_caso");
+              $reg = mysqli_fetch_array($estado_con);
               do {
                 $id_estadocaso = $reg['id_estadocaso'];
                 $des_estadocaso = $reg['descripcion_estado_caso'];
               ?>
                 <option value="<?php echo $id_estadocaso; ?>"><?php echo $des_estadocaso; ?> </option>
               <?php
-              } while ($reg = mysqli_fetch_array($con));
+              } while ($reg = mysqli_fetch_array($estado_con));
               ?>
 
             </select>
@@ -403,9 +402,9 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
         </div>
 
         <div class="form-group" style="display:none">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_usuario </label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">codigo_expediente </label>
           <div class="col-md-8">
-            <input id="textinput" name="id_usuario_exp" type="sisben_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $id_usuario ?>" required>
+            <input id="textinput" name="id_usuario_exp" type="sisben_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $codigo_expediente ?>" required>
 
           </div>
         </div>
@@ -441,10 +440,11 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
     </script>
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
-      <?php
-    if ($_POST) { //si se ha presionado enviar
+    <?php
+    //print_r($_POST);
+        if (isset($_POST['singlebutton'])) { //si se ha presionado enviar
 
-          $fecha_exp = $_POST['fecha_exp'];
+                  $fecha_exp = $_POST['fecha_exp'];
           $cod_exp = $_POST['cod_exp'];
           $cuidadores_exp = $_POST['cuidadores_exp'];
           $discapacidad_exp = $_POST['discapacidad_exp'];
@@ -461,15 +461,34 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
           $estadocaso_exp = $_POST['estadocaso_exp'];
 
 
-          mysqli_query($con, "UPDATE `expediente` SET `codigo_expediente`='$codigo_expediente',`Fecha_inicio_expediente`='$fecha_exp',`id_ninnos`='$cod_exp',`id_cuidadores`='$cuidadores_exp',`id_discapacidad`='$discapacidad_exp',`id_indicador`='$indicadores_exp',`id_maltrato`='$maltratos_exp',`id_victima`='$victima_exp',`Descripcion_expediente`='$descripcion_exp',`id_derecho`='$derechos_exp',`Observacion`='$obs_exp',`Veredicto_Caso`='$veredicto_exp',`Fecha_finalizacion_expediente`='$finalizacion_exp',`id_entidad`='$entidad_exp',`id_usuario_exp`='$id_usuario_exp', id_estadocaso='$estadocaso_exp' 
+          
+          mysqli_query($con, "UPDATE expediente SET 
+          codigo_expediente='$codigo_expediente',
+          Fecha_inicio_expediente='$fecha_exp',
+          id_ninnos='$cod_exp',
+          id_cuidadores='$cuidadores_exp',
+          id_discapacidad='$discapacidad_exp',
+          id_indicador='$indicadores_exp',
+          id_maltrato='$maltratos_exp',
+          id_victima='$victima_exp',
+          Descripcion_expediente='$descripcion_exp',
+          id_derecho='$derechos_exp',
+          Observacion='$obs_exp',
+          Veredicto_Caso='$veredicto_exp',
+          Fecha_finalizacion_expediente='$finalizacion_exp',
+          id_entidad='$entidad_exp',
+          id_usuario_exp='$id_usuario_exp',
+          id_estadocaso='$estadocaso_exp' 
           WHERE codigo_expediente='$codigo_expediente'");
+          mysqli_close($con);
+            
 
           echo '<script language = javascript>
 alert("la Informacion ha sido Guardada Correctamente")
 self.location = "main.php?key=19&codigo_expediente='.$codigo_expediente.'"
 </script>';
-        }
-        ?>
+      }
+      ?>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
@@ -489,27 +508,44 @@ self.location = "main.php?key=19&codigo_expediente='.$codigo_expediente.'"
   ga('send', 'pageview');
 </script>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
 
+    <script src="js/vendor/bootstrap.min.js"></script>
 
-<script>
-  function numeros(e) {
-    key = e.keyCode || e.which;
-    tecla = String.fromCharCode(key).toLowerCase();
-    letras = " 0123456789";
-    especiales = [8, 37, 39, 46];
+    <script src="js/main.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- PNotify -->
+    <script src="css/pnotify/dist/pnotify.js"></script>
+    <script src="css/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="css/pnotify/dist/pnotify.nonblock.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ui-pnotify').remove();
+        });
+    </script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
 
-    tecla_especial = false
-    for (var i in especiales) {
-      if (key == especiales[i]) {
-        tecla_especial = true;
-        break;
-      }
-    }
+    <script src="js/jsMenuAddNinosNinas.js"></script>
 
-    if (letras.indexOf(tecla) == -1 && !tecla_especial)
-      return false;
-  }
-</script>
 </body>
 
 </html>

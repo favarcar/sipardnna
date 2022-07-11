@@ -248,7 +248,7 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                                         <label>Fecha limite de la actuación administrativa</label>
-                                        <input id="finalizacion_exp" name="finalizacion_exp" class="form-control" placeholder="AAAA-MM-DD" font style="text-transform: uppercase;" required>
+                                        <input id="finalizacion_exp" name="finalizacion_exp" type="date" class="form-control" placeholder="AAAA-MM-DD" font style="text-transform: uppercase;" required>
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                                         <label>Entidad</label>
@@ -301,7 +301,7 @@
                                     <div class="col-md-12 col-sm-6 col-xs-12 form-group well" id="addActuacion">
 
                                         <label>Fecha Actuacion</label>
-                                        <input id="FechaActuacion" name="FechaActuacion" placeholder="AAAA-MM-DD" class="form-control input-md" onkeypress="return numeros(event)">
+                                        <input id="FechaActuacion" name="FechaActuacion" type="date" placeholder="AAAA-MM-DD" class="form-control input-md" onkeypress="return numeros(event)">
 
                                         <label>Funcionario</label>
 
