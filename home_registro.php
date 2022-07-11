@@ -16,8 +16,8 @@
 	  <div class="col-lg-6">
 	  <img width="100%" src="img/bg-1.png">
 	  </div>
-
-	  <div class="col-lg-3">
+     
+ 	  <div class="col-lg-3">
       <div class="col-md-12 col-sm-12 ps pi">
       <a href="main.php?key=12"><img src="iconos/expe2.png" alt="..." width="100" height="100" class="center-block pic"></a>
       <h4 class="centrar letra azulo n400 ps"><strong>Consultar Expedientes </strong></h4>
@@ -27,10 +27,12 @@
       <a href="main.php?key=4"><img src="iconos/usuario2.png" alt="..." width="100" height="100" class="center-block pic"></a>
       <h4 class="centrar letra azulo n400 ps"><strong>Mi Usuario</strong></h4>
       </div>
+ 	  <div class="col-lg-3">
       <div class="col-md-12 col-sm-12 ps pi">
-      <a href="main.php?key=13" class="btn btn-primary"><i class="fa fa-exclamation-circle"class="center-block pic"></i> Notificaciones</a>
+      <a href="main.php?key=13" class="btn btn-primary"><i class="fa fa-exclamation-circle"class="center-block pic"  align="center"></i> Notificaciones</a>
       <h4 class="centrar letra azulo n400 ps"></h4>
       </div>
+
    </div>
 </div>
     </section>
