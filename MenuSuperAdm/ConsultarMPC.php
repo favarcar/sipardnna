@@ -61,8 +61,8 @@ self.location = "index.html"
 $id_usuario = $_SESSION['numero_documento'];
 
 $consulta= "SELECT * FROM usuarios where numero_documento='$id_usuario' "; 
-$resultado= mysql_query($consulta,$con) or die (mysql_error());
-$fila=mysql_fetch_array($resultado);
+$resultado= mysqli_query($con,$consulta) or die(mysqli_error($con));
+$fila=mysqli_fetch_array($resultado);
 $nombres = $fila['nombres'];
 $apellido = $fila['apellidos'];
 

@@ -275,7 +275,7 @@ if($_POST){ //si se ha presionado enviar
   
    
 
- mysql_query("INSERT INTO `remite` VALUES ('$id_remite','$codigo_expediente','$id_ninnos','$id_usu','$id_usuario')") or die(mysql_error());
+ mysqli_query("INSERT INTO `remite` VALUES ('$id_remite','$codigo_expediente','$id_ninnos','$id_usu','$id_usuario')") or die(mysqli_error($con));
 	
 
 	echo '<script language = javascript>

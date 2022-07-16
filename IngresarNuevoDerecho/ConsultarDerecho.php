@@ -33,7 +33,7 @@
         <script type="text/javascript" src="engine1/jquery.js"></script>
         <!-- End WOWSlider.com HEAD section -->
 
-	</head>
+        </head>
  <body class="fblanco">
 <script language="JavaScript">
 function Borra(idcliente)
@@ -60,7 +60,7 @@ self.location = "index.html"
 $id_usuario = $_SESSION['numero_documento'];
 
 $consulta= "SELECT * FROM usuarios where numero_documento='$id_usuario' "; 
-$resultado= mysqli_query($con,$consulta) or die (mysql_error());
+$resultado= mysqli_query($con,$consulta) or die(mysqli_error($con));
 $fila=mysqli_fetch_array($resultado);
 $nombres = $fila['nombres'];
 $apellido = $fila['apellidos'];
@@ -88,7 +88,7 @@ $apellido = $fila['apellidos'];
 <br>
 <section class="fblanco">
            <div class="container pu pi">
-  <?php 
+           <?php 
   
   if(isset($_POST['Submit'])){ ?>                                                                      
               <div class="table-responsive"> 
@@ -111,7 +111,7 @@ $apellido = $fila['apellidos'];
 		 
 				</tr>
 				<tbody>
-	 <?php
+                <?php
 $busca="";
 $busca=$_POST['busca'];
 

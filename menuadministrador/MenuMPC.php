@@ -14,7 +14,7 @@ if (!$_SESSION){
 }
     $id_usuario = $_SESSION['numero_documento'];
     $consulta = "SELECT * FROM usuarios WHERE numero_documento='$id_usuario' "; 
-    $resultado = mysqli_query($con,$consulta) or die (mysql_error());
+    $resultado= mysqli_query($con,$consulta) or die(mysqli_error($con));
     $fila = mysqli_fetch_array($resultado);
     $nombres = $fila['nombres'];
     $apellido = $fila['apellidos'];
