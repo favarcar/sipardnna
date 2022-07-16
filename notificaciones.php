@@ -2,7 +2,7 @@
 $id_usuario = $_SESSION['numero_documento'];
 
 $consulta= "SELECT * FROM usuarios where numero_documento='$id_usuario' "; 
-$resultado= mysqli_query($con,$consulta) or die (mysqli_error());
+$resultado= mysqli_query($con,$consulta) or die (mysqli_error($con));
 $fila=mysqli_fetch_array($resultado);
 $nombres = $fila['nombres'];
 $apellido = $fila['apellidos'];
@@ -12,17 +12,15 @@ date_default_timezone_set('America/Bogota');
     $time = time();
     $fecha=  date("Y-m-d", $time);
 ?>
-
-
-                             <div class="row clearfix ps2x pi">
-                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                   <h1 class="centrar letra n600 azulo pi">Notificaciones</h1>
-                                </div>
-                             </div>
+              <section class="fblanco" >  
+                <div class="row clearfix ps2x pi">  
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">    
+                        <h3 class="centrar letra n600 azulo pi">Notificaciones</h3>   
                              
-          <h4 class="centrar letra n600 azulo pi"></h4>                                                               
-        <div class="table-responsive"> 
-        <table class="table table-striped table-bordered">
+    <h4 class="centrar letra n600 azulo pi"></h4>                                                               
+    <div class="table-responsive"> 
+    <table class="table table-striped table-bordered">
+    <fieldset>
             
             
             <tr>
@@ -57,7 +55,7 @@ date_default_timezone_set('America/Bogota');
             $id_estadocaso=$datos['id_estadocaso'];
             $fecha_limite=$datos['Fecha_finalizacion_expediente'];
             
-            if($fecha == $fecha_limite || $id_estadocaso == 2 ){
+            if($fecha > $fecha_limite || $id_estadocaso == 2 ){
             } else{                    
                 ?>
             <tr>
@@ -84,7 +82,8 @@ date_default_timezone_set('America/Bogota');
                 }else if($dias>=45&&$dias<90){
                   echo'<span style="color: orange;">'.$interval->format('%a días').'</span>';
                 }else{
-                  echo '<span style="color: red;">'.$interval->format('%a días').'</span>';
+                    echo '<span style="color: red;">'.$interval->format('%a días').'</span>';
+                    
                 } ?></td>
                 <td align="center"><a href="main.php?key=19&codigo_expediente=<?php echo $datos['codigo_expediente'];?>&id_ninnos=<?php echo $datos['id_ninnos'];?>" class="linku">Ver</a></td>
             </tr>  
@@ -92,35 +91,110 @@ date_default_timezone_set('America/Bogota');
 
         </table>
         </div>                                                     
-             </div>  
+        </fieldset>
+    <div class="clearfix"></div>
+            </section>
+            
 
 
-
-                             <div class="row clearfix ps pi"></div>  
-
-
-
-                             <div class="row clearfix ps pi2x"></div>                        
-          </div>        
-    </section>
-
-  
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
 
     <script src="js/vendor/bootstrap.min.js"></script>
 
     <script src="js/main.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
-        
-    </body>
-</html>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- Datatables -->
+    <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="css/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="css/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="css/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="css/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="css/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="css/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+
+    <!-- PNotify -->
+    <script src="css/pnotify/dist/pnotify.js"></script>
+    <script src="css/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="css/pnotify/dist/pnotify.nonblock.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ui-pnotify').remove();
+        });
+    </script>
+
+    <script src="js/jsAddExpediente.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+
+        function numeros(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " 0123456789";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
+    </script>
+ </body>

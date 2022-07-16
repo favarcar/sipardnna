@@ -27,12 +27,10 @@
       <a href="main.php?key=4"><img src="iconos/usuario2.png" alt="..." width="100" height="100" class="center-block pic"></a>
       <h4 class="centrar letra azulo n400 ps"><strong>Mi Usuario</strong></h4>
       </div>
- 	  <div class="col-lg-3">
-      <div class="col-md-12 col-sm-12 ps pi">
-      <a href="main.php?key=13" class="btn btn-primary"><i class="fa fa-exclamation-circle"class="center-block pic"  align="center"></i> Notificaciones</a>
-      <h4 class="centrar letra azulo n400 ps"></h4>
-      </div>
-
    </div>
 </div>
+<div class="col text-center">
+      <a href="main.php?key=13" class="btn btn-primary"><i class="fa fa-exclamation-circle"class="center-block pic"></i> Notificaciones</a>
+      <h4 class="centrar letra azulo n400 ps"></h4>
+      </div>
     </section>

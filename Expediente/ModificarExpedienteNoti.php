@@ -35,7 +35,7 @@ while ($row50 = mysqli_fetch_array($busqueda50)) {
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
           <h2 class=" letra n600 azulo pi">
            <?php
-            echo'<h5 class="letra n500  azulo " align="right"><a href="Expediente/expedientepdf.php?codigo_expediente='.$codigo_expediente.'" class=" btn btn-primary">Exportar PDF</a></h5>';
+            echo'<h5 class="letra n500  azulo " align="right"><a href="Expediente/ExportarPDF.php?codigo_expediente='.$codigo_expediente.'" target="_blank" rel="noopener noreferrer" class=" btn btn-primary">Exportar PDF</a></h5>';
           ?>
             </h2>
         </div>

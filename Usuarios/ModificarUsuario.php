@@ -75,7 +75,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                     <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Tipo de Documento</label> 
                     <div class="col-md-8">
                         <div class="input-group">
-                            <select name="tip_doc_usu" id="tip_doc_usu">
+                            <select name="tip_doc_usu" id="tip_doc_usu" disabled>
                             <?php
                                 $busqueda1 = mysqli_query($con,"SELECT * FROM tipos_documentos WHERE id_tipo_documento = '$id_tipo_documento'");
                                 while($row1 = mysqli_fetch_array($busqueda1)){        
@@ -111,7 +111,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                     <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
                     <div class="col-md-8">
                         <div class="input-group">
-                            <select name="genero_usu" id="genero_usu"> 
+                            <select name="genero_usu" id="genero_usu" disabled> 
                             <?php
                                 $busqueda1 = mysqli_query($con,"SELECT * FROM generos WHERE id_genero = '$id_genero' ");
                                 while($row1=mysqli_fetch_array($busqueda1)){
@@ -140,7 +140,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                     <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Municipio</label>
                     <div class="col-md-8">
                         <div class="input-group">
-                            <select name="municipio_usu" id="municipio_usu">
+                            <select name="municipio_usu" id="municipio_usu" disabled>
                              <option value="<?php echo $id_municipio1; ?>"><?php echo $des_municipio; ?></option>
                                 <?php 
                                     

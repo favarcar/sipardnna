@@ -143,15 +143,15 @@ while($row1=mysqli_fetch_array($busqueda1)){
                       <select name="tip_doc_nna" id="tip_doc_nna" disabled >
         <option value="<?php echo $id_tipo_documento;   ?>"><?php echo $descripcion; ?></option>
         <?php
-	  $con=mysqli_query($con,"select * from  tipos_documentos");
-	  $reg=mysqli_fetch_array($con);
+	  $condoc=mysqli_query($con,"select * from  tipos_documentos");
+	  $reg=mysqli_fetch_array($condoc);
 	  do {
 		  $id=$reg['id_tipo_documento'];
 		  $des=$reg['descripcion'];
 		  ?>
         <option value="<?php echo $id;?>" ><?php echo $des;?> </option>
         <?php
-	  } while($reg=mysqli_fetch_array($con));
+	  } while($reg=mysqli_fetch_array($condoc));
 	  ?>
         
         </select>
@@ -403,7 +403,7 @@ while($row1=mysqli_fetch_array($busqueda1)){
                   <div class="col-md-4">
                     <div class="input-group">
                     <?php  $busqueda1=mysqli_query($con,"SELECT * FROM eps where id_eps='$id_eps' ");
-while($row1=mysql_fetch_array($busqueda1)){
+while($row1=mysqli_fetch_array($busqueda1)){
 		  
 		  $id_eps1=$row1['id_eps'];		
           $des_eps=$row1['descripcion'];             
@@ -434,7 +434,7 @@ while($row1=mysql_fetch_array($busqueda1)){
                   <div class="col-md-4">
                     <div class="input-group">
                     
-					<?php  $busqueda1=mysqli_query("SELECT * FROM etnias where id_etnia='$id_etnia' ");
+					<?php  $busqueda1=mysqli_query($con, "SELECT * FROM etnias where id_etnia='$id_etnia' ");
 while($row1=mysqli_fetch_array($busqueda1)){
 		  
 		  $id_etnia=$row1['id_etnia'];		
@@ -577,7 +577,7 @@ if($_POST){ //si se ha presionado enviar
    $zona_nna=$_POST['zona_nna'];
    $fecha_ing = $_POST['fecha_ingre_nna']; 
    $id_usuario_nna= $_POST['id_usuario_nna'];
-   $cuidadores_nna=0;
+   $cuidadores_nna=$_POST['id_cuidadores'];
    
 
 mysqli_query($con,"UPDATE `ninnosnna` SET `id_tipo_documento`='$tip_doc_nna',`No_identificacion`='$num_nna',`Nombres`='$nom_nna',`Apellidos`='$ape_nna',`Fecha_Nacimiento`='$fecha_nn',`Edad`='$edad_nna',`Direccion`='$dir_nna',`telefono_movil`='$tel_nna',`correo_electronico`='$email_nna',`id_genero`='$genero_nna',`id_estrato`='$estrato_nna',`id_niveleducativo`='$nivel_educa_nna',`id_cuidadores`='$cuidadores_nna',`id_municipio`='$municipio_nna',`id_provincia`='$provincia_nna',`id_regimen`='$regimen_nna',`id_eps`='$eps_nna',`id_etnia`='$etnias_nna',`Puntaje_Sisben`='$sisben_nna',`id_zona`='$zona_nna',`fecha_ingreso`='$fecha_ing',`id_usuario`='$id_usuario_nna' WHERE id_ninnos='$id_ninnos'");

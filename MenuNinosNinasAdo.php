@@ -417,7 +417,7 @@
                                 </div>                                
 
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                    <label>Nivel educativo (Último nivel cursado)</label>
+                                    <label>Nivel educativo</label>
                                     <select name="nivel_educa_nna" id="nivel_educa_nna" class="form-control" style="text-transform: uppercase;" required>
                                         <option value="">Seleccione</option>
                                         <?php
@@ -595,7 +595,7 @@
         $zona_nna = $_POST['zona_nna'];
         $pais_nna = $_POST['pais_nna'];
         //$fecha_ing = $fecha;
-        $cuidadores_nna = 0;
+        $cuidadores_nna = $_POST['id_cuidadores'];
         $motivoingreso = $_POST['motivo_ingreso'];
         $fecha_hechos = $_POST['fecha_hechos'];
         $municipio_in=$_POST['municipio_in'];

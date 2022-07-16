@@ -114,7 +114,13 @@ $('#expeTable').DataTable({
     {
       "targets": [7],      
       "render": function (data, type, row) {
-        return '<div class="btn-group btn-group-xs"><a type="button" class="btn btn-success"  onClick="getEstadoExpediente(' + row.id_ninnos + ')" title="Consultar Expediente"><i class="fa fa-search"></i></a></div>';
+        var id_cuida;
+        id_cuida = getDato('cuidadores','id_ninos', row.id_ninnos,'id_cuidadores' );
+        if('id_cuidadores'==0){
+          "No tiene cuidador registrelo"
+        } else{
+        return '<div class="btn-group btn-group-xs"><a type="button" class="btn btn-success"  onClick="getEstadoExpediente(' + row.id_ninnos + ')" title="Consultar Expediente'+ id_cuida +'"><i class="fa fa-search"></i></a></div>';
+      }
       }
     },
   ],
@@ -150,7 +156,9 @@ function consultarExpediente(idNino) {
     $("#RegistroExp").show();
     $("#ConsultaExp").hide();
   }
+  
 }
+
 
 
 function showRegistroExpe(idNino) {
@@ -188,9 +196,11 @@ function showRegistroExpe2(idNino) {
       var f = new Date();
       $.each(niño, function (i, item) {
         $("#idnino").val(item.id_ninnos);
+        alert(item.id_ninnos);
         $("#fecha_exp").val(f.getFullYear() + "-" + (f.getMonth() + 1) + "-" + f.getDate());
         $("#nom_nna_exp").val(item.Nombres + " " + item.Apellidos);
         $("#num_nna_exp").val(item.No_identificacion);
+        
         if (item.Nombres_cuidadores === undefined) {
           $("#nom_mpa_exp").val("No hay registro de cuidador");
           $("#num_mpa_exp").val("No hay registro de cuidador");

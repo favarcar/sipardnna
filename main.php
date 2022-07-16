@@ -25,6 +25,7 @@ ini_set('error_reporting', E_ALL);
 
 <?php
 include("conexion/conexion.php");
+include("funshow.php");
 //include ("funshow.php");
 $verdato = $_GET['key'];
 
@@ -261,6 +262,8 @@ if ($verdato == 22){include("IngresarNuevoDerecho/ModificarDerecho.php");}
 if ($verdato == 23){include("MPC/ConsultarMPC.php");}
 if ($verdato == 24){include("Expediente/ExportarPDF.php");}
 if ($verdato == 25){include("Expediente/RegistrarConsultarExpediente.php");}
+if ($verdato == 26){include("redireexpe.php");}
+
 
 if ($verdato == 102) {include("user_list.php");}
 if ($verdato == 105) {include("user_update.php");}

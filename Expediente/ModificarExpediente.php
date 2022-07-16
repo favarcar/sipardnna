@@ -457,15 +457,15 @@ self.location = "index.html"
               <select name="estadocaso_exp" id="estadocaso_exp" required class="form-control" style="text-transform: uppercase;">
                 <option value="<?php echo $id_estadocaso  ?>"><?php echo  $des_estadocaso  ?></option>
                 <?php
-                $con = mysqli_query($con, "select * from  estado_caso");
-                $reg = mysqli_fetch_array($con);
+                $con_estado = mysqli_query($con, "select * from  estado_caso");
+                $reg = mysqli_fetch_array($$con_estado);
                 do {
                   $id_estadocaso = $reg['$id_estadocaso'];
                   $des_estadocaso = $reg['descripcion_estado_caso'];
                 ?>
                   <option value="<?php echo $id_estadocaso; ?>"><?php echo $des_estadocaso; ?> </option>
                 <?php
-                } while ($reg = mysqli_fetch_array($con));
+                } while ($reg = mysqli_fetch_array($$con_estado));
                 ?>
 
               </select>

@@ -2,8 +2,8 @@
 // Cargamos la librería dompdf que hemos instalado en la carpeta dompdf
 $codigo_expediente=$_GET['codigo_expediente'];
 
-$busqueda50=mysqli_query($con,"SELECT * FROM expediente where codigo_expediente='$codigo_expediente' ");//cambiar nombre de la tabla de busqueda
-while($row50=mysqli_fetch_array($busqueda50)){
+$busqueda_pdf=mysqli_query($con,"SELECT * FROM expediente where codigo_expediente='$codigo_expediente' ");//cambiar nombre de la tabla de busqueda
+while($row50=mysqli_fetch_array($busqueda_pdf)){
 	
 	 $codigo_expediente=$row50['codigo_expediente'];
 	$Fecha_inicio_expediente=$row50['Fecha_inicio_expediente'];

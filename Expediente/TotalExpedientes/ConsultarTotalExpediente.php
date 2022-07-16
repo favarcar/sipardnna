@@ -138,7 +138,7 @@
                                         <td class="col-md-4 control-label letra n600 azulo">Consultar Expedientes</td> 
                                     </tr>
                                     <tbody>
-	<?php $busqueda = mysqli_query($con,"SELECT * FROM ninnosnna ORDER BY id_ninnos DESC"); //cambiar nombre de la tabla de busqueda
+	<?php $busqueda = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio ='$id_municipio' ORDER BY id_ninnos DESC " ); //cambiar nombre de la tabla de busqueda
          while($row = mysqli_fetch_array($busqueda)){
              $apellidos = $row['Apellidos'];
              $nombres = $row['Nombres'];
@@ -152,10 +152,11 @@
                                             <td><?php echo $apellidos;?>&nbsp;<?php echo $nombres;?></td>
                                             <td align="center"><?php echo $numero_documento;?></td>
                                             <td align="center">
-          <?php $busqueda1 = mysqli_query($con,"SELECT * FROM municipios WHERE id_municipio = '$id_municipio' ");
-            while($row1 = mysqli_fetch_array($busqueda1)){
-                echo $row1['descripcion'];
-            } ?>
+          <?php
+           
+          echo consulta_campo("municipios","id_municipio",$id_municipio,"descripcion");
+          
+          ?>
                                             </td>
                                             <td align="center">
           <?php $busqueda2 = mysqli_query($con,"SELECT * FROM provincias WHERE id_provincia = '$id_provincia' ");

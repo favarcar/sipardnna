@@ -15,7 +15,7 @@
             <input name="busca" type="text" id="busqueda">
             <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
         </center>
-        <br>
+        <br> 
 
         <section class="fblanco">
             <div class="container pu pi">
@@ -229,6 +229,8 @@
                                             }
                                         } ?>
                                                 </tr>
+                                                <iframe name="usuario" src="MPC/ConsultarMPC.php" width="100%" height="0" frameborder="0" transparency="transparency" onload="autofitIframea(this);" scrolling="no"></iframe>
+
                                     </table>
                                 </div>
                             </div>

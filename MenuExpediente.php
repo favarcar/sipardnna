@@ -62,6 +62,9 @@
             </div>
         </div>
     </section>
+    <?php 
+
+        ?>
 
     <!--iframe name="usuario" src="Expediente/ConsultarExpediente.php" width="100%"   height="0" frameborder="0" transparency="transparency" onload="autofitIframea(this);" scrolling="no"></iframe-->
 
@@ -79,7 +82,7 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                     <label>Código del niño/a o Adolescente</label>
-                                    <input id="idnino" name="idnino" type="text" placeholder="" class="form-control input-md" value="" readonly>
+                                    <input id="idnino" name="idnino" type="text" placeholder="" class="form-control input-md" value="" >
                                 </div>
 
                                 <div class="col-md-6 col-sm-4 col-xs-12 form-group">
@@ -183,9 +186,10 @@
                                             } while ($reg77 = mysqli_fetch_array($con77));
                                             ?>
                                         </select> <br>
-                                        <button type="button" class="btn btn-success gu table-add"> Agregar
+                                            <button type="button" class="btn btn-success gu table-add"> Agregar
                                             <span class="glyphicon glyphicon-plus"></span>
                                         </button>
+                                       
                                         <!--FIN DE INSERTAR FILA -->
                                         <table id="table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
@@ -368,7 +372,7 @@
                 </div>
             </div>
         </div>
-
+ 
         </form>
         <div class="clearfix"></div>
     </section>
@@ -419,6 +423,7 @@
                                 <br>
                                 <br>
                                 <br>
+                        
                                 <!--col-md-offset-8-->
                             </div>
 
@@ -512,6 +517,8 @@
 
                             </div>
                             <!-- /.col-lg-6 (nested) -->
+                          
+
                         </div>
                     </div>
                 </div>
@@ -586,9 +593,15 @@
             $('.ui-pnotify').remove();
         });
     </script>
+<?php 
+ if('id_cuidadores'==0){
+        echo'No tiene cuidador registrelo';
+ } else{echo'<script src="js/jsAddExpediente.js"></script>'
+    ?>
 
-    <script src="js/jsAddExpediente.js"></script>
-
+   <?php
+}
+?>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
         (function(b, o, i, l, e, r) {
