@@ -63,104 +63,13 @@ $('#expeTable').DataTable({
     { data: 'No_identificacion' },
     { data: 'id_pais' },
     { data: 'id_departamento' },
-    { data: 'id_municipio' },
+    { data: 'id_municipio_hechos' },
     { data: 'id_provincia' },
     { data: 'Edad' }    
   ],
   "columnDefs": [
 
-    {
-      "targets": [0],
-      "data": "Nombres",
-      "render": function (data, type, row) {
-        return "<span class='dt-body-left'>" + data + " " + row.Apellidos + "</span>";
-
-      }
-
-    },
-    {
-      "targets": [2],
-      "data": "id_pais",
-      "render": function (data, type, row) {        
-        return "<span class='dt-body-left'>" + row.nompais + "</span>";
-      }
-    }
-    ,
-    {
-      "targets": [3],
-      "data": "id_departamento",
-      "render": function (data, type, row) {
-        return "<span class='dt-body-left'>" + row.descripcion + "</span>";
-      }
-    },
-    {
-      "targets": [4],
-      "data": "id_municipio",
-      "render": function (data, type, row) {
-
-        return "<span class='dt-body-left'>" + row.nomdes + "</span>";
-      }
-
-    },
-    {
-      "targets": [5],
-      "data": "id_provincia",
-      "render": function (data, type, row) {
-        return "<span class='dt-body-left'>  " + row.descripcion_prov + "</span>";
-
-      }
-
-    },
-    {
-      "targets": [7],      
-      "render": function (data, type, row) {
-        var id_cuida;
-        id_cuida = getDato('cuidadores','id_ninos', row.id_ninnos,'id_cuidadores' );
-        if('id_cuidadores'==0){
-          "No tiene cuidador registrelo"
-        } else{
-        return '<div class="btn-group btn-group-xs"><a type="button" class="btn btn-success"  onClick="getEstadoExpediente(' + row.id_ninnos + ')" title="Consultar Expediente'+ id_cuida +'"><i class="fa fa-search"></i></a></div>';
-      }
-      }
-    },
-  ],
-});
-
-function getEstadoExpediente(idNino) {
-  $.post("Expediente/EstadoExpediente.php",
-    { id_ninoa: idNino },
-    function (data) {
-      var exp = JSON.parse(data);
-      $.each(exp, function (i, item) {
-        $("#EstadoExp").val(item.CONTADOR);
-        $("#idIExp").val(item.codigo);
-      });
-      consultarExpediente(idNino);
-    }
-  );
-}
-
-function consultarExpediente(idNino) {
-  if ($("#EstadoExp").val() > 0) {
-    getExpeIndicadores($("#idIExp").val());
-    getExpeActuaciones($("#idIExp").val());
-    showRegistroExpe(idNino);
-    showExpe(idNino);
-    $("#ConsultarExp").show();
-    $("#RegistroExp").hide();
-    $("#ConsultaExp").hide();
-    $("#addActuacion").hide();
-  } else {
-    alert("No se encontraron expedientes se procederá a crearlo");
-    showRegistroExpe2(idNino);
-    $("#RegistroExp").show();
-    $("#ConsultaExp").hide();
-  }
-  
-}
-
-
-
+   
 function showRegistroExpe(idNino) {
   $.post("Expediente/buscarNino.php",
     { id_ninoa: idNino },
@@ -174,6 +83,7 @@ function showRegistroExpe(idNino) {
         $("#numS_nna_exp").val(item.No_identificacion);
         if (item.Nombres_cuidadores === undefined) {
           $("#nomS_mpa_exp").val("No hay registro de cuidador");
+          $("#nomS_mpa_exp").after('<a clas="btn btn-primary" href="main.php?key=10&id_ninnos='+idNino+'">Agregar Cuidador</a>');
           $("#numS_mpa_exp").val("No hay registro de cuidador");
           $("#cuidadoresS_exp").val("No hay registro de cuidador");
         } else {
@@ -196,7 +106,7 @@ function showRegistroExpe2(idNino) {
       var f = new Date();
       $.each(niño, function (i, item) {
         $("#idnino").val(item.id_ninnos);
-        alert(item.id_ninnos);
+        
         $("#fecha_exp").val(f.getFullYear() + "-" + (f.getMonth() + 1) + "-" + f.getDate());
         $("#nom_nna_exp").val(item.Nombres + " " + item.Apellidos);
         $("#num_nna_exp").val(item.No_identificacion);

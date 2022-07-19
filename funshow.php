@@ -338,7 +338,12 @@ function consulta_campo($table, $fieldq, $idvar,$fieldr){
  global $con;
 $sql = mysqli_query($con,"SELECT * from $table WHERE $fieldq = '$idvar'");
 $row_sql = mysqli_fetch_assoc($sql);
-return $row_sql[$fieldr];
+if (!($row_sql)){
+	return "";
+}else{
+	return $row_sql[$fieldr];
+}
+
 }
  //Funcion para registrar movimientos de usuarios
  function user_log($user,$actividad){

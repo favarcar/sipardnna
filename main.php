@@ -186,7 +186,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="main.php?key=8">Niños niñas o adolescentes</a></li>
-          <li><a href="main.php?key=2">Madre, Padre o Cuidador</a></li>
+          <li><a href="main.php?key=11">Madre, Padre o Cuidador</a></li>
           <li><a href="main.php?key=12">Expedientes</a></li>
         </ul>
         <li><a href="main.php?key=4">Mi usuario</a></li>

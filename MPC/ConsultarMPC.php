@@ -102,9 +102,9 @@
                                 <td class="col-md-4 control-label letra n600 azulo">Municipio</td>
                                 <td class="col-md-4 control-label letra n600 azulo">Provincia</td>
                                 <td class="col-md-4 control-label letra n600 azulo">Edad</td>
-                                <td class="col-md-4 control-label letra n600 azulo">Registrar Madres, Padres o Cuidadores</td>
-                                <td class="col-md-4 control-label letra n600 azulo">Consultar/Editar Madres, Padres o Cuidadores</td>
-                                <td class="col-md-4 control-label letra n600 azulo">Eliminar Madres, Padres o Cuidadores</td>
+                                <td class="col-md-4 control-label letra n600 azulo">Registrar, Consultar o Editar MPC</td>
+                                <td class="col-md-4 control-label letra n600 azulo"> Eliminar Madres, Padres o Cuidadores</td>
+
                             </tr>
                             <tbody>
                                 <?php
@@ -196,7 +196,7 @@
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered">
                                         <tr>
-                                            <td colspan="11" class="letra n600 azulo" bgcolor="#ff9933">Total Usuarios Registrados:
+                                            <td colspan="10" class="letra n600 azulo" bgcolor="#ff9933">Total Usuarios Registrados:
                                                 <?php
                                                 $con4 = mysqli_query($con, "SELECT count(id_ninnos) FROM ninnosnna where id_usuario='$id_usuario'");
                                                 while ($row4 = mysqli_fetch_array($con4)) {
@@ -212,9 +212,8 @@
                                             <td class="col-md-4 control-label letra n600 azulo">Municipio</td>
                                             <td class="col-md-4 control-label letra n600 azulo">Provincia</td>
                                             <td class="col-md-4 control-label letra n600 azulo">Edad</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Registrar Madres, Padres o Cuidadores</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Consultar/Editar Madres, Padres o Cuidadores</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Eliminar Madres, Padres o Cuidadores</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Registrar, Consultar o Editar MPC</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Eliminar MPC</td>
                                         </tr>
                                         <tbody>
                                             <?php
@@ -275,21 +274,16 @@
                                                             $id_ninos21 = $row21['id_ninos'];
                                                         }
                                                         if ($id_ninos == $id_ninos21) {
-                                                            echo "Ya tiene Cuidador asignado";
-                                                        } else {
+                                                            ?>
+                                                            <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarRegistrosMPC.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar/Editar</a></h5>;
+                                                        <?php } else { echo "No tiene cuidador asignado";
                                                         ?>
                                                         <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?=key=10"id_ninnos=<?php echo $row['id_ninnos']; ?> class="linku">Registrar</a></h5>                                                   
                                                         </td> 
                                                     
                                                     <?php
                                                         } ?>
-                                                <td align="center">
-                                                    <?php if ($id_ninos == $id_ninos21) { ?>
-                                                        <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarRegistrosMPC.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar/Editar</a></h5>
-                                                    <?php } else {
-                                                        echo "NO tiene Cuidador asignado";
-                                                    } ?>
-                                                </td>
+
                                                 <td>
                                                     <h5 class="letra n500  azulo centrar ps linku "><a href="EliminarRegistrosMPC.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Eliminar</a></h5>
                                                 </td> <?php

@@ -24,9 +24,10 @@ else{
 }
 $consulta= "SELECT * FROM ninnosnna nna 
 ".$cuidadores."
-inner join municipios mun on mun.id_municipio = nna.id_municipio 
+inner join municipios mun on mun.id_municipio = nna.id_municipio_hechos 
 inner join provincias prov on prov.id_provincia = nna.id_provincia 
 where id_ninnos='$id_ninnos'"; 
+
 $resultado= mysqli_query($con,$consulta) or die (mysqli_error($con));
 $rows = array();
 while($row = $resultado->fetch_assoc()) {

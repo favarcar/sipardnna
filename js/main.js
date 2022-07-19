@@ -9,6 +9,7 @@ function Borra(idcliente) {
         $.post("consulta_dato.php",
           { tabla: tablac, cconsulta: campoc, dato: datoc, cresp: campor },
           function (data) {
+            
             return data;
               
             });

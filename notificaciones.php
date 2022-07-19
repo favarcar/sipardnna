@@ -60,7 +60,7 @@ date_default_timezone_set('America/Bogota');
                 ?>
             <tr>
                 <td align="center" ><?php  echo $codigo_expediente ?></td>
-                <td><?php echo $Fecha_inicio_expediente ?></td>
+                <td><?php echo fecha($Fecha_inicio_expediente) ?></td>
                 <td align="center"><?php echo'<div class="wrap2">'.$Descripcion_expediente.'</div>'?></td>              
                 <td align="center"><?php $busqueda1=mysqli_query($con,"SELECT * FROM estado_caso where id_estadocaso='$id_estadocaso' ");
                     while($row1=mysqli_fetch_array($busqueda1)){

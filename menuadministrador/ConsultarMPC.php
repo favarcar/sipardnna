@@ -151,13 +151,13 @@
                                         </tr>
 
                                         <tbody>
-                                            <?php
-                                            $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna"); //cambiar nombre de la tabla de busqueda
-                                            while ($row = mysqli_fetch_array($busqueda)) {
+                                            
+	                                        <?php $busqueda = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY id_ninnos DESC " ); //cambiar nombre de la tabla de busqueda
+                                            while($row = mysqli_fetch_array($busqueda)){
                                                 $apellidos          = $row['Apellidos'];
                                                 $nombres            = $row['Nombres'];
                                                 $numero_documento   = $row['No_identificacion'];
-                                                $id_municipio       = $row['id_municipio'];
+                                                $id_municipio       = $row['id_municipio_hechos'];
                                                 $id_provincia       = $row['id_provincia'];
                                                 $edad               = $row['Edad'];
                                                 $id_ninos           = $row['id_ninnos'];

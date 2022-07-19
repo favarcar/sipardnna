@@ -24,20 +24,16 @@
     </section> 
 
     <section class="fblanco">
-        <div class="container ps2x ">
+        <div class="container ps1x ">
             <div class="row clearfix centrar">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                    <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500"><a href="main.php?key=0">Volver Men&uacute; Principal</a></li>
                         <!--                            <li role="presentation" class="letra n500"><a href="MPC/ConsultarMPC.php" target="usuario">Registrar MPC a NNA</a></li> -->
-                        <li role="presentation" class="letra n400"><a href="main.php?key=23" target="usuario">Consultar MPC</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <iframe name="usuario" src="MPC/ConsultarMPC.php" width="108%" height="0" frameborder="0" transparency="transparency" onload="autofitIframea(this);" scrolling="no"></iframe>
+    <iframe name="usuario" src="MPC/ConsultarMPC.php" width="100%" height="0" frameborder="0" transparency="transparency" onload="autofitIframea(this);" scrolling="no"></iframe>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')

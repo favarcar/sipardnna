@@ -1,4 +1,5 @@
-<h3 class="centrar letra n600 azulo pi">REGISTRO</h3>
+
+<h3 class="centrar letra n600 azulo pi">REGISTRO NNA</h3>
         <br>
         <section class="fblanco">
             <div class="container pu pi">
@@ -135,7 +136,7 @@
                                                 $apellidos = $row['Apellidos'];
                                                 $nombres = $row['Nombres'];
                                                 $numero_documento = $row['No_identificacion'];
-                                                $id_municipio = $row['id_municipio'];
+                                                $id_municipio = $row['id_municipio_hechos'];
                                                 $id_provincia = $row['id_provincia'];
                                                 $edad = $row['Edad'];
                                                 $id_ninnos = $row['id_ninnos']

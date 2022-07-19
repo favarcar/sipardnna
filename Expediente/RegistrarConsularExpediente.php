@@ -17,7 +17,7 @@ $id_usuario = $_SESSION['numero_documento'];
 
 
 $consulta= "SELECT *, pais.Nombre nompais, mun.descripcion nomdes FROM ninnosnna nna 
-inner join municipios mun on mun.id_municipio = nna.id_municipio 
+inner join municipios mun on mun.id_municipio = nna.id_municipio_hechos 
 inner join provincias prov on prov.id_provincia = nna.id_provincia 
 inner join paises pais on pais.Id_Pais = nna.id_pais 
 inner join departamentos dep on dep.id = nna.id_departamento

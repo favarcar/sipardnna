@@ -94,7 +94,7 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
         <!-- Appended checkbox -->
         <!-- Text input-->
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Codigo del expediente</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Codigo del NNA</label>
           <div class="col-md-8">
             <input id="textinput" name="cod_exp" type="text" placeholder="" class="form-control input-md" value="<?php
                                                                                                                   $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
@@ -116,7 +116,7 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Ni&ntilde;o, Ni&ntilde;a o Adolecente</label>
           <div class="col-md-8">
-            <input id="textinput" name="nom_nna_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
+            <input id="textinput" name="nom_nna_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if($Apellidos>0){echo $Apellidos;}else{echo "No tiene cuidador";} ?> <?php echo $Nombres; ?>" readonly>
 
           </div>
         </div>
@@ -131,7 +131,13 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Madre, Padre o Acudiente</label>
           <div class="col-md-8">
-            <input id="textinput" name="nom_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $ApellidosCuida ?> <?php echo $NombresCuida ?> " readonly>
+            <input id="textinput" name="nom_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($ApellidosCuida)) {
+echo $ApellidosCuida;
+echo " ";
+echo $NombresCuida;
+} else {
+echo "No tiene cuidador";
+} ?> " readonly>
 
           </div>
         </div>
@@ -139,7 +145,11 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento de Madre, Padre o Acudiente</label>
           <div class="col-md-8">
-            <input id="textinput" name="num_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $No_Cedula ?>" readonly>
+            <input id="textinput" name="num_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($No_Cedula)) {
+echo $No_Cedula;
+} else {
+echo "No tiene cuidador";
+} ?>" readonly>
 
           </div>
         </div>
@@ -147,8 +157,8 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
         <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_cuidadores</label>
           <div class="col-md-8">
-            <input id="textinput" name="cuidadores_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $id_cuidadores ?>" readonly>
-
+          <input id="textinput" name="cuidadores_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $id_cuidadores ?>" readonly>
+        
           </div>
         </div>
 
@@ -477,8 +487,7 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
           Veredicto_Caso='$veredicto_exp',
           Fecha_finalizacion_expediente='$finalizacion_exp',
           id_entidad='$entidad_exp',
-          id_usuario_exp='$id_usuario_exp',
-          id_estadocaso='$estadocaso_exp' 
+
           WHERE codigo_expediente='$codigo_expediente'");
           mysqli_close($con);
             
