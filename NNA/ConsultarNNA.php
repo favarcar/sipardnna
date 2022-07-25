@@ -1,7 +1,7 @@
 
 <h3 class="centrar letra n600 azulo pi">REGISTRO NNA</h3>
 
-<form name="form1" method="post" action="ConsultarNNA.php" id="cdr">
+<form name="form1" method="post" action="main.php?key=14" id="cdr">
         <center>
             <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento </h5>
             <input name="busca" type="text" id="busqueda">
@@ -46,6 +46,7 @@
                                 if ($busca != "") {
                                     $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where Apellidos LIKE '%" . $busca . "%' OR No_identificacion LIKE '%" . $busca . "%' and id_usuario='$id_usuario'"); //cambiar nombre de la tabla de busqueda
                                     while ($row = mysqli_fetch_array($busqueda)) {
+                                        $id_ninnos = $row['id_ninnos'];
                                         $id_pais = $row['id_pais'];
                                         $id_departamento = $row['id_departamento'];
                                         $apellidos = $row['Apellidos'];
@@ -92,10 +93,14 @@
                                             <td align="center">
                                                 <?php echo $edad;  ?></td>
                                                 <td align="center">
-                                                        <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=5"id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar</a></h5>
-                                                    </td>
+                                                        <a href="main.php?key=5&id_ninnos='.$id_ninnos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
                                                     <td align="center">
-                                                        <h5 class="letra n500  azulo centrar ps linku "><a href="EliminarNNA.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Eliminar</a></h5>
+                                                        <?php 
+                                                        if (!(consulta_campo('expediente','id_ninnos',$id_ninnos,'codigo_expediente'))){
+                                                            echo '<button class="btn btn-danger" onclick="javascript:Borra(\'ninnosnna\','.$id_ninnos.')"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';} 
+                                                            else{echo '<button class="btn btn-secundary  disabled data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
+
+                                                    ?>
                                                     </td>
                                     <?php }
                                 } ?>

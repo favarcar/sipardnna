@@ -30,7 +30,7 @@
    </div>
 </div>
 <div class="col text-center">
-      <a href="main.php?key=13" class="btn btn-primary"><i class="fa fa-exclamation-circle"class="center-block pic"></i> Notificaciones</a>
+      <a href="main.php?key=13" class="btn btn-warning"><i class="fa fa-exclamation-circle"class="center-block pic"></i> Notificaciones</a>
       <h4 class="centrar letra azulo n400 ps"></h4>
       </div>
     </section>

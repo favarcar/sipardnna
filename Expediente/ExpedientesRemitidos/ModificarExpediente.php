@@ -44,7 +44,6 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
   <?php
-  include("../../conexion/conexion.php");
 
 
   $codigo_expediente = $_GET['codigo_expediente'];
@@ -75,7 +74,7 @@
         <div class="row clearfix centrar">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
             <h2 class=" letra n600 azulo pi">
-              <h5 class="letra n500  azulo " align="right"><a href="ExportarPDF.php?codigo_expediente=<?php echo $row50['codigo_expediente']; ?>" class=" btn btn-primary">Exportar PDF</a></h5>
+              <h5 class="letra n500  azulo " align="right"><a href="main.php?key=24&codigo_expediente=<?php echo $row50['codigo_expediente']; ?>" class=" btn btn-primary">Exportar PDF</a></h5>
             </h2>
           </div>
         </div>
@@ -127,9 +126,6 @@
   ?>
   <?php
 
-
-  //Iniciar Sesión
-  session_start();
 
   //Validar si se está ingresando con sesión correctamente
   if (!$_SESSION) {
@@ -258,7 +254,6 @@ self.location = "index.html"
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
             <div class="col-md-4">
               <?php
-              include("../../conexion/conexion.php");
 
               $busqueda1 = mysqli_query($con, "SELECT * FROM discapacidades where id_discapacidad='$id_discapacidad' ");
               while ($row1 = mysqli_fetch_array($busqueda1)) {
@@ -320,7 +315,6 @@ self.location = "index.html"
             <div class="col-md-4">
 
               <?php
-              include("../../conexion/conexion.php");
               $busqueda1 = mysqli_query($con, "SELECT * FROM maltratos where id_maltrato='$id_maltrato' ");
               while ($row1 = mysqli_fetch_array($busqueda1)) {
 
@@ -425,7 +419,6 @@ self.location = "index.html"
             <div class="col-md-4">
 
               <?php
-              include("../../conexion/conexion.php");
               $busqueda11 = mysqli_query($con, "SELECT * FROM entidades where id_entidad='$id_entidad' ");
               while ($row11 = mysqli_fetch_array($busqueda11)) {
 

@@ -68,17 +68,14 @@ $apellido = $fila['apellidos'];
 
 
 ?>
-<form name="form1" method="post" action="ConsultarDerecho.php" id="cdr" >
+<form name="form1" method="post" action="main.php?key=20" id="cdr" >
   <center>
     <h3 class="centrar letra n600 azulo pi">Consultar Derechos</h3>
-   
-  <br>
-  <h5 class="centrar letra n600 azulo pi">Introduzca Nombre del Derecho </h5> 
-
-        <input name="busca"  type="text" id="busqueda">
-        <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
-        
-        <h5 class="letra n500   centrar ps  "><a href="main.php?key=21" class=" btn btn-primary" >Ingresar Nuevo Derecho </a></h5>
+    <br>
+    <h5 class="centrar letra n600 azulo pi">Introduzca Nombre del Derecho </h5> 
+    <input name="busca"  type="text" id="busqueda">
+    <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
+    <h5 class="letra n500   centrar ps  "><a href="main.php?key=21" class=" btn btn-primary" >Ingresar Nuevo Derecho </a></h5>
 </center>
 
     
@@ -116,7 +113,7 @@ $busca="";
 $busca=$_POST['busca'];
 
 if($busca!=""){
-$busqueda=mysqli_query($con,"SELECT * FROM derechos where descripcion LIKE '%".$busca."%' ");//cambiar nombre de la tabla de busqueda
+$busqueda=mysqli_query($con,"SELECT * FROM derechos where descripcion_derechos LIKE '%".$busca."%' ");//cambiar nombre de la tabla de busqueda
 while($row=mysqli_fetch_array($busqueda)){
 						
                         
@@ -128,8 +125,9 @@ while($row=mysqli_fetch_array($busqueda)){
                         
           <td align="center"><?php echo $id_derecho;?></td>
           <td align="center"><?php echo $descripcion;?></td>
-           <td align="center"><h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=22" id_derecho=<?php echo $row['id_derecho'];?> class="linku">Editar</a></h5></td>
-            <td align="center"><h5 class="letra n500  azulo centrar ps linku "><a href="EliminarDerecho.php?id_derecho=<?php echo $row['id_derecho'];?>" class="linku">Eliminar</a></h5></td>
+           <td align="center"><a href="main.php?key=22" id_derecho=<?php echo $row['id_derecho'];?> class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Editar registro"><span class="glyphicon glyphicon-edit"></span> Editar</a></td>
+            <td align="center"><?php echo '<a href="main.php?key=28&id_derecho='.$id_derecho.'" class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';?></td>
+            
 
    <?php } }?>
          </tr>
@@ -175,8 +173,8 @@ while($row=mysqli_fetch_array($busqueda)){
             
           <td align="center"><?php echo $id_derecho;?></td>
           <td align="center"><?php echo $descripcion;?></td>
-          <td align="center"><h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=22" id_derecho=<?php echo $row['id_derecho'];?> class="linku">Editar</a></h5></td>
-            <td align="center"><h5 class="letra n500  azulo centrar ps linku "><a href="EliminarDerecho.php?id_derecho=<?php echo $row['id_derecho'];?>" class="linku">Eliminar</a></h5></td>
+          <td align="center"><a href="main.php?key=22&id_derecho=<?php echo $row['id_derecho'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Editar registro"><span class="glyphicon glyphicon-edit"></span> Editar</a></td>
+          <td align="center"><?php echo '<a href="main.php?key=28&id_derecho='.$id_derecho.'" class="btn btn-danger  data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';?></td>
    <?php } }?>
          </tr>
          </table>

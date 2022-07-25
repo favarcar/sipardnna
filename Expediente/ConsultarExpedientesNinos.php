@@ -116,7 +116,7 @@ self.location = "index.html"
                                 </tr>
                                 <tr>
                                     <td colspan="9" align="center">
-                                        <h5 class="letra n500  azulo "><a href="IngresarExpediente.php?id_ninnos=<?php echo $row44['id_ninnos']; ?>" class=" btn btn-primary">Registrar Nuevo Expediente</a></h5>
+                                        <h5 class="letra n500  azulo "><a href="main.php?key=34&id_ninnos=<?php echo $row44['id_ninnos']; ?>" class=" btn btn-primary">Registrar Nuevo Expediente</a></h5>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -180,7 +180,7 @@ self.location = "index.html"
                                             ?></td>
                                         <td>
 
-                                            <h5 class="letra n500  azulo centrar ps linku "><a href="ModificarExpediente.php?codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar/Editar</a></h5>
+                                            <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=31&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar/Editar</a></h5>
 
                                         </td>
                                         <td>
@@ -195,7 +195,7 @@ self.location = "index.html"
                                                 echo "Expediente Remitido";
                                             } else {
                                             ?>
-                                                <h5 class="letra n500  azulo centrar ps linku "><a href="RemitirExpediente.php?codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Remitir</a></h5> <?php } ?>
+                                                <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=33&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Remitir</a></h5> <?php } ?>
 
                                         </td>
 
@@ -209,7 +209,7 @@ self.location = "index.html"
 
                                             if ($codigo_expediente == $codigo_expediente21) { ?>
 
-                                                <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarRemicion.php?codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar Remisi&oacute;n</a></h5>
+                                                <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=30&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar Remisi&oacute;n</a></h5>
                                             <?php
 
                                             } else {

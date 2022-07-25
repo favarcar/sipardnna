@@ -116,7 +116,7 @@ $('#expeTable').DataTable({
       "render": function (data, type, row) {
         var id_cuida;
         
-        return '<div class="btn-group btn-group-xs"><a type="button" class="btn btn-primary"  onClick="getEstadoExpediente(' + row.id_ninnos + ')" title="Consultar Expediente '+ id_cuida +'"><i class="fa fa-search"></i> Consultar</a></div>';
+        return '<div class="btn-group btn-group-xs"><a type="button" class="btn btn-primary"  onClick="getEstadoExpediente(' + row.id_ninnos + ')" title="Consultar Expediente"><i class="fa fa-search"></i> Consultar</a></div>';
       
       }
     },

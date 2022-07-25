@@ -20,11 +20,10 @@
 
     <?php
 
-    include("../../conexion/conexion.php");
 
     $id_ninnos = $_GET['id_ninnos'];
     //Iniciar Sesión
-    session_start();
+ 
 
     //Validar si se está ingresando con sesión correctamente
     if (!$_SESSION) {
@@ -88,7 +87,7 @@ self.location = "index.html"
                                 </tr>
                                 <tr>
                                     <td colspan="9" align="center">
-                                        <h5 class="letra n500  azulo "><a href="../IngresarExpediente.php?id_ninnos=<?php echo $row44['id_ninnos']; ?>" class=" btn btn-primary">Registrar Nuevo Expediente</a></h5>
+                                        <h5 class="letra n500  azulo "><a href="main.php?key=34&id_ninnos=<?php echo $row44['id_ninnos']; ?>" class=" btn btn-primary">Registrar Nuevo Expediente</a></h5>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -151,7 +150,7 @@ self.location = "index.html"
                                             ?></td>
                                         <td>
 
-                                            <h5 class="letra n500  azulo centrar ps linku "><a href="ModificarExpediente.php?codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar/Editar</a></h5>
+                                            <a href="main.php?key=31&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar expediente"><span class="glyphicon glyphicon-search" ></span> Consultar / Editar</a>
 
                                         </td>
                                         <td>
@@ -166,7 +165,7 @@ self.location = "index.html"
                                                 echo "Expediente Remitido";
                                             } else {
                                             ?>
-                                                <h5 class="letra n500  azulo centrar ps linku "><a href="RemitirExpediente.php?codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Remitir</a></h5> <?php } ?>
+                                                <a href="main.php?key=33&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Remitir expediente"><span class="glyphicon glyphicon-share" ></span> Remitir</a> <?php } ?>
 
                                         </td>
 
@@ -180,7 +179,7 @@ self.location = "index.html"
 
                                             if ($codigo_expediente == $codigo_expediente21) { ?>
 
-                                                <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarRemicion.php?codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar Remisi&oacute;n</a></h5>
+                                                <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=30&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar Remisi&oacute;n</a></h5>
                                             <?php
 
                                             } else {
@@ -193,7 +192,79 @@ self.location = "index.html"
                                     <?php   } ?>
                                     </tr>
                             </table>
+                                        </section>
     </form>
-</body>
+    <div class="clearfix"></div>
+            </section>
+            
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
 
-</html>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- Datatables -->
+    <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="css/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="css/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="css/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="css/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="css/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="css/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+
+    <!-- PNotify -->
+    <script src="css/pnotify/dist/pnotify.js"></script>
+    <script src="css/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="css/pnotify/dist/pnotify.nonblock.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ui-pnotify').remove();
+        });
+    </script>
+
+    <script src="js/jsAddExpediente.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+
+        function numeros(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " 0123456789";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
+    </script>
+ </body>

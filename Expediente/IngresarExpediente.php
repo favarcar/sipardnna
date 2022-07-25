@@ -59,8 +59,6 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
   <?php
-  include("../conexion/conexion.php");
-
 
   $id_ninnos = $_GET['id_ninnos'];
 
@@ -132,12 +130,7 @@
 
   ?>
   <?php
-
-
-  //Iniciar Sesión
-  session_start();
-
-  //Validar si se está ingresando con sesión correctamente
+ //Validar si se está ingresando con sesión correctamente
   if (!$_SESSION) {
     echo '<script language = javascript>
 alert("usuario no autenticado")
@@ -148,7 +141,7 @@ self.location = "index.html"
   $id_usuario = $_SESSION['numero_documento'];
 
   $consulta = "SELECT * FROM usuarios where numero_documento='$id_usuario' ";
-  $resultado = mysqli_query($con, $consulta) or die(mysqli_error());
+  $resultado = mysqli_query($con, $consulta) or die(mysqli_error($con));
   $fila = mysqli_fetch_array($resultado);
   $nombres = $fila['nombres'];
   $apellido = $fila['apellidos'];
@@ -261,7 +254,7 @@ self.location = "index.html"
                 ?>
 
               </select>
-              <h5 class="letra n500  azulo "><a href="../IngresarNuevoDerecho/ConsultarDerecho.php" class=" btn btn-primary">Registrar Nuevo Derecho</a></h5>
+              <h5 class="letra n500  azulo "><a href="main.php?key=20" class=" btn btn-primary">Registrar Nuevo Derecho</a></h5>
             </div>
           </div>
 
@@ -308,7 +301,7 @@ self.location = "index.html"
                 ?>
               </select>
 
-              <h5 class="letra n500  azulo "><button href="../IngresarNuevoDerecho/ConsultarDerecho.php" class=" btn btn-primary">Agregar indicador al expediente</button></h5>
+              <h5 class="letra n500  azulo "><button href="main.php?key=20" class=" btn btn-primary">Agregar indicador al expediente</button></h5>
             </div>
           </div>
 

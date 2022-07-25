@@ -114,7 +114,7 @@
                                             ?>
                                             <?php
                                             } else{
-                                                echo '<button class="btn btn-secondary"  data-toggle="tooltip" data-placement="bottom" title="Sin expediente"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
+                                                echo '<button class="btn btn-secondary" disabled data-toggle="tooltip" data-placement="bottom" title="Sin expediente"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
                                                 } ?>
                                                 
                                             </td>
@@ -186,11 +186,11 @@
                                                 if($id_ninnos==$id_ninnos21){
                                             ?>   
                                             <?php                       
-                                            echo '<a href="main.php?key=6&id_ninnos='.$id_ninnos.'"  class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
+                                            echo '<a href="main.php?key=6&id_ninnos='.$id_ninnos.'"  class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar"><span class="glyphicon glyphicon-search"></span> Consultar</a>';
                                             ?>
                                             <?php
                                             } else{
-                                                echo '<button class="btn btn-secondary"  data-toggle="tooltip" data-placement="bottom" title="Sin expediente"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
+                                                echo '<button class="btn btn-secondary"   data-toggle="tooltip" data-placement="bottom" title="Sin expediente"><span class="glyphicon glyphicon-search"></span> Consultar</a>';
                                                 } ?>
                                                 
                                             </td>

@@ -110,7 +110,7 @@
 
                     <?php   } else { ?>
 
-                      <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarExpedientesNinos.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar</a></h5>
+                      <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=29&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar</a></h5>
 
                     <?php  } ?>
                     </td>
@@ -226,7 +226,7 @@
                         <td>
                           <?php if ($id_ninnos == $id_ninnos21) { ?>
 
-                            <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarExpedientesNinos.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar</a></h5>
+                            <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=29&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar</a></h5>
 
 
                           <?php

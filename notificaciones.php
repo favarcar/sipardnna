@@ -55,7 +55,7 @@ date_default_timezone_set('America/Bogota');
             $id_estadocaso=$datos['id_estadocaso'];
             $fecha_limite=$datos['Fecha_finalizacion_expediente'];
             
-            if($fecha > $fecha_limite || $id_estadocaso == 2 ){
+            if($id_estadocaso == 2 ){
             } else{                    
                 ?>
             <tr>
@@ -77,10 +77,13 @@ date_default_timezone_set('America/Bogota');
                     $dias = $interval->format('%a');
                 if($dias>=135){
                   echo'<span style="color: green;">'.$interval->format('%a días').'</span>';
+                }else if($fecha > $fecha_limite ){
+                    echo'<span style="color: Salmon";>'.$interval->format('%a días').' vencido</span> ';
                 }else if($dias>=90&&$dias<135){
                   echo'<span style="color: yellow;">'.$interval->format('%a días').'</span>';
                 }else if($dias>=45&&$dias<90){
                   echo'<span style="color: orange;">'.$interval->format('%a días').'</span>';
+                
                 }else{
                     echo '<span style="color: red;">'.$interval->format('%a días').'</span>';
                     

@@ -62,7 +62,7 @@
     $apellido = $fila['apellidos'];
     ?>
     <h3 class="centrar letra n600 azulo pi">Registrar Madres, Padres o Cuidadores</h3>
-    <!--<form name="form1" method="post" action="ConsultarMPC.php" id="cdr" >-->
+    <form name="form1" method="post" action="main.php?key=23" id="cdr" >
 
         <center>
             <br>
@@ -90,99 +90,101 @@
                                 </td>
                             </tr>
 
-                            <tr>
-                                <td class="col-md-4 control-label letra n600 azulo">Nombre</td>
-                                <td class="col-md-4 control-label letra n600 azulo">No. Documento</td>
-                                <td class="col-md-4 control-label letra n600 azulo">Pais</td>
-                                <td class="col-md-4 control-label letra n600 azulo">Departamento</td>
-                                <td class="col-md-4 control-label letra n600 azulo">Municipio</td>
-                                <td class="col-md-4 control-label letra n600 azulo">Provincia</td>
-                                <td class="col-md-4 control-label letra n600 azulo">Edad</td>
-                                <td class="col-md-4 control-label letra n600 azulo">Registrar, Consultar o Editar MPC</td>
-                                <td class="col-md-4 control-label letra n600 azulo"> Eliminar Madres, Padres o Cuidadores</td>
-
-                            </tr>
-                            <tbody>
-                                <?php
-                                $busca = "";
-                                $busca = $_POST['busca'];
-                                if ($busca != "") {
-                                    $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where Apellidos LIKE '%" . $busca . "%' OR No_identificacion LIKE '%" . $busca . "%' and  id_usuario='$id_usuario'"); //cambiar nombre de la tabla de busqueda
-                                    while ($row = mysqli_fetch_array($busqueda)) {
-                                        $apellidos = $row['Apellidos'];
-                                        $nombres = $row['Nombres'];
-                                        $numero_documento = $row['No_identificacion'];
-                                        $id_pais = $row['id_pais'];
-                                        $id_departamento = $row['id_departamento'];
-                                        $id_municipio = $row['id_municipio'];
-                                        $id_provincia = $row['id_provincia'];
-                                        $edad = $row['Edad'];
-                                        $id_ninos = $row['id_ninnos'];
-                                ?>
                                         <tr>
-                                            <td><?php echo $apellidos; ?>&nbsp;<?php echo $nombres; ?></td>
-                                            <td align="center"><?php echo $numero_documento; ?></td>
-                                            <td align="center">
-                                                <?php
-                                                $busqueda1 = mysqli_query($con, "SELECT * FROM paises where Id_Pais='$id_pais'  ");
-                                                while ($row1 = mysqli_fetch_array($busqueda1)) {
-                                                    echo $row1['Nombre'];
-                                                }
-                                                ?>
-                                            </td>
-                                            <td align="center">
-                                                <?php
-                                                $busqueda1 = mysqli_query($con, "SELECT * FROM departamentos where id='$id_departamento'  ");
-                                                while ($row1 = mysqli_fetch_array($busqueda1)) {
-                                                    echo $row1['descripcion'];
-                                                }
-                                                ?>
-                                            </td>
-                                            <td align="center">
-                                                <?php
-                                                $busqueda1 = mysqli_query($con, "SELECT * FROM municipios where id_municipio='$id_municipio'  ");
-                                                while ($row1 = mysqli_fetch_array($busqueda1)) {
-                                                    echo $row1['descripcion'];
-                                                }
-                                                ?>
-                                            </td>
-                                            <td align="center">
-                                                <?php
-                                                $busqueda2 = mysqli_query($con, "SELECT * FROM provincias where id_provincia='$id_provincia'  ");
-                                                while ($row2 = mysqli_fetch_array($busqueda2)) {
-                                                    echo $row2['descripcion_prov'];
-                                                }
-                                                ?>
-                                            </td>
-                                            <td align="center">
-                                                <?php echo $edad; ?>
-                                            </td>
-                                            <td align="center">
-                                                <?php
-                                                $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores where 	id_ninos='$id_ninos'  ");
-                                                while ($row21 = mysqli_fetch_array($busqueda21)) {
-                                                    $id_ninos21 = $row21['id_ninos'];
-                                                }
-                                                if ($id_ninos == $id_ninos21) {
-                                                    echo "Ya tiene Cuidador asignado";
-                                                } else {
-                                                    echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'">Registrar</a>';    
-                                                ?>
-                                            </td>
-                                        <?php } ?>
-                                        <td align="center">
-                                            <?php if ($id_ninos == $id_ninos21) { ?>
-                                                <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarRegistrosMPC.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar/Editar</a></h5>
-                                            <?php } else {
-                                                echo "NO tiene Cuidador asignado";
-                                            } ?>
-                                        </td>
-                                        <td>
-                                            <h5 class="letra n500  azulo centrar ps linku "><a href="EliminarRegistrosMPC.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Eliminar</a></h5>
-                                        </td> <?php
-                                            }
-                                        } ?>
+                                            <td class="col-md-4 control-label letra n600 azulo">Nombre</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">No. Documento</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Pais</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Departamento</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Municipio</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Provincia</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Edad</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Registrar, Consultar o Editar MPC</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Eliminar MPC</td>
                                         </tr>
+                                        <tbody>
+                                            <?php
+                                            $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_usuario = '$id_usuario' ORDER BY id_ninnos DESC"); //cambiar nombre de la tabla de busqueda
+                                            while ($row = mysqli_fetch_array($busqueda)) {
+                                                $apellidos = $row['Apellidos'];
+                                                $nombres = $row['Nombres'];
+                                                $numero_documento = $row['No_identificacion'];
+                                                $id_pais = $row['id_pais'];
+                                                $id_departamento = $row['id_departamento'];
+                                                $id_municipio = $row['id_municipio'];
+                                                $id_provincia = $row['id_provincia'];
+                                                $edad = $row['Edad'];
+                                                $id_ninos = $row['id_ninnos'];
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $apellidos; ?>&nbsp;<?php echo $nombres; ?></td>
+                                                    <td align="center"><?php echo $numero_documento; ?></td>
+                                                    <td align="center">
+                                                        <?php
+                                                        $busqueda1 = mysqli_query($con, "SELECT * FROM paises where Id_Pais='$id_pais'  ");
+                                                        while ($row1 = mysqli_fetch_array($busqueda1)) {
+                                                            echo $row1['Nombre'];
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td align="center">
+                                                        <?php
+                                                        $busqueda1 = mysqli_query($con, "SELECT * FROM departamentos where id='$id_departamento'  ");
+                                                        while ($row1 = mysqli_fetch_array($busqueda1)) {
+                                                            echo $row1['descripcion'];
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td align="center">
+                                                        <?php
+                                                        $id_ninos21 = "";
+                                                        $busqueda1 = mysqli_query($con, "SELECT * FROM municipios where id_municipio='$id_municipio'  ");
+                                                        while ($row1 = mysqli_fetch_array($busqueda1)) {
+                                                            echo $row1['descripcion'];
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td align="center">
+                                                        <?php
+                                                        $busqueda2 = mysqli_query($con, "SELECT * FROM provincias where id_provincia='$id_provincia'  ");
+                                                        while ($row2 = mysqli_fetch_array($busqueda2)) {
+                                                            echo $row2['descripcion_prov'];
+                                                        } ?>
+                                                    </td>
+                                                    <td align="center">
+                                                        <?php echo $edad;  ?>
+                                                    </td>
+                                                    <td align="center">
+                                                        <?php
+                                                        $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores where id_ninos='$id_ninos'  ");
+                                                        while ($row21 = mysqli_fetch_array($busqueda21)) {
+                                                            $id_cuidadores = $row21['id_cuidadores'];
+                                                            $id_ninos21 = $row21['id_ninos'];
+                                                            
+                                                        }
+                                                        if ($id_ninos == $id_ninos21) {
+                                                            ?>
+                                                            <?php echo'<a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
+                                                        ?>
+                                                        <?php } else {
+                                                        echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
+                                                        ?>
+                                                        </td> 
+                                                    
+                                                    <?php
+                                                        } ?>
+
+                                                <td>
+                                                
+                                                    <?php 
+                                                    if ($id_ninos == $id_ninos21){
+                                                        if(consulta_campo('expediente','id_cuidadores',$id_cuidadores,'codigo_expediente')){
+                                                            echo '<button class="btn btn-danger" onclick="javascript:Borra(\'cuidadores\','.$id_cuidadores.')"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';} 
+                                                            else{echo '<button class="btn btn-secundary  disabled data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>';}
+                                                        }
+                                                        else if($id_ninos != $id_ninos21){echo '<button class="btn btn-secundary  disabled data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
+
+
+                                                    } ?> 
                         </table>
                     <?php
                 } else {

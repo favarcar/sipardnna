@@ -260,9 +260,18 @@ if ($verdato == 21){include("IngresarNuevoDerecho/IngresarDerecho.php");}
 if ($verdato == 22){include("IngresarNuevoDerecho/ModificarDerecho.php");}
 if ($verdato == 23){include("MPC/ConsultarMPC.php");}
 if ($verdato == 24){include("Expediente/ExportarPDF.php");}
-if ($verdato == 25){include("Expediente/RegistrarConsultarExpediente.php");}
+if ($verdato == 25){include("Expediente/RegistrarConsularExpediente.php");}
 if ($verdato == 26){include("redireexpe.php");}
 if ($verdato == 27){include("EliminarRegistrosMPC.php");}
+if ($verdato == 28){include("IngresarNuevoDerecho/EliminarDerecho.php");}
+if ($verdato == 29){include("Expediente/ExpedientesRemitidos/ConsultarExpedientesNinos.php");}
+if ($verdato == 30){include("Expediente/ExpedientesRemitidos/ConsultarRemicion.php");}
+if ($verdato == 31){include("Expediente/ExpedientesRemitidos/ModificarExpediente.php");}
+if ($verdato == 32){include("Expediente/ExpedientesRemitidos/ObtenerExpedientesNinos.php");}
+if ($verdato == 33){include("Expediente/ExpedientesRemitidos/RemitirExpediente.php");}
+if ($verdato == 34){include("Expediente/IngresarExpediente");}
+
+
 
 if ($verdato == 102) {include("user_list.php");}
 if ($verdato == 105) {include("user_update.php");}

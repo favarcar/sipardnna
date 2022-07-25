@@ -91,7 +91,7 @@
                                                 <?php echo $edad; ?>
                                             </td>
                                             <td align="center">
-                                            <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>
+                                            <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
                                             </td> <?php
                                                 }
                                             } ?>
@@ -164,7 +164,7 @@
                                     </td>
                                     <td align="center"> <?php echo $edad;  ?></td>
                                     <td align="center">
-                                        <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>
+                                        <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
                                     </td>
                             <?php
                             }

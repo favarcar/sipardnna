@@ -159,7 +159,7 @@ while($row=mysql_fetch_array($busqueda)){
 		   ?></td>
 		   <td>
 		                
-            <h5 class="letra n500  azulo centrar ps linku "><a href="ModificarExpediente.php?codigo_expediente=<?php echo $row['codigo_expediente'];?>&id_ninnos=<?php echo $row['id_ninnos'];?>" class="linku">Consultar</a></h5>
+            <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=31&codigo_expediente=<?php echo $row['codigo_expediente'];?>&id_ninnos=<?php echo $row['id_ninnos'];?>" class="linku">Consultar</a></h5>
 			   
 			</td>
             
@@ -187,7 +187,7 @@ while($row=mysql_fetch_array($busqueda)){
 		  
            if($codigo_expediente==$codigo_expediente21){ ?>
 			   
-			   <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarRemicion.php?codigo_expediente=<?php echo $row['codigo_expediente'];?>&id_ninnos=<?php echo $row['id_ninnos'];?>" class="linku">Consultar Remisi&oacute;n</a></h5>
+			   <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=30&codigo_expediente=<?php echo $row['codigo_expediente'];?>&id_ninnos=<?php echo $row['id_ninnos'];?>" class="linku">Consultar Remisi&oacute;n</a></h5>
 			   <?php
 			  
 			   }

@@ -15,8 +15,20 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500"><a a href="main.php?key=12">Consultar Expedientes</a></li>
-                        <li role="presentation" class="letra n500"><a href="#">Consultar Expedientes Remitidos</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
+
+
+                        <li role="presentation" class="letra n500"><a href="#" data-toggle="dropdown">Expedientes Remitidos
+
+                      <!--  <li role="presentation" class="letra n500"><a href="main.php?key=29">Consultar Expedientes NNA</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=30">Consultar Remición</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=31">Modificar Expediente</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=32">Obtener Expedientes Ninos</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=33">Remitir Expedientes Ninos</a></li>-->
+
+
+      <li role="presentation" class="letra n500"><a a href="main.php?key=16">Consultar Total Expedientes</a></li>
+
+
                     </ul>
                     <input type="button" id="refresh" value="Actualizar" onclick="location.reload()" style="display:none" />
                 </div>
@@ -25,7 +37,7 @@
     </section>
 
 
-    <form name="form1" method="post" action="#" id="cdr">
+    <form name="form1" method="post" action="main.php?key=15" id="cdr">
         <center>
             <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescente</h5>
             <input name="busca" type="text" id="busqueda">
@@ -79,7 +91,7 @@
                                         $numero_documento = $row['No_identificacion'];
                                         $id_pais = $row['id_pais'];
                                         $id_departamento = $row['id_departamento'];
-                                        $id_municipio = $row['id_municipio'];
+                                        $id_municipio = $row['id_municipio_hechos'];
                                         $id_provincia = $row['id_provincia'];
                                         $edad = $row['Edad'];
                                         $id_ninnos = $row['id_ninnos'];
@@ -117,7 +129,7 @@
                                                 <?php echo $edad;  ?>
                                             </td>
                                             <td>
-                                                <h5 class="letra n500  azulo centrar ps linku "><a href="ObtenerExpedientesNinos.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar</a></h5>
+                                                <a href="main.php?key=29&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar expediente"><span class="glyphicon glyphicon-search"></span> Consultar</a>
                                             </td>
                                     <?php }
                                 } ?>
@@ -158,7 +170,7 @@
                                                 $numero_documento = $row['No_identificacion'];
                                                 $id_pais = $row['id_pais'];
                                                 $id_departamento = $row['id_departamento'];
-                                                $id_municipio = $row['id_municipio'];
+                                                $id_municipio = $row['id_municipio_hechos'];
                                                 $id_provincia = $row['id_provincia'];
                                                 $edad = $row['Edad'];
                                                 $id_ninnos = $row['id_ninnos'];
@@ -184,7 +196,7 @@
                                                         <?php echo $edad;  ?>
                                                     </td>
                                                     <td>
-                                                        <h5 class="letra n500  azulo centrar ps linku "><a href="ObtenerExpedientesNinos.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar</a>
+                                                        <a href="main.php?key=29&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar expediente"><span class="glyphicon glyphicon-search"></span> Consultar</a>
                                                         </h5>
                                                     </td>
                                             <?php }
@@ -202,39 +214,9 @@
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
     </script>
-
-    <script src="js/vendor/bootstrap.min.js"></script>
-
-    <script src="js/main.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function(b, o, i, l, e, r) {
-            b.GoogleAnalyticsObject = l;
-            b[l] || (b[l] =
-                function() {
-                    (b[l].q = b[l].q || []).push(arguments)
-                });
-            b[l].l = +new Date;
-            e = o.createElement(i);
-            r = o.getElementsByTagName(i)[0];
-            e.src = '//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e, r)
-        }(window, document, 'script', 'ga'));
-        ga('create', 'UA-XXXXX-X', 'auto');
-        ga('send', 'pageview');
-    </script>
-
-
-
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
-    </script>
-
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+
     <script src="js/jquery-ui.js"></script>
     <!-- Datatables -->
     <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
