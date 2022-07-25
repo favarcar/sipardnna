@@ -90,7 +90,7 @@ $apellido   = $fila['apellidos'];
               <div class="table-responsive"> 
 <table class="table table-striped table-bordered">
     <tr>
-        <td colspan="10" class="letra n600 azulo">Total Usuarios Registrados: <?php 			
+        <td colspan="10" class="letra n600 azulo" bgcolor="#ff9933">Total Usuarios Registrados: <?php 			
             $con4=mysqli_query($con,"SELECT count(id_cuidadores) FROM cuidadores where id_usuario='$id_usuario'");
             while($row4=mysqli_fetch_array($con4)){
                 echo $nom_asignatura11=$row4['count(id_cuidadores)']; 

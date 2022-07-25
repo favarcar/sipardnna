@@ -46,10 +46,6 @@
     </script>
 
     <?php
-    include("../conexion/conexion.php");
-
-    //Iniciar Sesión
-    session_start();
 
     //Validar si se está ingresando con sesión correctamente
     if (!$_SESSION) {
@@ -66,7 +62,7 @@
     $apellido = $fila['apellidos'];
     ?>
     <h3 class="centrar letra n600 azulo pi">Registrar Madres, Padres o Cuidadores</h3>
-    <form name="form1" method="post" action="ConsultarMPC.php" id="cdr" >
+    <!--<form name="form1" method="post" action="ConsultarMPC.php" id="cdr" >-->
 
         <center>
             <br>
@@ -84,7 +80,7 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
                             <tr>
-                                <td colspan="10" class="letra n600 azulo">Total Usuarios Registrados:
+                                <td colspan="10" class="letra n600 azulo" bgcolor="#ff9933">Total Usuarios Registrados:
                                     <?php
                                     $con4 = mysqli_query($con, "SELECT count(id_ninnos) FROM ninnosnna where id_usuario='$id_usuario'");
                                     while ($row4 = mysqli_fetch_array($con4)) {
@@ -170,8 +166,8 @@
                                                 if ($id_ninos == $id_ninos21) {
                                                     echo "Ya tiene Cuidador asignado";
                                                 } else {
+                                                    echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'">Registrar</a>';    
                                                 ?>
-                                                    <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=10&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Registrar</a></h5>
                                             </td>
                                         <?php } ?>
                                         <td align="center">
@@ -269,32 +265,111 @@
                                                     </td>
                                                     <td align="center">
                                                         <?php
-                                                        $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores where 	id_ninos='$id_ninos'  ");
+                                                        $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores where id_ninos='$id_ninos'  ");
                                                         while ($row21 = mysqli_fetch_array($busqueda21)) {
+                                                            $id_cuidadores = $row21['id_cuidadores'];
                                                             $id_ninos21 = $row21['id_ninos'];
+                                                            
                                                         }
                                                         if ($id_ninos == $id_ninos21) {
                                                             ?>
-                                                            <h5 class="letra n500  azulo centrar ps linku "><a href="ConsultarRegistrosMPC.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar/Editar</a></h5>;
-                                                        <?php } else { echo "No tiene cuidador asignado";
+                                                            <?php echo'<a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
                                                         ?>
-                                                        <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?=key=10"id_ninnos=<?php echo $row['id_ninnos']; ?> class="linku">Registrar</a></h5>                                                   
+                                                        <?php } else {
+                                                        echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
+                                                        ?>
                                                         </td> 
                                                     
                                                     <?php
                                                         } ?>
 
                                                 <td>
-                                                    <h5 class="letra n500  azulo centrar ps linku "><a href="EliminarRegistrosMPC.php?id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Eliminar</a></h5>
-                                                </td> <?php
-                                                    }
-                                                } ?>
+                                                
+                                                    <?php 
+                                                    if ($id_ninos == $id_ninos21){
+                                                        if(consulta_campo('expediente','id_cuidadores',$id_cuidadores,'codigo_expediente')){
+                                                            echo '<button class="btn btn-danger" onclick="javascript:Borra(\'cuidadores\','.$id_cuidadores.')"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';} 
+                                                            else{echo '<button class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
+                                                        }
+                                                        else if($id_ninos != $id_ninos21){echo '<button class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
+
+
+                                                    } ?>  
+
+                                                </td> 
+                                             
+                                                                                                                                                   
+                                                
+                                                 
+                                                <?php } 
+                                                ?>
+                                                
                                                 </tr>
                                     </table>
     </form>
     </div>
     </div>
     </section>
+    <div class="clearfix"></div>
+            </section>
+            
+
+
+    
+    
+    
+
+    
+    
+     <script src="js/jquery-ui.js"></script>
+    <!-- Datatables -->
+    <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="css/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="css/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="css/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="css/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="css/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="css/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+
+    <!-- PNotify -->
+    <script src="css/pnotify/dist/pnotify.js"></script>
+    <script src="css/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="css/pnotify/dist/pnotify.nonblock.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ui-pnotify').remove();
+        });
+    </script>
+
+    <script src="js/jsAddExpediente.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+       
+         function numeros(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " 0123456789";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
+    </script>
 </body>
 
 </html>

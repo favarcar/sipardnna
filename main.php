@@ -26,7 +26,6 @@ ini_set('error_reporting', E_ALL);
 <?php
 include("conexion/conexion.php");
 include("funshow.php");
-//include ("funshow.php");
 $verdato = $_GET['key'];
 
  ?>
@@ -186,7 +185,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="main.php?key=8">Niños niñas o adolescentes</a></li>
-          <li><a href="main.php?key=11">Madre, Padre o Cuidador</a></li>
+          <li><a href="main.php?key=23">Madre, Padre o Cuidador</a></li>
           <li><a href="main.php?key=12">Expedientes</a></li>
         </ul>
         <li><a href="main.php?key=4">Mi usuario</a></li>
@@ -247,7 +246,7 @@ if ($verdato == 6){include("menuadministrador/TotalExpedientes/ConsultarTotalExp
 if ($verdato == 8){include("MenuNinosNinasAdo.php");}
 if ($verdato == 9){include("MenuComisariaFamilia.php");}
 if ($verdato == 10){include("MPC/IngresarMPC.php");}
-if ($verdato == 11){include("MenuMPC.php");}
+//if ($verdato == 11){include("MPC/ConsultarMPC.php");}
 if ($verdato == 12){include("MenuExpediente.php");}
 if ($verdato == 13){include("notificaciones.php");}
 if ($verdato == 14){include("NNA/ConsultarNNA.php");}
@@ -263,7 +262,7 @@ if ($verdato == 23){include("MPC/ConsultarMPC.php");}
 if ($verdato == 24){include("Expediente/ExportarPDF.php");}
 if ($verdato == 25){include("Expediente/RegistrarConsultarExpediente.php");}
 if ($verdato == 26){include("redireexpe.php");}
-
+if ($verdato == 27){include("EliminarRegistrosMPC.php");}
 
 if ($verdato == 102) {include("user_list.php");}
 if ($verdato == 105) {include("user_update.php");}

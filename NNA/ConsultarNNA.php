@@ -1,5 +1,12 @@
 
 <h3 class="centrar letra n600 azulo pi">REGISTRO NNA</h3>
+
+<form name="form1" method="post" action="ConsultarNNA.php" id="cdr">
+        <center>
+            <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento </h5>
+            <input name="busca" type="text" id="busqueda">
+            <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
+        </center>
         <br>
         <section class="fblanco">
             <div class="container pu pi">
@@ -9,7 +16,7 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
                             <tr>
-                                <td colspan="10" class="letra n600 azulo">Total Ni&ntilde;os, Ni&ntilde;as Adolecentes Registrados: <?php
+                                <td colspan="10" class="letra n600 azulo" bgcolor="#ff9933">Total Ni&ntilde;os, Ni&ntilde;as Adolecentes Registrados: <?php
                                                                                                                                     $con4 = mysqli_query($con, "SELECT count(id_ninnos) FROM ninnosnna where id_usuario='$id_usuario'");
 
                                                                                                                                     while ($row4 = mysqli_fetch_array($con4)) {
@@ -177,13 +184,16 @@
                                                     <td align="center">
                                                         <?php echo $edad;  ?></td>
                                                     <td align="center">
-                                                        <?php
-                                                        echo'<h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=5&id_ninnos='.$id_ninnos.'"class="linku">Consultar</a></h5>';
-                                                        ?>
+                                                        
+                                                        <a href="main.php?key=5&id_ninnos='.$id_ninnos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>
+                                                        
                                                         </td>
                                                     <td align="center">
                                                         <?php 
-                                                        echo '<h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=17&id_ninnos='.$id_ninnos.'" class="linku">Eliminar</a></h5>';
+                                                        if (!(consulta_campo('expediente','id_ninnos',$id_ninnos,'codigo_expediente'))){
+                                                            echo '<button class="btn btn-danger" onclick="javascript:Borra(\'ninnosnna\','.$id_ninnos.')"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';} 
+                                                            else{echo '<button class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
+
                                                     ?>
                                                     </td>
                                             <?php }

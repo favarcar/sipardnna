@@ -1,11 +1,4 @@
-    <script language="JavaScript">
-        function Borra(idcliente) {
-            var agree = confirm("¿Realmente desea eliminar el cliente seleccionado?");
-            if (agree) {
-                document.location = "eliminar.php?id=" + idcliente;
-            } else return false;
-        }
-    </script>
+
 
     <form name="form1" method="post" action="main.php?key=2" id="cdr">
         <center>
@@ -26,7 +19,7 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
                             <tr>
-                                <td colspan="10" class="letra n600 azulo">Total Usuarios Registrados:
+                                <td colspan="10" class="letra n600 azulo" bgcolor="#ff9933">Total Usuarios Registrados:
                                     <?php
                                     $con4 = mysqli_query($con, "SELECT count(id_ninnos) FROM ninnosnna");
                                     while ($row4 = mysqli_fetch_array($con4)) {
@@ -55,7 +48,7 @@
                                         $apellidos          = $row['Apellidos'];
                                         $nombres            = $row['Nombres'];
                                         $numero_documento   = $row['No_identificacion'];
-                                        $id_municipio       = $row['id_municipio'];
+                                        $id_municipio       = $row['id_municipio_hechos'];
                                         $id_provincia       = $row['id_provincia'];
                                         $edad               = $row['Edad'];
                                         $id_ninos           = $row['id_ninnos'];
@@ -103,19 +96,18 @@
                                                     $id_ninos21 = $row21['id_ninos'];
                                                 }
                                                 if ($id_ninos == $id_ninos21) {
-                                                    echo "Ya tiene Cuidador asignado";
+                                                    
                                                 } else { ?>
                                                 <?php
                                                 } ?>
 
                                                 <?php if ($id_ninos == $id_ninos21) {
-                                                echo '<h5 class="letra n500 azulo centrar ps linku "><a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="linku">Consultar</a></h5>';
-
+                                                echo '<a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar datos del cuidador"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
                                                 ?>
                                                 <?php
                                                 } else {
-                                                    echo "NO tiene Cuidador asignado";
-                                                    echo '<a href="main.php?key=10&id_ninnos='.$id_ninos.'">Registrar</a>';
+                                                    
+                                                    echo '<a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
                                                 } ?>
                                             </td>
                                     <?php
@@ -213,11 +205,11 @@
                                                         <?php
                                                         if ($id_ninos == $id_ninos21) {
                                                         
-                                                        echo '<h5 class="letra n500 azulo centrar ps linku "><a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="linku">Consultar</a></h5>';
+                                                        echo '<a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar datos del cuidador"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
                                                         
                                                         } elseif($nuser == 1 || $nuser == 2) {
-                                                            echo "NO tiene Cuidador asignado";  
-                                                            echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'">Registrar</a>';
+                                        
+                                                            echo '<a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
                                                       
                                                         } 
                                                         elseif($nuser == 3) {
@@ -229,7 +221,7 @@
                                             }
                                         } ?>
                                                 </tr>
-                                                <iframe name="usuario" src="MPC/ConsultarMPC.php" width="100%" height="0" frameborder="0" transparency="transparency" onload="autofitIframea(this);" scrolling="no"></iframe>
+                                                <!--<iframe name="usuario" src="MPC/ConsultarMPC.php" width="100%" height="0" frameborder="0" transparency="transparency" onload="autofitIframea(this);" scrolling="no"></iframe>-->
 
                                     </table>
                                 </div>

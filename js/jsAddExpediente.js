@@ -69,7 +69,95 @@ $('#expeTable').DataTable({
   ],
   "columnDefs": [
 
-   
+    {
+      "targets": [0],
+      "data": "Nombres",
+      "render": function (data, type, row) {
+        return "<span class='dt-body-left'>" + data + " " + row.Apellidos + "</span>";
+
+      }
+
+    },
+    {
+      "targets": [2],
+      "data": "id_pais",
+      "render": function (data, type, row) {        
+        return "<span class='dt-body-left'>" + row.nompais + "</span>";
+      }
+    }
+    ,
+    {
+      "targets": [3],
+      "data": "id_departamento",
+      "render": function (data, type, row) {
+        return "<span class='dt-body-left'>" + row.descripcion + "</span>";
+      }
+    },
+    {
+      "targets": [4],
+      "data": "id_municipio_hechos",
+      "render": function (data, type, row) {
+
+        return "<span class='dt-body-left'>" + row.nomdes + "</span>";
+      }
+
+    },
+    {
+      "targets": [5],
+      "data": "id_provincia",
+      "render": function (data, type, row) {
+        return "<span class='dt-body-left'>  " + row.descripcion_prov + "</span>";
+
+      }
+
+    },
+    {
+      "targets": [7],      
+      "render": function (data, type, row) {
+        var id_cuida;
+        
+        return '<div class="btn-group btn-group-xs"><a type="button" class="btn btn-primary"  onClick="getEstadoExpediente(' + row.id_ninnos + ')" title="Consultar Expediente '+ id_cuida +'"><i class="fa fa-search"></i> Consultar</a></div>';
+      
+      }
+    },
+  ],
+});
+
+function getEstadoExpediente(idNino) {
+  $.post("Expediente/EstadoExpediente.php",
+    { id_ninoa: idNino },
+    function (data) {
+      var exp = JSON.parse(data);
+      $.each(exp, function (i, item) {
+        $("#EstadoExp").val(item.CONTADOR);
+        $("#idIExp").val(item.codigo);
+      });
+      consultarExpediente(idNino);
+    }
+  );
+}
+
+function consultarExpediente(idNino) {
+  if ($("#EstadoExp").val() > 0) {
+    getExpeIndicadores($("#idIExp").val());
+    getExpeActuaciones($("#idIExp").val());
+    showRegistroExpe(idNino);
+    showExpe(idNino);
+    $("#ConsultarExp").show();
+    $("#RegistroExp").hide();
+    $("#ConsultaExp").hide();
+    $("#addActuacion").hide();
+  } else {
+    alert("No se encontraron expedientes se procederá a crearlo");
+    showRegistroExpe2(idNino);
+    $("#RegistroExp").show();
+    $("#ConsultaExp").hide();
+  }
+  
+}
+
+
+
 function showRegistroExpe(idNino) {
   $.post("Expediente/buscarNino.php",
     { id_ninoa: idNino },

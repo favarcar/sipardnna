@@ -127,7 +127,7 @@
 
                                             <td>
                                                 <?php
-                                                echo '<h5 class="letra n500 azulo centrar ps linku"><a href="main.php?key=19&codigo_expediente='.$codigo_expediente.'"class="linku"> Consultar</a></h5>';
+                                                echo '<a href="main.php?key=19&codigo_expediente='.$codigo_expediente.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
                                                  ?>
                                                 <td>
                                             <?php

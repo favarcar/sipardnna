@@ -1,11 +1,26 @@
-function Borra(idcliente) {
-  var agree = confirm("�Realmente desea eliminar el cliente seleccionado?");
+function Borra(tabla, id) {
+  var agree = confirm("¿Realmente desea eliminar el registro seleccionado?");
   if (agree) {
-  document.location = "eliminar.php?id=" + idcliente;
-          } else return false;
-       }
+
+    switch(tabla){
+      case 'ninnosnna':
+      document.location = "main.php?key=17&id_ninnos=" + id;
+      break;
+      case 'cuidadores':
+      document.location = "main.php?key=27&id_cuidadores=" + id;
+      break;
+
+    }
+  } else { return false; } 
+                          }
+
+     
+
+
+
     
-       function getDato(tablac, campoc, datoc, campor) {
+  
+  function getDato(tablac, campoc, datoc, campor) {
         $.post("consulta_dato.php",
           { tabla: tablac, cconsulta: campoc, dato: datoc, cresp: campor },
           function (data) {

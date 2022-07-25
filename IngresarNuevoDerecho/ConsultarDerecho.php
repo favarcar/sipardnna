@@ -94,7 +94,7 @@ $apellido = $fila['apellidos'];
               <div class="table-responsive"> 
 <table class="table table-striped table-bordered">
 <tr>
-<td colspan="10" class="letra n600 azulo">Total de Derechos Registrados: <?php 			
+<td colspan="10" class="letra n600 azulo" bgcolor="#ff9933">Total de Derechos Registrados: <?php 			
 		  $con4=mysqli_query($con,"SELECT count(id_derecho) FROM derechos");
 			
 			while($row4=mysqli_fetch_array($con4)){

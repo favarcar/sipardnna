@@ -14,7 +14,6 @@
             <div class="row clearfix centrar"> 
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500"><a href="main.php?key=0">Volver Men&uacute; Principal</a></li>
                         <li role="presentation" class="letra n500"><a a href="main.php?key=12">Consultar Expedientes</a></li>
                         <li role="presentation" class="letra n500"><a href="#">Consultar Expedientes Remitidos</a></li>
                         <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
@@ -40,7 +39,7 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
                             <tr>
-                                <td colspan="10" class="letra n600 azulo">Total Niños, Niñas o Adolescentes Registrados:
+                                <td colspan="10" class="letra n600 azulo" bgcolor="#ff9933">Total Niños, Niñas o Adolescentes Registrados:
                                     <?php 
                                     if (!empty($id_usuario88)) {
                                         $con44 = mysqli_query($con, "SELECT count(id_remite), 	id_usuario, id_ninnos FROM remite where id_usuario = '$id_usuario88'");

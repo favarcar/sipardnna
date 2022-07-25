@@ -25,7 +25,7 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">
                             <tr>
-                                <th colspan="10" class="letra n600 azulo">Total Ni&ntilde;os, Ni&ntilde;as Adolescentes Registrados:
+                                <th colspan="10" class="letra n600 azulo"bgcolor="#ff9933">Total Ni&ntilde;os, Ni&ntilde;as Adolescentes Registrados:
                                     <?php $con4 = mysqli_query($con, "SELECT count(id_ninnos) FROM ninnosnna");
                                     while ($row4 = mysqli_fetch_array($con4)) {
                                         echo $nom_asignatura11 = $row4['count(id_ninnos)'];
@@ -52,7 +52,7 @@
                                         $apellidos          = $row['Apellidos'];
                                         $nombres            = $row['Nombres'];
                                         $numero_documento   = $row['No_identificacion'];
-                                        $id_municipio       = $row['id_municipio'];
+                                        $id_municipio       = $row['id_municipio_hechos'];
                                         $id_provincia       = $row['id_provincia'];
                                         $edad               = $row['Edad'];
                                         $id_pais = $row['id_pais'];
@@ -91,7 +91,7 @@
                                                 <?php echo $edad; ?>
                                             </td>
                                             <td align="center">
-                                                <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar</a></h5>
+                                            <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>
                                             </td> <?php
                                                 }
                                             } ?>
@@ -164,7 +164,7 @@
                                     </td>
                                     <td align="center"> <?php echo $edad;  ?></td>
                                     <td align="center">
-                                        <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar</a></h5>
+                                        <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>
                                     </td>
                             <?php
                             }
