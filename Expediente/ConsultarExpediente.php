@@ -269,7 +269,7 @@ while($row=mysqli_fetch_array($busqueda)){
 			   }
 			   else{
             ?>
-           <h5 class="letra n500  azulo centrar ps linku "><a href="IngresarExpediente.php?id_ninnos=<?php echo $row['id_ninnos'];?>" class="linku">Registrar</a></h5> <?php }?></td>
+           <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=34&id_ninnos=<?php echo $row['id_ninnos'];?>" class="linku">Registrar</a></h5> <?php }?></td>
            
 		   <td>
 		    <?php if($id_ninnos==$id_ninnos21){ ?>

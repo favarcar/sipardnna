@@ -50,7 +50,7 @@
 
   $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
   while ($row = mysqli_fetch_array($busqueda)) {
-    $id_municipio = $row['id_municipio'];
+    $id_municipio = $row['id_municipio_hechos'];
   }
 
   $busqueda50 = mysqli_query($con, "SELECT * FROM remite where codigo_expediente='$codigo_expediente' "); //cambiar nombre de la tabla de busqueda
@@ -145,7 +145,7 @@ self.location = "index.html"
                 $busqueda1 = mysqli_query($con, "SELECT * FROM municipios where id_municipio='$id_municipio'");
                 while ($row1 = mysqli_fetch_array($busqueda1)) {
 
-                  $id_municipio = $row1['id_municipio'];
+                  $id_municipio = $row1['id_municipio_hechos'];
                   $descripcion = $row1['descripcion'];
                 }
                 ?>

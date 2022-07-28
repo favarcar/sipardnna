@@ -113,6 +113,13 @@
   }
 
   ?>
+   <?php $bus_perfil = mysqli_query($con, "SELECT * FROM perfiles where id_perfil='$id_perfil' ");
+  while ($row = mysqli_fetch_array($bus_perfil)) {
+
+    $id_perfil = $row['id_perfil'];
+    $descripcion = $row['descripcion'];
+  }
+  ?>
   <?php
 
 
@@ -170,7 +177,7 @@ self.location = "index.html"
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Ni&ntilde;o, Ni&ntilde;a o Adolescente</label>
+            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de N.N.A.</label>
             <div class="col-md-4">
               <input id="textinput" name="nom_nna_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
 
@@ -181,24 +188,35 @@ self.location = "index.html"
 
 
           <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescente </label>
+            <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de N.N.A. </label>
             <div class="col-md-4">
               <input id="textinput" name="num_nna_exp" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" readonly>
 
             </div>
           </div>
           <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Madre, Padre o Acudiente</label>
+            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de M.P.C.</label>
             <div class="col-md-4">
-              <input id="textinput" name="nom_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $ApellidosCuida ?> <?php echo $NombresCuida ?> " readonly>
+              <input id="textinput" name="nom_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($ApellidosCuida)) {
+echo $ApellidosCuida;
+echo " ";
+echo $NombresCuida;
+} else {
+echo "No tiene cuidador";
+} ?> " readonly>
+
 
             </div>
           </div>
 
           <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Madre, Padre o Acudiente</label>
+            <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de M.P.C.</label>
             <div class="col-md-4">
-              <input id="textinput" name="num_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $No_Cedula ?>" readonly>
+              <input id="textinput" name="num_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($No_Cedula)) {
+echo $No_Cedula;
+} else {
+echo "No tiene cuidador";
+} ?>" readonly>
 
             </div>
           </div>
@@ -258,17 +276,30 @@ self.location = "index.html"
           <table class="table table-striped table-bordered">
 
 
+          <?php if($id_perfil != 9){ ?>
+            <td align="center">
+              <br><a href="main.php?key=37&codigo_expediente=<?php echo $codigo_expediente; ?>&id_ninnos=<?php echo $id_ninnos; ?>" class=" btn btn-primary">
+              <span class="glyphicon glyphicon-share"></span> Remitir Juez de Familia</a></h5>
+            </td>
+            <?php
+          }?> 
 
+            <?php if($id_perfil != 4){ ?>
             <td align="center">
-              <h5 class="letra n500  azulo "><br><a href="../RemitirJuezFamilia/RemitirJuezfamilia.php?codigo_expediente=<?php echo $codigo_expediente; ?>&id_ninnos=<?php echo $id_ninnos; ?>" class=" btn btn-primary">Remitir Juez de Familia</a></h5>
+              <br><a href="main.php?key=36&codigo_expediente=<?php echo $codigo_expediente; ?>&id_ninnos=<?php echo $id_ninnos; ?>" class=" btn btn-primary">
+              <span class="glyphicon glyphicon-share"></span> Remitir Enlace Municipal</a></h5>
             </td>
-            <td align="center">
-              <h5 class="letra n500  azulo "><br><a href="../RemitirEnlaceMunicipal/RemitirEnlaceMunicipal.php?codigo_expediente=<?php echo $codigo_expediente; ?>&id_ninnos=<?php echo $id_ninnos; ?>" class=" btn btn-primary">Remitir Enlace Municipal</a></h5>
-            </td>
+            <?php
+          } ?>  
 
+            <?php if($id_perfil != 6){ ?>
             <td align="center">
-              <h5 class="letra n500  azulo "><br><a href="../RemitirComisaria/RemitirComisaria.php?codigo_expediente=<?php echo $codigo_expediente; ?>&id_ninnos=<?php echo $id_ninnos; ?>" class=" btn btn-primary">Remitir Comisar&iacute;a de Familia</a></h5>
+              <br><a href="main.php?key=35&codigo_expediente=<?php echo $codigo_expediente; ?>&id_ninnos=<?php echo $id_ninnos; ?>" class=" btn btn-primary">
+              <span class="glyphicon glyphicon-share"></span> Remitir Comisar&iacute;a de Familia</a></h5>
             </td>
+            <?php 
+            }?>
+
 
 
 

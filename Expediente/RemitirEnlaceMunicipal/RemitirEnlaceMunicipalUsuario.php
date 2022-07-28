@@ -1,8 +1,6 @@
 <?php
 
-include('../../conexion/conexion.php');
 
-//Iniciar Sesión
 
 $id_usuario1 = $_GET['id_usuario'];
 $id_tipo_documento = $_GET['id_tipo_documento'];
@@ -14,8 +12,6 @@ $id_ninnos = $_GET['id_ninnos'];
 $codigo_expediente = $_GET['codigo_expediente'];
 
 
-//Iniciar Sesión
-session_start();
 
 //Validar si se está ingresando con sesión correctamente
 if (!$_SESSION) {
@@ -37,8 +33,6 @@ $id = $fila['id_usuario'];
 date_default_timezone_set('America/Bogota');
 $time = time();
 $fecha =  date("Y-m-d", $time);
-
-
 
 
 
@@ -304,19 +298,17 @@ while ($row = mysqli_fetch_array($busqueda)) {
     $id_usu = $_POST['id_usu'];
 
 
-
-
     $sql = " INSERT INTO `remite`(`id_remite`, `codigo_expediente`, `id_ninnos`, `id_usuario`, `usuario_que_remite`) VALUES ('$id_remite','$codigo_expediente','$id_ninnos','$id_usuario1','$id')";
 
     if (mysqli_query($con, $sql)) {
       echo '<script language = javascript>
 alert("la Informacion ha sido Guardada Correctamente")
-self.location = "../ConsultarExpediente.php"
+self.location = "main.php?key=15"
 </script>';
     } else {
       echo '<script language = javascript>
 alert("Error")
-self.location = "../ConsultarExpediente.php"
+self.location = "main.php?key=15"
 </script>';
     }
 

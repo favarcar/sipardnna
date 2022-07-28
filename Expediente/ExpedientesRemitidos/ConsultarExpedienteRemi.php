@@ -3,7 +3,7 @@
         <div class="container ps ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                    <h2 class="centrar letra n600 azulo pi">Expedientes</h2>
+                    <h2 class="centrar letra n600 azulo pi">Expedientes Remitidos</h2>
                 </div>
             </div>
         </div>

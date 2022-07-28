@@ -258,13 +258,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group" id="cual_mun">
+                    <!--<div class="form-group" id="cual_mun">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Escriba el municipio</label>
                         <div class="col-md-8">
                             <input id="mun_aux" name="mun_aux" type="text" placeholder="¿Escriba cual?" style="text-transform: uppercase;" class="form-control input-md">
 
                         </div>
-                    </div>
+                    </div>-->
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Provincia</label>
@@ -285,14 +285,14 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="tel_nna" type="tel" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required>
+                            <input id="textinput" name="tel_nna" type="tel" maxlength="10" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Email</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="email_nna" type="email" placeholder="" class="form-control input-md" required>
+                            <input id="textinput" name="email_nna" type="email" placeholder="" class="form-control input-md">
                         </div>
                     </div>
 
@@ -535,7 +535,7 @@
         if (mysqli_query($con, $sql) or Die(mysqli_error($con))) {
             echo '<script language = javascript>
             alert("la Información ha sido Guardada Correctamente")
-            self.location = "main.php?key=12"
+            self.location = "main.php?key=12&id_ninnos='.$nino_id.'"
             </script>';
         } else {
             echo '<script language = javascript>

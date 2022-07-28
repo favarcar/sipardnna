@@ -179,7 +179,7 @@ self.location = "index.html"
 
                                             if ($codigo_expediente == $codigo_expediente21) { ?>
 
-                                                <h5 class="letra n500  azulo centrar ps linku "><a href="main.php?key=30&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="linku">Consultar Remisi&oacute;n</a></h5>
+                                                <a href="main.php?key=30&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Remitir expediente"><span class="glyphicon glyphicon-share" ></span> Consultar Remisi&oacute;n</a></h5>
                                             <?php
 
                                             } else {

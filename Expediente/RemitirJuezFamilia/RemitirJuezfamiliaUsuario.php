@@ -1,8 +1,6 @@
 <?php
 
-include('../../conexion/conexion.php');
 
-//Iniciar Sesión
 
 $id_usuario1 = $_GET['id_usuario'];
 $id_tipo_documento = $_GET['id_tipo_documento'];
@@ -15,11 +13,6 @@ $codigo_expediente = $_GET['codigo_expediente'];
 
 
 
-
-
-//Iniciar Sesión
-session_start();
-
 //Validar si se está ingresando con sesión correctamente
 if (!$_SESSION) {
   echo '<script language = javascript>
@@ -31,7 +24,7 @@ self.location = "index.html"
 $id_usuario = $_SESSION['numero_documento'];
 
 $consulta = "SELECT * FROM usuarios where numero_documento='$id_usuario' ";
-$resultado = mysqli_query($con, $consulta) or die(mysqli_error());
+$resultado = mysqli_query($con, $consulta) or die(mysqli_error($con));
 $fila = mysqli_fetch_array($resultado);
 $nombres = $fila['nombres'];
 $apellido = $fila['apellidos'];
@@ -131,8 +124,13 @@ while ($row = mysqli_fetch_array($busqueda)) {
             </div>
           </div>
 
+          <div class="form-group" style="display:none">
+            <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_usuario</label>
+            <div class="col-md-4">
+              <input id="textinput" name="id_usu" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" required value="<?php echo  $nombres;  ?>" readonly>
 
-
+            </div>
+          </div>
           <div class="form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres</label>
             <div class="col-md-4">
@@ -187,28 +185,30 @@ while ($row = mysqli_fetch_array($busqueda)) {
 
           <div class="form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Cargo</label>
-            <div class="col-md-4">              
-                <select name="cargo_usu" id="cargo_usu" readonly class="form-control" style="text-transform: uppercase;">
-                  <?php $busqueda1 = mysqli_query($con, "SELECT * FROM perfiles where id_perfil='$id_perfil' ");
-                  while ($row1 = mysqli_fetch_array($busqueda1)) {
+            <div class="col-md-4">
+              <select name="cargo_usu" id="cargo_usu" disabled class="form-control" style="text-transform: uppercase;">
+                <?php
+                include('../../conexion/conexion.php');
 
-                    $id_perfil = $row1['id_perfil'];
-                    $descripcion = $row1['descripcion'];
-                  }
-                  ?>
-                  <option value="<?php echo $id_perfil; ?>"><?php echo $descripcion; ?></option>
-                  <?php
-                  $con = mysqli_query($con, "select * from perfiles");
-                  $reg = mysqli_fetch_array($con);
-                  do {
-                    $id_car = $reg['id_perfil'];
-                    $des_cam = $reg['descripcion'];
-                  ?>
-                    <option value="<?php echo $id_car; ?>"><?php echo $des_cam; ?> </option>
-                  <?php
-                  } while ($reg = mysqli_fetch_array($con));
-                  ?>
+                $busqueda33 = mysqli_query($con, "SELECT * FROM perfiles where id_perfil='$id_perfil' ");
+                while ($row33 = mysqli_fetch_array($busqueda33)) {
 
+                  $id_perfil33 = $row33['id_perfil'];
+                  $descripcion33 = $row33['descripcion'];
+                }
+                ?>
+                <option value="<?php echo $id_perfil33; ?>"><?php echo $descripcion33; ?></option>
+                <?php
+                $con33 = mysqli_query($con, "select * from perfiles");
+                $reg33 = mysqli_fetch_array($con33);
+                do {
+                  $id_car = $reg33['id_perfil'];
+                  $des_cam = $reg33['descripcion'];
+                ?>
+                  <option value="<?php echo $id_car; ?>"><?php echo $des_cam; ?> </option>
+                <?php
+                } while ($reg33 = mysqli_fetch_array($con33));
+                ?>
                 </select>              
             </div>
           </div>
@@ -241,7 +241,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" style="display:none">
             <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha de Remisi&oacute;n</label>
             <div class="col-md-4">
               <input id="textinput" name="fecha" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" required value="<?php echo $fecha ?>">
@@ -292,22 +292,21 @@ while ($row = mysqli_fetch_array($busqueda)) {
   <?php
   if ($_POST) { //si se ha presionado enviar
 
-    include('../../conexion/conexion.php');
-
     $id_remite = $_POST['id_remite'];
     $id_usu = $_POST['id_usu'];
 
 
     $sql = " INSERT INTO `remite`(`id_remite`, `codigo_expediente`, `id_ninnos`, `id_usuario`, `usuario_que_remite`) VALUES ('$id_remite','$codigo_expediente','$id_ninnos','$id_usuario1','$id')";
+
     if (mysqli_query($con, $sql)) {
       echo '<script language = javascript>
 alert("la Informacion ha sido Guardada Correctamente")
-self.location = "../ConsultarExpediente.php"
+self.location = "main.php?key=15"
 </script>';
     } else {
       echo '<script language = javascript>
 alert("Error")
-self.location = "../ConsultarExpediente.php"
+self.location = "main.php?key=15"
 </script>';
     }
 

@@ -405,14 +405,14 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                                     <label>Teléfono Móvil</label>
-                                    <input id='telefono_nna' type="int" name='telefono_nna' class="form-control" placeholder="Ingrese el número telefónico" required>
+                                    <input id='telefono_nna' type="int" pattern="[0-9]" maxlength="10" name='telefono_nna' class="form-control" placeholder="Ingrese el número telefónico" required>
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
                                     </select>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                                     <label>Correo electronico</label>
-                                    <input id='correo_nna' type="text" name='correo_nna' class="form-control" placeholder="Ingrese el correo electronico" required>
+                                    <input id='correo_nna' type="text" name='correo_nna' class="form-control" placeholder="Ingrese el correo electronico">
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>                                
 

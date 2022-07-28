@@ -1,14 +1,51 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Menú Principal dos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        
+        <link rel="stylesheet" href="../css/bootstrap.css"> 
 
+        <style>
+            body {
+                padding-top: 0px;
+                padding-bottom: 0px;
+            }
+        </style>
+
+
+        <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+
+
+        <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,600italic' rel='stylesheet' type='text/css'>
+
+        <script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+         <!-- Start WOWSlider.com HEAD section -->
+        <link rel="stylesheet" type="text/css" href="engine1/style.css" />
+        <script type="text/javascript" src="engine1/jquery.js"></script>
+        <!-- End WOWSlider.com HEAD section -->
+
+    </head>
     <body>
-
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
             <?php
 
- $id_derecho = $_GET['id_derecho'];
+ //$id_derecho=$_GET['id_derecho'];
 			
 	
- $busqueda = mysqli_query($con,"SELECT * FROM derechos where id_derecho='$id_derecho' ");//cambiar nombre de la tabla de busqueda
-while($row=mysqli_fetch_array($busqueda)){
-		
+	$busqueda_derechos = mysqli_query($con, "SELECT * FROM derechos WHERE id_derecho='$id_derecho' ");
+while($row=mysqli_fetch_array($busqueda_derechos)){		
           $id_derecho=$row['id_derecho'];
 		  $descripcion=$row['descripcion_derechos'];
 		      
@@ -57,14 +94,14 @@ if($_POST){ //si se ha presionado enviar
    
    
 
- mysqli_query($con,"UPDATE `derechos` SET `id_derecho`='$id_derecho',`descripcion_derechos`='$descripcion1' WHERE id_derecho='$id_derecho'");
+ mysqli_query($con,"UPDATE `derechos` SET `id_derecho`='$id_derecho',`descripcion`='$descripcion1' WHERE id_derecho='$id_derecho'");
  
  mysqli_close($con);
 	
 
 	echo '<script language = javascript>
 alert("la Informacion ha sido Guardada Correctamente")
-self.location = "main.php?key=20"
+self.location = "ConsultarDerecho.php"
 </script>'; 
 	
 

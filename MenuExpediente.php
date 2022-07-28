@@ -129,7 +129,7 @@
                                 <form id="formExpe" method="post" enctype="multipart/form-data">
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                         <label>Número del proceso</label>
-                                        <input id='num_pro' type="number" name='num_pro' min="0" class="form-control" placeholder="Ingrese la edad " font style="text-transform: uppercase;" onkeypress="return valida(event)" value="0" required>
+                                        <input id='num_pro' type="number" name='num_pro' min="0" class="form-control" placeholder="Número del proceso " font style="text-transform: uppercase;" onkeypress="return valida(event)" value="0" required>
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
@@ -255,7 +255,7 @@
                                         <input id="finalizacion_exp" name="finalizacion_exp" type="date" class="form-control" placeholder="AAAA-MM-DD" font style="text-transform: uppercase;" required>
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                        <label>Entidad</label>
+                                        <label>Entidad a remitir</label>
                                         <select name="entidad_exp" id="entidad_exp" class="form-control" font style="text-transform: uppercase;" required>
                                             <option value="">Seleccione</option>
                                             <?php
@@ -442,16 +442,16 @@
                                 <form id="formExpe" method="post" enctype="multipart/form-data">
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                         <label>Número del proceso</label>
-                                        <input id='num_show_pro' name='num_show_pro' class="form-control" placeholder="Ingrese la edad " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
+                                        <input id='num_show_pro' name='num_show_pro' class="form-control" placeholder="Número del proceso " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                         <label>Restablecimiento de Derechos</label>
-                                        <input id='derechos_show_exp' name='derechos_show_exp' class="form-control" placeholder="Ingrese la edad " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
+                                        <input id='derechos_show_exp' name='derechos_show_exp' class="form-control" placeholder="Restablecimiento de Derechos " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
                                     </div>
                                     <div class="col-md-8 col-sm-4 col-xs-12 form-group">
                                         <label>Discapacidad</label>
-                                        <input id='discapacidad_show_exp' name='discapacidad_show_exp' class="form-control" placeholder="Ingrese la edad " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
+                                        <input id='discapacidad_show_exp' name='discapacidad_show_exp' class="form-control" placeholder="Ingrese la Discapacidad " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
                                     </div>
 
                                     <div class="col-md-12 col-sm-6 col-xs-12 form-group well">
@@ -467,11 +467,11 @@
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                         <label>Maltrato</label>
-                                        <input id='maltratos_show_exp' name='num_pro' min="0" class="form-control" placeholder="Ingrese la edad " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
+                                        <input id='maltratos_show_exp' name='num_pro' min="0" class="form-control" placeholder="Maltrato " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                         <label>Victimas</label>
-                                        <input id='victima_show_exp' name='num_pro' min="0" class="form-control" placeholder="Ingrese la edad " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
+                                        <input id='victima_show_exp' name='num_pro' min="0" class="form-control" placeholder="Victimas " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                         <label>Descripci&oacute;n</label>
@@ -487,18 +487,18 @@
                                         <input id="finalizacion_show_exp" name="finalizacion_exp" class="form-control" placeholder="AAAA-MM-DD" font style="text-transform: uppercase;" readonly>
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                        <label>Entidad</label>
-                                        <input id='entidad_show_exp' name='num_pro' min="0" class="form-control" placeholder="Ingrese la edad " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
+                                        <label>Entidad a remitir</label>
+                                        <input id='entidad_show_exp' name='num_pro' min="0" class="form-control" placeholder="Ingrese la Entidad " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
 
                                     </div>
 
                                     <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                                         <label>Estado del Expediente</label>
-                                        <input id='estadocaso_show_exp' name='num_pro' min="0" class="form-control" placeholder="Ingrese la edad " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
+                                        <input id='estadocaso_show_exp' name='num_pro' min="0" class="form-control" placeholder="Estado del Expediente" font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
                                     </div>
                                     <div class="col-md-8 col-sm-4 col-xs-12 form-group">
                                         <label>Concepto del Caso</label>
-                                        <input id='concepto_show' name='num_pro' min="0" class="form-control" placeholder="Ingrese la edad " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
+                                        <input id='concepto_show' name='num_pro' min="0" class="form-control" placeholder="Concepto del caso " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
                                     </div>
 
                                     <div class="col-md-12 col-sm-6 col-xs-12 form-group well" id="addActuacion">

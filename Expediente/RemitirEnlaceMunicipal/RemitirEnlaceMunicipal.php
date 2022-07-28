@@ -65,7 +65,6 @@
     <section class="fblanco">
       <div class="container pu pi">
         <?php
-        include("../../conexion/conexion.php");
 
         $codigo_expediente = $_GET['codigo_expediente'];
         $id_ninnos = $_GET['id_ninnos'];
@@ -79,12 +78,12 @@
 
               <tr>
 
-                <td class="col-md-4 control-label letra n600 azulo">Nombre</td>
-                <td class="col-md-4 control-label letra n600 azulo">No. Documento</td>
-                <td class="col-md-4 control-label letra n600 azulo">Municipio</td>
-                <td class="col-md-4 control-label letra n600 azulo">Teléfono</td>
-                <td class="col-md-4 control-label letra n600 azulo" style="display:none">Email</td>
-                <td class="col-md-4 control-label letra n600 azulo">Remitir</td>
+                <td class="col-md-4 control-label letra n600 azulo" bgcolor="#ff9933">Nombre</td>
+                <td class="col-md-4 control-label letra n600 azulo" bgcolor="#ff9933">No. Documento</td>
+                <td class="col-md-4 control-label letra n600 azulo" bgcolor="#ff9933">Municipio</td>
+                <td class="col-md-4 control-label letra n600 azulo" bgcolor="#ff9933">Teléfono</td>
+                <td class="col-md-4 control-label letra n600 azulo" style="display:none" bgcolor="#ff9933">Email</td>
+                <td class="col-md-4 control-label letra n600 azulo" bgcolor="#ff9933">Remitir</td>
               </tr>
               <tbody>
                 <?php
@@ -126,7 +125,8 @@
                       <td align="center"><?php echo $telefono; ?></td>
                       <td align="center" style="display:none"><?php echo $correo; ?></td>
                       <td align="center">
-                        <h5 class="letra n500  azulo centrar ps linku "><a href="RemitirEnlaceMunicipalUsuario.php?id_usuario=<?php echo $row['id_usuario']; ?>&id_tipo_documento=<?php echo $row['id_tipo_documento']; ?>&id_genero=<?php echo $row['id_genero']; ?>&id_municipio=<?php echo $row['id_municipio']; ?> &id_perfil=<?php echo $row['id_perfil']; ?>&codigo_expediente=<?php echo $codigo_expediente ?>&id_ninnos=<?php echo $id_ninnos ?>" class="linku">Remitir</a></h5>
+                        <a href="main.php?key=39&id_usuario=<?php echo $row['id_usuario']; ?>&id_tipo_documento=<?php echo $row['id_tipo_documento']; ?>&id_genero=<?php echo $row['id_genero']; ?>&id_municipio=<?php echo $row['id_municipio']; ?> &id_perfil=<?php echo $row['id_perfil']; ?>&codigo_expediente=<?php echo $codigo_expediente ?>&id_ninnos=<?php echo $id_ninnos ?>"  class=" btn btn-primary">
+              <span class="glyphicon glyphicon-share"></span> Remitir</a></h5>
                       </td>
                   <?php }
                 } ?>
@@ -189,20 +189,96 @@
                           <td align="center"><?php echo $telefono; ?></td>
                           <td align="center" style="display:none"><?php echo $correo; ?></td>
                           <td align="center">
-                            <h5 class="letra n500  azulo centrar ps linku "><a href="RemitirEnlaceMunicipalUsuario.php?id_usuario=<?php echo $row['id_usuario']; ?>&id_tipo_documento=<?php echo $row['id_tipo_documento']; ?>&id_genero=<?php echo $row['id_genero']; ?>&id_municipio=<?php echo $row['id_municipio']; ?> &id_perfil=<?php echo $row['id_perfil']; ?>&codigo_expediente=<?php echo $codigo_expediente ?>&id_ninnos=<?php echo $id_ninnos ?>" class="linku">Remitir</a></h5>
+                            <a href="main.php?key=39&id_usuario=<?php echo $row['id_usuario']; ?>&id_tipo_documento=<?php echo $row['id_tipo_documento']; ?>&id_genero=<?php echo $row['id_genero']; ?>&id_municipio=<?php echo $row['id_municipio']; ?> &id_perfil=<?php echo $row['id_perfil']; ?>&codigo_expediente=<?php echo $codigo_expediente ?>&id_ninnos=<?php echo $id_ninnos ?>"  class=" btn btn-primary">
+              <span class="glyphicon glyphicon-share"></span> Remitir</a></h5>
                           </td>
                       <?php }
                     } ?>
                         </tr>
                   </table>
-  </form>
-  </div>
-  </div>
-  </section>
+                  </form>
+    <div class="clearfix"></div>
+    </section>
 
 
 
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="js/jquery-ui.js"></script>
+    <!-- Datatables -->
+    <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="css/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="css/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="css/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="css/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="css/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="css/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+
+    <!-- PNotify -->
+    <script src="css/pnotify/dist/pnotify.js"></script>
+    <script src="css/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="css/pnotify/dist/pnotify.nonblock.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ui-pnotify').remove();
+        });
+    </script>
+
+    <script src="js/jsAddExpediente.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+
+        function numeros(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " 0123456789";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
+    </script>
+</body>
+
+</html>
+    </div>
+    </div>
+    </section>
 </body>
 
 </html>

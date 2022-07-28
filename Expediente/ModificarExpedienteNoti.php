@@ -225,21 +225,37 @@ echo "No tiene cuidador";
             </select>
           </div>
         </div>
-            </fieldset>
+           
 
    
+            <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Indicadores</label>
+          <div class="col-md-8">
+            <?php
 
-        <div class="col-md-12 col-sm-6 col-xs-12 form-group well">
-          <label>Indicadores</label>
-          <table id="indicadorShowTable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
-            <thead>
-              <tr>
-                <th>Id Indicador</th>
-                <th>Descripción Indicador</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
+            $busqueda1 = mysqli_query($con, "SELECT * FROM indicadores where id_indicador='$id_indicador' ");
+            while ($row1 = mysqli_fetch_array($busqueda1)) {
+ 
+              $id_indicador = $row1['id_indicador'];
+              $descripcion_indicadores = $row1['descripcion_indicadores'];
+            }
+            ?>
+            <select name="indicadores_exp" id="indicadores_exp" class="form-control" style="text-transform: uppercase;" required>
+              <option value="<?php echo $descripcion_indicadores ?></option>
+              <?php
+              $con65 = mysqli_query($con, "select * from  indicadores");
+              $reg65 = mysqli_fetch_array($con65);
+              do {
+                $id_indicador = $reg65['id_indicador'];
+                $descripcion_indicadores = $reg65['descripcion_indicadores'];
+              ?>
+                <option value="<?php echo $id_indicador; ?>"><?php echo $descripcion_indicadores; ?> </option>
+              <?php
+              } while ($reg65 = mysqli_fetch_array($con65));
+              ?>
+
+            </select>
+             </fieldset>
 
 
 
@@ -419,9 +435,9 @@ echo "No tiene cuidador";
           </div>
         </div>
 
-        <div class="col-md-12 col-sm-6 col-xs-12 form-group well">
+        <!--<div class="col-md-12 col-sm-6 col-xs-12 form-group well">
           <label>Actuaciones</label>
-          <table id="ActuacionesShpwTable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+          <table id="actuacionShowTable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
             <thead>
               <tr>
                 <th>Fecha Actuación</th>
@@ -431,7 +447,7 @@ echo "No tiene cuidador";
               </tr>
             </thead>
           </table>
-        </div>
+        </div>-->
 
         <div class="form-group <?= $visiblemod ?>" >
                         <label class="col-md-4 control-label" for="singlebutton"></label>
@@ -487,6 +503,7 @@ echo "No tiene cuidador";
           Veredicto_Caso='$veredicto_exp',
           Fecha_finalizacion_expediente='$finalizacion_exp',
           id_entidad='$entidad_exp',
+          id_estadocaso='$estadocaso_exp'
 
           WHERE codigo_expediente='$codigo_expediente'");
           mysqli_close($con);
