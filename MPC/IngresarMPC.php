@@ -268,7 +268,7 @@
                     <div class="form-group" id="cual_mun">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Lugar de residencia</label>
                         <div class="col-md-8">
-                            <input id="mun_aux" name="mun_aux" type="text" placeholder="¿Escriba cual?" style="text-transform: uppercase;" class="form-control input-md">
+                            <input id="mun_aux" name="mun_aux" type="text" placeholder="PAIS - CIUDAD" style="text-transform: uppercase;" class="form-control input-md">
 
                         </div>
                     </div>
