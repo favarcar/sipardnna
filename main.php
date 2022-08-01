@@ -186,6 +186,8 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
         <ul class="dropdown-menu">
           <li><a href="main.php?key=8">Niños niñas o adolescentes</a></li>
           <li><a href="main.php?key=23">Madre, Padre o Cuidador</a></li>
+          <li><a href="main.php?key=23">Madre, Padre o Cuidador con NNA</a></li>
+          <li><a href="main.php?key=23"></a></li>
           <li><a href="main.php?key=12">Expedientes</a></li>
         </ul>
         <li><a href="main.php?key=4">Mi usuario</a></li>
@@ -269,13 +271,15 @@ if ($verdato == 30){include("Expediente/ExpedientesRemitidos/ConsultarRemicion.p
 if ($verdato == 31){include("Expediente/ExpedientesRemitidos/ModificarExpediente.php");}
 if ($verdato == 32){include("Expediente/ExpedientesRemitidos/ObtenerExpedientesNinos.php");}
 if ($verdato == 33){include("Expediente/ExpedientesRemitidos/RemitirExpediente.php");}
-if ($verdato == 34){include("Expediente/IngresarExpediente");}
+if ($verdato == 34){include("Expediente/IngresarExpediente.php");}
 if ($verdato == 35){include("Expediente/RemitirComisaria/RemitirComisaria.php");}
 if ($verdato == 36){include("Expediente/RemitirEnlaceMunicipal/RemitirEnlaceMunicipal.php");}
 if ($verdato == 37){include("Expediente/RemitirJuezFamilia/RemitirJuezfamilia.php");}
 if ($verdato == 38){include("Expediente/RemitirComisaria/RemitirComisariaUsuario.php");}
 if ($verdato == 39){include("Expediente/RemitirEnlaceMunicipal/RemitirEnlaceMunicipalUsuario.php");}
 if ($verdato == 40){include("Expediente/RemitirJuezFamilia/RemitirJuezfamiliaUsuario.php");}
+if ($verdato == 41){include("CrearExpediente.php");}
+if ($verdato == 42){include("MPC/ConsultarMPC1.php");}
 
 
 if ($verdato == 102) {include("user_list.php");}

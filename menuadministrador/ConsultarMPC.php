@@ -90,30 +90,36 @@
                                                 <?php echo $edad; ?>
                                             </td>
                                             <td align="center">
-                                                <?php
-                                                $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_ninos='$id_ninos' ");
-                                                while ($row21 = mysqli_fetch_array($busqueda21)) {
-                                                    $id_ninos21 = $row21['id_ninos'];
-                                                }
-                                                if ($id_ninos == $id_ninos21) {
-                                                    
-                                                } else { ?>
-                                                <?php
-                                                } ?>
-
-                                                <?php if ($id_ninos == $id_ninos21) {
-                                                echo '<a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar datos del cuidador"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
-                                                ?>
-                                                <?php
-                                                } else {
-                                                    
-                                                    echo '<a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
-                                                } ?>
-                                            </td>
-                                    <?php
-                                    }
-                                } ?>
-                                        </tr>
+                                            <?php 
+                                                    $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_ninos='$id_ninos' ");
+                                                    while ($row21 = mysqli_fetch_array($busqueda21)) {
+                                                        $id_ninos21 = $row21['id_ninos'];
+                                                    }
+                                                    if ($id_ninos == $id_ninos21) {
+                                                        //echo "Ya tiene Cuidador asignado";
+                                                    } else { ?>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                        <?php
+                                                        if ($id_ninos == $id_ninos21) {
+                                                        
+                                                        echo '<a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar datos del cuidador"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
+                                                        
+                                                        } elseif($nuser == 1 || $nuser == 2) {
+                                        
+                                                            echo '<a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
+                                                      
+                                                        } 
+                                                        elseif($nuser == 3) {
+                                                            echo "NO tiene Cuidador asignado"; 
+                                                        }
+                                                        ?>
+                                                    </td>
+                                            <?php
+                                            }
+                                        } ?>
+                                                </tr>
                         </table>
 
                     <?php
@@ -190,7 +196,7 @@
                                                     <td align="center">
                                                         <?php echo $edad; ?>
                                                     </td>
-                                                    <?php
+                                                    <?php 
                                                     $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_ninos='$id_ninos' ");
                                                     while ($row21 = mysqli_fetch_array($busqueda21)) {
                                                         $id_ninos21 = $row21['id_ninos'];

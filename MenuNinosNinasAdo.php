@@ -405,7 +405,7 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                                     <label>Teléfono Móvil</label>
-                                    <input id='telefono_nna' type="int" pattern="[0-9]" maxlength="10" name='telefono_nna' class="form-control" placeholder="Ingrese el número telefónico" required>
+                                    <input id='telefono_nna' type="int" maxlength="10" name='telefono_nna' class="form-control" placeholder="Ingrese el número telefónico" required>
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
                                     </select>

@@ -1,9 +1,8 @@
-﻿
-    <section style="background-color: #FFFF;">
+﻿    <section style="background-color: #FFFF;">
         <div class="container ps ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                    <h2 class="centrar letra n600 azulo pi">Expedientes</h2>
+                    <h2 class="centrar letra n600 azulo pi">Expediente Niños Niñas o Adolescentes</h2>
                 </div>
             </div>
         </div>
@@ -56,6 +55,7 @@
                                     </tr>
                                 </thead>
                             </table>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Restablecimiento de Derechos</label>
+                                        <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Restablecimiento de Derechos</label>
                                         <select name="derechos_exp" id="derechos_exp" class="form-control" font style="text-transform: uppercase;" required>
                                             <option value="">Seleccione</option>
                                             <?php
@@ -593,6 +593,7 @@
             $('.ui-pnotify').remove();
         });
     </script>
+
 <?php 
  if('id_cuidadores'==0){
         echo'No tiene cuidador registrelo';

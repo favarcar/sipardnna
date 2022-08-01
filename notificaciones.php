@@ -78,7 +78,7 @@ date_default_timezone_set('America/Bogota');
                 if($dias>=135){
                   echo'<span style="color: green;">'.$interval->format('%a días').'</span>';
                 }else if($fecha > $fecha_limite ){
-                    echo'<span style="color: Salmon";>'.$interval->format('%a días').' vencido</span> ';
+                    echo'<span style="color: Cyan";>'.$interval->format('%a días').' vencido</span> ';
                 }else if($dias>=90&&$dias<135){
                   echo'<span style="color: yellow;">'.$interval->format('%a días').'</span>';
                 }else if($dias>=45&&$dias<90){

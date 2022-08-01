@@ -164,14 +164,21 @@
                                                         if ($id_ninos == $id_ninos21) {
                                                             ?>
                                                             <?php echo'<a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
-                                                        ?>
-                                                        <?php } else {
+                                                        }?>
+                                                        <br>
+                                                        <?php
+                                                        $busqueda21 = mysqli_query($con, "SELECT * FROM ninnosnna ");
+                                                        while ($row21 = mysqli_fetch_array($busqueda21)) {
+                                                       $id_cuida21 = $row21['id_cuidadores'];  }
+                                                                                                             
+                                                        if ($id_cuida21 >=0) {
                                                         echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
                                                         ?>
                                                         </td> 
                                                     
                                                     <?php
-                                                        } ?>
+                                                        } 
+                                                        ?>
 
                                                 <td>
                                                 
@@ -276,14 +283,22 @@
                                                         if ($id_ninos == $id_ninos21) {
                                                             ?>
                                                             <?php echo'<a href="main.php?key=18&id_ninnos='.$id_ninos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
-                                                        ?>
-                                                        <?php } else {
+                                                        
+                                                        }?>
+                                                        <br>
+                                                        <?php
+                                                        $busqueda21 = mysqli_query($con, "SELECT * FROM ninnosnna ");
+                                                        while ($row21 = mysqli_fetch_array($busqueda21)) {
+                                                       $id_cuida21 = $row21['id_cuidadores'];  }
+                                                                                                             
+                                                        if ($id_cuida21 >=0) {
                                                         echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
                                                         ?>
                                                         </td> 
                                                     
                                                     <?php
-                                                        } ?>
+                                                        } 
+                                                        ?>
 
                                                 <td>
                                                 

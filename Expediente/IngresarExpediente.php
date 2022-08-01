@@ -76,7 +76,7 @@
   $id_tipo_documento = "No hay registro";
   $No_Cedula = "No hay registro";
   $NombresCuida = "No hay registro";
-  $ApellidosCuida = "No hay registro";
+  $ApellidosCuida = "";
   $Fecha_Nacimiento = "No hay registro";
   $Edad = "No hay registro";
   $Direccion = "No hay registro";
@@ -155,17 +155,40 @@ self.location = "index.html"
   <section class="fblanco">
     <div class="container pi3x">
 
-      <form class="form-horizontal ps2x" method="post" enctype="multipart/form-data">
+    <section class="fblanco">
+        <div class="container">
+            <h2 class="centrar letra n600 azulo pi">Registrar Expediente Ni&ntilde;os Ni&ntilde;as o Adolescentes</h2>
+            <div class="panel-group">
+            <section class="fblanco">
+        <div class="container ps2x "> 
+            <div class="row clearfix centrar">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="letra n500 active"><a href="main.php?key=12">Expedientes</a></li>
+                        <!--<li role="presentation" class="letra n500"><a id="consultaBtn" href="main.php?key=3">Consultar Expedientes</a></li>-->
+                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Consultar Expedientes Remitidos</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
+                    </ul>
+                    <input type="button" id="refresh" value="Actualizar" onclick="location.reload()" style="display:none" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix" style="font-size:21px">
+      <i class="fa fa-list"></i> Información de ingreso
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+                                
+        <form id="formExpe" method="post" enctype="multipart/form-data">
         <fieldset>
 
-          <!-- Form Name -->
-          <h3 class="centrar letra n600 azulo pi">Registrar Expediente</h3>
-          <!-- Appended checkbox -->
-          <!-- Appended checkbox -->
-          <!-- Text input-->
-          <div class="form-group" style="display:none">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Codigo del expediente</label>
-            <div class="col-md-4">
+
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >Codigo del expediente</label>
+            <div >
               <input id="textinput" name="cod_exp" type="text" placeholder="" class="form-control input-md" value="<?php
                                                                                                                     $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
                                                                                                                     while ($row = mysqli_fetch_array($busqueda)) {
@@ -176,16 +199,16 @@ self.location = "index.html"
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha de Inicio del Expediente</label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >Fecha de Inicio del Expediente</label>
+            <div >
               <input id="textinput" name="fecha_exp" type="text" placeholder="" class="form-control input-md" value="<?php echo $fecha ?>" readonly>
 
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres de Ni&ntilde;o, Ni&ntilde;a o Adolescente</label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >Nombres de Ni&ntilde;o, Ni&ntilde;a o Adolescente</label>
+            <div >
               <input id="textinput" name="nom_nna_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
 
             </div>
@@ -194,49 +217,59 @@ self.location = "index.html"
 
 
 
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescente </label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >No. de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescente </label>
+            <div >
               <input id="textinput" name="num_nna_exp" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" readonly>
 
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Madre, Padre o Acudiente</label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >Nombre de Madre, Padre o Acudiente</label>
+            <div >
               <input id="textinput" name="nom_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $ApellidosCuida; ?> <?php echo $NombresCuida; ?> " readonly>
 
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento de Madre, Padre o Acudiente</label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >No. de Documento de Madre, Padre o Acudiente</label>
+            <div >
               <input id="textinput" name="num_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $No_Cedula ?>" readonly>
 
             </div>
           </div>
 
-          <div class="form-group" style="display:none">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_cuidadores</label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >id_cuidadores</label>
+            <div >
               <input id="textinput" name="cuidadores_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $id_cuidadores ?>" readonly>
-
-            </div>
+              </div> 
+            </div> <!-- /.col-lg-6 (nested) -->
           </div>
-
-
-
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Número del proceso</label>
-            <div class="col-md-4">
-              <input id='num_pro' type="number" name='num_pro' min="0" class="form-control" placeholder="Ingrese la edad " font style="text-transform: uppercase;" onkeypress="return valida(event)" value="0" required>
-            </div>
+        </div>
+      </div>
+    </select>
+    <br>
+    <br>
+    <br>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading clearfix" style="font-size:21px">
+    <i class="fa fa-user"></i> Información del Expediente
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <form id="formExpe" method="post" enctype="multipart/form-data">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label>Número del proceso</label>
+            <input id='numero_proex' type="number" name='numero_proex' min="0" class="form-control" placeholder="Número del proceso " font style="text-transform: uppercase;" onkeypress="return valida(event)" value="0" required>
+            <!--<p class="help-block">Example block-level help text here.</p> -->
           </div>
-          <h5 class="centrar letra n600 azulo pi"><u> Verifique si el Derecho a utilizar se encuentra en la lista desplegable. Si no se encuentra registre un nuevo derecho.</u> </h5>
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Restablecimiento de Derechos</label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Restablecimiento de Derechos</label>
+            <div >
 
 
               <select name="derechos_exp" id="derechos_exp" class="form-control" style="text-transform: uppercase;" required>
@@ -254,13 +287,13 @@ self.location = "index.html"
                 ?>
 
               </select>
-              <h5 class="letra n500  azulo "><a href="main.php?key=20" class=" btn btn-primary">Registrar Nuevo Derecho</a></h5>
+              <h5 class="letra n500  azulo "><a href="main.php?key=20" class=" btn btn-primary" data-toggle="tooltip" data-placement="bottom" title=" Verifique si el Derecho se encuentra en la lista desplegable">Registrar Nuevo Derecho</a></h5>
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
-            <div class="col-md-4">
+            <div >
 
               <select name="discapacidad_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;" required>
                 <option value="">Seleccione</option>
@@ -282,9 +315,9 @@ self.location = "index.html"
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Indicador</label>
-            <div class="col-md-4">
+            <div >
 
               <select name="indicadores_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;" required>
                 <option value="">Seleccione</option>
@@ -301,14 +334,14 @@ self.location = "index.html"
                 ?>
               </select>
 
-              <h5 class="letra n500  azulo "><button href="main.php?key=20" class=" btn btn-primary">Agregar indicador al expediente</button></h5>
+              <!--<h5 class="letra n500  azulo "><button href="main.php?key=20" class=" btn btn-primary">Agregar indicador al expediente</button></h5>-->
             </div>
           </div>
 
 
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Maltrato</label>
-            <div class="col-md-4">
+            <div >
 
               <select name="maltratos_exp" id="maltratos_exp" class="form-control" style="text-transform: uppercase;" required>
                 <option value="">Seleccione</option>
@@ -330,9 +363,9 @@ self.location = "index.html"
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victimas</label>
-            <div class="col-md-4">
+            <div >
 
               <select name="victima_exp" id="victima_exp" class="form-control" style="text-transform: uppercase;" required>
                 <option value="">Seleccione</option>
@@ -353,17 +386,17 @@ self.location = "index.html"
           </div>
 
           <!-- Text input-->
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Descripci&oacute;n</label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >Descripci&oacute;n</label>
+            <div >
               <textarea class="form-control input-md" name="descripcion_exp" required></textarea>
 
 
             </div>
           </div>
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Observaciones</label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >Observaciones</label>
+            <div >
               <textarea class="form-control input-md" name="obs_exp" required></textarea>
 
 
@@ -376,9 +409,9 @@ self.location = "index.html"
 
           <!-- Text input-->
           <!-- Text input-->
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha aproximada del Expediente</label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >Fecha aproximada del Expediente</label>
+            <div >
 
               <input id="textinput" name="finalizacion_exp" type="date" placeholder="" class="form-control input-md" onkeypress="return numeros(event)">
             </div>
@@ -387,9 +420,9 @@ self.location = "index.html"
 
           <!-- Text input-->
 
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Entidad</label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Entidad a remitir</label>
+            <div >
 
               <select name="entidad_exp" id="entidad_exp" required class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
@@ -411,9 +444,9 @@ self.location = "index.html"
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Estado del Expeidente</label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Estado del Expeidente</label>
+            <div >
 
               <select name="estadocaso_exp" id="estadocaso_exp" required class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
@@ -429,39 +462,84 @@ self.location = "index.html"
                 } while ($reg99 = mysqli_fetch_array($con99));
                 ?>
 
+
               </select>
             </div>
-          </div>
+          </div> 
+        </div>
+    </div>
 
-          <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Concepto del Caso</label>
-            <div class="col-md-4">
-              <textarea class="form-control input-md" name="veredicto_exp" required></textarea>
+              <div class="panel panel-default">
+    <div class="panel-heading clearfix" style="font-size:21px">
+    <i class="fa fa-user"></i> Información PARD
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <form id="formExpe" method="post" enctype="multipart/form-data">
+              <div class="col-md-8 col-sm-4 col-xs-12 form-group">
+                <label>Concepto del Caso</label>
+              </div>
+                <div class="col-md-6 col-sm-4 col-xs-12">
+                 
+                  <label>PARD</label>
+                  <select name="veredicto_exp" id="veredicto_exp"  class="form-control" style="text-transform: uppercase;" required>
+                  <option value="">Seleccione</option>
+                  <option value="Requiere PARD">Requiere PARD</option>
+                  <option value="No requiere PARD">No requiere PARD</option>
+                  </select>
+                </div>
+                
+                
+                <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                  <label>Fecha Actuacion</label>
+                  <input id="fecha_actuacion_exp" name="fecha_actuacion_exp" type="date" placeholder="AAAA-MM-DD" class="form-control input-md" onkeypress="return numeros(event)">
+                </div>                  
+                <div  class="col-md-6 col-sm-4 col-xs-12 form-group">
+                  <label>Funcionario</label>
+                  <select name="funcionario_actuacion_exp" id="funcionario_actuacion_exp" class="form-control" font style="text-transform: uppercase;" style=" width:100px">
+                  <option value="">Seleccione</option>
+                  <option value="Comisario">Comisario</option>
+                  <option value="Trabajador Social">Trabajador Social</option>
+                  <option value="Psicologo">Psicologo</option>
+                </select>
+                </div>
+                <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                  <label>Descripci&oacute;n</label>
+                  <textarea id="descripcion_actuacion_exp" class="form-control" name="descripcion_actuacion_exp" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del expediente"></textarea>
+                </div>
+                <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                  <label>Compromisos</label>
+                  <textarea id="compromisos_exp" font style="text-transform: uppercase;" class="form-control" name="compromisos_exp" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del requerimiento"></textarea>
+                </div>
+          <!--<p class="help-block">Example block-level help text here.</p> -->
+          <br>
+          
 
 
-            </div>
-          </div>
-
-          <div class="form-group" style="display:none">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_usuario </label>
-            <div class="col-md-4">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none">
+            <label >id_usuario </label>
+            <div >
               <input id="textinput" name="id_usuario_exp" type="sisben_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $id_usuario ?>" required>
 
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
-            <div class="col-md-4">
+            <div >
               <button id="singlebutton" name="singlebutton" class="btn btn-primary">Guardar</button>
             </div>
           </div>
 
+        </select>
+        
         </fieldset>
         <?php
         if ($_POST) { //si se ha presionado enviar
 
           $codigo_expediente = $_POST['codigo_expediente'];
+          $numero_proceso = $_POST['numero_proex'];
           $fecha_exp = $_POST['fecha_exp'];
           $cod_exp = $_POST['cod_exp'];
           $cuidadores_exp = $_POST['cuidadores_exp'];
@@ -477,10 +555,16 @@ self.location = "index.html"
           $entidad_exp = $_POST['entidad_exp'];
           $id_usuario_exp = $_POST['id_usuario_exp'];
           $estadocaso_exp = $_POST['estadocaso_exp'];
+          $id_actuacion_exp = $_POST['id_actuacion_exp'];
+          $fecha_actuacion_exp = $_POST['fecha_actuacion_exp'];
+          $funcionario_actuacion_exp = $_POST['funcionario_actuacion_exp'];
+          $descripcion_actuacion_exp = $_POST['descripcion_actuacion_exp'];
+          $compromisos_exp = $_POST['compromisos_exp'];
 
           $fecha_limite1 = date('Y-m-j');
           $nuevafecha = strtotime('+120 day', strtotime($fecha));
           $nuevafecha = date('Y-m-j', $nuevafecha);
+          
 
 
           $fecha_limite = $nuevafecha;
@@ -488,17 +572,22 @@ self.location = "index.html"
 
 
 
-          $sql = "INSERT INTO `expediente`(`codigo_expediente`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) VALUES ('$codigo_expediente','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp',' $indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
+          $sql = "INSERT INTO `expediente`(`codigo_expediente`, `NUMERO_PROCESO`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) 
+          VALUES ('$codigo_expediente','$numero_proceso','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp','$indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
+          
+          $sql = "INSERT INTO `actuacion`(`id_actuacion`,`id_expediente`,`fecha_actuacion`,`funcionario_actuacion`,`descripcion_actuacion`,`compromisos`) 
+          VALUES ('$id_actuacion_exp','$cod_exp','$fecha_actuacion_exp','$funcionario_actuacion_exp','$descripcion_actuacion_exp','$compromisos_exp')";
+
 
           if (mysqli_query($con, $sql)) {
             echo '<script language = javascript>
 alert("la Informacion ha sido Guardada Correctamente")
-self.location = "ConsultarExpediente.php"
+self.location = "main.php?key=29&id_ninnos='.$id_ninnos1.'"
 </script>';
           } else {
             echo '<script language = javascript>
 alert("Error")
-self.location = "ConsultarExpediente.php"
+self.location = "main.php?key=34"
 </script>';
           }
 
@@ -509,7 +598,8 @@ self.location = "ConsultarExpediente.php"
 
     </div>
   </section>
-
+      </section>
+    </div>
 
 
 
