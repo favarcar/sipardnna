@@ -81,7 +81,7 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                    <label>Código del niño/a o Adolescente</label>
+                                    <label>Código del niño/a o Adolescente </label>
                                     <input id="idnino" name="idnino" type="text" placeholder="" class="form-control input-md" value="" readonly>
                                 </div>
 
@@ -555,7 +555,7 @@
             r.parentNode.insertBefore(e, r)
         }(window, document, 'script', 'ga'));
         ga('create', 'UA-XXXXX-X', 'auto');
-        ga('send', 'pageview');
+        ga('send', 'pageview'); 
     </script>
 
 
