@@ -594,15 +594,12 @@
         });
     </script>
 
-<?php 
- if('id_cuidadores'==0){
-        echo'No tiene cuidador registrelo';
- } else{echo'<script src="js/jsAddExpediente.js"></script>'
-    ?>
 
-   <?php
-}
-?>
+ 
+ <script src="js/jsAddExpediente.js"></script>
+    
+
+
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
         (function(b, o, i, l, e, r) {
