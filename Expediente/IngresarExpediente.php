@@ -247,7 +247,8 @@ self.location = "index.html"
               </div> 
             </div> <!-- /.col-lg-6 (nested) -->
           </div>
-
+        </div>
+      </div>
     </select>
     <br>
     <br>
@@ -464,11 +465,23 @@ self.location = "index.html"
 
               </select>
             </div>
-          </div> <br>
+          </div> 
+        </div>
+    </div>
 
-
-
-                  <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+              <div class="panel panel-default">
+    <div class="panel-heading clearfix" style="font-size:21px">
+    <i class="fa fa-user"></i> Información PARD
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <form id="formExpe" method="post" enctype="multipart/form-data">
+              <div class="col-md-8 col-sm-4 col-xs-12 form-group">
+                <label>Concepto del Caso</label>
+              </div>
+                <div class="col-md-6 col-sm-4 col-xs-12">
+                 
                   <label>PARD</label>
                   <select name="veredicto_exp" id="veredicto_exp"  class="form-control" style="text-transform: uppercase;" required>
                   <option value="">Seleccione</option>
@@ -523,10 +536,10 @@ self.location = "index.html"
         
         </fieldset>
         <?php
+        
         if ($_POST) { //si se ha presionado enviar
 
           $codigo_expediente = $_POST['codigo_expediente'];
-          $numero_proceso = $_POST['numero_proex'];
           $fecha_exp = $_POST['fecha_exp'];
           $cod_exp = $_POST['cod_exp'];
           $cuidadores_exp = $_POST['cuidadores_exp'];
@@ -542,16 +555,10 @@ self.location = "index.html"
           $entidad_exp = $_POST['entidad_exp'];
           $id_usuario_exp = $_POST['id_usuario_exp'];
           $estadocaso_exp = $_POST['estadocaso_exp'];
-          $id_actuacion_exp = $_POST['id_actuacion_exp'];
-          $fecha_actuacion_exp = $_POST['fecha_actuacion_exp'];
-          $funcionario_actuacion_exp = $_POST['funcionario_actuacion_exp'];
-          $descripcion_actuacion_exp = $_POST['descripcion_actuacion_exp'];
-          $compromisos_exp = $_POST['compromisos_exp'];
 
           $fecha_limite1 = date('Y-m-j');
           $nuevafecha = strtotime('+120 day', strtotime($fecha));
           $nuevafecha = date('Y-m-j', $nuevafecha);
-          
 
 
           $fecha_limite = $nuevafecha;
@@ -559,11 +566,7 @@ self.location = "index.html"
 
 
 
-          $sql = "INSERT INTO `expediente`(`codigo_expediente`, `NUMERO_PROCESO`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) 
-          VALUES ('$codigo_expediente','$numero_proceso','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp','$indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
-          
-          $sql = "INSERT INTO `actuacion`(`id_actuacion`,`id_expediente`,`fecha_actuacion`,`funcionario_actuacion`,`descripcion_actuacion`,`compromisos`) 
-          VALUES ('$id_actuacion_exp','$cod_exp','$fecha_actuacion_exp','$funcionario_actuacion_exp','$descripcion_actuacion_exp','$compromisos_exp')";
+          $sql = "INSERT INTO `expediente`(`codigo_expediente`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) VALUES ('$codigo_expediente','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp',' $indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
 
 
           if (mysqli_query($con, $sql)) {
