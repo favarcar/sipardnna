@@ -247,8 +247,7 @@ self.location = "index.html"
               </div> 
             </div> <!-- /.col-lg-6 (nested) -->
           </div>
-        </div>
-      </div>
+
     </select>
     <br>
     <br>
