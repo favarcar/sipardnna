@@ -110,7 +110,7 @@
                                                 if($id_ninnos==$id_ninnos21){
                                             ?>   
                                             <?php                       
-                                            echo '<a href="main.php?key=6&id_ninnos='.$id_ninnos.'"  class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
+                                            echo '<a href="main.php?key=29&id_ninnos='.$id_ninnos.'"  class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
                                             ?>
                                             <?php
                                             } else{
@@ -186,7 +186,7 @@
                                                 if($id_ninnos==$id_ninnos21){
                                             ?>   
                                             <?php                       
-                                            echo '<a href="main.php?key=6&id_ninnos='.$id_ninnos.'"  class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar"><span class="glyphicon glyphicon-search"></span> Consultar</a>';
+                                            echo '<a href="main.php?key=29&id_ninnos='.$id_ninnos.'"  class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar"><span class="glyphicon glyphicon-search"></span> Consultar</a>';
                                             ?>
                                             <?php
                                             } else{

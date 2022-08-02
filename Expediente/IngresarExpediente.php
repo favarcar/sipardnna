@@ -465,23 +465,11 @@ self.location = "index.html"
 
               </select>
             </div>
-          </div> 
-        </div>
-    </div>
+          </div> <br>
 
-              <div class="panel panel-default">
-    <div class="panel-heading clearfix" style="font-size:21px">
-    <i class="fa fa-user"></i> Información PARD
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <form id="formExpe" method="post" enctype="multipart/form-data">
-              <div class="col-md-8 col-sm-4 col-xs-12 form-group">
-                <label>Concepto del Caso</label>
-              </div>
-                <div class="col-md-6 col-sm-4 col-xs-12">
-                 
+
+
+                  <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                   <label>PARD</label>
                   <select name="veredicto_exp" id="veredicto_exp"  class="form-control" style="text-transform: uppercase;" required>
                   <option value="">Seleccione</option>
