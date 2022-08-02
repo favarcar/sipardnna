@@ -555,6 +555,11 @@ self.location = "index.html"
           $entidad_exp = $_POST['entidad_exp'];
           $id_usuario_exp = $_POST['id_usuario_exp'];
           $estadocaso_exp = $_POST['estadocaso_exp'];
+          $id_actuacion_exp = $_POST['id_actuacion_exp'];
+          $fecha_actuacion_exp = $_POST['fecha_actuacion_exp'];
+          $funcionario_actuacion_exp = $_POST['funcionario_actuacion_exp'];
+          $descripcion_actuacion_exp = $_POST['descripcion_actuacion_exp'];
+          $compromisos_exp = $_POST['compromisos_exp'];
 
           $fecha_limite1 = date('Y-m-j');
           $nuevafecha = strtotime('+120 day', strtotime($fecha));
@@ -566,8 +571,12 @@ self.location = "index.html"
 
 
 
-          $sql = "INSERT INTO `expediente`(`codigo_expediente`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) VALUES ('$codigo_expediente','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp',' $indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
-
+          $sql = "INSERT INTO `expediente`(`codigo_expediente`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) 
+          VALUES ('$codigo_expediente','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp',' $indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
+         $expediente = $mysqli->query($sql);
+         $sql = "INSERT INTO `actuacion`(`id_actuacion`,`id_expediente`,`fecha_actuacion`,`funcionario_actuacion`,`descripcion_actuacion`,`compromisos`) 
+          VALUES ('$id_actuacion_exp','$codigo_expediente','$fecha_actuacion_exp','$funcionario_actuacion_exp','$descripcion_actuacion_exp','$compromisos_exp')";
+         
 
           if (mysqli_query($con, $sql)) {
             echo '<script language = javascript>
