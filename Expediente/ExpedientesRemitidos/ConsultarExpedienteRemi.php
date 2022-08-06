@@ -3,7 +3,7 @@
         <div class="container ps ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                    <h2 class="centrar letra n600 azulo pi">Expedientes Remitidos</h2>
+                    <h2 class="centrar letra n600 azulo pi">Remitir Expedientes</h2>
                 </div>
             </div>
         </div>
@@ -17,13 +17,7 @@
                         <li role="presentation" class="letra n500"><a a href="main.php?key=12">Consultar Expedientes</a></li>
 
 
-                        <li role="presentation" class="letra n500"><a href="#" data-toggle="dropdown">Expedientes Remitidos
-
-                      <!--  <li role="presentation" class="letra n500"><a href="main.php?key=29">Consultar Expedientes NNA</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=30">Consultar Remición</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=31">Modificar Expediente</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=32">Obtener Expedientes Ninos</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=33">Remitir Expedientes Ninos</a></li>-->
+                        <li role="presentation" class="letra n500"><a href="#" data-toggle="dropdown">Remitir Expedientes
 
 
       <li role="presentation" class="letra n500"><a a href="main.php?key=16">Consultar Total Expedientes</a></li>
@@ -152,48 +146,61 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="col-md-4 control-label letra n600 azulo">Nombre</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">No. Documento</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Pais</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Departamento</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Municipio</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Provincia</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Edad</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Consultar Expedientes</td>
-                                        </tr>
+                                <td class="col-md-4 control-label letra n600 azulo">Nombre</td>
+                                <td class="col-md-4 control-label letra n600 azulo">No. Documento</td>
+                                <td class="col-md-4 control-label letra n600 azulo">Pais</td>
+                                <td class="col-md-4 control-label letra n600 azulo">Departamento</td>
+                                <td class="col-md-4 control-label letra n600 azulo">Municipio</td>
+                                <td class="col-md-4 control-label letra n600 azulo">Provincia</td>
+                                <td class="col-md-4 control-label letra n600 azulo">Edad</td>
+                                <td class="col-md-4 control-label letra n600 azulo">Consultar Expedientes</td>
+                            </tr>
                                         <tbody>
                                             <?php
-                                            $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_usuario = '$id_usuario' and id_ninnos='$id_ninnos44'  order by id_ninnos desc"); //cambiar nombre de la tabla de busqueda
-                                            while ($row = mysqli_fetch_array($busqueda)) {
-                                                $apellidos = $row['Apellidos'];
-                                                $nombres = $row['Nombres'];
-                                                $numero_documento = $row['No_identificacion'];
-                                                $id_pais = $row['id_pais'];
-                                                $id_departamento = $row['id_departamento'];
-                                                $id_municipio = $row['id_municipio_hechos'];
-                                                $id_provincia = $row['id_provincia'];
-                                                $edad = $row['Edad'];
-                                                $id_ninnos = $row['id_ninnos'];
+                                        $busquedare = mysqli_query($con, "SELECT * FROM ninnosnna");
+                                        while ($row = mysqli_fetch_array($busquedare)) {
+                                            $apellidos = $row['Apellidos'];
+                                            $nombres = $row['Nombres'];
+                                            $numero_documento = $row['No_identificacion'];
+                                            $id_pais = $row['id_pais'];
+                                            $id_departamento = $row['id_departamento'];
+                                            $id_municipio = $row['id_municipio_hechos'];
+                                            $id_provincia = $row['id_provincia'];
+                                            $edad = $row['Edad'];
+                                            $id_ninnos = $row['id_ninnos'];
                                             ?>
                                                 <tr>
-                                                    <td><?php echo $apellidos; ?>&nbsp;<?php echo $nombres; ?></td>
-                                                    <td align="center"><?php echo $numero_documento; ?></td>
-                                                    <td align="center">
-                                                        <?php
-                                                        $busqueda1 = mysqli_query($con, "SELECT * FROM municipios where id_municipio='$id_municipio'  ");
-                                                        while ($row1 = mysqli_fetch_array($busqueda1)) {
-                                                            echo $row1['descripcion'];
-                                                        } ?>
-                                                    </td>
-                                                    <td align="center">
-                                                        <?php
-                                                        $busqueda2 = mysqli_query($con, "SELECT * FROM provincias where id_provincia='$id_provincia'  ");
-                                                       while ($row2 = mysqli_fetch_array($busqueda2)) {
-                                                            echo $row2['descripcion'];
-                                                        } ?>
-                                                    </td>
-                                                    <td align="center">
-                                                        <?php echo $edad;  ?>
+                                                <td><?php echo $apellidos; ?>&nbsp;<?php echo $nombres; ?></td>
+                                            <td align="center"><?php echo $numero_documento; ?></td>
+                                            <td align="center">
+                                                <?php
+                                                $busqueda3 = mysqli_query($con, "SELECT * FROM paises where id_pais = '$id_pais'");
+                                                while ($row3 = mysqli_fetch_array($busqueda3)) {
+                                                    echo $row3["Nombre"];
+                                                }
+                                                ?>
+                                            </td>
+                                            <td class="center">
+                                                <?php
+                                                $busqueda4 = mysqli_query($con, "SELECT * FROM departamentos WHERE id = '$id_departamento'");
+                                                while ($row4 = mysqli_fetch_array($busqueda4)) {
+                                                    echo $row4["descripcion"];
+                                                }
+                                                ?>
+                                            </td>
+                                            <td align="center">
+                                                <?php $busqueda1 = mysqli_query($con, "SELECT * FROM municipios where id_municipio='$id_municipio'  ");
+                                                while ($row1 = mysqli_fetch_array($busqueda1)) {
+                                                    echo $row1['descripcion'];
+                                                } ?></td>
+                                            <td align="center">
+                                                <?php $busqueda2 = mysqli_query($con, "SELECT * FROM provincias where id_provincia='$id_provincia'  ");
+                                                while ($row2 = mysqli_fetch_array($busqueda2)) {
+                                                    echo $row2['descripcion_prov'];
+                                                } ?></td>
+                                            <td align="center">
+                                                <?php echo $edad;  ?>
+
                                                     </td>
                                                     <td>
                                                         <a href="main.php?key=29&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar expediente"><span class="glyphicon glyphicon-search"></span> Consultar</a>

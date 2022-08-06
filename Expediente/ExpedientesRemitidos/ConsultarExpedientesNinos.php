@@ -87,7 +87,7 @@ self.location = "index.html"
                                 </tr>
                                 <tr>
                                     <td colspan="9" align="center">
-                                        <h5 class="letra n500  azulo "><a href="main.php?key=34&id_ninnos=<?php echo $row44['id_ninnos']; ?>" class=" btn btn-primary">Registrar Nuevo Expediente</a></h5>
+                                    <a href="main.php?key=34&id_ninnos=<?php echo $row44['id_ninnos']; ?>" class=" btn btn-success"><span class="glyphicon glyphicon-edit"></span> Registrar Nuevo Expediente</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -165,7 +165,7 @@ self.location = "index.html"
                                                 echo "Expediente Remitido";
                                             } else {
                                             ?>
-                                                <a href="main.php?key=33&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Remitir expediente"><span class="glyphicon glyphicon-share" ></span> Remitir</a> <?php } ?>
+                                                <a href="main.php?key=33&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Remitir expediente"><span class="glyphicon glyphicon-share" ></span> Remitir</a> <?php } ?>
 
                                         </td>
 

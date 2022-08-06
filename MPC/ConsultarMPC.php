@@ -172,7 +172,7 @@
                                                        $id_cuida21 = $row21['id_cuidadores'];  }
                                                                                                              
                                                         if ($id_cuida21 >=0) {
-                                                        echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
+                                                        echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Asignar cuidador"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
                                                         ?>
                                                         </td> 
                                                     
@@ -292,7 +292,7 @@
                                                        $id_cuida21 = $row21['id_cuidadores'];  }
                                                                                                              
                                                         if ($id_cuida21 >=0) {
-                                                        echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
+                                                        echo '<br><a href="main.php?key=10&id_ninnos='.$id_ninos.'"class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Asiganr cuidador"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
                                                         ?>
                                                         </td> 
                                                     

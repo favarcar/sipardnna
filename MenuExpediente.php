@@ -15,7 +15,7 @@
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500 active"><a href="main.php?key=12">Expedientes</a></li>
                         <!--<li role="presentation" class="letra n500"><a id="consultaBtn" href="main.php?key=3">Consultar Expedientes</a></li>-->
-                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Consultar Expedientes Remitidos</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Remitir Expedientes</a></li>
                         <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
                     </ul>
                     <input type="button" id="refresh" value="Actualizar" onclick="location.reload()" style="display:none" />
@@ -105,11 +105,11 @@
                                 </div>
 
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                    <label>No. de Documento de Madre, Padre o Acudiente</label>
+                                    <label>No. de Documento de M.P.C.</label>
                                     <input id="num_mpa_exp" name="num_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="" readonly>
                                 </div>
 
-                                <div id="cual_vinculo" class="col-md-4 col-sm-4 col-xs-12 form-group">
+                                <div id="cual_vinculo" class="col-md-4 col-sm-4 col-xs-12 form-group" style="display:none">
                                     <label>id Cuidadores</label>
                                     <input id="cuidadores_exp" name="cuidadores_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="" readonly>
                                 </div> <br> <br> <br>

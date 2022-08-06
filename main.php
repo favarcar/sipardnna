@@ -185,7 +185,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="main.php?key=8">Niños niñas o adolescentes</a></li>
-          <!--<li><a href="main.php?key=42">Madre, Padre o Cuidador</a></li>-->
+          <li><a href="main.php?key=43">Madre, Padre o Cuidador</a></li>
           <li><a href="main.php?key=23">Madre, Padre o Cuidador con NNA</a></li>
           <li><a href="main.php?key=12">Expedientes</a></li>
         </ul>
@@ -279,7 +279,9 @@ if ($verdato == 39){include("Expediente/RemitirEnlaceMunicipal/RemitirEnlaceMuni
 if ($verdato == 40){include("Expediente/RemitirJuezFamilia/RemitirJuezfamiliaUsuario.php");}
 if ($verdato == 41){include("CrearExpediente.php");}
 if ($verdato == 42){include("MPC/ConsultarMPC1.php");}
-
+if ($verdato == 43){include("MPC/IngresarMPCSinNNA.php");}
+if ($verdato == 44){include("RegistrarNNA.php");}
+if ($verdato == 45){include("menuadministrador/ConsultarRegistrosMPCSINNNA.php");}
 
 if ($verdato == 102) {include("user_list.php");}
 if ($verdato == 105) {include("user_update.php");}

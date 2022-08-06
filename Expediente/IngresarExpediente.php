@@ -63,7 +63,7 @@
   $id_ninnos = $_GET['id_ninnos'];
 
 
-
+   //Llamar la tabla de ninnosnna
   $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
   while ($row = mysqli_fetch_array($busqueda)) {
 
@@ -100,7 +100,7 @@
   $busqueda1 = mysqli_query($con, "SELECT * FROM cuidadores where id_ninos='$id_ninnos1' "); //cambiar nombre de la tabla de busqueda
   while ($row1 = mysqli_fetch_array($busqueda1)) {
 
-    //// cuidadores
+    //// //Llamar la tabla de cuidadores
     $id_cuidadores = $row1['id_cuidadores'];
     $id_tipo_documento = $row1['id_tipo_documento'];
     $No_Cedula = $row1['No_Cedula'];
@@ -166,7 +166,7 @@ self.location = "index.html"
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500 active"><a href="main.php?key=12">Expedientes</a></li>
                         <!--<li role="presentation" class="letra n500"><a id="consultaBtn" href="main.php?key=3">Consultar Expedientes</a></li>-->
-                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Consultar Expedientes Remitidos</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Remitir Expedientes</a></li>
                         <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
                     </ul>
                     <input type="button" id="refresh" value="Actualizar" onclick="location.reload()" style="display:none" />
@@ -185,9 +185,9 @@ self.location = "index.html"
         <form id="formExpe" method="post" enctype="multipart/form-data">
         <fieldset>
 
-
+            <!--Trae los datos del NNA -->
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label >Codigo del expediente</label>
+            <label >Codigo del Ni&ntilde;o, Ni&ntilde;a o Adolescente </label>
             <div >
               <input id="textinput" name="cod_exp" type="text" placeholder="" class="form-control input-md" value="<?php
                                                                                                                     $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
@@ -224,6 +224,7 @@ self.location = "index.html"
 
             </div>
           </div>
+          <!--Trae los datos del NNA -->
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label >Nombre de Madre, Padre o Acudiente</label>
             <div >
@@ -241,19 +242,18 @@ self.location = "index.html"
           </div>
 
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label >id_cuidadores</label>
+            <!--<label >id_cuidadores</label>-->
             <div >
-              <input id="textinput" name="cuidadores_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $id_cuidadores ?>" readonly>
+              <input id="textinput" name="cuidadores_exp" type="text" placeholder="" class="form-control input-md" style="display:none" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $id_cuidadores ?>" readonly>
               </div> 
             </div> <!-- /.col-lg-6 (nested) -->
           </div>
         </div>
       </div>
     </select>
-    <br>
-    <br>
-    <br>
-  </div>
+
+  </div> 
+  <!--Formulario de la tabla expediente -->
   <div class="panel panel-default">
     <div class="panel-heading clearfix" style="font-size:21px">
     <i class="fa fa-user"></i> Información del Expediente
@@ -468,21 +468,51 @@ self.location = "index.html"
           </div> 
         </div>
     </div>
-
+           <!--Formulario de la tabla actuación -->
               <div class="panel panel-default">
     <div class="panel-heading clearfix" style="font-size:21px">
-    <i class="fa fa-user"></i> Información PARD
+    <i class="fa fa-user"></i> 
   </div>
   <div class="panel-body">
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <form id="formExpe" method="post" enctype="multipart/form-data">
-              <div class="col-md-8 col-sm-4 col-xs-12 form-group">
-                <label>Concepto del Caso</label>
+              <div class="col-md-12 col-sm-8 col-xs-12 form-group">
+                
               </div>
-                <div class="col-md-6 col-sm-4 col-xs-12">
-                 
-                  <label>PARD</label>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                        <label>Concepto del Caso</label>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="requiere" name="defaultExampleRadios">
+                                            <label class="custom-control-label" for="requiere">Requiere PARD</label>
+                                            <label class="custom-control-label"> |---------| </label>
+                                            <input type="radio" class="custom-control-input" id="noRequiere" name="defaultExampleRadios" checked>
+                                            <label class="custom-control-label" for="noRequiere">No Requiere PARD</label>
+                                        </div>
+                                    </div>
+
+                                    <div id="grpChkBox class="col-md-12 col-sm-6 col-xs-12 form-group well" id="addActuacion">
+
+                                        <label>Fecha Actuacion</label>
+                                        <input id="FechaActuacion" name="FechaActuacion" type="date" placeholder="AAAA-MM-DD" class="form-control input-md" onkeypress="return numeros(event)">
+
+                                        <label>Funcionario</label>
+
+                                        <select name="funcionario_actua" id="funcionario_actua" class="form-control" font style="text-transform: uppercase;" style=" width:100px">
+                                            <option value="">Seleccione</option>
+                                            <option value="Comisario">Comisario</option>
+                                            <option value="Trabajador Social">Trabajador Social</option>
+                                            <option value="Psicologo">Psicologo</option>
+                                        </select>
+                                        <label>Descripci&oacute;n</label>
+                                        <textarea id="desc_actua" class="form-control" name="desc_actua" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del expediente"></textarea>
+                                        <label>Compromisos</label>
+                                        <textarea id="compro_actua" font style="text-transform: uppercase;" class="form-control" name="compro_actua" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del requerimiento"></textarea>
+                                        <!--<p class="help-block">Example block-level help text here.</p> -->
+                                        <br>
+                                    </div>
+                 <!-- <label>PARD</label>
                   <select name="veredicto_exp" id="veredicto_exp"  class="form-control" style="text-transform: uppercase;" required>
                   <option value="">Seleccione</option>
                   <option value="Requiere PARD">Requiere PARD</option>
@@ -511,7 +541,7 @@ self.location = "index.html"
                 <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                   <label>Compromisos</label>
                   <textarea id="compromisos_exp" font style="text-transform: uppercase;" class="form-control" name="compromisos_exp" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del requerimiento"></textarea>
-                </div>
+                </div> -->
           <!--<p class="help-block">Example block-level help text here.</p> -->
           <br>
           
@@ -524,7 +554,7 @@ self.location = "index.html"
 
             </div>
           </div>
-
+          <!--Botón para guarda expediente y pard -->
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div >
@@ -540,6 +570,7 @@ self.location = "index.html"
         if ($_POST) { //si se ha presionado enviar
 
           $codigo_expediente = $_POST['codigo_expediente'];
+          $numero_proex = $_POST['numero_proex'];
           $fecha_exp = $_POST['fecha_exp'];
           $cod_exp = $_POST['cod_exp'];
           $cuidadores_exp = $_POST['cuidadores_exp'];
@@ -555,7 +586,6 @@ self.location = "index.html"
           $entidad_exp = $_POST['entidad_exp'];
           $id_usuario_exp = $_POST['id_usuario_exp'];
           $estadocaso_exp = $_POST['estadocaso_exp'];
-          $id_actuacion_exp = $_POST['id_actuacion_exp'];
           $fecha_actuacion_exp = $_POST['fecha_actuacion_exp'];
           $funcionario_actuacion_exp = $_POST['funcionario_actuacion_exp'];
           $descripcion_actuacion_exp = $_POST['descripcion_actuacion_exp'];
@@ -564,32 +594,36 @@ self.location = "index.html"
           $fecha_limite1 = date('Y-m-j');
           $nuevafecha = strtotime('+120 day', strtotime($fecha));
           $nuevafecha = date('Y-m-j', $nuevafecha);
-
-
           $fecha_limite = $nuevafecha;
 
 
+         //Guardar cambios en la tabla expediente
+          $sql1 = "INSERT INTO `expediente`(`codigo_expediente`,`NUMERO_PROCESO`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) 
+          VALUES ('$codigo_expediente','$numero_proex','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp',' $indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
 
-
-          $sql = "INSERT INTO `expediente`(`codigo_expediente`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) 
-          VALUES ('$codigo_expediente','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp',' $indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
-         $expediente = $mysqli->query($sql);
-         $sql = "INSERT INTO `actuacion`(`id_actuacion`,`id_expediente`,`fecha_actuacion`,`funcionario_actuacion`,`descripcion_actuacion`,`compromisos`) 
-          VALUES ('$id_actuacion_exp','$codigo_expediente','$fecha_actuacion_exp','$funcionario_actuacion_exp','$descripcion_actuacion_exp','$compromisos_exp')";
          
-
-          if (mysqli_query($con, $sql)) {
+          //Guardar cambios en la tabla actuación mediante  mysqli_insert_id
+          if (mysqli_query($con, $sql1)) {
+            
+            $cod_expul=mysqli_insert_id($con);
+            $sql2 = "INSERT INTO `actuacion`(`id_expediente`,`fecha_actuacion`,`funcionario_actuacion`,`descripcion_actuacion`,`compromisos`) 
+          VALUES ('$cod_expul','$fecha_actuacion_exp','$funcionario_actuacion_exp','$descripcion_actuacion_exp','$compromisos_exp')";
+            mysqli_query($con, $sql2);
+            
+            //Alerta despues de guardar exitosamente el expediente
             echo '<script language = javascript>
 alert("la Informacion ha sido Guardada Correctamente")
 self.location = "main.php?key=29&id_ninnos='.$id_ninnos1.'"
-</script>';
+</script>'; //Alerta despues de intentar guardar el expediente sin éxito
           } else {
             echo '<script language = javascript>
 alert("Error")
-self.location = "main.php?key=34"
+self.location = "main.php?key=34&id_ninnos='.$id_ninnos1.'"
 </script>';
           }
-
+?>
+     <?php 
+         //Cerrar conexión
           mysqli_close($con);
         }
         ?>
@@ -601,26 +635,15 @@ self.location = "main.php?key=34"
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script>
     window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
   </script>
 
   <script src="js/vendor/bootstrap.min.js"></script>
-
   <script src="js/main.js"></script>
-  <script src="js/jsAddExpediente.js"></script>
+  <script src="js/jsExped.js"></script>
+
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
   <script>
@@ -662,5 +685,13 @@ self.location = "main.php?key=34"
     }
   </script>
 </body>
+             </div>
+           </div>
+          </form>
+        </form>
+      </div>
+  </div>
+  </div>
+  </selection>
 
 </html>

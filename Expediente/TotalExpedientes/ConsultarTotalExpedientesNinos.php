@@ -52,7 +52,7 @@
 
     $id_usuario = $_SESSION['numero_documento'];
     $consulta = "SELECT * FROM usuarios where numero_documento = '$id_usuario' "; 
-    $resultado = mysqli_query($con,$consulta) or die (mysqli_error());
+    $resultado = mysqli_query($con,$consulta) or die (mysqli_error($con));
     $fila = mysqli_fetch_array($resultado);
     $nombres = $fila['nombres'];
     $apellido = $fila['apellidos'];
@@ -122,7 +122,7 @@ include("../../conexion/conexion.php");
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500"><a href="../../MenuComisariaFamilia.php">Volver Men&uacute; Principal</a></li>
                         <li role="presentation" class="letra n500"><a id="consultaBtn"href="../../MenuExpediente.php" >Consultar Expedientes</a></li>
-                        <li role="presentation" class="letra n500"><a href="../../Expediente/ExpedientesRemitidos/ConsultarExpedienteRemi.php">Consultar Expedientes Remitidos</a></li>    
+                        <li role="presentation" class="letra n500"><a href="../../Expediente/ExpedientesRemitidos/ConsultarExpedienteRemi.php">Remitir Expedientes</a></li>    
                         <li role="presentation" class="letra n500"><a href="../../Expediente/TotalExpedientes/ConsultarTotalExpediente.php">Consultar Total de Expedientes</a></li>
                     </ul>
                     <input type="button" id="refresh"value="Actualizar" onclick="location.reload()"style="display:none"/>

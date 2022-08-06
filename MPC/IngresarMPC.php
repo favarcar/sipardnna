@@ -235,7 +235,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Departamento</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Departamento de nacimiento</label>
                         <div class="col-md-8">
                             <select name="departamento_nna" id="departamento_nna" class="form-control" onchange="obtenerDepartamento(this.value, '2')" required>
                                 <option value=''>SELECCIONE</option>
@@ -249,7 +249,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Municipio</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Municipio de nacimiento</label>
                         <div class="col-md-8">
                             <select name="municipio_nna" id="municipio_nna" class="form-control" style="text-transform: uppercase;" onchange="obtenerDepartamento(this.value, '3')" required>
                                 <option value="">Seleccione</option>
@@ -258,7 +258,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Provincia</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Provincia de nacimiento</label>
                         <div class="col-md-8">
                             <select name="provincia_nna" id="provincia_nna" class="form-control" style="text-transform: uppercase;" required>
                                 <option value="">Seleccione</option>

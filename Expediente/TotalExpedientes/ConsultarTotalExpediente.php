@@ -14,7 +14,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">                  
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500"><a href="main.php?key=12" >Consultar Expedientes</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Consultar Expedientes Remitidos</a></li>    
+                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Remitir Expedientes</a></li>    
                         <li role="presentation" class="letra n500"><a href="#">Consultar Total de Expedientes</a></li>
                     </ul>
                     <input type="button" id="refresh"value="Actualizar" onclick="location.reload()"style="display:none"/>

@@ -1,5 +1,5 @@
     <title>Menú Principal dos</title>
-
+    <!-- Traemos los datos de la base de datos de la tabla ninnosnna para mostrar el documento en la consulta -->
     <?php
     $id_ninnos = $_GET['id_ninnos'];
     $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_ninnos = '$id_ninnos' "); //cambiar nombre de la tabla de busqueda 
@@ -8,7 +8,7 @@
         $No_identificacion  = $row['No_identificacion'];
         $Nombres            = $row['Nombres'];
         $Apellidos          = $row['Apellidos'];
-    }
+    }  //Traemos los datos de la base de datos de la tabla cuidadores para mostrar el documento en la consulta 
     $busqueda1 = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_ninos = '$id_ninnos' "); //cambiar nombre de la tabla de busqueda
     while ($row1 = mysqli_fetch_array($busqueda1)) {
         // cuidadores
@@ -77,11 +77,14 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. Documento N.N.A.</label>
-                        <div class="col-md-8">
-                            <input id="num_nino" name="num_nino" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_identificacion; ?>" readonly>
-                        </div>
+                    <div class="form-group" >
+                        <label class="col-md-4 control-label letra n600 azulo" style="display:none"for="textinput">N. Documento N.N.A.</label>
+                        <div class="col-md-8" style="display:none">
+                            <input id="num_nino" name="num_nino" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php if (isset($No_identificacion)) {
+echo $No_identificacion;
+} else {
+echo "No tiene N.N.A. a cargo"; }?>" readonly>                        
+</div>
                     </div>
 
                     <div class="form-group">

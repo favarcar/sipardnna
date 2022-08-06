@@ -2,8 +2,8 @@
 
 $id_ninnos = $_GET['id_ninnos'];
 
-$busqueda = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_ninnos ='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
-while ($row = mysqli_fetch_array($busqueda)) {
+$busqueda_nna = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_ninnos ='$id_ninnos' ");
+while ($row = mysqli_fetch_array($busqueda_nna)) {
     $id_ninnos1         = $row['id_ninnos'];
     $id_tipo_documento  = $row['id_tipo_documento'];
     $No_identificacion  = $row['No_identificacion'];
@@ -27,7 +27,17 @@ while ($row = mysqli_fetch_array($busqueda)) {
     $id_zona            = $row['id_zona'];
     $fecha_ingreso      = $row['fecha_ingreso'];
     $id_usuario         = $row['id_usuario'];
-} ?>
+} 
+
+$busqueda_nucleo = mysqli_query($con, "SELECT * FROM nucleo_familiar");
+while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
+    $Id_nucleo_fam           = $row3['Id_nucleo'];
+    $descripcion_nucleo  = $row3['descripcion_nucleo'];  
+
+}
+
+
+?>
 
     <?php
     date_default_timezone_set('America/Bogota');
@@ -375,6 +385,12 @@ while ($row = mysqli_fetch_array($busqueda)) {
                                 ?>
                             </select>
                         </div>
+                        </div>  
+                        <div class="form-group">
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Núcleo Familiar</label>
+                        <div class="col-md-8">
+                            <input id="descripcion_nucleoF" name="descripcion_nucleoF" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $descripcion_nucleo  ?>" <?= $dis ?>>
+                        </div>                                          
                     </div>
 
                     <div class="form-group" style="display:none">
@@ -383,6 +399,7 @@ while ($row = mysqli_fetch_array($busqueda)) {
                             <input id="fecha_ingre_nna" name="fecha_ingre_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $fecha_ingreso ?>" required readonly>
                         </div>
                     </div>
+                    
 
                     <div class="form-group" style="display:none">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">id Usuario</label>
@@ -432,9 +449,13 @@ while ($row = mysqli_fetch_array($busqueda)) {
         $zona_nna           = $_POST['zona_nna'];
         $fecha_ing          = $_POST['fecha_ingre_nna'];
         $id_usuario_nna     = $_POST['id_usuario_nna'];
-        $cuidadores_nna     = 0;
+        $descripcion_nucleo = $_POST['descripcion_nucleoF'];
+
+        
 
         mysqli_query($con, "UPDATE `ninnosnna` SET `id_tipo_documento`='$tip_doc_nna',`No_identificacion`='$num_nna',`Nombres`='$nom_nna',`Apellidos`='$ape_nna',`Fecha_Nacimiento`='$fecha_nn',`Edad`='$edad_nna',`Direccion`='$dir_nna',`telefono_movil`='$tel_nna',`correo_electronico`='$email_nna',`id_genero`='$genero_nna',`id_estrato`='$estrato_nna',`id_niveleducativo`='$nivel_educa_nna',`id_cuidadores`='$cuidadores_nna',`id_municipio`='$municipio_nna',`id_provincia`='$provincia_nna',`id_regimen`='$regimen_nna',`id_eps`='$eps_nna',`id_etnia`='$etnias_nna',`Puntaje_Sisben`='$sisben_nna',`id_zona`='$zona_nna',`fecha_ingreso`='$fecha_ing',`id_usuario`='$id_usuario_nna' WHERE id_ninnos='$id_ninnos'") or die(mysqli_error($con));
+        mysqli_query($con, "UPDATE `nucleo_familiar` SET `descripcion_nucleo`='$descripcion_nucleoF',") or die(mysqli_error($con));
+
         echo '<script language = javascript>
                  alert("la Informacion ha sido Guardada Correctamente")
                  self.location = "main.php?key=5&id_ninnos='.$id_ninnos.'"

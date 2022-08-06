@@ -487,6 +487,10 @@
                                 <input id='sisben_nna' name='sisben_nna' class="form-control" placeholder="Ingrese el puntaje del sisben" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$" style="text-transform: uppercase;" required>
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
+                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group"> 
+                                    <label>Núcleo familiar</label>                        
+                                    <input id="textinput" name="descripcion_nu" type="descripcion_nu" placeholder="Escriba con quién vive el NNA" class="form-control input-md">
+                                </div>  
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                                     <label>Zona</label>
                                     <select name="zona_nna" id="zona_nna" class="form-control" style="text-transform: uppercase;" required>
@@ -505,14 +509,15 @@
 
                                     </select>
                                 </div>
-                                <br>
-                                <br>
-                                <br>
-
-                            </div>
+                          
 
                             <!-- /.col-lg-6 (nested) -->
-                        </div>
+
+                        
+                    </div>
+                     <br>
+                    <br>
+                    <br>
                     </div>
                 </div>
             </div>
@@ -625,8 +630,10 @@
         }
         $edad_agresor = $_POST['edad_agresor'];
         $nivel_escolaridad = $_POST['nivel_escolaridad'];
+        $Id_nucleo = $_POST['Id_nucleo'];
+        $descripcion_nucleo = $_POST['descripcion_nu'];
 
-        $sql = "INSERT INTO ninnosnna (id_tipo_documento, No_identificacion, Nombres,
+        $sql1 = "INSERT INTO ninnosnna (id_tipo_documento, No_identificacion, Nombres,
 					Apellidos, Fecha_Nacimiento, Edad, Direccion, telefono_movil, correo_electronico,
 					id_genero, id_estrato, id_niveleducativo, id_cuidadores, id_departamento, id_municipio, id_provincia,
 					id_regimen, id_eps, id_etnia, Puntaje_Sisben, id_zona, id_usuario,
@@ -636,8 +643,14 @@
 					'$estrato_nna','$nivel_educa_nna','$cuidadores_nna','$departamento_nna','$municipio_nna','$provincia_nna',
 					'$regimen_nna','$eps_nna','$etnias_nna','$sisben_nna','$zona_nna','$id_usuario',
 					'$motivoingreso','$fecha_hechos','$municipio_in','$lugar_hechos','$vinculo_agresor','$edad_agresor','$nivel_escolaridad','$pais_nna')";
-
-        if (mysqli_query($con, $sql)) {
+ 
+        //Guardar cambios en la tabla actuación mediante  mysqli_insert_id
+        if (mysqli_query($con, $sql1)) {
+            
+        $id_ninnosn=mysqli_insert_id($con);
+        $sql2 = "INSERT INTO nucleo_familiar (descripcion_nucleo, id_ninnos) VALUES ('$descripcion_nucleo', '$id_ninnosn')";
+        mysqli_query($con, $sql2);
+        
 		$nino_id = mysqli_insert_id($con);
             echo '<script language = javascript>
 					alert("Se guardó exitosamente el registro")
