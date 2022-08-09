@@ -290,7 +290,7 @@
 
                                 <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                     <label>Nombres</label>
-                                    <input id='nom_nna' name='nom_nna' class="form-control" placeholder="Ingrese el nombre del niño(a) ó adolescente" style="text-transform: uppercase;" required>
+                                    <input id='nom_nna' name='nom_nna' class="form-control" placeholder="Ingrese el nombre completo del niño(a) ó adolescente" style="text-transform: uppercase;" required>
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
                                 <div class="col-md-6 col-sm-4 col-xs-12 form-group">
@@ -451,13 +451,13 @@
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                                     <label>Teléfono Móvil</label>
-                                    <input id='telefono_nna' type="int" maxlength="10" name='telefono_nna' class="form-control" placeholder="Ingrese el número telefónico" required>
+                                    <input id='telefono_nna' type="int" minlength="10" maxlength="10" name='telefono_nna' class="form-control" placeholder="Ingrese el número telefónico" required>
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
                                     </select>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                    <label>Correo electronico</label>
+                                    <label>Correo electrónico</label>
                                     <input id='correo_nna' type="text" name='correo_nna' class="form-control" placeholder="Ingrese el correo electronico">
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>                                
@@ -500,7 +500,7 @@
                                 </div>
 
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                    <label>Regímenes</label>
+                                    <label>Régimen</label>
                                     <select name="regimen_nna" id="regimen_nna" class="form-control" style="text-transform: uppercase;" onchange="obtenerEps(this.value);" required>
                                         <option value="">Seleccione</option>
                                         <?php
@@ -529,8 +529,8 @@
                                 </div>
 
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                    <label>Puntaje del sisbén</label>
-                                <input id='sisben_nna' name='sisben_nna' class="form-control" placeholder="Ingrese el puntaje del sisben" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$" style="text-transform: uppercase;" required>
+                                    <label>Categoría del sisbén</label>
+                                <input id='sisben_nna' name='sisben_nna' class="form-control" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$" style="text-transform: uppercase;" required>
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group"> 

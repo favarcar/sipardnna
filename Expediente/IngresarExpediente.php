@@ -262,61 +262,66 @@ self.location = "index.html"
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <form id="formExpe" method="post" enctype="multipart/form-data">
+                    <!-- Text input-->
+                    <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >Fecha limite de la actuación administrativa</label>
+            <div >
+              <input id="textinput" name="finalizacion_exp" type="date" placeholder="" class="form-control input-md" onkeypress="return numeros(event)">
+            </div>
+          </div>
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label>Número del proceso</label>
-            <input id='numero_proex' type="number" name='numero_proex' min="0" class="form-control" placeholder="Número del proceso " font style="text-transform: uppercase;" onkeypress="return valida(event)" value="0" required>
+            <label>Número del expediente</label>
+            <input id='numero_proex' type="number" name='numero_proex' min="0" class="form-control" placeholder="Número del expediente" font style="text-transform: uppercase;" onkeypress="return valida(event)" value="0" required>
             <!--<p class="help-block">Example block-level help text here.</p> -->
           </div>
+          <!-- Text input-->
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Restablecimiento de Derechos</label>
+            <label >Descripci&oacute;n de los hechos</label>
             <div >
+              <textarea class="form-control input-md" name="descripcion_exp" placeholder='Escriba los hechos' required></textarea>
 
 
-              <select name="derechos_exp" id="derechos_exp" class="form-control" style="text-transform: uppercase;" required>
-                <option value="">Seleccione</option>
-                <?php
-                $con66 = mysqli_query($con, "select * from  derechos");
-                $reg66 = mysqli_fetch_array($con66);
-                do {
-                  $id_derecho66 = $reg66['id_derecho'];
-                  $des_derecho66 = $reg66['descripcion_derechos'];
-                ?>
-                  <option value="<?php echo $id_derecho66; ?>"><?php echo $des_derecho66; ?> </option>
-                <?php
-                } while ($reg66 = mysqli_fetch_array($con66));
-                ?>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label >Observaciones</label>
+            <div >
+              <textarea class="form-control input-md" name="obs_exp" placeholder='Escriba las observaciones' required></textarea>
 
-              </select>
-              <h5 class="letra n500  azulo "><a href="main.php?key=20" class=" btn btn-primary" data-toggle="tooltip" data-placement="bottom" title=" Verifique si el Derecho se encuentra en la lista desplegable">Registrar Nuevo Derecho</a></h5>
+             </div>
+             </div>
             </div>
           </div>
 
+        </div>
+    </div>
+           <!--Formulario de la tabla actuación -->
+              <div class="panel panel-default">
+    <div class="panel-heading clearfix" style="font-size:21px">
+    <i class="fa fa-user"></i> 
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <form id="formExpe" method="post" enctype="multipart/form-data">
+              <div class="col-md-12 col-sm-8 col-xs-12 form-group">
+                
+              </div>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                        <label>Concepto del Caso</label>
+                                        <div class="custom-control custom-radio">
+                                            <input type="radio" class="custom-control-input" id="requiere" name="defaultExampleRadios">
+                                            <label class="custom-control-label" for="requiere">Requiere PARD</label>
+                                            <label class="custom-control-label"> |---------| </label>
+                                            <input type="radio" class="custom-control-input" id="noRequiere" name="defaultExampleRadios" checked>
+                                            <label class="custom-control-label" for="noRequiere">No Requiere PARD</label>
+                                        </div>
+                                    </div>
+
+
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
-            <div >
-
-              <select name="discapacidad_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;" required>
-                <option value="">Seleccione</option>
-                <?php
-                include("../conexion/conexion.php");
-
-                $con11 = mysqli_query($con, "select * from  discapacidades");
-                $reg11 = mysqli_fetch_array($con11);
-                do {
-                  $id_discapacidad11 = $reg11['id_discapacidad'];
-                  $des_discapacidad11 = $reg11['descripcion_discapacidades'];
-                ?>
-                  <option value="<?php echo $id_discapacidad11; ?>"><?php echo $des_discapacidad11; ?> </option>
-                <?php
-                } while ($reg11 = mysqli_fetch_array($con11));
-                ?>
-
-              </select>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Indicador</label>
+            <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Clasificación del proceso</label>
             <div >
 
               <select name="indicadores_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;" required>
@@ -364,7 +369,7 @@ self.location = "index.html"
           </div>
 
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victimas</label>
+            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victima</label>
             <div >
 
               <select name="victima_exp" id="victima_exp" class="form-control" style="text-transform: uppercase;" required>
@@ -384,39 +389,50 @@ self.location = "index.html"
               </select>
             </div>
           </div>
-
-          <!-- Text input-->
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label >Descripci&oacute;n</label>
+            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
             <div >
-              <textarea class="form-control input-md" name="descripcion_exp" required></textarea>
 
+              <select name="discapacidad_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;" required>
+                <option value="">Seleccione</option>
+                <?php
+                include("../conexion/conexion.php");
 
+                $con11 = mysqli_query($con, "select * from  discapacidades");
+                $reg11 = mysqli_fetch_array($con11);
+                do {
+                  $id_discapacidad11 = $reg11['id_discapacidad'];
+                  $des_discapacidad11 = $reg11['descripcion_discapacidades'];
+                ?>
+                  <option value="<?php echo $id_discapacidad11; ?>"><?php echo $des_discapacidad11; ?> </option>
+                <?php
+                } while ($reg11 = mysqli_fetch_array($con11));
+                ?>
+
+              </select>
             </div>
           </div>
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label >Observaciones</label>
+            <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Restablecimiento de Derechos</label>
             <div >
-              <textarea class="form-control input-md" name="obs_exp" required></textarea>
+              <select name="derechos_exp" id="derechos_exp" class="form-control" style="text-transform: uppercase;" required>
+                <option value="">Seleccione</option>
+                <?php
+                $con66 = mysqli_query($con, "select * from  derechos");
+                $reg66 = mysqli_fetch_array($con66);
+                do {
+                  $id_derecho66 = $reg66['id_derecho'];
+                  $des_derecho66 = $reg66['descripcion_derechos'];
+                ?>
+                  <option value="<?php echo $id_derecho66; ?>"><?php echo $des_derecho66; ?> </option>
+                <?php
+                } while ($reg66 = mysqli_fetch_array($con66));
+                ?>
 
-
+              </select>
+              <h5 class="letra n500  azulo "><a href="main.php?key=20" class=" btn btn-primary" data-toggle="tooltip" data-placement="bottom" title=" Verifique si el Derecho se encuentra en la lista desplegable">Registrar Nuevo Derecho</a></h5>
             </div>
           </div>
-
-
-
-
-
-          <!-- Text input-->
-          <!-- Text input-->
-          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label >Fecha aproximada del Expediente</label>
-            <div >
-
-              <input id="textinput" name="finalizacion_exp" type="date" placeholder="" class="form-control input-md" onkeypress="return numeros(event)">
-            </div>
-          </div>
-
 
           <!-- Text input-->
 
@@ -466,37 +482,13 @@ self.location = "index.html"
               </select>
             </div>
           </div> 
-        </div>
-    </div>
-           <!--Formulario de la tabla actuación -->
-              <div class="panel panel-default">
-    <div class="panel-heading clearfix" style="font-size:21px">
-    <i class="fa fa-user"></i> 
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <form id="formExpe" method="post" enctype="multipart/form-data">
-              <div class="col-md-12 col-sm-8 col-xs-12 form-group">
-                
-              </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                        <label>Concepto del Caso</label>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" id="requiere" name="defaultExampleRadios">
-                                            <label class="custom-control-label" for="requiere">Requiere PARD</label>
-                                            <label class="custom-control-label"> |---------| </label>
-                                            <input type="radio" class="custom-control-input" id="noRequiere" name="defaultExampleRadios" checked>
-                                            <label class="custom-control-label" for="noRequiere">No Requiere PARD</label>
-                                        </div>
-                                    </div>
 
-                                    <div id="grpChkBox class="col-md-12 col-sm-6 col-xs-12 form-group well" id="addActuacion">
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
 
                                         <label>Fecha Actuacion</label>
                                         <input id="FechaActuacion" name="FechaActuacion" type="date" placeholder="AAAA-MM-DD" class="form-control input-md" onkeypress="return numeros(event)">
-
+                                    </div>
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Funcionario</label>
 
                                         <select name="funcionario_actua" id="funcionario_actua" class="form-control" font style="text-transform: uppercase;" style=" width:100px">
@@ -505,13 +497,19 @@ self.location = "index.html"
                                             <option value="Trabajador Social">Trabajador Social</option>
                                             <option value="Psicologo">Psicologo</option>
                                         </select>
+                                    </div>
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Descripci&oacute;n</label>
-                                        <textarea id="desc_actua" class="form-control" name="desc_actua" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del expediente"></textarea>
+                                        <textarea id="desc_actua" class="form-control" name="desc_actua" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba los detalles del PARD"></textarea>
+                                    </div>
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
+
                                         <label>Compromisos</label>
                                         <textarea id="compro_actua" font style="text-transform: uppercase;" class="form-control" name="compro_actua" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del requerimiento"></textarea>
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                         <br>
                                     </div>
+                </div>
                  <!-- <label>PARD</label>
                   <select name="veredicto_exp" id="veredicto_exp"  class="form-control" style="text-transform: uppercase;" required>
                   <option value="">Seleccione</option>

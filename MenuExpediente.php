@@ -128,8 +128,8 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <form id="formExpe" method="post" enctype="multipart/form-data">
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Número del proceso</label>
-                                        <input id='num_pro' type="number" name='num_pro' min="0" class="form-control" placeholder="Número del proceso " font style="text-transform: uppercase;" onkeypress="return valida(event)" value="0" required>
+                                        <label>Número del expediente</label>
+                                        <input id='num_pro' type="number" name='num_pro' min="0" class="form-control" placeholder="Número del expediente" font style="text-transform: uppercase;" onkeypress="return valida(event)" value="0" required>
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
@@ -171,7 +171,7 @@
                                     </div>
 
                                     <div class="col-md-12 col-sm-6 col-xs-12 form-group well">
-                                        <label>Indicador</label>
+                                        <label>Clasificación del proceso</label>
                                         <select name="indicadores_exp" id="indicadores_exp" class="form-control" font style="text-transform: uppercase;">
                                             <option value="">Seleccione</option>
                                             <?php
@@ -194,7 +194,7 @@
                                         <table id="table" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th style="width: 90%"> Indicadores asignados</th>
+                                                    <th style="width: 90%"> Clasificación del proceso asignado</th>
                                                     <!--th>Fecha actual</th-->
                                                     <th>Eliminar</th>
                                                 </tr>
@@ -242,8 +242,8 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Descripci&oacute;n</label>
-                                        <textarea class="form-control input-md" id="descripcion_exp" name="descripcion_exp" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del expediente" required></textarea>
+                                        <label>Descripci&oacute;n de los hechos</label>
+                                        <textarea class="form-control input-md" id="descripcion_exp" name="descripcion_exp" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escriba los hechos" data-parsley-validation-threshold="10" placeholder="Escriba el detalle del expediente" required></textarea>
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                         <label>Observaciones</label>
@@ -441,8 +441,8 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <form id="formExpe" method="post" enctype="multipart/form-data">
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Número del proceso</label>
-                                        <input id='num_show_pro' name='num_show_pro' class="form-control" placeholder="Número del proceso " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
+                                        <label>Número del expediente</label>
+                                        <input id='num_show_pro' name='num_show_pro' class="form-control" placeholder="Número del expediente" font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
@@ -455,12 +455,12 @@
                                     </div>
 
                                     <div class="col-md-12 col-sm-6 col-xs-12 form-group well">
-                                        <label>Indicadores</label>
+                                        <label>Clasificación del proceso</label>
                                         <table id="indicadorShowTable" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
-                                                    <th>Id Indicador</th>
-                                                    <th>Descripción Indicador</th>
+                                                    <th>Id Clasificación del proceso</th>
+                                                    <th>Descripción Clasificación del proceso</th>
                                                 </tr>
                                             </thead>
                                         </table>

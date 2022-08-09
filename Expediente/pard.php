@@ -263,8 +263,8 @@ self.location = "index.html"
       <div class="col-md-12 col-sm-12 col-xs-12">
         <form id="formExpe" method="post" enctype="multipart/form-data">
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label>Número del proceso</label>
-            <input id='numero_proex' type="number" name='numero_proex' min="0" class="form-control" placeholder="Número del proceso " font style="text-transform: uppercase;" onkeypress="return valida(event)" value="0" required>
+            <label>Número del expediente</label>
+            <input id='numero_proex' type="number" name='numero_proex' min="0" class="form-control" placeholder="Número del expediente" font style="text-transform: uppercase;" onkeypress="return valida(event)" value="0" required>
             <!--<p class="help-block">Example block-level help text here.</p> -->
           </div>
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">

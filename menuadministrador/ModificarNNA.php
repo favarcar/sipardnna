@@ -211,9 +211,9 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono móvil</label>
                         <div class="col-md-8">
-                            <input id="tel_nna" name="tel_nna" type="tel" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil;  ?>" <?= $dis ?>>
+                            <input id="tel_nna" name="tel_nna" type="tel" minlength="10" maxlength="10" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil;  ?>" <?= $dis ?>>
                         </div>
                     </div>
 
@@ -277,7 +277,7 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Reg&iacute;menes</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Régimen</label>
                         <div class="col-md-8">
                             <?php
                             $busqueda1 = mysqli_query($con, "SELECT * FROM regimenes WHERE id_regimen='$id_regimen' ");
@@ -355,9 +355,9 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Puntaje del Sisb&eacute;n</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Categoría del Sisb&eacute;n</label>
                         <div class="col-md-8">
-                            <input id="sisben_nna" name="sisben_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" <?= $dis ?>>
+                            <input id="sisben_nna" name="sisben_nna" type="text" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" <?= $dis ?>>
                         </div>
                     </div>
 
@@ -389,7 +389,7 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
                         <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Núcleo Familiar</label>
                         <div class="col-md-8">
-                            <input id="descripcion_nucleoF" name="descripcion_nucleoF" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $descripcion_nucleo  ?>" <?= $dis ?>>
+                            <input id="descripcion_nucleoF" name="descripcion_nucleoF" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $descripcion_nucleo  ?>" <?= $dis ?>>
                         </div>                                          
                     </div>
 
@@ -449,13 +449,13 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
         $zona_nna           = $_POST['zona_nna'];
         $fecha_ing          = $_POST['fecha_ingre_nna'];
         $id_usuario_nna     = $_POST['id_usuario_nna'];
-        $descripcion_nucleo = $_POST['descripcion_nucleoF'];
+        $descripcion_nucleoF = $_POST['descripcion_nucleoF'];
 
         
 
-        mysqli_query($con, "UPDATE `ninnosnna` SET `id_tipo_documento`='$tip_doc_nna',`No_identificacion`='$num_nna',`Nombres`='$nom_nna',`Apellidos`='$ape_nna',`Fecha_Nacimiento`='$fecha_nn',`Edad`='$edad_nna',`Direccion`='$dir_nna',`telefono_movil`='$tel_nna',`correo_electronico`='$email_nna',`id_genero`='$genero_nna',`id_estrato`='$estrato_nna',`id_niveleducativo`='$nivel_educa_nna',`id_cuidadores`='$cuidadores_nna',`id_municipio`='$municipio_nna',`id_provincia`='$provincia_nna',`id_regimen`='$regimen_nna',`id_eps`='$eps_nna',`id_etnia`='$etnias_nna',`Puntaje_Sisben`='$sisben_nna',`id_zona`='$zona_nna',`fecha_ingreso`='$fecha_ing',`id_usuario`='$id_usuario_nna' WHERE id_ninnos='$id_ninnos'") or die(mysqli_error($con));
-        mysqli_query($con, "UPDATE `nucleo_familiar` SET `descripcion_nucleo`='$descripcion_nucleoF',") or die(mysqli_error($con));
-
+        $modificarNna=mysqli_query($con, "UPDATE `ninnosnna` SET `id_tipo_documento`='$tip_doc_nna',`No_identificacion`='$num_nna',`Nombres`='$nom_nna',`Apellidos`='$ape_nna',`Fecha_Nacimiento`='$fecha_nna',`Edad`='$edad_nna',`Direccion`='$dir_nna',`telefono_movil`='$tel_nna',`correo_electronico`='$email_nna',`id_genero`='$genero_nna',`id_estrato`='$estrato_nna',`id_niveleducativo`='$nivel_educa_nna',`id_municipio`='$municipio_nna',`id_provincia`='$provincia_nna',`id_regimen`='$regimen_nna',`id_eps`='$eps_nna',`id_etnia`='$etnias_nna',`Puntaje_Sisben`='$sisben_nna',`id_zona`='$zona_nna',`fecha_ingreso`='$fecha_ing',`id_usuario`='$id_usuario_nna' WHERE id_ninnos='$id_ninnos'") or die(mysqli_error($con));
+       // $modificarNucleo=mysqli_query($con, "UPDATE `nucleo_familiar` SET `descripcion_nucleo`='$descripcion_nucleoF',") or die(mysqli_error($con));
+        
         echo '<script language = javascript>
                  alert("la Informacion ha sido Guardada Correctamente")
                  self.location = "main.php?key=5&id_ninnos='.$id_ninnos.'"

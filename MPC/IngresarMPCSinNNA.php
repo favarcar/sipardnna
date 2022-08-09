@@ -264,9 +264,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono móvil</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="tel_nna" type="tel" maxlength="10" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required>
+                            <input id="textinput" name="tel_nna" type="tel" minlength="10" maxlength="10" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required>
                         </div>
                     </div>
 
@@ -314,7 +314,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Reg&iacute;menes</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Régimen</label>
                         <div class="col-md-8">
                             <select name="regimen_nna" id="regimen_nna" class="form-control" style="text-transform: uppercase;" onchange="obtenerEps(this.value);" required>
                                 <option value="">Seleccione</option>
@@ -362,9 +362,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Puntaje del Sisb&eacute;n</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Categoría del Sisb&eacute;n</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="sisben_nna" type="text" placeholder="" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$"class="form-control input-md" required>
+                            <input id="textinput" name="sisben_nna" type="text" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$"class="form-control input-md" required>
                         </div>
                     </div>
 

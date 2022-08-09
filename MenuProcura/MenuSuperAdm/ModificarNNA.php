@@ -288,9 +288,9 @@ while($row1=mysqli_fetch_array($busqueda1)){
                 </div>
                 
                                 <div class="form-group">
-                  <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono</label>  
+                  <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono móvil</label>  
                   <div class="col-md-4">
-                  <input id="textinput" name="tel_nna" type="tel_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil;  ?>" disabled >
+                  <input id="textinput" name="tel_nna" type="tel_nna" minlength="10" maxlength="10" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil;  ?>" disabled >
                     
                   </div>
                 </div>
@@ -367,7 +367,7 @@ while($row1=mysqli_fetch_array($busqueda1)){
                 </div> 
                 
                  <div class="form-group">
-                  <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Reg&iacute;menes</label>
+                  <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Régimen</label>
                   <div class="col-md-4">
                     <div class="input-group">
                     <?php  $busqueda1=mysqli_query($con,"SELECT * FROM regimenes where id_regimen='$id_regimen' ");
@@ -462,9 +462,9 @@ while($row1=mysqli_fetch_array($busqueda1)){
                 </div>
                 
                                                 <div class="form-group">
-                  <label class="col-md-4 control-label letra n600 azulo" for="textinput">Puntaje del Sisb&eacute;n</label>  
+                  <label class="col-md-4 control-label letra n600 azulo" for="textinput">Categorías del Sisb&eacute;n</label>  
                   <div class="col-md-4">
-                  <input id="textinput" name="sisben_nna" type="sisben_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" disabled >
+                  <input id="textinput" name="sisben_nna" type="sisben_nna" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" disabled >
                     
                   </div>
                 </div>

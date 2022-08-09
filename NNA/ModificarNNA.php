@@ -299,7 +299,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Reg&iacute;menes</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Régimen</label>
                         <div class="col-md-4">
                             <select name="regimen_nna" id="regimen_nna" class="form-control" style="text-transform: uppercase;" onchange="obtenerEps(this.value);" required>
                                 <?php
@@ -369,9 +369,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Puntaje del Sisb&eacute;n</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Categoría del Sisb&eacute;n</label>
                         <div class="col-md-4">
-                            <input id="textinput" name="sisben_nna" type="text" placeholder="" class="form-control input-md" value="<?php echo $Puntaje_Sisben ?>" required>
+                            <input id="textinput" name="sisben_nna" type="text" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" class="form-control input-md" value="<?php echo $Puntaje_Sisben ?>" required>
 
                         </div>
                     </div>

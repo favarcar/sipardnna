@@ -384,7 +384,7 @@ self.location = "index.html"
 
           <!-- Text input-->
           <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Descripci&oacute;n</label>
+            <label class="col-md-4 control-label letra n600 azulo" for="textinput">Descripci&oacute;n de los hechos</label>
             <div class="col-md-4">
               <textarea class="form-control input-md" name="descripcion_exp" disabled><?php echo $Descripcion_expediente ?></textarea>
 

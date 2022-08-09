@@ -421,9 +421,9 @@ self.location = "index.html"
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono móvil</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="tel_nna" type="tel_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil ?>" required>
+                            <input id="textinput" name="tel_nna" type="tel_nna" minlength="10" maxlength="10" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil ?>" required>
 
                         </div>
                     </div>
@@ -493,7 +493,7 @@ self.location = "index.html"
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Reg&iacute;menes</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Régimen</label>
                         <div class="col-md-8">
                             <select name="regimen_nna" id="regimen_nna" class="form-control" style="text-transform: uppercase;" onchange="obtenerEps(this.value);" required>
                                 <?php
@@ -569,9 +569,9 @@ self.location = "index.html"
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Puntaje del Sisb&eacute;n</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Categorías del Sisb&eacute;n</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="sisben_nna" type="sisben_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" required>
+                            <input id="textinput" name="sisben_nna" type="sisben_nna" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" required>
 
                         </div>
                     </div>
