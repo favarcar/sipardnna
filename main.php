@@ -133,15 +133,15 @@ switch ($nuser){
         </style>
 
 
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
+        <!-- selet2 style -->
+        <link href="js/select2/dist/css/select2.min.css" rel="stylesheet" />
+
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
-
-
         <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,600italic' rel='stylesheet' type='text/css'>
-
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>        
          <!-- Start WOWSlider.com HEAD section -->
         <link rel="stylesheet" type="text/css" href="engine1/style.css" />
         <script type="text/javascript" src="engine1/jquery.js"></script>
@@ -159,7 +159,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
     </head>
     <body style="background-color: #64AF59;">
 
-
+<!--Menú de sipardnna-->
  <header>
 <div class="text-center" style="height:30px; color:white; background-color: #64af59"><strong>Sistema de Información para el Restablecimiento de Derechos de Niños, Niñas y Adolescentes</strong></div>
  <nav class="navbar navbar-default">
@@ -179,6 +179,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
           <li><a href="main.php?key=16">Expedientes</a></li>
         </ul>
       </li>
+      <!--Restricción por niveles de acceso al menú -->
      <?php if($nuser == 1 || $nuser == 2){?>
       <li class="dropdown">
         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Registrar
@@ -186,14 +187,13 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
         <ul class="dropdown-menu">
           <li><a href="main.php?key=8">Niños niñas o adolescentes</a></li>
           <li><a href="main.php?key=43">Madre, Padre o Cuidador</a></li>
-          <li><a href="main.php?key=23">Madre, Padre o Cuidador con NNA</a></li>
-          <li><a href="main.php?key=12">Expedientes</a></li>
+          <li><a href="main.php?key=51">Expedientes</a></li>
         </ul>
         <li><a href="main.php?key=4">Mi usuario</a></li>
       </li>
 	  <?php } ?>
 
-     
+    <!--Perfiles de sipardnna y asignación de niveles--> 
     </ul>
     <ul class="nav navbar-nav navbar-right center-block">
       <li><i class="glyphicon glyphicon-user"></i><strong>Usuario:</strong> <?php echo $nombres?>&nbsp;<?php echo $apellido?>
@@ -230,7 +230,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
  </header>
 
 
-
+<!--Lista de formularios que se estan usando en el sistema-->
 
 <section class="fblanco">
 <div class="container"> 
@@ -282,6 +282,17 @@ if ($verdato == 42){include("MPC/ConsultarMPC1.php");}
 if ($verdato == 43){include("MPC/IngresarMPCSinNNA.php");}
 if ($verdato == 44){include("RegistrarNNA.php");}
 if ($verdato == 45){include("menuadministrador/ConsultarRegistrosMPCSINNNA.php");}
+if ($verdato == 46){include("cuida.php");}
+if ($verdato == 47){include("MPC/AsignarMPC.php");}
+if ($verdato == 48){include("menuadministrador/ConsultarNNAAsignarMPC.php");}
+if ($verdato == 49){include("menuadministrador/ConsultarAsignarMPC.php");}
+if ($verdato == 50){include("MPC/AsignarNNA.php");}
+if ($verdato == 51){include("Expediente/TotalExpedientes/ConsultarRegistrarExpediente.php");}
+if ($verdato == 52){include("Expediente/EliminarExpediente.php");}
+
+
+
+
 
 if ($verdato == 102) {include("user_list.php");}
 if ($verdato == 105) {include("user_update.php");}
@@ -328,3 +339,5 @@ if ($verdato == 402) {include("cargar_archivos.php");}
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <!-- Select2 -->
+	<script src="js/select2/dist/js/select2.min.js"></script>

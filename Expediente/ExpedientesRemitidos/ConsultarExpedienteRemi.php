@@ -1,42 +1,48 @@
-
-    <section style="background-color: #FFFF;">
+<section style="background-color: #FFFF;">
         <div class="container ps ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                    <h2 class="centrar letra n600 azulo pi">Remitir Expedientes</h2>
+                    <h2 class="centrar letra n600 azulo pi">Consultar Expedientes</h2>
                 </div>
-            </div>
-        </div>
+            </div>        
+        </div>        
     </section>
+      
 
-    <section class="fblanco">
+    
+    <body class="fblanco">
+        <script language="JavaScript">
+            function Borra(idcliente){
+                var agree=confirm("¿Realmente desea eliminar el cliente seleccionado?");
+                if (agree){
+                    document.location="eliminar.php?id="+idcliente;
+                } else return false;
+            }
+                </script>
+                
+                <form name="form1" method="post" action="main.php?key=15" id="cdr">
+                    <center>
+                        <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescente</h5>         
+                        <input name="busca" type="text" id="busqueda">
+                        <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
+                    </center>
+                    <br>
+        <section class="fblanco">
+        <div class="container ps1x ">
         <div class="container ps2x ">
-            <div class="row clearfix centrar"> 
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+            <div class="row clearfix centrar">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">                  
                     <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500"><a a href="main.php?key=12">Consultar Expedientes</a></li>
-
-
-                        <li role="presentation" class="letra n500"><a href="#" data-toggle="dropdown">Remitir Expedientes
-
-
-      <li role="presentation" class="letra n500"><a a href="main.php?key=16">Consultar Total Expedientes</a></li>
-
-
+                        <li role="presentation" class="letra n500"><a href="main.php?key=51" >Consultar Expedientes</a></li>
+                        <li role="presentation" class="letra n500"><a href="#">Remitir Expedientes</a></li>    
+                        <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
                     </ul>
-                    <input type="button" id="refresh" value="Actualizar" onclick="location.reload()" style="display:none" />
+                    <input type="button" id="refresh"value="Actualizar" onclick="location.reload()"style="display:none"/>
                 </div>
-            </div>
-        </div>
+            </div>        
+        </div>             
     </section>
 
-
-    <form name="form1" method="post" action="main.php?key=15" id="cdr">
-        <center>
-            <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento de Ni&ntilde;o, Ni&ntilde;a o Adolescente</h5>
-            <input name="busca" type="text" id="busqueda">
-            <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
-        </center> <br>
         <section class="fblanco">
             <div class="container pu pi">
                 <?php
@@ -210,9 +216,10 @@
                                         } ?>
                                                 </tr>
                                     </table>
-    </form>
-    <div class="clearfix"></div>
-    </section>
+                                
+                                </form>   
+                                <div class="clearfix"></div>
+                            </section>
 
 
 
@@ -221,9 +228,39 @@
     <script>
         window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
     </script>
+
     <script src="js/vendor/bootstrap.min.js"></script>
+
     <script src="js/main.js"></script>
 
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/jquery-ui.js"></script>
     <!-- Datatables -->
     <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -287,12 +324,9 @@
                 return false;
         }
     </script>
-</body>
-
-</html>
-    </div>
-    </div>
-    </section>
-</body>
-
-</html>
+                            </div>
+                        </div>
+                    </section> 
+                    
+                </body>
+                </html>	

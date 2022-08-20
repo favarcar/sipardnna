@@ -1,40 +1,3 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="">
-<!--<![endif]-->
-
-<head>
-    <meta charset="utf-8" />
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Sistema de Informaci&oacute;</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-
-    <style>
-        body {
-            padding-top: 0px;
-            padding-bottom: 0px;
-        }
-    </style>
-
-    <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,600italic' rel='stylesheet' type='text/css'>
-
-    <script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    <!-- Start WOWSlider.com HEAD section -->
-    <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-    <script type="text/javascript" src="engine1/jquery.js"></script>
-    <!-- End WOWSlider.com HEAD section -->
-</head>
-
 <body class="fblanco">
     <script language="JavaScript">
         function Borra(idcliente) {
@@ -71,6 +34,23 @@
             <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
         </center>
         <br>
+
+        <section class="fblanco">
+            <div class="container pu pi">
+            <section class="fblanco">
+        <div class="container ps2x ">
+            <div class="row clearfix centrar">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="letra n500"><a href="main.php?key=43">Registrar MPC</a></li>
+                        <!--<li role="presentation" class="letra n500"><a href="#">Consultar MPC con NNA</a></li>-->
+                        <li role="presentation" class="letra n500"><a href="main.php?key=49">Registrar o Asignar NNA</a></li>                        
+                        <li role="presentation" class="letra n500"><a href="main.php?key=42">Eliminar MPC</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>       
         <section class="fblanco">
             <div class="container pu pi">
 

@@ -1,15 +1,27 @@
 
-<h3 class="centrar letra n600 azulo pi">REGISTRO NNA</h3>
 
 <form name="form1" method="post" action="main.php?key=14" id="cdr">
-        <center>
+        <center><br>
+            <h2 class="centrar letra n600 azulo pi">Consultar o Eliminar NNA</h2>
             <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento </h5>
             <input name="busca" type="text" id="busqueda">
             <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
         </center>
-        <br>
+       
         <section class="fblanco">
-            <div class="container pu pi">
+        <div class="container ps2x ">
+            <div class="row clearfix centrar">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="letra n500"><a href="main.php?key=8">Registrar NNA</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=48">Registrar o Asignar MPC</a></li>
+                        <li role="presentation" class="letra n500"><a href="#">Eliminar NNA</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
                 <?php
 
                 if (isset($_POST['Submit'])) { ?>
@@ -140,9 +152,8 @@
                                         </tr>
                                         <tbody>
                                             <?php
-
-                                            $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_usuario='$id_usuario' order by id_ninnos  desc "); //cambiar nombre de la tabla de busqueda
-                                            while ($row = mysqli_fetch_array($busqueda)) {
+                                            $busquedanna = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY Apellidos DESC " );
+                                            while ($row = mysqli_fetch_array($busquedanna)) {
                                                 $id_pais = $row['id_pais'];
                                                 $id_departamento = $row['id_departamento'];
                                                 $apellidos = $row['Apellidos'];
@@ -190,7 +201,7 @@
                                                         <?php echo $edad;  ?></td>
                                                     <td align="center">
                                                         
-                                                        <a href="main.php?key=5&id_ninnos='.$id_ninnos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>
+                                                        <?php echo '<a href="main.php?key=5&id_ninnos='.$id_ninnos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>';?>
                                                         
                                                         </td>
                                                     <td align="center">

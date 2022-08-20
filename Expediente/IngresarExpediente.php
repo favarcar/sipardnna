@@ -63,9 +63,9 @@
   $id_ninnos = $_GET['id_ninnos'];
 
 
-   //Llamar la tabla de ninnosnna
-  $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
-  while ($row = mysqli_fetch_array($busqueda)) {
+   //Traer datos de la tabla de ninnosnna
+  $busnna = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
+  while ($row = mysqli_fetch_array($busnna)) {
 
     $id_ninnos1 = $row['id_ninnos'];
     $No_identificacion = $row['No_identificacion'];
@@ -97,35 +97,46 @@
   $fecha_cuida = "No hay registro";
   $id_usuario = "No hay registro";
   $id_ninos = "No hay registro";
-  $busqueda1 = mysqli_query($con, "SELECT * FROM cuidadores where id_ninos='$id_ninnos1' "); //cambiar nombre de la tabla de busqueda
-  while ($row1 = mysqli_fetch_array($busqueda1)) {
+
+     //Traer datos de la tabla de cuida
+  $buscaCuida = mysqli_query($con, "SELECT * FROM cuida where id_ninnos='$id_ninnos1' "); 
+  while ($row1 = mysqli_fetch_array($buscaCuida)) {
 
     //// //Llamar la tabla de cuidadores
-    $id_cuidadores = $row1['id_cuidadores'];
-    $id_tipo_documento = $row1['id_tipo_documento'];
-    $No_Cedula = $row1['No_Cedula'];
-    $NombresCuida = $row1['Nombres_cuidadores'];
-    $ApellidosCuida = $row1['Apellidos_cuidadores'];
-    $Fecha_Nacimiento = $row1['Fecha_Nacimiento'];
-    $Edad = $row1['Edad'];
-    $Direccion = $row1['Direccion'];
-    $telefono_movil = $row1['telefono_movil'];
+    $id_cuida1      = $row1['id_cuida'];
+    $id_cuidanna  = $row1['id_cuidadores'];
+    $id_nnacuida          = $row1['id_ninnos'];
+  }
+
+   //Traer datos de la tabla de cuidadores
+  $busCuida = mysqli_query($con, "SELECT * FROM cuidadores where id_cuidadores='$id_cuidanna' "); 
+  while ($row1 = mysqli_fetch_array($busCuida)) {
+
+    $id_cuidadores      = $row1['id_cuidadores'];
+    $id_tipo_documento  = $row1['id_tipo_documento'];
+    $No_Cedula          = $row1['No_Cedula'];
+    $NombresCuida       = $row1['Nombres_cuidadores'];
+    $ApellidosCuida     = $row1['Apellidos_cuidadores'];
+    $Fecha_Nacimiento   = $row1['Fecha_Nacimiento'];
+    $Edad               = $row1['Edad'];
+    $Direccion          = $row1['Direccion'];
+    $telefono_movil     = $row1['telefono_movil'];
     $correo_electronico = $row1['correo_electronico'];
-    $id_parentesco = $row1['id_parentesco'];
-    $id_estado = $row1['id_estado'];
-    $id_estrato = $row1['id_estrato'];
-    $id_etnia = $row1['id_etnia'];
-    $id_genero = $row1['id_genero'];
-    $id_niveleducativo = $row1['id_niveleducativo'];
-    $id_regimen = $row1['id_regimen'];
-    $id_eps = $row1['id_eps'];
-    $id_municipio = $row1['id_municipio'];
-    $id_provincia = $row1['id_provincia'];
-    $id_zona = $row1['id_zona'];
-    $Puntaje_Sisben = $row1['Puntaje_Sisben'];
-    $fecha_cuida = $row1['fecha_cuida'];
-    $id_usuario = $row1['id_usuario'];
-    $id_ninos = $row1['id_ninos'];
+    $id_parentesco      = $row1['id_parentesco'];
+    $id_estado          = $row1['id_estado'];
+    $id_estrato         = $row1['id_estrato'];
+    $id_etnia           = $row1['id_etnia'];
+    $id_genero          = $row1['id_genero'];
+    $id_niveleducativo  = $row1['id_niveleducativo'];
+    $id_regimen         = $row1['id_regimen'];
+    $id_eps             = $row1['id_eps'];
+    $id_municipio       = $row1['id_municipio'];
+    $id_provincia       = $row1['id_provincia'];
+    $id_zona            = $row1['id_zona'];
+    $Puntaje_Sisben     = $row1['Puntaje_Sisben'];
+    $fecha_cuida        = $row1['fecha_cuida'];
+    $id_usuario         = $row1['id_usuario'];
+    $id_ninos           = $row1['id_ninos'];
   }
 
   ?>
@@ -164,7 +175,7 @@ self.location = "index.html"
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500 active"><a href="main.php?key=12">Expedientes</a></li>
+                        <li role="presentation" class="letra n500 active"><a href="main.php?key=51">Expedientes</a></li>
                         <!--<li role="presentation" class="letra n500"><a id="consultaBtn" href="main.php?key=3">Consultar Expedientes</a></li>-->
                         <li role="presentation" class="letra n500"><a href="main.php?key=15">Remitir Expedientes</a></li>
                         <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
@@ -190,8 +201,8 @@ self.location = "index.html"
             <label >Codigo del Ni&ntilde;o, Ni&ntilde;a o Adolescente </label>
             <div >
               <input id="textinput" name="cod_exp" type="text" placeholder="" class="form-control input-md" value="<?php
-                                                                                                                    $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
-                                                                                                                    while ($row = mysqli_fetch_array($busqueda)) {
+                                                                                                                    $busnna = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); 
+                                                                                                                    while ($row = mysqli_fetch_array($busnna)) {
 
                                                                                                                       echo $id_ninnos11 = $row['id_ninnos'];
                                                                                                                     } ?>" readonly>
@@ -256,7 +267,7 @@ self.location = "index.html"
   <!--Formulario de la tabla expediente -->
   <div class="panel panel-default">
     <div class="panel-heading clearfix" style="font-size:21px">
-    <i class="fa fa-user"></i> Información del Expediente
+    <i class="fa fa-list"></i> Información del Expediente
   </div>
   <div class="panel-body">
     <div class="row">
@@ -295,10 +306,11 @@ self.location = "index.html"
 
         </div>
     </div>
-           <!--Formulario de la tabla actuación -->
-              <div class="panel panel-default">
+    
+           <!--Registro del presunto agresor -->
+        <div class="panel panel-default">
     <div class="panel-heading clearfix" style="font-size:21px">
-    <i class="fa fa-user"></i> 
+    <i class="fa fa-list"></i> Información del Presunto agresor/a
   </div>
   <div class="panel-body">
     <div class="row">
@@ -306,25 +318,111 @@ self.location = "index.html"
         <form id="formExpe" method="post" enctype="multipart/form-data">
               <div class="col-md-12 col-sm-8 col-xs-12 form-group">
                 
-              </div>
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                                        <label>Concepto del Caso</label>
-                                        <div class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" id="requiere" name="defaultExampleRadios">
-                                            <label class="custom-control-label" for="requiere">Requiere PARD</label>
-                                            <label class="custom-control-label"> |---------| </label>
-                                            <input type="radio" class="custom-control-input" id="noRequiere" name="defaultExampleRadios" checked>
-                                            <label class="custom-control-label" for="noRequiere">No Requiere PARD</label>
-                                        </div>
-                                    </div>
+                <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                    <label>Nombres del presunto agresor/a</label>
+                                    <input id='nombre_agre' name='nombre_agre' class="form-control" placeholder="Ingrese el nombre completo" style="text-transform: uppercase;" required>
+                                    <!--<p class="help-block">Example block-level help text here.</p> -->
+                                </div>
+                                <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                    <label>Apellidos del presunto agresor</label>
+                                    <input id='apellido_agre' name='apellido_agre' class="form-control" placeholder="Ingrese los apellido" style="text-transform: uppercase;" required>
+                                    <!--<p class="help-block">Example block-level help text here.</p> -->
+                                </div>
+                                <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                    <label>Tipo de documento  del presunto agresor/a</label>
+                                    <select name="doc_agresor" id="doc_agresor" class="form-control" style="text-transform: uppercase;" required>
+                                        <option value="">Seleccione</option>
+                                        <?php
+                                        $con11 = mysqli_query($con, "select * from  tipos_documentos");
+                                        $reg11 = mysqli_fetch_array($con11);
+                                        do {
+                                            $id11 = $reg11['id_tipo_documento'];
+                                            $des11 = $reg11['descripcion'];
+                                        ?>
+                                            <option value="<?php echo $id11; ?>"><?php echo $des11; ?> </option>
+                                        <?php
+                                        } while ($reg11 = mysqli_fetch_array($con11));
+                                        ?>
+
+                                    </select>
+                                </div>
+                                <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                    <label>N° de documento del presunto agresor/a</label>
+                                    <input id='documeto_agre' name='documeto_agre' class="form-control" placeholder="Ingrese el número de documento" style="text-transform: uppercase;" onkeypress="return valida(event)" required>
+                                    <!--<p class="help-block">Example block-level help text here.</p> -->
+                                </div>
 
 
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                        <label>Edad del presunto agresor/a</label>
+                                        <input id='edad_agre' name='edad_agre' type="number" min="1" max="99" class="form-control" placeholder="Ingrese la edad" style="text-transform: uppercase;" onkeypress="return valida(event)" value="" required>
+          </div>
+                                        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                        <label>Vínculo con el presunto agresor/a</label>
+                                        <select name="parentescos" id="parentescos" class="form-control" style="text-transform: uppercase;" required>
+                                            <option value="">Seleccione</option>
+                                            <option value="PADRE">Padre</option>
+                                            <option value="MADRE">Madre</option>
+                                            <option value="CUIDADOR">Cuidador/a</option>
+                                            <option value="ABUELO">Abuelo/a</option>
+                                            <option value="TIO">Tio/a</option>
+                                            <option value="AMIGO">Amigo/a</option>
+                                            <option value="CONOCIDO">Conocido/a</option>
+                                            <option value="PRIMO">Primo/a</option>
+                                            <option value="PROFESOR">Profesor/a</option>
+                                            <option value="AGRESOR DESCONOCIDO">Agresor Desconocido/a</option>
+                                            <option value="OTRO">Otro</option>
+                                        </select>
+                                    </div>
+                                 
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                        <label>Nivel de escolaridad del presunto agresor/a (Último nivel cursado)</label>
+                                        <select name="nivel_aca" id="nivel_aca" class="form-control" style="text-transform: uppercase;" >
+                                            <option value="">Seleccione</option>
+                                            <?php
+                                            $con11 = mysqli_query($con, "select * from  nivel_escolaridad");
+                                            $reg11 = mysqli_fetch_array($con11);
+                                            do {
+                                                $idNivelEs = $reg11['codigo_escolaridad'];
+                                                $desNivelEs = $reg11['desc_escolaridad'];
+                                            ?>
+                                                <option value="<?php echo $idNivelEs; ?>"><?php echo $desNivelEs; ?> </option>
+                                            <?php
+                                            } while ($reg11 = mysqli_fetch_array($con11));
+                                            ?>
+                                        </select>
+          </div>
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group"> 
+                                  <label>Teléfono móvil</label>
+                                    <input id="telefono_agre" name="telefono_agre" type="number" minlength="10" maxlength="10" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required>
+                                  </div>
+                                </div>   
+              </div>
+                                          </div>
+        </div>
+    </div>
+           <!--Registro del PARD -->
+           <div class="panel panel-default">
+    <div class="panel-heading clearfix" style="font-size:21px">
+    <i class="fa fa-list"></i> Información del Presunto agresor/a
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <form id="formExpe" method="post" enctype="multipart/form-data">
+              <div class="col-md-12 col-sm-8 col-xs-12 form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Clasificación del proceso</label>
             <div >
+            <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion" style="display:none ;">
+                                        <label>Veredicto del caso</label>
 
-              <select name="indicadores_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;" required>
+                                        <select name="veredicto_exp" id="veredicto_exp" class="form-control" font style="text-transform: uppercase;" style=" width:100px">
+                                            <option value="Requiere Pard">Requiere Pard</option>
+                                        </select>
+                                    </div>
+
+              <select name="indicadores_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
                 <?php
                 $con77 = mysqli_query($con, "select * from  indicadores");
@@ -372,7 +470,7 @@ self.location = "index.html"
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victima</label>
             <div >
 
-              <select name="victima_exp" id="victima_exp" class="form-control" style="text-transform: uppercase;" required>
+              <select name="victima_exp" id="victima_exp" class="form-control" style="text-transform: uppercase;" >
                 <option value="">Seleccione</option>
                 <?php
                 $con88 = mysqli_query($con, "select * from  victimas");
@@ -390,10 +488,20 @@ self.location = "index.html"
             </div>
           </div>
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
+                                        <label>Víctima del hecho</label>
+                                        <select name="victima_hechos" id="victima_hechos" class="form-control" style="text-transform: uppercase;" required>
+                                            <option value="">Seleccione</option>
+                                            <option value="SI">SI</option>
+                                            <option value="NO">NO</option>
+                                        </select>
+                                    </div>
+
+
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label class="control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
             <div >
 
-              <select name="discapacidad_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;" required>
+              <select name="discapacidad_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
                 <?php
                 include("../conexion/conexion.php");
@@ -413,9 +521,9 @@ self.location = "index.html"
             </div>
           </div>
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Restablecimiento de Derechos</label>
+            <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown" >Restablecimiento de Derechos</label>
             <div >
-              <select name="derechos_exp" id="derechos_exp" class="form-control" style="text-transform: uppercase;" required>
+              <select name="derechos_exp" id="derechos_exp" class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
                 <?php
                 $con66 = mysqli_query($con, "select * from  derechos");
@@ -430,7 +538,8 @@ self.location = "index.html"
                 ?>
 
               </select>
-              <h5 class="letra n500  azulo "><a href="main.php?key=20" class=" btn btn-primary" data-toggle="tooltip" data-placement="bottom" title=" Verifique si el Derecho se encuentra en la lista desplegable">Registrar Nuevo Derecho</a></h5>
+              <br>
+              <a href="main.php?key=20" class=" btn btn-primary" data-toggle="tooltip" data-placement="bottom" title=" Verifique si el Derecho se encuentra en la lista desplegable"><span class="glyphicon glyphicon-edit"></span> Registrar Nuevo Derecho</a>
             </div>
           </div>
 
@@ -440,7 +549,7 @@ self.location = "index.html"
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Entidad a remitir</label>
             <div >
 
-              <select name="entidad_exp" id="entidad_exp" required class="form-control" style="text-transform: uppercase;">
+              <select name="entidad_exp" id="entidad_exp" class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
                 <?php
                 include("../conexion/conexion.php");
@@ -464,7 +573,7 @@ self.location = "index.html"
             <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Estado del Expeidente</label>
             <div >
 
-              <select name="estadocaso_exp" id="estadocaso_exp" required class="form-control" style="text-transform: uppercase;">
+              <select name="estadocaso_exp" id="estadocaso_exp"  class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
                 <?php
                 $con99 = mysqli_query($con, "select * from  estado_caso");
@@ -486,12 +595,12 @@ self.location = "index.html"
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
 
                                         <label>Fecha Actuacion</label>
-                                        <input id="FechaActuacion" name="FechaActuacion" type="date" placeholder="AAAA-MM-DD" class="form-control input-md" onkeypress="return numeros(event)">
+                                        <input id="fecha_actuacion_exp" name="fecha_actuacion_exp" type="date" placeholder="AAAA-MM-DD" class="form-control input-md" onkeypress="return numeros(event)">
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Funcionario</label>
 
-                                        <select name="funcionario_actua" id="funcionario_actua" class="form-control" font style="text-transform: uppercase;" style=" width:100px">
+                                        <select name="funcionario_actuacion_exp" id="funcionario_actuacion_exp" class="form-control" font style="text-transform: uppercase;" style=" width:100px">
                                             <option value="">Seleccione</option>
                                             <option value="Comisario">Comisario</option>
                                             <option value="Trabajador Social">Trabajador Social</option>
@@ -500,48 +609,17 @@ self.location = "index.html"
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Descripci&oacute;n</label>
-                                        <textarea id="desc_actua" class="form-control" name="desc_actua" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba los detalles del PARD"></textarea>
+                                        <textarea id="descripcion_actuacion_exp" class="form-control" name="descripcion_actuacion_exp" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba los detalles del PARD"></textarea>
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
 
                                         <label>Compromisos</label>
-                                        <textarea id="compro_actua" font style="text-transform: uppercase;" class="form-control" name="compro_actua" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del requerimiento"></textarea>
+                                        <textarea id="compromisos_exp" font style="text-transform: uppercase;" class="form-control" name="compromisos_exp" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del requerimiento"></textarea>
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                         <br>
                                     </div>
                 </div>
-                 <!-- <label>PARD</label>
-                  <select name="veredicto_exp" id="veredicto_exp"  class="form-control" style="text-transform: uppercase;" required>
-                  <option value="">Seleccione</option>
-                  <option value="Requiere PARD">Requiere PARD</option>
-                  <option value="No requiere PARD">No requiere PARD</option>
-                  </select>
-                </div>
-                
-                
-                <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                  <label>Fecha Actuacion</label>
-                  <input id="fecha_actuacion_exp" name="fecha_actuacion_exp" type="date" placeholder="AAAA-MM-DD" class="form-control input-md" onkeypress="return numeros(event)">
-                </div>                  
-                <div  class="col-md-6 col-sm-4 col-xs-12 form-group">
-                  <label>Funcionario</label>
-                  <select name="funcionario_actuacion_exp" id="funcionario_actuacion_exp" class="form-control" font style="text-transform: uppercase;" style=" width:100px">
-                  <option value="">Seleccione</option>
-                  <option value="Comisario">Comisario</option>
-                  <option value="Trabajador Social">Trabajador Social</option>
-                  <option value="Psicologo">Psicologo</option>
-                </select>
-                </div>
-                <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                  <label>Descripci&oacute;n</label>
-                  <textarea id="descripcion_actuacion_exp" class="form-control" name="descripcion_actuacion_exp" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del expediente"></textarea>
-                </div>
-                <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                  <label>Compromisos</label>
-                  <textarea id="compromisos_exp" font style="text-transform: uppercase;" class="form-control" name="compromisos_exp" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del requerimiento"></textarea>
-                </div> -->
-          <!--<p class="help-block">Example block-level help text here.</p> -->
-          <br>
+                      <br>
           
 
 
@@ -552,11 +630,14 @@ self.location = "index.html"
 
             </div>
           </div>
+        </div>  
+    </div>
           <!--Botón para guarda expediente y pard -->
-          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="text-align: right">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div >
-              <button id="singlebutton" name="singlebutton" class="btn btn-primary">Guardar</button>
+              <h1><button id="singlebutton" name="singlebutton" class="btn btn-primary"> Guardar</button></h1>
+                       
             </div>
           </div>
 
@@ -588,6 +669,37 @@ self.location = "index.html"
           $funcionario_actuacion_exp = $_POST['funcionario_actuacion_exp'];
           $descripcion_actuacion_exp = $_POST['descripcion_actuacion_exp'];
           $compromisos_exp = $_POST['compromisos_exp'];
+          $id_victimahe = $_POST['id_victimahec'];
+          $victima_hecho = $_POST['victima_hechos'];
+          $tipos_docagresor = $_POST['doc_agresor'];
+          $documeto_agresor = $_POST['documeto_agre'];
+          $parentesco = $_POST['parentescos'];
+          $nombre_agresor = $_POST['nombre_agre'];
+          $apellido_agresor = $_POST['apellido_agre'];
+          $edad_agresor = $_POST['edad_agre'];
+          $nivel_academico = $_POST['nivel_aca'];
+          $telefono_agresor = $_POST['telefono_agre'];
+          
+        if ($_POST['municipio_in'] == "OTRO") {
+          $municipio_in = $_POST['mun_aux'];
+          $query = "INSERT INTO municipios (id_municipio, descripcion) VALUES ('$municipio_in', '$municipio_in');";
+          mysqli_query($con, $query);
+      } else {
+          $municipio_in = $_POST['municipio_in'];
+      }
+
+      $lugar_hechos = $_POST['lugar_hechos'];
+
+      if ($_POST['vinculo_agresor'] == "OTRO") {
+          $vinculo_agresor = $_POST['vinculo_aux'];
+      } else {
+          $vinculo_agresor = $_POST['vinculo_agresor'];
+      }
+
+
+
+
+
 
           $fecha_limite1 = date('Y-m-j');
           $nuevafecha = strtotime('+120 day', strtotime($fecha));
@@ -598,7 +710,6 @@ self.location = "index.html"
          //Guardar cambios en la tabla expediente
           $sql1 = "INSERT INTO `expediente`(`codigo_expediente`,`NUMERO_PROCESO`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) 
           VALUES ('$codigo_expediente','$numero_proex','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp',' $indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
-
          
           //Guardar cambios en la tabla actuación mediante  mysqli_insert_id
           if (mysqli_query($con, $sql1)) {
@@ -607,7 +718,12 @@ self.location = "index.html"
             $sql2 = "INSERT INTO `actuacion`(`id_expediente`,`fecha_actuacion`,`funcionario_actuacion`,`descripcion_actuacion`,`compromisos`) 
           VALUES ('$cod_expul','$fecha_actuacion_exp','$funcionario_actuacion_exp','$descripcion_actuacion_exp','$compromisos_exp')";
             mysqli_query($con, $sql2);
-            
+
+            $cod_expul=mysqli_insert_id($con);
+            $sql3 = "INSERT INTO `hecho_agresor`(`id_victimahe`,`victima_hecho`,`parentesco_victima`,`codigo_expediente`,`tipos_docagresor`,`documeto_agresor`,`nombre_agresor`,`apellido_agresor`,`edad_agresor`,`nivel_academico`,`telefono_agresor`)
+          VALUES ('$id_victimahe', '$victima_hecho','$parentesco','$cod_expul','$tipos_docagresor','$documeto_agresor','$nombre_agresor','$apellido_agresor','$edad_agresor','$nivel_academico','$telefono_agresor')";
+            mysqli_query($con, $sql3);
+
             //Alerta despues de guardar exitosamente el expediente
             echo '<script language = javascript>
 alert("la Informacion ha sido Guardada Correctamente")
@@ -625,71 +741,116 @@ self.location = "main.php?key=34&id_ninnos='.$id_ninnos1.'"
           mysqli_close($con);
         }
         ?>
-      </form>
-
-    </div>
-  </section>
-      </section>
-    </div>
+</form>   
+                                <div class="clearfix"></div>
+    </section>
 
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script>
-    window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
-  </script>
-
-  <script src="js/vendor/bootstrap.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/jsExped.js"></script>
 
 
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-  <script>
-    (function(b, o, i, l, e, r) {
-      b.GoogleAnalyticsObject = l;
-      b[l] || (b[l] =
-        function() {
-          (b[l].q = b[l].q || []).push(arguments)
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+
+    <script src="js/main.js"></script>
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
+    </script>
+
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- Datatables -->
+    <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="css/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="css/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="css/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="css/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="css/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="css/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="css/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+
+
+    <!-- PNotify -->
+    <script src="css/pnotify/dist/pnotify.js"></script>
+    <script src="css/pnotify/dist/pnotify.buttons.js"></script>
+    <script src="css/pnotify/dist/pnotify.nonblock.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ui-pnotify').remove();
         });
-      b[l].l = +new Date;
-      e = o.createElement(i);
-      r = o.getElementsByTagName(i)[0];
-      e.src = '//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e, r)
-    }(window, document, 'script', 'ga'));
-    ga('create', 'UA-XXXXX-X', 'auto');
-    ga('send', 'pageview');
-  </script>
+    </script>
 
+    <!--<script src="js/jsAddExpediente.js"></script>-->
 
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function() {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = '//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X', 'auto');
+        ga('send', 'pageview');
 
-  <script>
-    function numeros(e) {
-      key = e.keyCode || e.which;
-      tecla = String.fromCharCode(key).toLowerCase();
-      letras = " 0123456789";
-      especiales = [8, 37, 39, 46];
+        function numeros(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = " 0123456789";
+            especiales = [8, 37, 39, 46];
 
-      tecla_especial = false
-      for (var i in especiales) {
-        if (key == especiales[i]) {
-          tecla_especial = true;
-          break;
+            tecla_especial = false
+            for (var i in especiales) {
+                if (key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
         }
-      }
-
-      if (letras.indexOf(tecla) == -1 && !tecla_especial)
-        return false;
-    }
-  </script>
-</body>
-             </div>
-           </div>
-          </form>
-        </form>
-      </div>
-  </div>
-  </div>
-  </selection>
-
-</html>
+    </script>
+                            </div>
+                        </div>
+                    </section> 
+                    
+                </body>
+                </html>

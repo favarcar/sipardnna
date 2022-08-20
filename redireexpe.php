@@ -222,10 +222,10 @@
                                                     
                                                     if('codigo_expediente'<0){ 
                                                     echo "Ya tiene expediente asignado ";
-                                                    echo'<h5 class="letra n500 azulo centrar ps linku "><a href="main.php?key=12&id_ninnos='.$id_ninos.'" class="linku">Consultar</a></h5>';
+                                                    echo'<h5 class="letra n500 azulo centrar ps linku "><a href="main.php?key=51&id_ninnos='.$id_ninos.'" class="linku">Consultar</a></h5>';
                                                     } else { 
                                                       
-                                                        echo'<h5 class="letra n500 azulo centrar ps linku "><a href="main.php?key=12&id_ninnos='.$id_ninos.'" class="linku">Registrar Expediente</a></h5>';
+                                                        echo'<h5 class="letra n500 azulo centrar ps linku "><a href="main.php?key=51&id_ninnos='.$id_ninos.'" class="linku">Registrar Expediente</a></h5>';
                                                         ?>
                                                          <?php                                                  
                                                         

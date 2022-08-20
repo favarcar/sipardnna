@@ -1,3 +1,10 @@
+$(document).ready(function(){
+
+  $('.js-example-basic-single').select2();
+
+})
+
+
 function Borra(tabla, id) {
   var agree = confirm("¿Realmente desea eliminar el registro seleccionado?");
   if (agree) {

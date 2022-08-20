@@ -7,10 +7,11 @@
 $codigo_expediente = $_GET['codigo_expediente'];
 //$id_ninnos = $_GET['id_ninnos'];
 
-$busqueda50 = mysqli_query($con, "SELECT * FROM expediente where codigo_expediente='$codigo_expediente' "); //cambiar nombre de la tabla de busqueda
-while ($row50 = mysqli_fetch_array($busqueda50)) {
+//Traer los datos de la tabla expediente
+$buscarExpe = mysqli_query($con, "SELECT * FROM expediente where codigo_expediente='$codigo_expediente' "); 
+while ($row50 = mysqli_fetch_array($buscarExpe)) {
 
-  $codigo_expediente = $row50['codigo_expediente'];
+  $codigo_expediente1 = $row50['codigo_expediente'];
   $Fecha_inicio_expediente = $row50['Fecha_inicio_expediente'];
   $id_ninnos = $row50['id_ninnos'];
   $id_cuidadores = $row50['id_cuidadores'];
@@ -26,6 +27,7 @@ while ($row50 = mysqli_fetch_array($busqueda50)) {
   $id_entidad = $row50['id_entidad'];
   $id_usuario_exp = $row50['id_usuario_exp'];
   $id_estadocaso = $row50['id_estadocaso'];
+
 
 ?>
   <section class="fblanco">
@@ -44,19 +46,41 @@ while ($row50 = mysqli_fetch_array($busqueda50)) {
   </section>
 
 <?php }
+  //Traer los datos de la tabla hecho_agresor
+  $buscaragre = mysqli_query($con, "SELECT * FROM hecho_agresor where codigo_expediente='$codigo_expediente1' ");
+  while ($row51 = mysqli_fetch_array($buscaragre)){
+    $id_victimahe = $row51['id_victimahe'];
+    $victima_hecho = $row51['victima_hecho'];
+    $parentesco_victima = $row51['parentesco_victima'];
+    $codigo_expediente2 = $row51['codigo_expediente'];
+    $tipos_docagresor = $row51['tipos_docagresor'];
+    $documeto_agresor = $row51['documeto_agresor'];
+    $nombre_agresor = $row51['nombre_agresor'];
+    $apellido_agresor = $ro51['apellido_agresor'];
+    $edad_agresor = $row51['edad_agresor'];
+    $nivel_academico = $row51['nivel_academico'];
+    $telefono_agresor = $row51['telefono_agresor'];
+  }
 
 
 
-$busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
-while ($row = mysqli_fetch_array($busqueda)) {
+$busnna = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' ");
+while ($row = mysqli_fetch_array($busnna)) {
 
   $id_ninnos1 = $row['id_ninnos'];
   $No_identificacion = $row['No_identificacion'];
   $Nombres = $row['Nombres'];
   $Apellidos = $row['Apellidos'];
 }
-$busqueda1 = mysqli_query($con, "SELECT * FROM cuidadores where id_ninos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
-while ($row1 = mysqli_fetch_array($busqueda1)) {
+$busnna = mysqli_query($con, "SELECT * FROM cuida where id_ninnos='$id_ninnos' ");
+while ($row = mysqli_fetch_array($busnna)) {
+
+  $id_cuida = $row['id_cuida'];
+  $id_cuidanna = $row['id_cuidadores'];
+  $id_ninnoscuida = $row['id_ninnos'];
+}
+$busquecuidador = mysqli_query($con, "SELECT * FROM cuidadores where id_cuidadores='$id_cuidanna' "); 
+while ($row1 = mysqli_fetch_array($busquecuidador)) {
 
   //// cuidadores
   $id_cuidadores = $row1['id_cuidadores'];
@@ -93,12 +117,12 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
       <fieldset>
         <!-- Appended checkbox -->
         <!-- Text input-->
-        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none ;">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Codigo del NNA</label>
           <div class="col-md-8">
             <input id="textinput" name="cod_exp" type="text" placeholder="" class="form-control input-md" value="<?php
-                                                                                                                  $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
-                                                                                                               while ($row = mysqli_fetch_array($busqueda)) {
+                                                                                                                  $busnna = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); 
+                                                                                                               while ($row = mysqli_fetch_array($busnna)) {
 
                                                                                                                     echo $id_ninnos11 = $row['id_ninnos'];
                                                                                                                   } ?>" readonly>
@@ -168,8 +192,8 @@ echo "No tiene cuidador";
           <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Restablecimiento de Derechos</label>
           <div class="col-md-8">
 
-          <?php $busqueda1 = mysqli_query($con, "SELECT * FROM derechos where id_derecho='$id_derecho' ");
-              while ($row1 = mysqli_fetch_array($busqueda1)) {
+          <?php $busqueExpe = mysqli_query($con, "SELECT * FROM derechos where id_derecho='$id_derecho' ");
+              while ($row1 = mysqli_fetch_array($busqueExpe)) {
 
                 $id_derecho = $row1['id_derecho'];
                 $des_derecho = $row1['descripcion_derechos'];
@@ -201,8 +225,8 @@ echo "No tiene cuidador";
           <div class="col-md-8">
             <?php
 
-            $busqueda1 = mysqli_query($con, "SELECT * FROM discapacidades where id_discapacidad='$id_discapacidad' ");
-            while ($row1 = mysqli_fetch_array($busqueda1)) {
+            $busqueExpe = mysqli_query($con, "SELECT * FROM discapacidades where id_discapacidad='$id_discapacidad' ");
+            while ($row1 = mysqli_fetch_array($busqueExpe)) {
  
               $id_discapacidad = $row1['id_discapacidad'];
               $des_discapacidad = $row1['descripcion_discapacidades'];
@@ -233,8 +257,8 @@ echo "No tiene cuidador";
           <div class="col-md-8">
             <?php
 
-            $busqueda1 = mysqli_query($con, "SELECT * FROM indicadores where id_indicador='$id_indicador' ");
-            while ($row1 = mysqli_fetch_array($busqueda1)) {
+            $busqueExpe = mysqli_query($con, "SELECT * FROM indicadores where id_indicador='$id_indicador' ");
+            while ($row1 = mysqli_fetch_array($busqueExpe)) {
  
               $id_indicador = $row1['id_indicador'];
               $descripcion_indicadores = $row1['descripcion_indicadores'];
@@ -265,8 +289,8 @@ echo "No tiene cuidador";
 
             <?php
 
-            $busqueda1 = mysqli_query($con, "SELECT * FROM maltratos where id_maltrato='$id_maltrato' ");
-            while ($row1 = mysqli_fetch_array($busqueda1)) {
+            $busqueExpe = mysqli_query($con, "SELECT * FROM maltratos where id_maltrato='$id_maltrato' ");
+            while ($row1 = mysqli_fetch_array($busqueExpe)) {
 
               $id_maltrato = $row1['id_maltrato'];
               $des_maltrato = $row1['descripcion_maltratos'];
@@ -297,8 +321,8 @@ echo "No tiene cuidador";
 
             <?php
 
-            $busqueda1 = mysqli_query($con, "SELECT * FROM victimas where id_victima='$id_victima' ");
-            while ($row1 = mysqli_fetch_array($busqueda1)) {
+            $busqueExpe = mysqli_query($con, "SELECT * FROM victimas where id_victima='$id_victima' ");
+            while ($row1 = mysqli_fetch_array($busqueExpe)) {
 
               $id_victima = $row1['id_victima'];
               $des_victima = $row1['descripcion_victimas'];
@@ -369,8 +393,8 @@ echo "No tiene cuidador";
 
             <?php
 
-            $busqueda1 = mysqli_query($con, "SELECT * FROM entidades where id_entidad='$id_entidad' ");
-            while ($row1 = mysqli_fetch_array($busqueda1)) {
+            $busqueExpe = mysqli_query($con, "SELECT * FROM entidades where id_entidad='$id_entidad' ");
+            while ($row1 = mysqli_fetch_array($busqueExpe)) {
 
               $id_entidad = $row1['id_entidad'];
               $des_entidad = $row1['descripcion_entidades'];
@@ -401,8 +425,8 @@ echo "No tiene cuidador";
 
             <?php
 
-            $busqueda1 = mysqli_query($con, "SELECT * FROM estado_caso where id_estadocaso='$id_estadocaso' ");
-            while ($row1 = mysqli_fetch_array($busqueda1)) {
+            $busqueExpe = mysqli_query($con, "SELECT * FROM estado_caso where id_estadocaso='$id_estadocaso' ");
+            while ($row1 = mysqli_fetch_array($busqueExpe)) {
 
               $id_estadocaso = $row1['id_estadocaso'];
               $des_estadocaso = $row1['descripcion_estado_caso'];
@@ -423,6 +447,90 @@ echo "No tiene cuidador";
               } while ($reg = mysqli_fetch_array($estado_con));
               ?>
 
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Victima del hecho</label>
+          <div class="col-md-8">
+            <input id="textinput" name="vic_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($victima_hecho)) {
+echo $victima_hecho;
+} else {
+echo "Agresor desconocido";
+} ?> " readonly>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento del presunto agresor</label>
+          <div class="col-md-8">
+            <input id="textinput" name="doca_exp" type="int" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($documeto_agresor)) {
+echo $documeto_agresor;
+} else {
+echo "Agresor desconocido";
+} ?>" readonly>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre del presunto agresor/a</label>
+          <div class="col-md-8">
+            <input id="textinput" name="noma_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($apellido_agresor)) {
+echo $apellido_agresor;
+echo " ";
+echo $nombre_agresor;
+} else {
+echo "Agresor desconocido";
+} ?> " readonly>
+
+</select>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Edad del presunto agresor</label>
+          <div class="col-md-8">
+            <input id="textinput" name="edada_exp" type="int" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($edad_agresor)) {
+echo $edad_agresor;
+} else {
+echo "Agresor desconocido";
+} ?>" readonly>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nivel academico del agresor/a </label>
+          <div class="col-md-8">
+            <input id="textinput" name="nivela_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($nivel_academico)) {
+echo $nivel_academico;
+} else {
+echo "Agresor desconocido";
+} ?> " readonly>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Número telefónico del presunto agresor</label>
+          <div class="col-md-8">
+            <input id="textinput" name="numtele_exp" type="int" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($telefono_agresor)) {
+echo $telefono_agresor;
+} else {
+echo "Agresor desconocido";
+} ?>" readonly>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Vínculo con la víctima</label>
+          <div class="col-md-8">
+            <input id="textinput" name="vinculo_agre" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($parentesco_victima)) {
+echo $parentesco_victima;
+} else {
+echo "Agresor desconocido";
+} ?> " readonly>
             </select>
           </div>
         </div>
@@ -456,7 +564,7 @@ echo "No tiene cuidador";
     //print_r($_POST);
         if (isset($_POST['singlebutton'])) { //si se ha presionado enviar
 
-                  $fecha_exp = $_POST['fecha_exp'];
+          $fecha_exp = $_POST['fecha_exp'];
           $cod_exp = $_POST['cod_exp'];
           $cuidadores_exp = $_POST['cuidadores_exp'];
           $discapacidad_exp = $_POST['discapacidad_exp'];
@@ -471,6 +579,16 @@ echo "No tiene cuidador";
           $entidad_exp = $_POST['entidad_exp'];
           $id_usuario_exp = $_POST['id_usuario_exp'];
           $estadocaso_exp = $_POST['estadocaso_exp'];
+          $victima_hecho = $_POST['vic_exp'];
+          $documeto_agresor = $_POST['doca_exp'];
+          $ApellidosCuida =$_POST['noma_exp'];
+          $NombresCuida = $_POST['noma_exp'];
+          $edad_agresor = $_POST['edada_exp'];
+          $nivel_academico = $_POST['nivela_exp'];
+          $telefono_agresor = $_POST['numtele_exp'];
+          $parentesco_victima = $_POST['vinculo_agre'];
+
+
 
 
           

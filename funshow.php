@@ -1,5 +1,8 @@
 <?php
 #Mostrar los nombres y apellidos del Usuario
+
+use Svg\Document;
+
 function veruser($idvar){
 global $con;
 
@@ -184,6 +187,8 @@ $boton = '<a href="javascript:borrado('.$bid_dato.',\''.$btabla.'\',\''.$bclave.
 return $boton;
 
 	}
+
+
 
 # Funcion para mostrar marcado un valor dependiendo de 1 0 0 usado en checkbox
 function marcar_check($check){

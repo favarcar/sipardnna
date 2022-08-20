@@ -125,7 +125,7 @@ if($_POST){ //si se ha presionado enviar
 if (mysqli_query($con, $sql)) {
 echo '<script language = javascript>
 alert("la Informacion ha sido Guardada Correctamente")
-self.location = "main.php?key=12&id_ninnos='.$id_ninos.'"
+self.location = "main.php?key=51&id_ninnos='.$id_ninos.'"
 </script>';
 } else {
     echo '<script language = javascript>

@@ -84,7 +84,7 @@
                     <h2 class="centrar letra n600 azulo pi">Ni&ntilde;os y Ni&ntilde;as o Adolescentes NNA</h2>
                 </div>
             </div>
-        </div>
+        </div> <br>
     </section>
 
 
@@ -95,8 +95,9 @@
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500"><a href="main.php?key=0">Volver Men&uacute; Principal</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=14">Consultar NNA</a></li>
+                        <li role="presentation" class="letra n500"><a href="#">Registrar NNA</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=48">Registrar o Asignar MPC</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=14">Eliminar NNA</a></li>
 
                     </ul>
                 </div>
@@ -117,9 +118,10 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <form id="formNNA" method="post" enctype="multipart/form-data">
-                                    <div class="col-md-12 col-sm-4 col-xs-12 form-group">
+
+                                    <div class="col-md-12 col-sm-4 col-xs-12 form-group" style="display:none ;">
                                         <label>Motivo de ingreso</label>
-                                        <select id='motivo_ingreso' name='motivo_ingreso' class="form-control" style="text-transform: uppercase;" required>
+                                        <select id='motivo_ingreso' name='motivo_ingreso' class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Elija un motivo de ingreso</option>
                                             <?php
                                             $con11 = mysqli_query($con, "select * from  motivoingreso");
@@ -134,7 +136,7 @@
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                                         <label>Municipio de notificación</label>
                                         <select name="municipio_in" id="municipio_in" class="form-control" style="text-transform: uppercase;" required>
                                             <option value="">Seleccione</option>
@@ -152,18 +154,18 @@
                                         </select>
                                     </div>
                                     <div id="cual_mun" class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Escriba el Municipio </label>
+                                        <label>Municipio de Residencia </label>
                                         <input id='mun_aux' name='mun_aux' class="form-control" placeholder="¿Escriba cual?" style="text-transform: uppercase;" value="NA" required>
                                     </div>
 
-                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none;">
                                         <label>Fecha de los hechos</label>
-                                        <input id='fecha_hechos' name='fecha_hechos' class="form-control" style="text-transform: uppercase;" type="date" required>
+                                        <input id='fecha_hechos' name='fecha_hechos' class="form-control" style="text-transform: uppercase;" type="date" >
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                     </div>
-                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Lugar de los hechos</label>
-                                        <select name="lugar_hechos" id="lugar_hechos" class="form-control" style="text-transform: uppercase;" required>
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none;">
+                                        <label>Lugar de Residencia</label>
+                                        <select name="lugar_hechos" id="lugar_hechos" class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Seleccione</option>
                                             <?php
                                             $con11 = mysqli_query($con, "select * from  lugar_hechos");
@@ -178,9 +180,9 @@
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-12 form-group">
+                                    <div class="col-md-4 col-sm-4 col-xs-12 form-group" style="display:none;">
                                         <label>Vínculo con el presunto agresor/a</label>
-                                        <select name="vinculo_agresor" id="vinculo_agresor" class="form-control" style="text-transform: uppercase;" required>
+                                        <select name="vinculo_agresor" id="vinculo_agresor" class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Seleccione</option>
                                             <option value="PADRE">Padre</option>
                                             <option value="MADRE">Madre</option>
@@ -195,18 +197,18 @@
                                         </select>
                                     </div>
 
-                                    <div id="cual_vinculo" class="col-md-4 col-sm-4 col-xs-12 form-group">
+                                    <div id="cual_vinculo" class="col-md-4 col-sm-4 col-xs-12 form-group" style="display:none ;">
                                         <label>Escriba el vínculo con el presunto agresor/a </label>
-                                        <input id='vinculo_aux' name='vinculo_aux' class="form-control" placeholder="¿Cual?" style="text-transform: uppercase;" value="NA" required>
+                                        <input id='vinculo_aux' name='vinculo_aux' class="form-control" placeholder="¿Cual?" style="text-transform: uppercase;" value="NA" >
                                     </div>
-                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none ;">
                                         <label>Edad del presunto agresor</label>
-                                        <input id='edad_agresor' name='edad_agresor' type="number" min="1" max="99" class="form-control" placeholder="Ingrese la edad del presunto agresor" style="text-transform: uppercase;" onkeypress="return valida(event)" value="1" required>
+                                        <input id='edad_agresor' name='edad_agresor' type="number" min="1" max="99" class="form-control" placeholder="Ingrese la edad del presunto agresor" style="text-transform: uppercase;" onkeypress="return valida(event)" value="1" >
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                     </div>
-                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none ;">
                                         <label>Nivel de escolaridad del presunto agresor/a (Último nivel cursado)</label>
-                                        <select name="nivel_escolaridad" id="nivel_escolaridad" class="form-control" style="text-transform: uppercase;" required>
+                                        <select name="nivel_escolaridad" id="nivel_escolaridad" class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Seleccione</option>
                                             <?php
                                             $con11 = mysqli_query($con, "select * from  nivel_escolaridad");
@@ -221,7 +223,6 @@
                                             ?>
                                         </select>
                                     </div>
-
                                     <br>
                                     <br>
                                     <br>
@@ -411,7 +412,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                    <label>Correo electronico</label>
+                                    <label>Correo electrónico</label>
                                     <input id='correo_nna' type="text" name='correo_nna' class="form-control" placeholder="Ingrese el correo electronico">
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>                                
@@ -487,10 +488,10 @@
                                 <input id='sisben_nna' name='sisben_nna' class="form-control" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$" style="text-transform: uppercase;" required>
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
-                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group"> 
+                                <div class="col-md-4 col-sm-4 col-xs-12 form-group"> 
                                     <label>Núcleo familiar</label>                        
                                     <input id="textinput" name="descripcion_nu" type="descripcion_nu" placeholder="Escriba con quién vive el NNA" class="form-control input-md">
-                                </div>  
+                                </div> 
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
                                     <label>Zona</label>
                                     <select name="zona_nna" id="zona_nna" class="form-control" style="text-transform: uppercase;" required>
@@ -509,15 +510,18 @@
 
                                     </select>
                                 </div>
-                          
+                                <br>
+                                <br>
+                                <br>
+                                <div class="form-group" style="display:none">
+                                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_cuidador </label>
+                                        <div class="col-md-4">
+                                            <input id="id_cuidadores" name="id_cuidadores" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $id_cuidadores1 ?>" required>
+                                        </div>
+                            </div>
 
                             <!-- /.col-lg-6 (nested) -->
-
-                        
-                    </div>
-                     <br>
-                    <br>
-                    <br>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -600,10 +604,11 @@
         $zona_nna = $_POST['zona_nna'];
         $pais_nna = $_POST['pais_nna'];
         //$fecha_ing = $fecha;
-        $cuidadores_nna = $_POST['id_cuidadores'];
+        $id_cuidadores = $_POST['id_cuidadores'];
         $motivoingreso = $_POST['motivo_ingreso'];
         $fecha_hechos = $_POST['fecha_hechos'];
         $municipio_in=$_POST['municipio_in'];
+      
 
         if ($_POST['municipio_in'] == "OTRO") {
             $municipio_in = $_POST['mun_aux'];
@@ -640,21 +645,23 @@
 					id_motivo_ingreso, fecha_hechos, id_municipio_hechos, id_lugar_hechos, vinculo_agresor,
 					edad_agresor, nivel_escolaridad,id_pais) VALUES('$tip_doc_nna','$num_nna','$nom_nna',
 					'$ape_nna','$fecha_nna','$edad_nna','$dir_nna','$telefono_nna','$correo_nna','$genero_nna',
-					'$estrato_nna','$nivel_educa_nna','$cuidadores_nna','$departamento_nna','$municipio_nna','$provincia_nna',
+					'$estrato_nna','$nivel_educa_nna','$id_cuidadores','$departamento_nna','$municipio_nna','$provincia_nna',
 					'$regimen_nna','$eps_nna','$etnias_nna','$sisben_nna','$zona_nna','$id_usuario',
 					'$motivoingreso','$fecha_hechos','$municipio_in','$lugar_hechos','$vinculo_agresor','$edad_agresor','$nivel_escolaridad','$pais_nna')";
- 
-        //Guardar cambios en la tabla actuación mediante  mysqli_insert_id
+                    
+                    //Guardar cambios en la tabla actuación mediante  mysqli_insert_id
+                    
         if (mysqli_query($con, $sql1)) {
-            
-        $id_ninnosn=mysqli_insert_id($con);
+                        
+        $id_ninnosn=mysqli_insert_id($con); 
         $sql2 = "INSERT INTO nucleo_familiar (descripcion_nucleo, id_ninnos) VALUES ('$descripcion_nucleo', '$id_ninnosn')";
         mysqli_query($con, $sql2);
-        
-		$nino_id = mysqli_insert_id($con);
+
+                    
+        $nino_id = mysqli_insert_id($con);
             echo '<script language = javascript>
 					alert("Se guardó exitosamente el registro")
-					self.location = "main.php?key=10&id_ninnos='.$nino_id.'"
+					self.location = "main.php?key=1&id_ninnos='.$nino_id.'"
 				 </script>';
         } else {
             echo '<script language = javascript>

@@ -13,7 +13,7 @@
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500 active"><a href="main.php?key=12">Expedientes</a></li>
+                        <li role="presentation" class="letra n500 active"><a href="main.php?key=51">Expedientes</a></li>
                         <!--<li role="presentation" class="letra n500"><a id="consultaBtn" href="main.php?key=3">Consultar Expedientes</a></li>-->
                         <li role="presentation" class="letra n500"><a href="main.php?key=15">Remitir Expedientes</a></li>
                         <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>

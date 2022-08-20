@@ -525,12 +525,15 @@
 
 
 
-
+       //Insertar campos a las tablas cuidadores y cuida
         $sql = "INSERT INTO cuidadores (id_tipo_documento, No_Cedula, Nombres_cuidadores,Apellidos_cuidadores, Fecha_Nacimiento, Edad, Direccion, telefono_movil, correo_electronico, id_parentesco, id_estado, id_estrato, id_etnia, id_genero, id_niveleducativo, id_regimen, id_eps, id_municipio, id_provincia, id_zona, Puntaje_Sisben, fecha_cuida, id_usuario, id_ninos, id_departamento, id_pais) VALUES ('$tip_doc_nna','$num_nna','$nom_nna','$ape_nna','$fecha_nna','$edad_nna','$dir_nna','$tel_nna','$email_nna','$parentescos','$estado_civil','$estrato_nna','$etnias_nna','$genero_nna','$nivel_educa_nna','$regimen_nna','$eps_nna','$municipio_nna','$provincia_nna','$zona_nna','$sisben_nna','$fecha_ing','$id_usuario','$id_ninnos','$departamento_nna','$pais_nna')";
-        
+        if (mysqli_query($con, $sql) or Die(mysqli_error($con))) {
+        $id_cui1=mysqli_insert_id($con);
+        $sqlCui="INSERT INTO `cuida`(`id_cuidadores`,`id_ninnos`) VALUES ('$id_cui1','$id_ninnos1')";
+        mysqli_query($con, $sqlCui);
      
 
-        if (mysqli_query($con, $sql) or Die(mysqli_error($con))) {
+        
             echo '<script language = javascript>
             alert("la Información ha sido Guardada Correctamente")
             self.location = "main.php?key=34&id_ninnos='.$id_ninnos.'"

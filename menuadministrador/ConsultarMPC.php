@@ -2,9 +2,9 @@
 
     <form name="form1" method="post" action="main.php?key=2" id="cdr">
         <center>
-            <h3 class="centrar letra n600 azulo pi">Consultar o Asignar Madres, Padres o Cuidadores</h3>
+            <h3 class="centrar letra n600 azulo pi">Consultar Madres, Padres o Cuidadores</h3>
             <br>
-            <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento del Ni&ntilde;o Ni&ntilde;a o Adolescentes</h5>
+            <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento del M.P.C.</h5>
             <input name="busca" type="text" id="busqueda">
             <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
         </center>
@@ -104,18 +104,19 @@
                                                             //echo '<a href="main.php?key=45&id_cuidadores='.$idCu.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar datos del cuidador"><span class="glyphicon glyphicon-search"></span> Consultar</a>';
                                                             ?> 
                                                             <a href="main.php?key=45&id_cuidadores=<?php echo $row['id_cuidadores']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
-
+                                                            
                                                             <?php
-                                                            }?> <br><br>
+                                                            }?> 
                                                         <!--Mediante esta condicional se dará permiso a los diferentes roles-->
                                                         <?php
                                                         if($nuser == 1 || $nuser == 2) {
                                         
-                                                           ?> <a href="main.php?key=44&id_cuidadores=<?php echo $row['id_cuidadores']; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar cuidador"><span class="glyphicon glyphicon-edit"></span> Registrar</a>
+                                                           ?> <!--<a href="main.php?key=44&id_cuidadores=<?php echo $row['id_cuidadores']; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar cuidador"><span class="glyphicon glyphicon-edit"></span> Registrar</a>
+                                                         -->
+
                                                         <?php 
                                                         } 
                                                         elseif($nuser == 3) {
-                                                            echo "NO tiene Cuidador asignado"; 
                                                         }
                                                         ?>
                                                     </td>
@@ -203,7 +204,7 @@
                                             </td>
                                             <td align="center">
                                             <?php 
-                                                     $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_ninos='$id_ninos' ");
+                                                     $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_ninos='$id_ninos'  ");
                                                      while ($row21 = mysqli_fetch_array($busqueda21)) {                                                      
                                                          $idcuida = $row21['id_cuidadores'];                                                            
                                                          $id_ninos21 = $row21['id_ninos'];
@@ -217,16 +218,16 @@
                                                              <a href="main.php?key=45&id_cuidadores=<?php echo $row['id_cuidadores']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
  
                                                              <?php
-                                                             }?> <br><br>
+                                                             }?>
                                                          <!--Mediante esta condicional se dará permiso a los diferentes roles-->
                                                          <?php
                                                          if($nuser == 1 || $nuser == 2) {
                                          
-                                                            ?> <a href="main.php?key=44&id_cuidadores=<?php echo $row['id_cuidadores']; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar cuidador"><span class="glyphicon glyphicon-edit"></span> Registrar</a>
-                                                         <?php 
+                                                            ?> <!--<a href="main.php?key=44&id_cuidadores=<?php echo $row['id_cuidadores']; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar cuidador"><span class="glyphicon glyphicon-edit"></span> Registrar</a>
+                                                             -->
+                                                        <?php 
                                                         } 
                                                         elseif($nuser == 3) {
-                                                            echo "NO tiene Cuidador asignado"; 
                                                         }
                                                         ?>
                                                     </td>

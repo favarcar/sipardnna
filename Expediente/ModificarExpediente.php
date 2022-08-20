@@ -512,7 +512,7 @@ self.location = "index.html"
           mysqli_query($con, "UPDATE `expediente` SET `codigo_expediente`='$codigo_expediente',`Fecha_inicio_expediente`='$fecha_exp',`id_ninnos`='$id_ninnos',`id_cuidadores`='$cuidadores_exp',`id_discapacidad`='$discapacidad_exp',`id_indicador`='$indicadores_exp',`id_maltrato`='$maltratos_exp',`id_victima`='$victima_exp',`Descripcion_expediente`='$descripcion_exp',`id_derecho`='$derechos_exp',`Observacion`='$obs_exp',`Veredicto_Caso`='$veredicto_exp',`Fecha_finalizacion_expediente`='$finalizacion_exp',`id_entidad`='$entidad_exp',`id_usuario_exp`='$id_usuario_exp', id_estadocaso='$estadocaso_exp' WHERE codigo_expediente='$codigo_expediente'") or die(mysqli_error($con));
           '<script language = javascript>
           alert("la Informacion ha sido Guardada Correctamente")
-          self.location = "main.php?key=12&codigo_expediente='.$codigo_expediente.'"
+          self.location = "main.php?key=51&codigo_expediente='.$codigo_expediente.'"
           </script>';
 
 

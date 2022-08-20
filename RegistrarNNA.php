@@ -153,9 +153,9 @@
                             <div class="col-md-12 col-sm-12 col-xs-12">
                                 <form id="formNNA" method="post" enctype="multipart/form-data">
 
-                                    <div class="col-md-12 col-sm-4 col-xs-12 form-group">
+                                    <div class="col-md-12 col-sm-4 col-xs-12 form-group" style="display:none ;">
                                         <label>Motivo de ingreso</label>
-                                        <select id='motivo_ingreso' name='motivo_ingreso' class="form-control" style="text-transform: uppercase;" required>
+                                        <select id='motivo_ingreso' name='motivo_ingreso' class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Elija un motivo de ingreso</option>
                                             <?php
                                             $con11 = mysqli_query($con, "select * from  motivoingreso");
@@ -188,18 +188,18 @@
                                         </select>
                                     </div>
                                     <div id="cual_mun" class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Escriba el Municipio </label>
+                                        <label>Municipio de Residencia </label>
                                         <input id='mun_aux' name='mun_aux' class="form-control" placeholder="¿Escriba cual?" style="text-transform: uppercase;" value="NA" required>
                                     </div>
 
-                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none;">
                                         <label>Fecha de los hechos</label>
-                                        <input id='fecha_hechos' name='fecha_hechos' class="form-control" style="text-transform: uppercase;" type="date" required>
+                                        <input id='fecha_hechos' name='fecha_hechos' class="form-control" style="text-transform: uppercase;" type="date" >
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                     </div>
-                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Lugar de los hechos</label>
-                                        <select name="lugar_hechos" id="lugar_hechos" class="form-control" style="text-transform: uppercase;" required>
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none;">
+                                        <label>Lugar de Residencia</label>
+                                        <select name="lugar_hechos" id="lugar_hechos" class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Seleccione</option>
                                             <?php
                                             $con11 = mysqli_query($con, "select * from  lugar_hechos");
@@ -214,9 +214,9 @@
                                             ?>
                                         </select>
                                     </div>
-                                    <div class="col-md-4 col-sm-4 col-xs-12 form-group">
+                                    <div class="col-md-4 col-sm-4 col-xs-12 form-group" style="display:none;">
                                         <label>Vínculo con el presunto agresor/a</label>
-                                        <select name="vinculo_agresor" id="vinculo_agresor" class="form-control" style="text-transform: uppercase;" required>
+                                        <select name="vinculo_agresor" id="vinculo_agresor" class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Seleccione</option>
                                             <option value="PADRE">Padre</option>
                                             <option value="MADRE">Madre</option>
@@ -231,18 +231,18 @@
                                         </select>
                                     </div>
 
-                                    <div id="cual_vinculo" class="col-md-4 col-sm-4 col-xs-12 form-group">
+                                    <div id="cual_vinculo" class="col-md-4 col-sm-4 col-xs-12 form-group" style="display:none ;">
                                         <label>Escriba el vínculo con el presunto agresor/a </label>
-                                        <input id='vinculo_aux' name='vinculo_aux' class="form-control" placeholder="¿Cual?" style="text-transform: uppercase;" value="NA" required>
+                                        <input id='vinculo_aux' name='vinculo_aux' class="form-control" placeholder="¿Cual?" style="text-transform: uppercase;" value="NA" >
                                     </div>
-                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none ;">
                                         <label>Edad del presunto agresor</label>
-                                        <input id='edad_agresor' name='edad_agresor' type="number" min="1" max="99" class="form-control" placeholder="Ingrese la edad del presunto agresor" style="text-transform: uppercase;" onkeypress="return valida(event)" value="1" required>
+                                        <input id='edad_agresor' name='edad_agresor' type="number" min="1" max="99" class="form-control" placeholder="Ingrese la edad del presunto agresor" style="text-transform: uppercase;" onkeypress="return valida(event)" value="1" >
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                     </div>
-                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="display:none ;">
                                         <label>Nivel de escolaridad del presunto agresor/a (Último nivel cursado)</label>
-                                        <select name="nivel_escolaridad" id="nivel_escolaridad" class="form-control" style="text-transform: uppercase;" required>
+                                        <select name="nivel_escolaridad" id="nivel_escolaridad" class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Seleccione</option>
                                             <?php
                                             $con11 = mysqli_query($con, "select * from  nivel_escolaridad");
@@ -701,6 +701,9 @@
         $id_ninnosn=mysqli_insert_id($con); 
         $sql2 = "INSERT INTO nucleo_familiar (descripcion_nucleo, id_ninnos) VALUES ('$descripcion_nucleo', '$id_ninnosn')";
         mysqli_query($con, $sql2);
+        $id_ninnosn=mysqli_insert_id($con);
+        $sqlCui="INSERT INTO `cuida`(`id_cuidadores`,`id_ninnos`) VALUES ('$id_cuidadores','$id_ninnosn')";
+            mysqli_query($con, $sqlCui);
                     
         $nino_id = mysqli_insert_id($con);
             echo '<script language = javascript>
@@ -710,7 +713,7 @@
         } else {
             echo '<script language = javascript>
 				alert("Error")
-				self.location = "main.php?key=8"
+				self.location = "main.php?key=44"
 				</script>';
         }
 

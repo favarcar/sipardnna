@@ -60,7 +60,8 @@
                                 ?>
                                         <tr>
                                             <td><?php echo $apellidos; ?>&nbsp;<?php echo $nombres; ?></td>
-                                            <td align="center"><?php echo $numero_documento; ?></td>
+                                            <td align="center">
+                                                <?php echo $numero_documento; ?></td>
                                             <td align="center">
                                                 <?php
                                                 $busqueda1 = mysqli_query($con, "SELECT * FROM paises where Id_Pais='$id_pais'  ");
@@ -90,16 +91,17 @@
                                             <td align="center">
                                                 <?php echo $edad; ?>
                                             </td>
-                                            <td align="center">
+                                            
 
                                             <?php if($nuser == 1 || $nuser == 2) { ?>
-                                                      <a href="main.php?key=10&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar cuidador"><span class="glyphicon glyphicon-edit"></span> Registrar</a>
+                                            -->    
+
                                             <?php  } 
                                                    elseif($nuser == 3) {
-                                                    echo "NO tiene Cuidador asignado"; 
+                                                    
                                                         }
                                                         ?>
-                                                        <br> <br>
+                                                       <td align="center">
                                                         <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
 
                                            </td>     
@@ -179,13 +181,15 @@
                                     <td align="center">
 
                                             <?php if($nuser == 1 || $nuser == 2) { ?>
-                                                      <a href="main.php?key=10&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar cuidador"><span class="glyphicon glyphicon-edit"></span> Registrar</a>
+                                                     <!-- <a href="main.php?key=10&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar cuidador"><span class="glyphicon glyphicon-edit"></span> Registrar</a>
+                                            --> 
+                                            
                                             <?php  } 
                                                    elseif($nuser == 3) {
-                                                    echo "NO tiene Cuidador asignado"; 
+                                                   
                                                         }
                                                         ?>
-                                                        <br> <br>
+                                                        
                                                         <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
 
                                            </td>                                       

@@ -1,13 +1,13 @@
 <!--Buscar M.P.C. -->
         <form name="form1" method="post" action="main.php?key=42" id="cdr">
-        <center>
-            <h3 class="centrar letra n600 azulo pi">Consultar o Asignar Madres, Padres o Cuidadores</h3>
+        <center><br><br>
+            <h2 class="centrar letra n600 azulo pi">Consultar o Eliminar Madres, Padres o Cuidadores</h2>
             <br>
             <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento del M.P.C.</h5>
             <input name="busca" type="text" id="busqueda">
             <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
         </center>
-        <br>         
+            
         <section class="fblanco">
             <div class="container pu pi">
             <section class="fblanco">
@@ -15,9 +15,10 @@
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500"><a href="main.php?key=0">Volver Men&uacute; Principal</a></li>
                         <li role="presentation" class="letra n500"><a href="main.php?key=43">Registrar MPC</a></li>
-
+                        <!--<li role="presentation" class="letra n500"><a href="main.php?key=23">Consultar MPC con NNA</a></li>-->
+                        <li role="presentation" class="letra n500"><a href="main.php?key=49">Registrar o Asignar NNA</a></li>                        
+                        <li role="presentation" class="letra n500"><a href="#">Eliminar MPC</a></li>
                     </ul>
                 </div>
             </div>
@@ -124,7 +125,7 @@
                                                     }
                                                                                                              
                                                         
-                                                        echo '<br><a href="main.php?key=44&id_cuidadores='.$id_cuida21.'"class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar NNA"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
+                                                       // echo '<br><a href="main.php?key=44&id_cuidadores='.$id_cuida21.'"class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar NNA"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
                                                         ?>
                                                         </td> 
                                                     
@@ -244,7 +245,7 @@
                                                         ?>
                                                         <br>
                                                         <?php                                                                                                                                                              
-                                                         echo '<br><a href="main.php?key=44&id_cuidadores='.$id_cuidadores.'"class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar NNA"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
+                                                        // echo '<br><a href="main.php?key=44&id_cuidadores='.$id_cuidadores.'"class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar NNA"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
                                                         ?>
                                                         </td> 
                                                     
