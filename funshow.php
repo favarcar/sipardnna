@@ -187,6 +187,7 @@ $boton = '<a href="javascript:borrado('.$bid_dato.',\''.$btabla.'\',\''.$bclave.
 return $boton;
 
 	}
+	
 
 
 

@@ -27,21 +27,7 @@
                         <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
                     </center>
                     <br>
-        <section class="fblanco">
-        <div class="container ps1x ">
-        <div class="container ps2x ">
-            <div class="row clearfix centrar">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">                  
-                    <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500"><a href="main.php?key=51" >Consultar Expedientes</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Remitir Expedientes</a></li>    
-                        <li role="presentation" class="letra n500"><a href="#">Consultar Total de Expedientes</a></li>
-                    </ul>
-                    <input type="button" id="refresh"value="Actualizar" onclick="location.reload()"style="display:none"/>
-                </div>
-            </div>        
-        </div>             
-    </section>                    
+                 
         
                             
             <section class="fblanco">
@@ -149,7 +135,7 @@
                                         <td class="col-md-4 control-label letra n600 azulo">Consultar Expedientes</td> 
                                     </tr>
                                     <tbody>
-	<?php $busquenna = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY id_ninnos DESC " ); 
+	<?php $busquenna = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY Apellidos ASC " ); 
          while($row = mysqli_fetch_array($busquenna)){
              $apellidos = $row['Apellidos'];
              $nombres = $row['Nombres'];

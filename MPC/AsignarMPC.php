@@ -1,4 +1,6 @@
 <html>
+
+
 <?php
 // Traer los datos del NNA
     $id_ninnos = $_GET['id_ninnos'];
@@ -33,7 +35,7 @@
 ?>
 <!--Mostrar los datos del NNa-->
     <section class="fblanco">
-        <div class="container pi3x">
+        <div class="container pi3x" >
         <h3 class="centrar letra n600 azulo pi">Asignar Madres, Padres o Cuidadores a N.N.A.</h3>
             <form class="form-horizontal num-columnas2 ps2x" method="post" enctype="multipart/form-data">
                 <fieldset>
@@ -49,7 +51,7 @@
                             <input id="textinput" name="nom_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none ;">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Municipio de los hechos</label>
                     <div class="col-md-8">
                     <select name="mun_nna" id="mun_nna" disabled >
@@ -98,6 +100,7 @@
                     <div class="col-md-7 col-sm-4 col-xs-12">
                     <button id="singlebutton" name="singlebutton" class="btn btn-warning" >Asignar Cuidador</button>
                 </div>
+                <div class="container" style="padding-top: 60%;"></div>
                 </fieldset>
             </form>
         </div>

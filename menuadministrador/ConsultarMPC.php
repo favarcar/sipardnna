@@ -156,8 +156,8 @@
                                             
 	                                        <?php 
                                             
-                                            $busquedac = mysqli_query($con,"SELECT * FROM cuidadores" ); //cambiar nombre de la tabla de busqueda
-                                            while($row = mysqli_fetch_array($busquedac)){
+                                            $busqueda_cui = mysqli_query($con,"SELECT * FROM cuidadores ORDER BY Apellidos_cuidadores ASC" ); 
+                                            while($row = mysqli_fetch_array($busqueda_cui)){
                                                 $apellidos          = $row['Apellidos_cuidadores'];
                                                 $nombres            = $row['Nombres_cuidadores'];
                                                 $numero_documento   = $row['No_Cedula'];

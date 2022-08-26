@@ -177,7 +177,7 @@ self.location = "index.html"
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500 active"><a href="main.php?key=51">Expedientes</a></li>
                         <!--<li role="presentation" class="letra n500"><a id="consultaBtn" href="main.php?key=3">Consultar Expedientes</a></li>-->
-                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Remitir Expedientes</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Registrar Expedientes</a></li>
                         <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
                     </ul>
                     <input type="button" id="refresh" value="Actualizar" onclick="location.reload()" style="display:none" />
@@ -301,12 +301,30 @@ self.location = "index.html"
 
              </div>
              </div>
+             <div class="col-md-8 col-sm-4 col-xs-12 form-group">
+                                        
+           <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
+                                        <label>Veredicto del caso</label>
+
+                                        <select name="veredicto_exp" id="veredicto_exp" class="form-control" font style="text-transform: uppercase;" style=" width:100px" require>
+                                        <option value="No Requiere Pard">No Requiere Pard</option>
+                                        <option value="Requiere Pard">Requiere Pard</option>
+                                        </select>
+           </div>
+                                    </div>
             </div>
           </div>
 
         </div>
     </div>
+    <br>
     
+        <!-- Ocultar datos del presunto agresor con data-toggle-->
+        <div class="container">
+      <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#datosAgresor"  aria-expanded="false" aria-controls="#datosAgresor"><span class="glyphicon glyphicon-circle-arrow-down"></span> Datos del Agresor</button>
+      <div id="datosAgresor" class="collapse">
+
+
            <!--Registro del presunto agresor -->
         <div class="panel panel-default">
     <div class="panel-heading clearfix" style="font-size:21px">
@@ -320,17 +338,17 @@ self.location = "index.html"
                 
                 <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                     <label>Nombres del presunto agresor/a</label>
-                                    <input id='nombre_agre' name='nombre_agre' class="form-control" placeholder="Ingrese el nombre completo" style="text-transform: uppercase;" required>
+                                    <input id='nombre_agre' name='nombre_agre' class="form-control" placeholder="Ingrese el nombre completo" style="text-transform: uppercase;" >
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
                                 <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                     <label>Apellidos del presunto agresor</label>
-                                    <input id='apellido_agre' name='apellido_agre' class="form-control" placeholder="Ingrese los apellido" style="text-transform: uppercase;" required>
+                                    <input id='apellido_agre' name='apellido_agre' class="form-control" placeholder="Ingrese los apellido" style="text-transform: uppercase;" >
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
                                 <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                     <label>Tipo de documento  del presunto agresor/a</label>
-                                    <select name="doc_agresor" id="doc_agresor" class="form-control" style="text-transform: uppercase;" required>
+                                    <select name="doc_agresor" id="doc_agresor" class="form-control" style="text-transform: uppercase;" >
                                         <option value="">Seleccione</option>
                                         <?php
                                         $con11 = mysqli_query($con, "select * from  tipos_documentos");
@@ -348,18 +366,18 @@ self.location = "index.html"
                                 </div>
                                 <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                     <label>N° de documento del presunto agresor/a</label>
-                                    <input id='documeto_agre' name='documeto_agre' class="form-control" placeholder="Ingrese el número de documento" style="text-transform: uppercase;" onkeypress="return valida(event)" required>
+                                    <input id='documeto_agre' name='documeto_agre' class="form-control" placeholder="Ingrese el número de documento" style="text-transform: uppercase;" onkeypress="return valida(event)" >
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
 
 
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                         <label>Edad del presunto agresor/a</label>
-                                        <input id='edad_agre' name='edad_agre' type="number" min="1" max="99" class="form-control" placeholder="Ingrese la edad" style="text-transform: uppercase;" onkeypress="return valida(event)" value="" required>
+                                        <input id='edad_agre' name='edad_agre' type="number" min="1" max="99" class="form-control" placeholder="Ingrese la edad" style="text-transform: uppercase;" onkeypress="return valida(event)" value="" >
           </div>
                                         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                         <label>Vínculo con el presunto agresor/a</label>
-                                        <select name="parentescos" id="parentescos" class="form-control" style="text-transform: uppercase;" required>
+                                        <select name="parentescos" id="parentescos" class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Seleccione</option>
                                             <option value="PADRE">Padre</option>
                                             <option value="MADRE">Madre</option>
@@ -394,17 +412,25 @@ self.location = "index.html"
           </div>
           <div class="col-md-6 col-sm-4 col-xs-12 form-group"> 
                                   <label>Teléfono móvil</label>
-                                    <input id="telefono_agre" name="telefono_agre" type="number" minlength="10" maxlength="10" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required>
+                                    <input id="telefono_agre" name="telefono_agre" type="number" minlength="10" maxlength="10" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" >
                                   </div>
                                 </div>   
               </div>
-                                          </div>
+            </div>
         </div>
     </div>
+      </div>
+        </div>
+            </div>
+    <!-- Ocultar datos de pard con data-toggle-->
+    <div class="container">
+      <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#pardsi" aria-expanded="false" aria-controls="pardsi"><span class="glyphicon glyphicon-circle-arrow-down"></span> Requiere Pard </button>
+      <div id="pardsi" class="collapse">
+
            <!--Registro del PARD -->
            <div class="panel panel-default">
     <div class="panel-heading clearfix" style="font-size:21px">
-    <i class="fa fa-list"></i> Información del Presunto agresor/a
+    <i class="fa fa-list"></i> Información PARD
   </div>
   <div class="panel-body">
     <div class="row">
@@ -414,13 +440,8 @@ self.location = "index.html"
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Clasificación del proceso</label>
             <div >
-            <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion" style="display:none ;">
-                                        <label>Veredicto del caso</label>
 
-                                        <select name="veredicto_exp" id="veredicto_exp" class="form-control" font style="text-transform: uppercase;" style=" width:100px">
-                                            <option value="Requiere Pard">Requiere Pard</option>
-                                        </select>
-                                    </div>
+                  
 
               <select name="indicadores_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
@@ -446,7 +467,7 @@ self.location = "index.html"
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Maltrato</label>
             <div >
 
-              <select name="maltratos_exp" id="maltratos_exp" class="form-control" style="text-transform: uppercase;" required>
+              <select name="maltratos_exp" id="maltratos_exp" class="form-control" style="text-transform: uppercase;" >
                 <option value="">Seleccione</option>
                 <?php
                 include("../conexion/conexion.php");
@@ -489,7 +510,7 @@ self.location = "index.html"
           </div>
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
                                         <label>Víctima del hecho</label>
-                                        <select name="victima_hechos" id="victima_hechos" class="form-control" style="text-transform: uppercase;" required>
+                                        <select name="victima_hechos" id="victima_hechos" class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Seleccione</option>
                                             <option value="SI">SI</option>
                                             <option value="NO">NO</option>
@@ -632,11 +653,16 @@ self.location = "index.html"
           </div>
         </div>  
     </div>
+    </div>
+   </div>
+      </div>
+    </div>
+    
           <!--Botón para guarda expediente y pard -->
-          <div class="col-md-6 col-sm-4 col-xs-12 form-group" style="text-align: right">
+          <div style="text-align: right">
             <label class="col-md-4 control-label" for="singlebutton"></label>
             <div >
-              <h1><button id="singlebutton" name="singlebutton" class="btn btn-primary"> Guardar</button></h1>
+              <h1><button id="singlebutton" name="singlebutton" class="btn btn-primary"><span class="glyphicon glyphicon-saved"></span> Guardar</button></h1>
                        
             </div>
           </div>
@@ -720,8 +746,8 @@ self.location = "index.html"
             mysqli_query($con, $sql2);
 
             $cod_expul=mysqli_insert_id($con);
-            $sql3 = "INSERT INTO `hecho_agresor`(`id_victimahe`,`victima_hecho`,`parentesco_victima`,`codigo_expediente`,`tipos_docagresor`,`documeto_agresor`,`nombre_agresor`,`apellido_agresor`,`edad_agresor`,`nivel_academico`,`telefono_agresor`)
-          VALUES ('$id_victimahe', '$victima_hecho','$parentesco','$cod_expul','$tipos_docagresor','$documeto_agresor','$nombre_agresor','$apellido_agresor','$edad_agresor','$nivel_academico','$telefono_agresor')";
+            $sql3 = "INSERT INTO `hecho_agresor`(`id_victimahe`,`victima_hecho`,`parentesco_victima`,`codigo_expediente`,`id_ninnos`,`tipos_docagresor`,`documeto_agresor`,`nombre_agresor`,`apellido_agresor`,`edad_agresor`,`nivel_academico`,`telefono_agresor`)
+          VALUES ('$id_victimahe', '$victima_hecho','$parentesco','$cod_expul','$id_ninnos1','$tipos_docagresor','$documeto_agresor','$nombre_agresor','$apellido_agresor','$edad_agresor','$nivel_academico','$telefono_agresor')";
             mysqli_query($con, $sql3);
 
             //Alerta despues de guardar exitosamente el expediente
@@ -741,113 +767,10 @@ self.location = "main.php?key=34&id_ninnos='.$id_ninnos1.'"
           mysqli_close($con);
         }
         ?>
-</form>   
+ </form>   
                                 <div class="clearfix"></div>
     </section>
 
-
-
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
-    </script>
-
-    <script src="js/vendor/bootstrap.min.js"></script>
-
-    <script src="js/main.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function(b, o, i, l, e, r) {
-            b.GoogleAnalyticsObject = l;
-            b[l] || (b[l] =
-                function() {
-                    (b[l].q = b[l].q || []).push(arguments)
-                });
-            b[l].l = +new Date;
-            e = o.createElement(i);
-            r = o.getElementsByTagName(i)[0];
-            e.src = '//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e, r)
-        }(window, document, 'script', 'ga'));
-        ga('create', 'UA-XXXXX-X', 'auto');
-        ga('send', 'pageview');
-    </script>
-
-
-
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script>
-        window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')
-    </script>
-
-    <script src="js/vendor/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <!-- Datatables -->
-    <script src="css/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="css/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="css/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="css/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="css/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="css/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="css/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="css/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="css/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="css/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="css/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="css/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-
-
-    <!-- PNotify -->
-    <script src="css/pnotify/dist/pnotify.js"></script>
-    <script src="css/pnotify/dist/pnotify.buttons.js"></script>
-    <script src="css/pnotify/dist/pnotify.nonblock.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.ui-pnotify').remove();
-        });
-    </script>
-
-    <!--<script src="js/jsAddExpediente.js"></script>-->
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-        (function(b, o, i, l, e, r) {
-            b.GoogleAnalyticsObject = l;
-            b[l] || (b[l] =
-                function() {
-                    (b[l].q = b[l].q || []).push(arguments)
-                });
-            b[l].l = +new Date;
-            e = o.createElement(i);
-            r = o.getElementsByTagName(i)[0];
-            e.src = '//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e, r)
-        }(window, document, 'script', 'ga'));
-        ga('create', 'UA-XXXXX-X', 'auto');
-        ga('send', 'pageview');
-
-        function numeros(e) {
-            key = e.keyCode || e.which;
-            tecla = String.fromCharCode(key).toLowerCase();
-            letras = " 0123456789";
-            especiales = [8, 37, 39, 46];
-
-            tecla_especial = false
-            for (var i in especiales) {
-                if (key == especiales[i]) {
-                    tecla_especial = true;
-                    break;
-                }
-            }
-
-            if (letras.indexOf(tecla) == -1 && !tecla_especial)
-                return false;
-        }
-    </script>
                             </div>
                         </div>
                     </section> 

@@ -35,7 +35,7 @@
                             <input id="textinput" name="nom_mpc" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none ;">
                     <label class="col-md-4 control-label letra n600 azulo" for="textinput">Municipio de los hechos</label>
                     <div class="col-md-8">
                     <select name="mun_nna" id="mun_nna" disabled >
@@ -83,6 +83,7 @@
                     <div class="col-md-7 col-sm-4 col-xs-12">
                     <button id="singlebutton" name="singlebutton" class="btn btn-warning" >Asignar Cuidador</button>
                 </div>
+                <div class="container" style="padding-top: 60%;"></div>
                 </fieldset>
             </form>
         </div>

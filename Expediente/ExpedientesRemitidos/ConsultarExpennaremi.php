@@ -44,7 +44,7 @@ self.location = "index.html"
 
 
     ?>
-    <form name="form1" method="post" action="main.php?key=16" id="cdr">
+    <form name="form1" method="post" action="ConsultarExpediente.php" id="cdr">
         <center>
             <h3 class="centrar letra n600 azulo pi">Consultar Expedientes de Ni&ntilde;os, Ni&ntilde;as o Adolescentes</h3>
 
@@ -102,13 +102,18 @@ self.location = "index.html"
 
                                 <td class="col-md-4 control-label letra n600 azulo">Consultar/Editar Expediente</td>
 
-                                <td class="col-md-4 control-label letra n600 azulo">Eliminar Expediente </td>
+                                <td class="col-md-4 control-label letra n600 azulo">Remitir Expediente </td>
+
+                                <td class="col-md-4 control-label letra n600 azulo"> Consultar Quien Remite </td>
+
+
+
 
                             </tr>
                             <tbody>
                                 <?php
 
-                                $busqueda = mysqli_query($con, "SELECT * FROM expediente where id_usuario_exp='$id_usuario'  and id_ninnos = '$id_ninnos' order by id_ninnos  asc "); //cambiar nombre de la tabla de busqueda
+                                $busqueda = mysqli_query($con, "SELECT * FROM expediente where id_usuario_exp='$id_usuario'  and id_ninnos = '$id_ninnos' order by id_ninnos  desc "); //cambiar nombre de la tabla de busqueda
                                 while ($row = mysqli_fetch_array($busqueda)) {
 
                                     $id_ninnos1 = $row['id_ninnos'];
@@ -160,24 +165,31 @@ self.location = "index.html"
                                                 echo "Expediente Remitido";
                                             } else {
                                             ?>
-                                                <!--<a href="main.php?key=33&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Remitir expediente"><span class="glyphicon glyphicon-share" ></span> Remitir</a> <?php } ?>
-                                            -->
-                                                <?php 
-                                               //Eliminar datos
-                                               
-                                                if ((consulta_campo('expediente','codigo_expediente',$codigo_expediente,'id_ninnos'))){
-                                                    echo '<a  class="btn btn-danger" href="javascript:borrado('.$codigo_expediente.',\'expediente\',\'codigo_expediente\',\'16\')"><span class="glyphicon glyphicon-trash"></span>  Eliminar</a>';} 
-                                                    else{echo '<button class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';}
-                                                ?>
-                                        </td>
-
+                                                <a href="main.php?key=33&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Remitir expediente"><span class="glyphicon glyphicon-share" ></span> Remitir</a> <?php } ?>
 
                                         </td>
 
+                                        <td>
+                                            <?php
 
-                                    <?php   }
-                                    
-                                    ?>
+                                            $busqueda21 = mysqli_query($con, "SELECT * FROM remite where 	codigo_expediente='$codigo_expediente'  ");
+                                            while ($row21 = mysqli_fetch_array($busqueda21)) {
+                                                $codigo_expediente21 = $row21['codigo_expediente'];
+                                            }
+
+                                            if ($codigo_expediente == $codigo_expediente21) { ?>
+
+                                                <a href="main.php?key=30&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Remitir expediente"><span class="glyphicon glyphicon-share" ></span> Consultar Remisi&oacute;n</a></h5>
+                                            <?php
+
+                                            } else {
+                                                echo "Expediente NO Remitido";
+                                            } ?>
+
+                                        </td>
+
+
+                                    <?php   } ?>
                                     </tr>
                             </table>
                                         </section>

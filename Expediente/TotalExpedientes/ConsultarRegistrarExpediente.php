@@ -2,7 +2,7 @@
         <div class="container ps ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                    <h2 class="centrar letra n600 azulo pi">Consultar Expedientes</h2>
+                    <h2 class="centrar letra n600 azulo pi">Registrar Expedientes</h2>
                 </div>
             </div>        
         </div>        
@@ -34,9 +34,8 @@
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">                  
                     <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500"><a href="#" >Consultar Expedientes</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Remitir Expedientes</a></li>    
-                        <li role="presentation" class="letra n500"><a href="main.php?key=16">Consultar Total de Expedientes</a></li>
+                        <li role="presentation" class="letra n500"><a href="#" >Registrar Expedientes</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Consultar Expedientes</a></li>    
                     </ul>
                     <input type="button" id="refresh"value="Actualizar" onclick="location.reload()"style="display:none"/>
                 </div>
@@ -110,12 +109,13 @@
                                                     $id_ninnos21=$row15['id_ninnos'];            
                                                 }		   
                                                 if($id_ninnos==$id_ninnos21){
+
                                             ?>   
+                                            <!--Consultar y registrar expediente-->
                                             <?php                       
                                             echo '<a href="main.php?key=29&id_ninnos='.$id_ninnos.'"  class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar"><span class="glyphicon glyphicon-search"></span> Consultar</a></h5>';
                                             ?> <br><br>
-                                           <?php echo '<a href="main.php?key=34&id_ninnos='.$id_ninnos.'" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Sin expediente"><span class="glyphicon glyphicon-edit""></span> Eliminar</a>';
-                                            ?>
+    
                                             <?php
                                             } else{
                                                 echo '<a href="main.php?key=34&id_ninnos='.$id_ninnos.'" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Sin expediente"><span class="glyphicon glyphicon-edit""></span> Registrar</a>';
@@ -149,11 +149,10 @@
                                         <td class="col-md-4 control-label letra n600 azulo">Provincia</td>
                                         <td class="col-md-4 control-label letra n600 azulo">Edad</td>             
                                         <td class="col-md-4 control-label letra n600 azulo">Expediente</td> 
-                                        <td class="col-md-4 control-label letra n600 azulo">Eliminar Expediente</td> 
                                         
                                     </tr>
                                     <tbody>
-	<?php $busqueda = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY id_ninnos DESC " ); //cambiar nombre de la tabla de busqueda
+	<?php $busqueda = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY Apellidos ASC " ); //cambiar nombre de la tabla de busqueda
          while($row = mysqli_fetch_array($busqueda)){
              $apellidos = $row['Apellidos'];
              $nombres = $row['Nombres'];
@@ -192,6 +191,7 @@
                                                 }		   
                                                 if($id_ninnos==$id_ninnos21){
                                             ?>   
+                                            <!--Consultar y registrar expediente-->
                                             <?php                       
                                             echo '<a href="main.php?key=29&id_ninnos='.$id_ninnos.'"  class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar"><span class="glyphicon glyphicon-search"></span> Consultar</a>';
                                             ?>
@@ -203,14 +203,10 @@
                                                 
                                             </td>
                                             
-                                            <td align="center">
-                                            <?php 
+                                           <?php 
   
-                                               //Eliminar datos
-                                                if (!(consulta_campo('expediente','id_ninnos',$id_ninnos,'codigo_expediente'))){
-                                                    echo '<button class="btn btn-danger" onclick="javascript:Borra(\'expediente\','.$id_ninnos.')"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';} 
-                                                    else{echo '<button class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
-                                                }?>
+                                      
+                                            }?>
    
                                             <?php }
                                         ?>

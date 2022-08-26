@@ -46,23 +46,8 @@ while ($row50 = mysqli_fetch_array($buscarExpe)) {
   </section>
 
 <?php }
-  //Traer los datos de la tabla hecho_agresor
-  $buscaragre = mysqli_query($con, "SELECT * FROM hecho_agresor where codigo_expediente='$codigo_expediente1' ");
-  while ($row51 = mysqli_fetch_array($buscaragre)){
-    $id_victimahe = $row51['id_victimahe'];
-    $victima_hecho = $row51['victima_hecho'];
-    $parentesco_victima = $row51['parentesco_victima'];
-    $codigo_expediente2 = $row51['codigo_expediente'];
-    $tipos_docagresor = $row51['tipos_docagresor'];
-    $documeto_agresor = $row51['documeto_agresor'];
-    $nombre_agresor = $row51['nombre_agresor'];
-    $apellido_agresor = $ro51['apellido_agresor'];
-    $edad_agresor = $row51['edad_agresor'];
-    $nivel_academico = $row51['nivel_academico'];
-    $telefono_agresor = $row51['telefono_agresor'];
-  }
 
-
+  //Traer los datos de la tabla ninnosnna
 
 $busnna = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' ");
 while ($row = mysqli_fetch_array($busnna)) {
@@ -72,6 +57,24 @@ while ($row = mysqli_fetch_array($busnna)) {
   $Nombres = $row['Nombres'];
   $Apellidos = $row['Apellidos'];
 }
+  //Traer los datos de la tabla hecho_agresor
+  $buscaragre = mysqli_query($con, "SELECT * FROM hecho_agresor where id_ninnos='$id_ninnos' ");
+  while ($row51 = mysqli_fetch_array($buscaragre)){
+    $id_victimahe = $row51['id_victimahe'];
+    $victima_hecho = $row51['victima_hecho'];
+    $parentesco_victima = $row51['parentesco_victima'];
+    $codigo_expediente2 = $row51['codigo_expediente'];
+    $id_ninnos_agre = $row51['id_ninnos'];
+    $tipos_docagresor = $row51['tipos_docagresor'];
+    $documeto_agresor = $row51['documeto_agresor'];
+    $nombre_agresor1 = $row51['nombre_agresor'];
+    $apellido_agresor1 = $row51['apellido_agresor'];
+    $edad_agresor = $row51['edad_agresor'];
+    $nivel_academico = $row51['nivel_academico'];
+    $telefono_agresor = $row51['telefono_agresor'];
+  }
+  
+  //Traer los datos de la tabla cuida  
 $busnna = mysqli_query($con, "SELECT * FROM cuida where id_ninnos='$id_ninnos' ");
 while ($row = mysqli_fetch_array($busnna)) {
 
@@ -79,6 +82,9 @@ while ($row = mysqli_fetch_array($busnna)) {
   $id_cuidanna = $row['id_cuidadores'];
   $id_ninnoscuida = $row['id_ninnos'];
 }
+  //Traer los datos de la tabla cuidadores  
+  
+
 $busquecuidador = mysqli_query($con, "SELECT * FROM cuidadores where id_cuidadores='$id_cuidanna' "); 
 while ($row1 = mysqli_fetch_array($busquecuidador)) {
 
@@ -129,7 +135,7 @@ while ($row1 = mysqli_fetch_array($busquecuidador)) {
 
           </div>
         </div>
-
+          <!--Mostrar en el formulario los datos de las diferentes tablas-->
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha de Inicio del Expediente</label>
           <div class="col-md-8">
@@ -138,7 +144,7 @@ while ($row1 = mysqli_fetch_array($busquecuidador)) {
           </div>
         </div>
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Ni&ntilde;o, Ni&ntilde;a o Adolecente</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de N.N.A.</label>
           <div class="col-md-8">
             <input id="textinput" name="nom_nna_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if($Apellidos>0){echo $Apellidos;}else{echo "No tiene cuidador";} ?> <?php echo $Nombres; ?>" readonly>
 
@@ -153,7 +159,7 @@ while ($row1 = mysqli_fetch_array($busquecuidador)) {
           </div>
         </div>
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Madre, Padre o Acudiente</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de M.P.C.</label>
           <div class="col-md-8">
             <input id="textinput" name="nom_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($ApellidosCuida)) {
 echo $ApellidosCuida;
@@ -167,7 +173,7 @@ echo "No tiene cuidador";
         </div>
 
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento de Madre, Padre o Acudiente</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento de M.P.C.</label>
           <div class="col-md-8">
             <input id="textinput" name="num_mpa_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($No_Cedula)) {
 echo $No_Cedula;
@@ -193,7 +199,7 @@ echo "No tiene cuidador";
           <div class="col-md-8">
 
           <?php $busqueExpe = mysqli_query($con, "SELECT * FROM derechos where id_derecho='$id_derecho' ");
-              while ($row1 = mysqli_fetch_array($busqueExpe)) {
+              while ($row1 = mysqli_fetch_array($busqueExpe)) if (isset($id_derecho)){
 
                 $id_derecho = $row1['id_derecho'];
                 $des_derecho = $row1['descripcion_derechos'];
@@ -253,7 +259,7 @@ echo "No tiene cuidador";
 
    
             <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Indicadores</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Clasificación del proceso</label>
           <div class="col-md-8">
             <?php
 
@@ -388,7 +394,7 @@ echo "No tiene cuidador";
         <!-- Text input-->
 
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Entidad</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Entidad a Remitir</label>
           <div class="col-md-8">
 
             <?php
@@ -463,7 +469,7 @@ echo "Agresor desconocido";
         </div>
 
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento del presunto agresor</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento del P.A.</label>
           <div class="col-md-8">
             <input id="textinput" name="doca_exp" type="int" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($documeto_agresor)) {
 echo $documeto_agresor;
@@ -474,12 +480,12 @@ echo "Agresor desconocido";
           </div>
         </div>
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre del presunto agresor/a</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre del P.A.</label>
           <div class="col-md-8">
-            <input id="textinput" name="noma_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($apellido_agresor)) {
-echo $apellido_agresor;
+            <input id="textinput" name="noma_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($apellido_agresor1)) {
+echo $nombre_agresor1;
 echo " ";
-echo $nombre_agresor;
+echo $apellido_agresor1;
 } else {
 echo "Agresor desconocido";
 } ?> " readonly>
@@ -489,7 +495,7 @@ echo "Agresor desconocido";
         </div>
 
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Edad del presunto agresor</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Edad del P.A.</label>
           <div class="col-md-8">
             <input id="textinput" name="edada_exp" type="int" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($edad_agresor)) {
 echo $edad_agresor;
@@ -501,7 +507,7 @@ echo "Agresor desconocido";
         </div>
 
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nivel academico del agresor/a </label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nivel academico del P.A.</label>
           <div class="col-md-8">
             <input id="textinput" name="nivela_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($nivel_academico)) {
 echo $nivel_academico;
@@ -513,7 +519,7 @@ echo "Agresor desconocido";
         </div>
 
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Número telefónico del presunto agresor</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Número telefónico del P.A.</label>
           <div class="col-md-8">
             <input id="textinput" name="numtele_exp" type="int" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($telefono_agresor)) {
 echo $telefono_agresor;
@@ -544,11 +550,14 @@ echo "Agresor desconocido";
         </div>
 
         <div class="form-group <?= $visiblemod ?>" >
+                <?php echo '<a href="main.php?key=53&id_ninnos='.$id_ninnos.'" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Modificar datos del agresor"><span class="glyphicon glyphicon-edit"></span> Modificar Agresor</a>';?>
+
                         <label class="col-md-4 control-label" for="singlebutton"></label>
                         <div class="col-md-4">
-                            <button id="singlebutton" name="singlebutton" class="btn btn-primary" >Actualizar</button>
+                            <button id="singlebutton" name="singlebutton" class="btn btn-primary" >Actualizar Expediente</button>
                         </div>
                     </div>
+
                 </fieldset>
             </form>
         </div>
@@ -561,7 +570,9 @@ echo "Agresor desconocido";
     <script src="js/vendor/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <?php
-    //print_r($_POST);
+
+    //Traer los datos para realizar la respectiva modificación de campos
+
         if (isset($_POST['singlebutton'])) { //si se ha presionado enviar
 
           $fecha_exp = $_POST['fecha_exp'];
@@ -579,21 +590,10 @@ echo "Agresor desconocido";
           $entidad_exp = $_POST['entidad_exp'];
           $id_usuario_exp = $_POST['id_usuario_exp'];
           $estadocaso_exp = $_POST['estadocaso_exp'];
-          $victima_hecho = $_POST['vic_exp'];
-          $documeto_agresor = $_POST['doca_exp'];
-          $ApellidosCuida =$_POST['noma_exp'];
-          $NombresCuida = $_POST['noma_exp'];
-          $edad_agresor = $_POST['edada_exp'];
-          $nivel_academico = $_POST['nivela_exp'];
-          $telefono_agresor = $_POST['numtele_exp'];
-          $parentesco_victima = $_POST['vinculo_agre'];
 
-
-
-
+    //Modificar los datos de la tabla expediente
           
           mysqli_query($con, "UPDATE expediente SET 
-          codigo_expediente='$codigo_expediente',
           Fecha_inicio_expediente='$fecha_exp',
           id_ninnos='$cod_exp',
           id_cuidadores='$cuidadores_exp',
@@ -610,6 +610,7 @@ echo "Agresor desconocido";
           id_estadocaso='$estadocaso_exp'
 
           WHERE codigo_expediente='$codigo_expediente'");
+
           mysqli_close($con);
             
 

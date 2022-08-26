@@ -289,6 +289,7 @@ if ($verdato == 49){include("menuadministrador/ConsultarAsignarMPC.php");}
 if ($verdato == 50){include("MPC/AsignarNNA.php");}
 if ($verdato == 51){include("Expediente/TotalExpedientes/ConsultarRegistrarExpediente.php");}
 if ($verdato == 52){include("Expediente/EliminarExpediente.php");}
+if ($verdato == 53){include("Expediente/ExpedientesRemitidos/ModificarAgresor.php");}
 
 
 

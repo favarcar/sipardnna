@@ -122,7 +122,7 @@ include("../../conexion/conexion.php");
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500"><a href="../../MenuComisariaFamilia.php">Volver Men&uacute; Principal</a></li>
                         <li role="presentation" class="letra n500"><a id="consultaBtn"href="../../MenuExpediente.php" >Consultar Expedientes</a></li>
-                        <li role="presentation" class="letra n500"><a href="../../Expediente/ExpedientesRemitidos/ConsultarExpedienteRemi.php">Remitir Expedientes</a></li>    
+                        <li role="presentation" class="letra n500"><a href="../../Expediente/ExpedientesRemitidos/ConsultarExpedienteRemi.php">Registrar Expedientes</a></li>    
                         <li role="presentation" class="letra n500"><a href="../../Expediente/TotalExpedientes/ConsultarTotalExpediente.php">Consultar Total de Expedientes</a></li>
                     </ul>
                     <input type="button" id="refresh"value="Actualizar" onclick="location.reload()"style="display:none"/>

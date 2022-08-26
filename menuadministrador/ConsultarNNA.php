@@ -135,7 +135,7 @@
                             <td class="col-md-4 control-label letra n600 azulo">Consultar</td>
                         </tr>
                         <tbody>
-                        <?php $busqueda = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY id_ninnos DESC " ); //cambiar nombre de la tabla de busqueda
+                        <?php $busqueda = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY Apellidos ASC " ); //cambiar nombre de la tabla de busqueda
                        while($row = mysqli_fetch_array($busqueda)){
                                 $apellidos          = $row['Apellidos'];
                                 $nombres            = $row['Nombres'];

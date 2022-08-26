@@ -1,5 +1,5 @@
 
-
+<!--Tabla para consultar o eliminar datos del NNA-->
 <form name="form1" method="post" action="main.php?key=14" id="cdr">
         <center><br>
             <h2 class="centrar letra n600 azulo pi">Consultar o Eliminar NNA</h2>
@@ -36,7 +36,7 @@
                                                                                                                                     }  ?> </td>
                             </tr>
                             <tr>
-
+                                <!--Tabla para consultar o eliminar datos del NNA-->
                                 <td class="col-md-4 control-label letra n600 azulo">Nombre</td>
                                 <td class="col-md-4 control-label letra n600 azulo">No. Documento</td>
                                 <td class="col-md-4 control-label letra n600 azulo">Pais</td>
@@ -50,7 +50,7 @@
                                 <td class="col-md-4 control-label letra n600 azulo">Eliminar</td>
 
                             </tr>
-                            <tbody>
+                            <tbody> <!--Buscar en la base de datos con numero de identificación o apellido a un NNA-->
                                 <?php
                                 $busca = "";
                                 $busca = $_POST['busca'];
@@ -104,13 +104,15 @@
                                                 ?></td>
                                             <td align="center">
                                                 <?php echo $edad;  ?></td>
+                                                <!--Consultar datos del NNA-->
                                                 <td align="center">
                                                         <a href="main.php?key=5&id_ninnos='.$id_ninnos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
-                                                    <td align="center">
+                                                   <!--Determinar si es posible eliminar datos del NNA-->
+                                                        <td align="center">
                                                         <?php 
                                                         if (!(consulta_campo('expediente','id_ninnos',$id_ninnos,'codigo_expediente'))){
-                                                            echo '<button class="btn btn-danger" onclick="javascript:Borra(\'ninnosnna\','.$id_ninnos.')"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';} 
-                                                            else{echo '<button class="btn btn-secundary  disabled data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
+                                                            echo '<a  class="btn btn-danger" href="javascript:borrado('.$id_ninnos.',\'ninnosnna\',\'id_ninnos\','.$verdato.')"><span class="glyphicon glyphicon-trash"></span>  Eliminar</a>';} 
+                                                            else{echo '<button class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
 
                                                     ?>
                                                     </td>
@@ -137,7 +139,7 @@
                                                                                                                                                     echo $nom_asignatura11 = $row4['count(id_ninnos)'];
                                                                                                                                                 }  ?> </td>
                                         </tr>
-                                        <tr>
+                                        <tr> <!--Tabla para consultar o eliminar datos del NNA-->
                                             <td class="col-md-4 control-label letra n600 azulo">Nombre</td>
                                             <td class="col-md-4 control-label letra n600 azulo">No. Documento</td>
                                             <td class="col-md-4 control-label letra n600 azulo">Pais</td>
@@ -151,8 +153,9 @@
                                             <td class="col-md-4 control-label letra n600 azulo">Eliminar</td>
                                         </tr>
                                         <tbody>
+                                            <!--Traer datos del NNA-->
                                             <?php
-                                            $busquedanna = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY Apellidos DESC " );
+                                            $busquedanna = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY Apellidos ASC " );
                                             while ($row = mysqli_fetch_array($busquedanna)) {
                                                 $id_pais = $row['id_pais'];
                                                 $id_departamento = $row['id_departamento'];
@@ -199,15 +202,18 @@
                                                         ?></td>
                                                     <td align="center">
                                                         <?php echo $edad;  ?></td>
+                                                        <!--Consultar los datos del NNA-->
                                                     <td align="center">
                                                         
                                                         <?php echo '<a href="main.php?key=5&id_ninnos='.$id_ninnos.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>';?>
                                                         
                                                         </td>
+
+                                                        <!--Determinar si es posible borara los datos del NNA-->
                                                     <td align="center">
                                                         <?php 
                                                         if (!(consulta_campo('expediente','id_ninnos',$id_ninnos,'codigo_expediente'))){
-                                                            echo '<button class="btn btn-danger" onclick="javascript:Borra(\'ninnosnna\','.$id_ninnos.')"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';} 
+                                                            echo '<a  class="btn btn-danger" href="javascript:borrado('.$id_ninnos.',\'ninnosnna\',\'id_ninnos\','.$verdato.')"><span class="glyphicon glyphicon-trash"></span>  Eliminar</a>';} 
                                                             else{echo '<button class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
 
                                                     ?>

@@ -16,7 +16,6 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500"><a href="main.php?key=43">Registrar MPC</a></li>
-                        <!--<li role="presentation" class="letra n500"><a href="main.php?key=23">Consultar MPC con NNA</a></li>-->
                         <li role="presentation" class="letra n500"><a href="main.php?key=49">Registrar o Asignar NNA</a></li>                        
                         <li role="presentation" class="letra n500"><a href="#">Eliminar MPC</a></li>
                     </ul>
@@ -49,7 +48,7 @@
                                             <td class="col-md-4 control-label letra n600 azulo">Municipio</td>
                                             <td class="col-md-4 control-label letra n600 azulo">Provincia</td>
                                             <td class="col-md-4 control-label letra n600 azulo">Edad</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Registrar, Consultar o Editar MPC</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Consultar MPC</td>
                                             <td class="col-md-4 control-label letra n600 azulo">Eliminar MPC</td>
                                         </tr>
                                         <tbody>
@@ -69,6 +68,8 @@
                                         $id_ninos           = $row['id_ninos'];
                                         $id_pais = $row['id_pais'];
                                         $id_departamento = $row['id_departamento'];
+                                        $id_cuidadores = $row['id_cuidadores'];
+
                                 ?>
                                         <tr>
                                             <td><?php echo $apellidos; ?>&nbsp;<?php echo $nombres; ?></td>
@@ -105,19 +106,13 @@
                                                 <?php echo $edad; ?>
                                             </td>
                                             <td align="center">
-                                            <?php 
-                                                    $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_ninos='$id_ninos' ");
-                                                    while ($row21 = mysqli_fetch_array($busqueda21)) {
-                                                        $id_cuidadores = $row21['id_cuidadores'];
-                                                        $id_ninos21 = $row21['id_ninos'];
-                                                    }
-                                                    ?>
-                                                            <?php echo'<a href="main.php?key=45&id_cuidadores'.$id_cuidadores.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>';
-                                                        ?>
+                                                        <!--Consultar datos del cuidador-->
+
+                                                        <a href="main.php?key=45&id_cuidadores=<?php echo $row['id_cuidadores']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
                                                         <br>
                                                         <?php
-                                                        $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores ");
-                                                        while ($row21 = mysqli_fetch_array($busqueda21)) {
+                                                        $busquedaexpe = mysqli_query($con, "SELECT * FROM expediente ");
+                                                        while ($row21 = mysqli_fetch_array($busquedaexpe)) {
                                                        $id_cuida21 = $row21['id_cuidadores'];  
                                                        $id_ninos21 = $row['id_ninos'];
 
@@ -125,7 +120,6 @@
                                                     }
                                                                                                              
                                                         
-                                                       // echo '<br><a href="main.php?key=44&id_cuidadores='.$id_cuida21.'"class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar NNA"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
                                                         ?>
                                                         </td> 
                                                     
@@ -134,17 +128,18 @@
                                                         ?>
 
                                                 <td>
-                                                
+                                                <!--Consultar si el cuidador tiene expediente y si es así no puede ser eliminado-->
                                                     <?php 
-                                                    if ($id_ninos == $id_ninos21){
-                                                        if(consulta_campo('expediente','id_cuidadores',$id_cuidadores,'codigo_expediente')){
-                                                            echo '<button class="btn btn-danger" onclick="javascript:Borra(\'cuidadores\','.$id_cuidadores.')"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';} 
-                                                            else{echo '<button class="btn btn-secundary  disabled data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a>';}
+                                                    if ($id_cuidadores != $id_cuida21){
+                                                        if (!(consulta_campo('expediente','id_cuidadores',$id_cuidadores,'codigo_expediente'))){
+                                                            echo '<a  class="btn btn-danger" href="javascript:borrado('.$id_cuidadores.',\'cuidadores\',\'id_cuidadores\','.$verdato.')"><span class="glyphicon glyphicon-trash"></span>  Eliminar</a>';} 
+                                                            else{echo '<button class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
                                                         }
-                                                        else if($id_ninos != $id_ninos21){echo '<button class="btn btn-secundary  disabled data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
+                                                        else if($id_cuidadores != $id_cuida21){echo '<button class="btn btn-secundary  disabled data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
 
 
-                                                    }} ?> 
+                                                  }
+                                                   } ?> 
                         </table>
                     <?php
                 } else {
@@ -170,12 +165,12 @@
                                             <td class="col-md-4 control-label letra n600 azulo">Municipio</td>
                                             <td class="col-md-4 control-label letra n600 azulo">Provincia</td>
                                             <td class="col-md-4 control-label letra n600 azulo">Edad</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Registrar, Consultar o Editar MPC</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Consultar MPC</td>
                                             <td class="col-md-4 control-label letra n600 azulo">Eliminar MPC</td>
                                         </tr>
                                         <tbody>
                                             <?php
-	                                        $busqueda = mysqli_query($con,"SELECT * FROM cuidadores  WHERE id_municipio ='$id_municipio' ORDER BY Apellidos_cuidadores DESC " ); //cambiar nombre de la tabla de busqueda
+	                                        $busqueda = mysqli_query($con,"SELECT * FROM cuidadores  WHERE id_municipio ='$id_municipio' ORDER BY Apellidos_cuidadores ASC " ); //cambiar nombre de la tabla de busqueda
                                             while ($row = mysqli_fetch_array($busqueda)) {
                                                 $apellidos = $row['Apellidos_cuidadores'];
                                                 $nombres = $row['Nombres_cuidadores'];
@@ -185,7 +180,7 @@
                                                 $id_municipio = $row['id_municipio'];
                                                 $id_provincia = $row['id_provincia'];
                                                 $edad = $row['Edad'];
-                                                $id_ninos = $row['id_cuidadores'];
+                                                $id_cuidadores = $row['id_cuidadores'];
                                             ?>
                                                 <tr>
                                                     <td><?php echo $apellidos; ?>&nbsp;<?php echo $nombres; ?></td>
@@ -226,48 +221,40 @@
                                                         <?php echo $edad;  ?>
                                                     </td>
                                                     <td align="center">
-                                                        <?php
-                                                        $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores where id_cuidadores='$id_ninos'  ");
-                                                        while ($row21 = mysqli_fetch_array($busqueda21)) {
-                                                            $id_cuidadores = $row21['id_cuidadores'];
-                                                            $id_ninos21 = $row21['id_ninos'];
-                                                            
-                                                        }
-                                                       /* $id_ninnosa = $_GET['id_ninnos'];
-                                                        $busqueda21 = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnosa'  ");
-                                                        while ($row21 = mysqli_fetch_array($busqueda21)) {
-                                                            $id_ninosnna = $row21['id_ninnos'];
-                                                            $id_cuida = $row21['id_cuidadores'];                                                           
-                                                            
-                                                        }*/
-                                                            ?>
-                                                            <?php echo'<a href="main.php?key=45&id_cuidadores='.$id_cuidadores.'" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>';
-                                                        ?>
+                                                        <!--Consultar datos del cuidador-->
+
+                                                        <a href="main.php?key=45&id_cuidadores=<?php echo $row['id_cuidadores']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
+                                                        
                                                         <br>
-                                                        <?php                                                                                                                                                              
-                                                        // echo '<br><a href="main.php?key=44&id_cuidadores='.$id_cuidadores.'"class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Registrar NNA"><span class="glyphicon glyphicon-edit"></span> Registrar</a>';
+                                                        <?php
+                                                        $busquedaexpe = mysqli_query($con, "SELECT * FROM expediente ");
+                                                        while ($row21 = mysqli_fetch_array($busquedaexpe)) {
+                                                       $id_cuida21 = $row21['id_cuidadores'];  
+                                                       $id_ninos21 = $row['id_ninos'];
+
+                                                    
+                                                    }
+                                                                                                             
+                                                        
                                                         ?>
                                                         </td> 
                                                     
                                                     <?php
-                                                         $busqueda21 = mysqli_query($con, "SELECT * FROM cuidadores ");
-                                                         while ($row21 = mysqli_fetch_array($busqueda21)) {
-                                                        $id_cuida21 = $row21['id_cuidadores'];  }
+                                                        
                                                         ?>
 
                                                 <td>
-                                                
+                                                <!--Consultar si el cuidador tiene expediente y si es así no puede ser eliminado-->
                                                     <?php 
-                                                    if ($id_ninos == $id_ninos21){
-                                                        if(consulta_campo('expediente','id_cuidadores',$id_cuidadores,'codigo_expediente')){
-                                                            echo '<button class="btn btn-danger" onclick="javascript:Borra(\'cuidadores\','.$id_cuidadores.')"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';} 
+                                                    if ($id_cuidadores != $id_cuida21){
+                                                        if (!(consulta_campo('expediente','id_cuidadores',$id_cuidadores,'codigo_expediente'))){
+                                                            echo '<a  class="btn btn-danger" href="javascript:borrado('.$id_cuidadores.',\'cuidadores\',\'id_cuidadores\','.$verdato.')"><span class="glyphicon glyphicon-trash"></span>  Eliminar</a>';} 
                                                             else{echo '<button class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
                                                         }
-                                                        else if($id_ninos != $id_ninos21){echo '<button class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="Tiene NNA asignado"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
+                                                        else if($id_cuidadores != $id_cuida21){echo '<button class="btn btn-secundary  disabled data-toggle="tooltip" data-placement="bottom" title="No tiene cuidador asignado"><span class="glyphicon glyphicon-trash"></span> Eliminar</a></h5>';}
 
 
-                                                    } ?>  
-
+                                                   } ?> 
                                                 </td> 
                                              
                                                                                                                                                    

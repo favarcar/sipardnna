@@ -226,7 +226,7 @@ while($row=mysqli_fetch_array($busqueda)){
 				<tbody>
 	 <?php
 
-$busqueda=mysqli_query($con,"SELECT * FROM ninnosnna where id_usuario='$id_usuario' order by id_ninnos  desc ");//cambiar nombre de la tabla de busqueda
+$busqueda=mysqli_query($con,"SELECT * FROM ninnosnna where id_usuario='$id_usuario' order by id_ninnos  asc ");//cambiar nombre de la tabla de busqueda
 while($row=mysqli_fetch_array($busqueda)){
 						
          $apellidos=$row['Apellidos'];

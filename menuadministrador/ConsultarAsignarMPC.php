@@ -174,8 +174,8 @@
                                             
 	                                        <?php 
                                             
-
-	                                        $busquedacui = mysqli_query($con,"SELECT * FROM cuidadores  WHERE id_municipio ='$id_municipio' ORDER BY Apellidos_cuidadores DESC " ); //cambiar nombre de la tabla de busqueda
+                                            //Traer en la tabla de cuidadores para asignar NNA
+	                                        $busquedacui = mysqli_query($con,"SELECT * FROM cuidadores  WHERE id_municipio ='$id_municipio' ORDER BY Apellidos_cuidadores ASC " ); 
                                             while ($row = mysqli_fetch_array($busquedacui)) {
                                                 $apellidos          = $row['Apellidos_cuidadores'];
                                                 $nombres            = $row['Nombres_cuidadores'];

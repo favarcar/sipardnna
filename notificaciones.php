@@ -21,8 +21,9 @@ date_default_timezone_set('America/Bogota');
     <div class="table-responsive"> 
     <table class="table table-striped table-bordered">
     <fieldset>
-            
-            
+    <tr>
+        <td colspan="11" class="letra n600 azulo" bgcolor="#ff9933">Notificación de expedientes:
+</tr>            
             <tr>
                 <td class="centrar letra n600 azulo pi" >No.</td>
                 <td class="centrar letra n600 azulo pi" >Fecha </td>
