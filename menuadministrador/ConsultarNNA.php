@@ -94,7 +94,7 @@
                                             
 
                                             <?php if($nuser == 1 || $nuser == 2) { ?>
-                                            -->    
+                                                
 
                                             <?php  } 
                                                    elseif($nuser == 3) {
@@ -176,8 +176,7 @@
                                         } ?>
                                     </td>
                                     <td align="center"> <?php echo $edad;  ?></td>
-                                    <td align="center">
-                                        
+                                       
                                     <td align="center">
 
                                             <?php if($nuser == 1 || $nuser == 2) { ?>

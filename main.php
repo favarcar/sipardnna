@@ -180,7 +180,32 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
         </ul>
       </li>
       <!--Restricción por niveles de acceso al menú -->
-     <?php if($nuser == 1 || $nuser == 2){?>
+     <?php if($nuser == 1){?>
+      <li class="dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Registrar
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="main.php?key=8">Niños niñas o adolescentes</a></li>
+          <li><a href="main.php?key=43">Madre, Padre o Cuidador</a></li>
+          <li><a href="main.php?key=51">Expedientes</a></li>
+        </ul>
+        <li class="dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Administrador
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="main.php?key=54">Usuarios</a></li>
+          <li><a href="main.php?key=60">Discapacidad</a></li>
+          <li><a href="main.php?key=64">Entidad</a></li>
+          <li><a href="main.php?key=70">EPS</a></li>
+          <li><a href="main.php?key=75">Etnias</a></li>
+          <li><a href="main.php?key=80">Clasificación del proceso</a></li>
+          <li><a href="main.php?key=85">Lugar de los hechos</a></li>
+          <li><a href="main.php?key=90">Tipo de maltrato</a></li>
+        </ul>        
+        <li><a href="main.php?key=4">Mi usuario</a></li>
+      </li>
+	  <?php } ?>
+    <?php if($nuser == 2){?>
       <li class="dropdown">
         <a class="dropdown-toggle" href="#" data-toggle="dropdown">Registrar
         <span class="caret"></span></a>
@@ -237,6 +262,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
 <?php
 if ($verdato == 0 &&  $nuser == 3){include("home_consulta.php");}
 if ($verdato == 0 && $nuser == 2){include("home_registro.php");}
+if ($verdato == 0 && $nuser == 1){include("home_administrador.php");}
 if ($verdato == 1){include("menuadministrador/ConsultarNNA.php");}
 if ($verdato == 2){include("menuadministrador/ConsultarMPC.php");}
 if ($verdato == 3){include("menuadministrador/TotalExpedientes/ConsultarTotalExpediente.php");}
@@ -290,6 +316,50 @@ if ($verdato == 50){include("MPC/AsignarNNA.php");}
 if ($verdato == 51){include("Expediente/TotalExpedientes/ConsultarRegistrarExpediente.php");}
 if ($verdato == 52){include("Expediente/EliminarExpediente.php");}
 if ($verdato == 53){include("Expediente/ExpedientesRemitidos/ModificarAgresor.php");}
+if ($verdato == 54){include("admin/menusuario.php");}
+if ($verdato == 55){include("admin/consultarusuario.php");}
+if ($verdato == 56){include("admin/ver_meta.php");}
+if ($verdato == 57){include("admin/modificarUsuario.php");}
+if ($verdato == 58){include("admin/modificarUsuario_pos.php");}
+if ($verdato == 59){include("Usuarios/UsuariosRegistrados.php");}
+if ($verdato == 60){include("admin/disca_nuevo.php");}
+if ($verdato == 61){include("admin/disca_edit.php");}
+if ($verdato == 62){include("admin/disca_edit_pos.php");}
+if ($verdato == 63){include("admin/disca_nuevo_pos.php");}
+if ($verdato == 64){include("admin/entidad_nuevo.php");}
+if ($verdato == 65){include("admin/entidad_edit.php");}
+if ($verdato == 66){include("admin/entidad_edit_pos.php");}
+if ($verdato == 67){include("admin/entidad_nuevo_pos.php");}
+if ($verdato == 68){include("admin/disca_ver.php");}
+if ($verdato == 69){include("admin/entidad_ver.php");}
+if ($verdato == 70){include("admin/eps_nuevo.php");}
+if ($verdato == 71){include("admin/eps_edit.php");}
+if ($verdato == 72){include("admin/eps_edit_pos.php");}
+if ($verdato == 73){include("admin/eps_nuevo_pos.php");}
+if ($verdato == 74){include("admin/eps_ver.php");}
+if ($verdato == 75){include("admin/etnias_nuevo.php");}
+if ($verdato == 76){include("admin/etnias_edit.php");}
+if ($verdato == 77){include("admin/etnias_edit_pos.php");}
+if ($verdato == 78){include("admin/etnias_nuevo_pos.php");}
+if ($verdato == 79){include("admin/etnias_ver.php");}
+if ($verdato == 80){include("admin/indicadores_nuevo.php");}
+if ($verdato == 81){include("admin/indicadores_edit.php");}
+if ($verdato == 82){include("admin/indicadores_edit_pos.php");}
+if ($verdato == 83){include("admin/indicadores_nuevo_pos.php");}
+if ($verdato == 84){include("admin/indicadores_ver.php");}
+if ($verdato == 85){include("admin/lugar_nuevo.php");}
+if ($verdato == 86){include("admin/lugar_edit.php");}
+if ($verdato == 87){include("admin/lugar_edit_pos.php");}
+if ($verdato == 88){include("admin/lugar_nuevo_pos.php");}
+if ($verdato == 89){include("admin/lugar_ver.php");}
+if ($verdato == 90){include("admin/maltrato_nuevo.php");}
+if ($verdato == 91){include("admin/maltrato_edit.php");}
+if ($verdato == 92){include("admin/maltrato_edit_pos.php");}
+if ($verdato == 93){include("admin/maltrato_nuevo_pos.php");}
+if ($verdato == 94){include("admin/maltrato_ver.php");}
+
+
+
 
 
 

@@ -321,7 +321,7 @@ self.location = "index.html"
     
         <!-- Ocultar datos del presunto agresor con data-toggle-->
         <div class="container">
-      <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#datosAgresor"  aria-expanded="false" aria-controls="#datosAgresor"><span class="glyphicon glyphicon-circle-arrow-down"></span> Datos del Agresor</button>
+      <button type="button" class="btn btn-warning btn-block" data-toggle="collapse" data-target="#datosAgresor"  aria-expanded="false" aria-controls="#datosAgresor"><span class="glyphicon glyphicon-circle-arrow-down"></span> DATOS DEL AGRESOR</button>
       <div id="datosAgresor" class="collapse">
 
 
@@ -424,7 +424,7 @@ self.location = "index.html"
             </div>
     <!-- Ocultar datos de pard con data-toggle-->
     <div class="container">
-      <button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#pardsi" aria-expanded="false" aria-controls="pardsi"><span class="glyphicon glyphicon-circle-arrow-down"></span> Requiere Pard </button>
+      <button type="button" class="btn btn-warning btn-block" data-toggle="collapse" data-target="#pardsi" aria-expanded="false" aria-controls="pardsi"><span class="glyphicon glyphicon-circle-arrow-down"></span> REQUIERE PARD</button>
       <div id="pardsi" class="collapse">
 
            <!--Registro del PARD -->

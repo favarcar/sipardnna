@@ -46,7 +46,7 @@
             <section>
                 <div class="container pi">
                     <?php
-                        include("../conexion/conexion.php");
+                       
                         if(isset($_POST['Submit'])){ ?>
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered">

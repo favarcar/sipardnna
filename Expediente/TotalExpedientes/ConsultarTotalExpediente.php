@@ -135,7 +135,9 @@
                                         <td class="col-md-4 control-label letra n600 azulo">Consultar Expedientes</td> 
                                     </tr>
                                     <tbody>
-	<?php $busquenna = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY Apellidos ASC " ); 
+	<?php 
+    
+    $busquenna = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY Apellidos ASC " ); 
          while($row = mysqli_fetch_array($busquenna)){
              $apellidos = $row['Apellidos'];
              $nombres = $row['Nombres'];

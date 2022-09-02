@@ -4,6 +4,8 @@ date_default_timezone_set('UTC');
 // Una forma de expresar la fecha 
 //los demas valores de usuario se toman de main.php
 
+///Consultar la tabla usuarios
+
 $busqueda = mysqli_query($con, "SELECT * FROM usuarios WHERE numero_documento = '$id_usuario' ");//cambiar nombre de la tabla de busqueda
 while($row = mysqli_fetch_array($busqueda)){			
     $id_usuario1        = $row['id_usuario'];        
@@ -178,28 +180,32 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                     </div>
                 </div>                                     
                 <div class="form-group">
-                    <label class="col-md-4 control-label letra n600 azulo" for="textinput">Tipo de</label>  
+                    <label class="col-md-4 control-label letra n600 azulo" for="textinput">Tipo de perfil</label>  
                     <div class="col-md-8">
                         <input id="textinput" name="id_entidad" type="text" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $id_entidad ?>"readonly>                      
                     </div>
                 </div>
-
-                <?php if($nuser == 1){?>
-      <li class="dropdown">
-        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Registrar
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">                          
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="singlebutton"></label>
+                    <label class="col-md-4 control-label letra n600 azulo" for="textinput">Contraseña</label>  
                     <div class="col-md-8">
-                        <button id="singlebutton" name="singlebutton" class="btn btn-primary">Actualizar</button>
+                        <input id="textinput" name="clave" type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave ?>">                      
                     </div>
-                </div>    
-                </ul>
-      </li>
-	  <?php } ?>           
+                </div>
+                                </div>
+                                <!--Actualizar informacion en la tabla usuarios excepto el nivel 3-->
+                                <?php if($nuser == 1 || $nuser == 2){?>
+
+                                <div class="form-group <?= $visiblemod ?>" >
+                        <label class="col-md-8 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <button id="singlebutton" name="singlebutton" class="btn btn-primary" >Actualizar</button><br><br>
+                        </div>
+                        <?php } ?>                                                 
+           
         </form>
-    </div>                
+    </div>    
+   </div> <br>
+
                 <div class="form-group" style="display:none">
                     <label class="col-md-4 control-label letra n600 azulo" for="radios">Autorizar Acceso<span class="centrar letra n600 azulo pi"></span></label>
                     <div class="col-md-8"> 
@@ -210,7 +216,8 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                             <input <?php if($estado=="0"){echo "checked";} ?> value="0" type="radio" name="estado"/>Denegado     
                         </label>                  
                     </div>
-                </div>                 
+                </div>  
+                               
                 </fieldset>                
 
     <?php 
@@ -226,27 +233,13 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
             $tel_usu=$_POST['tel_usu'];
             $email_usu=$_POST['email_usu'];
             $usuario_usu=$_POST['usuario_usu'];
-            $contra_usu=$_POST['contra_usu'];
+            $clave=$_POST['clave'];
             $id_entidad=$_POST['id_entidad'];
             $estado=$_POST['estado'];
             $fecha_ing =$_POST['fecha'];
             
             mysqli_query($con,"UPDATE `usuarios` SET 
-                id_usuario='$id_usu',
-                apellidos='$ape_usu',
-                nombres='$nom_usu',
-                id_tipo_documento='$tip_doc_usu',
-                numero_documento='$num_doc_usu',
-                id_genero='$genero_usu',
-                id_municipio='$municipio_usu',
-                telefono='$tel_usu',
-                usuario='$usuario_usu',
-                clave='$contra_usu',
-                correo='$email_usu',
-                id_perfil='$cargo_usu',
-                id_entidad=' $id_entidad',
-                estado='$estado',
-                fecha_registro='$fecha_ing' 
+                clave='$clave'
                 WHERE numero_documento='$id_usuario'");
 
             mysqli_close($con);

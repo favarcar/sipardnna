@@ -17,7 +17,7 @@ $contrasena_md5 = md5($contrasena);
 
 //Consultar si los datos son est�n guardados en la base de datos
 $consulta= "SELECT * FROM usuarios WHERE usuario = '".$usuario."' AND clave = '".$contrasena_md5."' AND estado = 1";
-$resultado = mysqli_query ($con,$consulta) or die (mysqli_error());
+$resultado = mysqli_query ($con,$consulta) or die (mysqli_error($con));
 $fila = mysqli_fetch_array($resultado);
 
 if (!$fila[0]) //opcion1: Si el usuario NO existe o los datos son INCORRRECTOS
@@ -34,7 +34,7 @@ else //opcion2: Usuario logueado correctamente
 	$_SESSION['numero_documento'] = $fila['numero_documento'];
 
 	$con1= "SELECT * FROM usuarios WHERE usuario = '".$usuario."' AND clave='".$contrasena_md5."' AND estado = 1";
-	$resultado1 = mysqli_query ($con,$con1) or die (mysqli_error());
+	$resultado1 = mysqli_query ($con,$con1) or die (mysqli_error($con));
 
 header("Location: main.php?key=0");
 

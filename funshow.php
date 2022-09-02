@@ -312,18 +312,42 @@ function mask_val($val, $campo){
 function mask_field($campo){
 
 	switch ($campo){
-	case "Fecha_exp":
-		return "Fecha de expedición";
+	case "id_municipio":
+		return "Codigo municipo";
 	break;
+
+	case "id_genero":
+		return "Genero";
+	break;
+
+		case "nombres":
+		return "Nombres";
+	break;
+
+	case "apellidos":
+		return "Apellidos";
+	break;	
+
+	case "numero_documento":
+		return "N. de documento";
+	break;
+	
+	case "telefono":
+		return "Teléfono";
+	break;	
+
+	case "usuario":
+		return "Usuario";
+	break;	
 		default:
-			return str_replace("_"," ",$campo);
+			return str_replace("_"," ",$campo);		
 	}
 
 }
 # Funcion para esconder las columnas de la tabla
 function colvisible($idvar)
 {
-if ($idvar == "Id_certifica" | $idvar == "Id" | $idvar == "Usuario" | $idvar == "Fecha_mod" |  $idvar == "Adjunto" | $idvar == "Cer_digital" | $idvar == "Notas" ||  $idvar == "Id_datcer" || $idvar == "Residuo" || $idvar == "Password"){
+if ($idvar == "id_perfil" | $idvar == "id municipio" | $idvar == "id_entidad" | $idvar == "Nivel" |  $idvar == "estado" | $idvar == "id_tipo_documento" | $idvar == "Notas" ||  $idvar == "correo" || $idvar == "fecha_registro" || $idvar == "clave"){
 $visible = "none";
 }
 else{$visible = "table-cell";}
@@ -385,7 +409,39 @@ $control = 	'<input type="text" name="'.$field.'" id="'.$field.'" value="'.$valu
 	}
 return $control;
 
-	}
+# Funcion para esconder las columnas de la tabla
+function colvisible($idvar)
+{
+if ($idvar == "" | $idvar == "id_usuario" | $idvar == "id_usuario" | $idvar == "Usuario" ){
+$visible = "none";
+}
+else{$visible = "table-cell";}
+return $visible;
+}
+
+// Funcion para describir los campos de forma legible para el usuario
+function mask_val($val, $campo){
+
+	switch ($campo){
+		case "fecha_registro":
+	    return	fecha_h($val);
+			break;
+		case "id_usuario":
+		return consulta_campo("usuarios","id_usuario",$val,"nombres");
+		    break;
+		case "id_usuario":
+		 return consulta_campo("usuarios","id_usuario",$val,"apellidos");
+		break;
+		case "Id_usuario":
+		 return consulta_campo("usuarios","id_usuario",$val,"numero_documento");
+		break;
+			case "id_usuario":
+			return consulta_campo("usuarios","id_usuario",$val,"usuario");
+		default:
+			return $val;
+	}	
+}
+}
 
 
 	

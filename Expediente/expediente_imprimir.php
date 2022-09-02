@@ -41,12 +41,12 @@ for($x = 0; $x < $arrlength; $x++){
 $numreg++;
 
 //Datos de certificado estratificación
-$cer = mysqli_query($cone,"SELECT * FROM certificados WHERE Id_certifica = '".$allids[$x]."'")or die(mysqli_error($cone));
+$cer = mysqli_query($con ,"SELECT * FROM certificados WHERE Id_certifica = '".$allids[$x]."'")or die(mysqli_error($con ));
 $row_cer = mysqli_fetch_assoc($cer);
 
 //Datos del certificado para imprimir
-//$datoscer = mysqli_query($cone,"SELECT * FROM datos_certificado WHERE Id_dato = '{$row_cer['Id_datcer']}'")or die(mysqli_error($cone));
-$datoscer = mysqli_query($cone,"SELECT * FROM datos_certificado ORDER BY Id_dato DESC LIMIT 1")or die(mysqli_error($cone));
+//$datoscer = mysqli_query($con ,"SELECT * FROM datos_certificado WHERE Id_dato = '{$row_cer['Id_datcer']}'")or die(mysqli_error($con ));
+$datoscer = mysqli_query($con ,"SELECT * FROM datos_certificado ORDER BY Id_dato DESC LIMIT 1")or die(mysqli_error($con ));
 $row_datoscer = mysqli_fetch_assoc($datoscer);
 
 //Datos de usuario para la firma

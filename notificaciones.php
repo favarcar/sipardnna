@@ -96,6 +96,7 @@ date_default_timezone_set('America/Bogota');
         </table>
         </div>                                                     
         </fieldset>
+        <div class="container" style="padding-top: 13%;"></div>
     <div class="clearfix"></div>
             </section>
             
