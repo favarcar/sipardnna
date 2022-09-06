@@ -1,10 +1,10 @@
-<title>Editar - Tipo de maltrato</title>
+<title>Editar - Perfiles</title>
 
 <?php
 
-$tabla="maltratos";
-$id="id_maltrato";
-$keydes = 90;
+$tabla="perfiles";
+$id="id_perfil";
+$keydes = 110;
 $cod_uso = $_GET['Id'];
 // Se listan todos los campos de la tabla
 $usosql = mysqli_query($con,"DESCRIBE $tabla");
@@ -17,7 +17,7 @@ $rusosql = mysqli_fetch_assoc($usosql);
 </head>
 
 <body>
-<h2>Editar - Tipo de maltrato</h2>
+<h2>Editar perfiles</h2>
 
 
   <?php

@@ -1,7 +1,8 @@
 
 <?php
-$tabla="discapacidades";
-$id="id_discapacidad";
+$tabla="usuarios";
+$id="id_usuario";
+
 
 //Consulta para listar los campos y sus propiedades para construir el formulario
 $field_tit = mysqli_query($con,"DESCRIBE $tabla");
@@ -16,19 +17,41 @@ $columnas = mysqli_fetch_fields($sql);
 $documento  = mysqli_query($con, "SELECT * FROM tipos_documentos")or die(mysqli_error($con));
 $row_doc = mysqli_fetch_assoc($documento);
 
+//listado de generos
+$genero  = mysqli_query($con, "SELECT * FROM generos")or die(mysqli_error($con));
+$row_gen = mysqli_fetch_assoc($genero);
 
+//listado de municipio
+$municipio  = mysqli_query($con, "SELECT * FROM municipios")or die(mysqli_error($con));
+$row_mun = mysqli_fetch_assoc($municipio);
+
+//password
+$clave  = mysqli_query($con, "SELECT * FROM usuarios")or die(mysqli_error($con));
+$row_cla = mysqli_fetch_assoc($clave);
+
+//listado de perfil
+$perfil  = mysqli_query($con, "SELECT * FROM perfiles")or die(mysqli_error($con));
+$row_per = mysqli_fetch_assoc($perfil);
+
+//listado de entidades
+$entidad  = mysqli_query($con, "SELECT * FROM entidades")or die(mysqli_error($con));
+$row_ent = mysqli_fetch_assoc($entidad);
+
+//fecha
+$fecha  = mysqli_query($con, "SELECT * FROM usuarios")or die(mysqli_error($con));
+$row_fecha = mysqli_fetch_assoc($fecha);
   ?>
 
 
 <div  id="form_add" class="collapse">
 <br>	
-<center><h3 >Ingresar nueva discapacidad</h3></center>
-<form action="main.php?key=63" method="post" enctype="multipart/form-data" name="nuevo_reg" target="_self" id="nuevo_reg">
+<center><h3 >Ingresar el nuevo usuario</h3></center>
+<form action="main.php?key=57" method="post" enctype="multipart/form-data" name="nuevo_reg" target="_self" id="nuevo_reg">
   <?php do{?>
   <?php
-//Si es la actividad, cargue el listado tipo de documentos
+//Si es el registro, cargue el listado tipo de documentos
 if($r_fieldi_tit['Field'] == "id_tipo_documento"){
-	//Se construye select plan
+	//Se construye select campo
 	echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>
 	<select name="'.$r_fieldi_tit['Field'].'" class="form-control" required="required" >
 	 <option value="" selected="selected" >Seleccionar...</option>';
@@ -38,9 +61,9 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 	echo '</select>';
 }
 
-	//Si es la actividad, cargue el listado de generos
+	//Si es el registro, cargue el listado de generos
 	else if($r_fieldi_tit['Field'] == "id_genero"){
-		//Se construye select plan
+		//Se construye select campo
 		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>
 		<select name="'.$r_fieldi_tit['Field'].'" class="form-control" required="required" >
 		 <option value="" selected="selected" >Seleccionar...</option>';
@@ -50,9 +73,9 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 		echo '</select>';
 	}
 
-	//Si es la actividad, cargue el listado de municipios
+	//Si es el registro, cargue el listado de municipios
 	else if($r_fieldi_tit['Field'] == "id_municipio"){
-		//Se construye select plan
+		//Se construye select campo
 		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>
 		<select name="'.$r_fieldi_tit['Field'].'" class="form-control" required="required" >
 		 <option value="" selected="selected" >Seleccionar...</option>';
@@ -61,16 +84,17 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 	 } while ($row_mun = mysqli_fetch_assoc($municipio));
 		echo '</select>';
 	}
-	//Si es la actividad, cargue el listado de municipios
-	else if($r_fieldi_tit['Field'] == "clave"){
-		//Se construye select plan
+	//Si es el registro, cargue el listado de municipios
+	/*else if($r_fieldi_tit['Field'] == "clave"){
+		//Se construye select campo
 		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
-		echo '<input type="password" placeholder="" class="form-control input-md" required>';
+		echo '<input type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave ?>">';
+        while ($row_cla = mysqli_fetch_assoc($clave));
 
-	}
-	//Si es la actividad, cargue el listado de perfil
+	}*/
+	//Si es el registro, cargue el listado de perfil
 	else if($r_fieldi_tit['Field'] == "id_perfil"){
-		//Se construye select plan
+		//Se construye select campo
 		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>
 		<select name="'.$r_fieldi_tit['Field'].'" class="form-control" required="required" >
 		 <option value="" selected="selected" >Seleccionar...</option>';
@@ -80,9 +104,9 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 		echo '</select>';
 
 	}
-	//Si es la actividad, cargue el listado de entidad
+	//Si es el registro, cargue el listado de entidad
 	else if($r_fieldi_tit['Field'] == "id_entidad"){
-		//Se construye select plan
+		//Se construye select campo
 		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>
 		<select name="'.$r_fieldi_tit['Field'].'" class="form-control" required="required" >
 		 <option value="" selected="selected" >Seleccionar...</option>';
@@ -90,13 +114,20 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 		 echo '<option value="'.$row_ent['id_entidad'].'">'.$row_ent['descripcion_entidades'].'</option>';
 	 } while ($row_ent = mysqli_fetch_assoc($entidad));
 		echo '</select>';
+
+
 		
 }elseif($r_fieldi_tit['Key'] == "PRI"){
    continue;
+}elseif($r_fieldi_tit['Field'] == "fecha_registro"){
+	continue;
 }else{
 echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
    echo define_input($r_fieldi_tit['Type'], $r_fieldi_tit['Field'], "",$r_fieldi_tit['Null'] );
     }
+	
+
+
     ?>
 
    <?php } while ($r_fieldi_tit = mysqli_fetch_assoc($field_tit)); ?>
@@ -147,9 +178,9 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
 			<!--botones agrupados-->
 <div id="botones_com" style="display:<?php echo  $visiblevisit ?>; style="float: left;">
    <!--boton ver-->
-  <a href="main.php?key=68&Id=<?= $row_sql[$id] ?>"  class="btn btn-primary btn-sm" style="display:<?=$visible;?>"><span class="glyphicon glyphicon-search"></span></a>
+  <a href="main.php?key=58&Id=<?= $row_sql[$id] ?>"  class="btn btn-primary btn-sm" style="display:<?=$visible;?>"><span class="glyphicon glyphicon-search"></span></a>
 	<!--boton editar-->
-<a href="main.php?key=61&Id=<?php echo $row_sql['id_discapacidad']; ?>" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit"></span></a>	
+<a href="main.php?key=55&Id=<?php echo $row_sql[$id]; ?>" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit"></span></a>	
 <!--boton eliminar-->
 	<a href="javascript:borrado(<?php echo $row_sql[$id];?>,'<?= $tabla ?>','<?= $id ?>',<?php echo $verdato; ?>)"class="btn btn-danger btn-sm" style="display:<?=$visible;?>"><i class="fa fa-trash"> </i></a>
 	</div>
@@ -162,11 +193,12 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
 			if($valor->name == $id){continue;}
 			echo  '<td style="display:'.colvisible($valor->name).'">'.mask_val($row_sql[$valor->name],$valor->name).'</td>';
 	}
+     
+
 		?>
       </tr>
     <?php } while ($row_sql = mysqli_fetch_assoc($sql))?>
     </tbody>
   </table>
   <!-- Configuracion para que el pie de pagina no quede tan arriba-->
-  <div class="container" style="padding-top: 7%;"></div>
-  
+  <div class="container" style="padding-top: 18%;"></div>

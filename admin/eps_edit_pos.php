@@ -3,7 +3,7 @@
 <?php
 
 $tabla="eps";
-$id="id_eps";
+$id="id_e";
 $keydes = 71;
 $cod_uso = $_GET['Id'];
 // Se listan todos los campos de la tabla
@@ -37,5 +37,9 @@ mysqli_query($con,"UPDATE $tabla SET $valorsupdate WHERE $id = '$cod_uso'")or di
 
 echo '<div class="alert alert-success">El registro se ha actualizado <a href="main.php?key='.$keydes.'&Id='.$cod_uso.'" class="btn btn-success"><i class="fa fa-arrow-left"></i>Regresar</a></div>';
   ?>
+      <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+      <div class="container" style="padding-top: 50%;"></div>
+
 </body>
 </html>
+

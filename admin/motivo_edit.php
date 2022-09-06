@@ -1,7 +1,7 @@
 <?php
-$tabla="eps";
-$id="id_e";
-$keydes = 72;
+$tabla="motivoingreso";
+$id="id_motivo";
+$keydes = 97;
 $cod_uso = $_GET['Id'];
 //Consulta para listar los campos y sus propiedades para construir el formulario
 $field_tit = mysqli_query($con,"DESCRIBE $tabla");
@@ -16,8 +16,8 @@ $r_fieldi_tit = mysqli_fetch_assoc($field_tit);
 ?>
 
                     <div class="box-header with-border">
-                      <h3 class="box-title">Editar EPS</h3>
-                      <a href="main.php?key=70" class="btn btn-primary"><i class="fa fa-arrow-left"></i>Regresar</a>
+                      <h3 class="box-title">Editar motivo de ingreso</h3>
+                      <a href="main.php?key=95" class="btn btn-primary"><i class="fa fa-arrow-left"></i>Regresar</a>
                       <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                     title="Collapse"> <i class="fa fa-minus"></i></button>

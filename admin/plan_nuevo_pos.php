@@ -18,3 +18,5 @@ mysqli_query($cone,"INSERT $tabla ($campos) VALUES ($valorsupdate )") or die(mys
 echo '<div class="alert alert-success">El registro se ha creado <a href="main.php?key=6" class="btn btn-success"><i class="fa fa-arrow-left"></i>Regresar</a></div>';
 
   ?>
+      <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+      <div class="container" style="padding-top: 55%;"></div>

@@ -1,7 +1,7 @@
 
 <?php
-$tabla="indicadores";
-$id="id_indicador";
+$tabla="victimas";
+$id="id_victima";
 
 //Consulta para listar los campos y sus propiedades para construir el formulario
 $field_tit = mysqli_query($con,"DESCRIBE $tabla");
@@ -22,8 +22,8 @@ $row_doc = mysqli_fetch_assoc($documento);
 
 <div  id="form_add" class="collapse">
 <br>	
-<center><h3 >Ingresar nueva clasificación del proceso</h3></center>
-<form action="main.php?key=83" method="post" enctype="multipart/form-data" name="nuevo_reg" target="_self" id="nuevo_reg">
+<center><h3 >Ingresar nuevo tipo de victima</h3></center>
+<form action="main.php?key=118" method="post" enctype="multipart/form-data" name="nuevo_reg" target="_self" id="nuevo_reg">
   <?php do{?>
   <?php
 //Si es la actividad, cargue el listado tipo de documentos
@@ -84,9 +84,9 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
 			<!--botones agrupados-->
 <div id="botones_com" style="display:<?php echo  $visiblevisit ?>; style="float: left;">
    <!--boton ver-->
-  <a href="main.php?key=84&Id=<?= $row_sql[$id] ?>"  class="btn btn-primary btn-sm" style="display:<?=$visible;?>"><span class="glyphicon glyphicon-search"></span></a>
+  <a href="main.php?key=119&Id=<?= $row_sql[$id] ?>"  class="btn btn-primary btn-sm" style="display:<?=$visible;?>"><span class="glyphicon glyphicon-search"></span></a>
 	<!--boton editar-->
-<a href="main.php?key=81&Id=<?php echo $row_sql[$id]; ?>" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit"></span></a>	
+<a href="main.php?key=116&Id=<?php echo $row_sql[$id]; ?>" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit"></span></a>	
 <!--boton eliminar-->
 	<a href="javascript:borrado(<?php echo $row_sql[$id];?>,'<?= $tabla ?>','<?= $id ?>',<?php echo $verdato; ?>)"class="btn btn-danger btn-sm" style="display:<?=$visible;?>"><i class="fa fa-trash"> </i></a>
 	</div>
@@ -105,4 +105,4 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
     </tbody>
   </table>
   <!-- Configuracion para que el pie de pagina no quede tan arriba-->
-  <div class="container" style="padding-top: 5%;"></div>
+  <div class="container" style="padding-top: 18%;"></div>

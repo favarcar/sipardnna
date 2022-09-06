@@ -1,7 +1,7 @@
 
 <?php
 $tabla="eps";
-$id="id_eps";
+$id="id_e";
 
 
 //Consulta para listar los campos y sus propiedades para construir el formulario
@@ -121,6 +121,9 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 	 } while ($row_ent = mysqli_fetch_assoc($entidad));
 		echo '</select>';
 		
+//Codigo para no mostrar la id
+	}elseif($r_fieldi_tit['Key'] == "PRI"){
+		continue;
 
 }else{
 echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
@@ -128,7 +131,9 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
     }
     ?>
 
-   <?php } while ($r_fieldi_tit = mysqli_fetch_assoc($field_tit)); ?>
+   <?php } while ($r_fieldi_tit = mysqli_fetch_assoc($field_tit)); 
+   
+   ?>
 <br>
 <button  class="btn btn-success pull-left" type="submit" id="nuevo"><span class="glyphicon glyphicon-edit"></span> Registrar</button><br>
 </form>

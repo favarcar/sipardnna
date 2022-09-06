@@ -201,6 +201,9 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
           <li><a href="main.php?key=80">Clasificación del proceso</a></li>
           <li><a href="main.php?key=85">Lugar de los hechos</a></li>
           <li><a href="main.php?key=90">Tipo de maltrato</a></li>
+          <li><a href="main.php?key=95">Motivo de ingreso</a></li>
+          <li><a href="main.php?key=110">Perfiles</a></li>
+          <li><a href="main.php?key=115">Victimas</a></li>
         </ul>        
         <li><a href="main.php?key=4">Mi usuario</a></li>
       </li>
@@ -316,12 +319,12 @@ if ($verdato == 50){include("MPC/AsignarNNA.php");}
 if ($verdato == 51){include("Expediente/TotalExpedientes/ConsultarRegistrarExpediente.php");}
 if ($verdato == 52){include("Expediente/EliminarExpediente.php");}
 if ($verdato == 53){include("Expediente/ExpedientesRemitidos/ModificarAgresor.php");}
-if ($verdato == 54){include("admin/menusuario.php");}
-if ($verdato == 55){include("admin/consultarusuario.php");}
-if ($verdato == 56){include("admin/ver_meta.php");}
-if ($verdato == 57){include("admin/modificarUsuario.php");}
-if ($verdato == 58){include("admin/modificarUsuario_pos.php");}
-if ($verdato == 59){include("Usuarios/UsuariosRegistrados.php");}
+if ($verdato == 54){include("admin/usuario_nuevo.php");}
+if ($verdato == 55){include("admin/usuario_edit.php");}
+if ($verdato == 56){include("admin/usuario_edit_pos.php");}
+if ($verdato == 57){include("admin/usuario_nuevo_pos.php");}
+if ($verdato == 58){include("admin/usuario_ver.php");}
+//if ($verdato == 59){include("Usuarios/UsuariosRegistrados.php");}
 if ($verdato == 60){include("admin/disca_nuevo.php");}
 if ($verdato == 61){include("admin/disca_edit.php");}
 if ($verdato == 62){include("admin/disca_edit_pos.php");}
@@ -357,8 +360,21 @@ if ($verdato == 91){include("admin/maltrato_edit.php");}
 if ($verdato == 92){include("admin/maltrato_edit_pos.php");}
 if ($verdato == 93){include("admin/maltrato_nuevo_pos.php");}
 if ($verdato == 94){include("admin/maltrato_ver.php");}
-
-
+if ($verdato == 95){include("admin/motivo_nuevo.php");}
+if ($verdato == 96){include("admin/motivo_edit.php");}
+if ($verdato == 97){include("admin/motivo_edit_pos.php");}
+if ($verdato == 98){include("admin/motivo_nuevo_pos.php");}
+if ($verdato == 99){include("admin/motivo_ver.php");}
+if ($verdato == 110){include("admin/perfiles_nuevo.php");}
+if ($verdato == 111){include("admin/perfiles_edit.php");}
+if ($verdato == 112){include("admin/perfiles_edit_pos.php");}
+if ($verdato == 113){include("admin/perfiles_nuevo_pos.php");}
+if ($verdato == 114){include("admin/perfiles_ver.php");}
+if ($verdato == 115){include("admin/victimas_nuevo.php");}
+if ($verdato == 116){include("admin/victimas_edit.php");}
+if ($verdato == 117){include("admin/victimas_edit_pos.php");}
+if ($verdato == 118){include("admin/victimas_nuevo_pos.php");}
+if ($verdato == 119){include("admin/victimas_ver.php");}
 
 
 

@@ -39,7 +39,7 @@ $row_ent = mysqli_fetch_assoc($entidad);
   ?>
 
 
-<div  id="form_add">
+<div  id="form_add"  class="collapse">
 <form action="main.php?key=55" method="post" enctype="multipart/form-data" name="nuevo_reg" target="_self" id="nuevo_reg">
   <?php do{?>
   <?php

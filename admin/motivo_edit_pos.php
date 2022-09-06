@@ -1,10 +1,10 @@
-<title>Editar - Tipo de maltrato</title>
+<title>Editar - Motivo de ingreso</title>
 
 <?php
 
-$tabla="maltratos";
-$id="id_maltrato";
-$keydes = 90;
+$tabla="motivoingreso";
+$id="id_motivo";
+$keydes = 95;
 $cod_uso = $_GET['Id'];
 // Se listan todos los campos de la tabla
 $usosql = mysqli_query($con,"DESCRIBE $tabla");
@@ -17,7 +17,7 @@ $rusosql = mysqli_fetch_assoc($usosql);
 </head>
 
 <body>
-<h2>Editar - Tipo de maltrato</h2>
+<h2>Editar - Motivo de ingreso</h2>
 
 
   <?php

@@ -1,22 +1,20 @@
 <?php
-$id_usuario =  $_GET ['id_usuario'];
-
-$id_usuario = $_POST['id_usuario '];
 $apellidos = $_POST['apellidos'];
-$nombres = $_POST['nombres'];
-$id_tipo_documento = $_POST['id_tipo_documento'];
-$numero_documento = $_POST['numero_documento'];
+$Nombres = $_POST['nombres'];
+$id_tipo = $_POST['id_tipo_documento'];
+$numero = $_POST['numero_documento'];
 $id_genero = $_POST['id_genero'];
 $id_municipio = $_POST['id_municipio'];
 $telefono = $_POST['telefono'];
 $usuario = $_POST['usuario'];
-$clave = sha1($_POST['clave']);
+$pass = $_POST['clave'];
 $email = $_POST['correo'];
 $id_perfil = $_POST['id_perfil'];
 $nivel = $_POST['Nivel'];
-$id_entidad = date("id_entidad");
-$estado = $_FILES['estado'];
-$fecha_registro = $fecha_registro;
+$id_entidad = $_POST['id_entidad'];
+$estado = $_POST['estado'];
+
+
 
 #Consulta de Datos Duplicados en el sistema
 #Numero maximo de administradores
@@ -24,8 +22,8 @@ $maxadmin = mysqli_query($con,"SELECT * FROM usuarios WHERE Nivel='1'");
 $totaladmin = mysqli_num_rows($maxadmin);
 
 #revisar si el nombre de usuario ya existe
-$selus = mysqli_query($con,"SELECT * FROM usuarios WHERE user ='$usuario'");
-$totalus = mysqli_num_rows($selus);
+$us = mysqli_query($con,"SELECT * FROM usuarios WHERE usuario ='$usuario'");
+$totalus = mysqli_num_rows($us);
 
 
 
@@ -40,14 +38,10 @@ elseif ($totalus == 1) {
 		echo '<a class="btn btn-default" href="javascript: history.go(-1)"><i class="fa fa-left-arrow"></i>Regresar</a>';
 	}
 }
-elseif ($pass <> $pass2) {
 
-	echo '<div class="alert alert-warning">Las contraseñas no coinciden</div>';
-		echo '<a class="btn btn-default" href="javascript: history.go(-1)"><i class="fa fa-left-arrow"></i>Regresar</a>';
-}
 else {
 
- mysqli_query($con,"INSERT INTO usuarios (Nombres, User, Pass, Nivel, Email, Activo, Id_secre) values ('$nombres','$usuario','$pass','$level','$email', '1', 'Id_secre')") or Die(mysqli_error($con));
+ mysqli_query($con,"INSERT INTO usuarios (id_usuario, apellidos, nombres, id_tipo_documento, numero_documento, id_genero, id_municipio, telefono, usuario, clave, correo, id_perfil, Nivel, id_entidad, estado) values ('','$apellidos','$Nombres','$id_tipo','$numero','$id_genero','$id_municipio','$telefono','$usuario','$pass','$email','$id_perfil','$nivel','$id_entidad','$estado',)") or Die(mysqli_error($con));
 
 
 echo '<div class="alert alert-success">El Usuario se ha registrado correctamente, Sus datos Son:';

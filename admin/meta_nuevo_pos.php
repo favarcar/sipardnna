@@ -36,3 +36,5 @@ mysqli_query($con,"INSERT usuarios ($campos) VALUES ($valorsupdate)") or die(mys
 echo '<div class="alert alert-success">El registro se ha creado <a href="main.php?key=7" class="btn btn-success"><i class="fa fa-arrow-left"></i>Regresar</a></div>';
 
   ?>
+        <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+        <div class="container" style="padding-top: 55%;"></div>

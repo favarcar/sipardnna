@@ -1,10 +1,10 @@
-<title>Editar - Tipo de maltrato</title>
+<title>Editar - Tipo de victima</title>
 
 <?php
 
-$tabla="maltratos";
-$id="id_maltrato";
-$keydes = 90;
+$tabla="victimas";
+$id="id_victima";
+$keydes = 115;
 $cod_uso = $_GET['Id'];
 // Se listan todos los campos de la tabla
 $usosql = mysqli_query($con,"DESCRIBE $tabla");
@@ -17,7 +17,7 @@ $rusosql = mysqli_fetch_assoc($usosql);
 </head>
 
 <body>
-<h2>Editar - Tipo de maltrato</h2>
+<h2>Editar tipo de victima</h2>
 
 
   <?php
@@ -42,4 +42,3 @@ echo '<div class="alert alert-success">El registro se ha actualizado <a href="ma
 
 </body>
 </html>
-

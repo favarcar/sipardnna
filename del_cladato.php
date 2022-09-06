@@ -17,3 +17,4 @@ echo '<div class="alert alert-success"><h>El Registro se ha eliminado</h>';
 echo '
 <a href="main.php?key='.$backey.'" class="btn btn-warning"><i class="fa fa-arrow-circle-left"></i>Regresar</a></div>';
 ?>
+<div class="container" style="padding-top: 50%;"></div>

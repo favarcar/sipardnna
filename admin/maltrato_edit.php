@@ -26,7 +26,7 @@ $r_fieldi_tit = mysqli_fetch_assoc($field_tit);
                     </div>
 <div class="box-body">
   <form action="main.php?key=<?= $keydes ?>&Id=<?php echo $cod_uso; ?>" method="post" enctype="multipart/form-data" >
-
+<br>
 
     <?php do{?>
    <div style="display:<?php if ($r_fieldi_tit['Key'] == "PRI"){ echo "none"; } else { echo "inline"; } ?>">
@@ -54,7 +54,11 @@ do{
 
      <?php } while ($r_fieldi_tit = mysqli_fetch_assoc($field_tit)); ?>
 
+     <br>
   <p align="center"><input  class="btn btn-warning pull-left" type="submit" id="nuevo" value="Editar">
   </form>
+      <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+      <div class="container" style="padding-top: 45%;"></div>
 
+</div>
 </div>

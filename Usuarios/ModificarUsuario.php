@@ -249,7 +249,8 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
             </script>'; 
         }
     ?>
-    
+          <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+  <div class="container" style="padding-top: 10%;"></div>
 
     <div class="clearfix"></div>
     </section>

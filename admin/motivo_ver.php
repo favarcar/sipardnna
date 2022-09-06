@@ -2,8 +2,8 @@
 
 <?php  
 $cod_uso = $_GET['Id'];
-$tabla = "eps";
-$id = "id_e";
+$tabla = "motivoingreso";
+$id = "id_motivo";
 
 $usosql = mysqli_query($con,"DESCRIBE $tabla");
 $rusosql = mysqli_fetch_assoc($usosql); 
@@ -14,8 +14,8 @@ $uso = mysqli_query($con, "SELECT * FROM $tabla WHERE $id = '$cod_uso'")or die(m
 
 <div class="box">
 <div class="box-header with-border">
-                      <h3 class="box-title">Ver EPS</h3>
-                      <a href="main.php?key=70" class="btn btn-primary"><i class="fa fa-arrow-left"></i>Regresar</a>
+                      <h3 class="box-title">Ver motivo de ingreso</h3>
+                      <a href="main.php?key=95" class="btn btn-primary"><i class="fa fa-arrow-left"></i>Regresar</a>
                       <div class="box-tools pull-right">
                       </div>
                     </div>
@@ -42,7 +42,7 @@ $uso = mysqli_query($con, "SELECT * FROM $tabla WHERE $id = '$cod_uso'")or die(m
   </tr>
    <?php } while ($rusosql = mysqli_fetch_assoc($usosql)); ?>
 <!--Botones de acción de la página ver conceptos--><br>
-   <a href="main.php?key=71&Id=<?php echo $cod_uso ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Editar</a>
+   <a href="main.php?key=96&Id=<?php echo $cod_uso ?>" class="btn btn-warning"><i class="fa fa-edit"></i> Editar</a>
 <!--<button class="btn btn-primary" id="imprimir" data-id="<?=$cod_uso?>"><i class="fa fa-print"></i>Imprimir</button>-->
 
 
