@@ -27,7 +27,7 @@ $row_mun = mysqli_fetch_assoc($municipio);
 
 //password
 $clave  = mysqli_query($con, "SELECT * FROM usuarios")or die(mysqli_error($con));
-$row_cla = mysqli_fetch_assoc($clave);
+$row_cla = mysqli_fetch_assoc($clave); 
 
 //listado de perfil
 $perfil  = mysqli_query($con, "SELECT * FROM perfiles")or die(mysqli_error($con));
@@ -85,13 +85,16 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 		echo '</select>';
 	}
 	//Si es el registro, cargue el listado de municipios
-	/*else if($r_fieldi_tit['Field'] == "clave"){
+	else if($r_fieldi_tit['Field'] == "clave"){
 		//Se construye select campo
 		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
-		echo '<input type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave ?>">';
-        while ($row_cla = mysqli_fetch_assoc($clave));
+		echo '<input type="password" name="'.$r_fieldi_tit['Field'].'" placeholder="" class="form-control input-md" required >';
 
-	}*/
+		echo '<label>Repita '.mask_field($r_fieldi_tit['Field']).'</label>';
+		echo '<input type="password" placeholder="" name="clave2" class="form-control input-md" required >';
+        
+
+	}
 	//Si es el registro, cargue el listado de perfil
 	else if($r_fieldi_tit['Field'] == "id_perfil"){
 		//Se construye select campo
@@ -104,6 +107,18 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 		echo '</select>';
 
 	}
+
+	else if($r_fieldi_tit['Field'] == "Nivel"){
+		//Se construye select campo
+		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>
+		<select name="'.$r_fieldi_tit['Field'].'" class="form-control" required="required" >
+		 <option value="" selected="selected" >Seleccionar...</option>;
+		 <option value="1">1</option>
+		 <option value="2">2</option>
+		 <option value="3">3</option>
+		echo </select>';
+	}
+
 	//Si es el registro, cargue el listado de entidad
 	else if($r_fieldi_tit['Field'] == "id_entidad"){
 		//Se construye select campo
@@ -115,7 +130,17 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 	 } while ($row_ent = mysqli_fetch_assoc($entidad));
 		echo '</select>';
 
+	}
 
+	else if($r_fieldi_tit['Field'] == "estado"){
+		//Se construye select campo
+		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>
+		<select name="'.$r_fieldi_tit['Field'].'" class="form-control" required="required" >
+		 <option value="" selected="selected" >Seleccionar...</option>;
+		 <option value="1">Activo</option>
+		 <option value="0">No Activo</option>
+		echo </select>';
+	
 		
 }elseif($r_fieldi_tit['Key'] == "PRI"){
    continue;

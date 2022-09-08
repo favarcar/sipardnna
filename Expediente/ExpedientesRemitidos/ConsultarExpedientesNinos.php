@@ -72,7 +72,7 @@ self.location = "index.html"
                                 <tr>
                                     <td colspan="9" class="letra n600 azulo" align="center">
                                         <?php
-                                        $con44 = mysqli_query($con, "SELECT * FROM ninnosnna where id_usuario='$id_usuario' and id_ninnos = '$id_ninnos' ");
+                                        $con44 = mysqli_query($con, "SELECT * FROM ninnosnna where  id_ninnos = '$id_ninnos' ");
 
                                         while ($row44 = mysqli_fetch_array($con44)) {
                                             $id_ninnos = $row44['id_ninnos'];
@@ -86,10 +86,12 @@ self.location = "index.html"
                                     </td>
                                 </tr>
                                 <tr>
+                                    <?php if($nuser == 1 || $nuser == 2){ ?>
                                     <td colspan="9" align="center">
                                     <a href="main.php?key=34&id_ninnos=<?php echo $row44['id_ninnos']; ?>" class=" btn btn-success"><span class="glyphicon glyphicon-edit"></span> Registrar Nuevo Expediente</a>
                                     </td>
                                 </tr>
+                                <?php } ?>
                             <?php } ?>
 
                             <tr>
@@ -101,14 +103,15 @@ self.location = "index.html"
                                 <td class="col-md-4 control-label letra n600 azulo">Estado del Expediente</td>
 
                                 <td class="col-md-4 control-label letra n600 azulo">Consultar/Editar Expediente</td>
-
+                               <!--Restriccion para el usario nivel 3 -->
+                                <?php if($nuser == 1 || $nuser == 2){ ?>
                                 <td class="col-md-4 control-label letra n600 azulo">Eliminar Expediente </td>
-
+                                <?php }?>
                             </tr>
                             <tbody>
                                 <?php
 
-                                $busqueda = mysqli_query($con, "SELECT * FROM expediente where id_usuario_exp='$id_usuario'  and id_ninnos = '$id_ninnos' order by id_ninnos  asc "); //cambiar nombre de la tabla de busqueda
+                                $busqueda = mysqli_query($con, "SELECT * FROM expediente where id_ninnos = '$id_ninnos' order by id_ninnos  asc "); //cambiar nombre de la tabla de busqueda
                                 while ($row = mysqli_fetch_array($busqueda)) {
 
                                     $id_ninnos1 = $row['id_ninnos'];
@@ -163,12 +166,13 @@ self.location = "index.html"
                                                 <!--<a href="main.php?key=33&codigo_expediente=<?php echo $row['codigo_expediente']; ?>&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Remitir expediente"><span class="glyphicon glyphicon-share" ></span> Remitir</a> <?php } ?>
                                             -->
                                                 <?php 
+                                                //Restriccion para el usario nivel 3 
                                                //Eliminar datos
-                                               
+                                               if($nuser == 1 || $nuser == 2){ 
                                                 if ((consulta_campo('expediente','codigo_expediente',$codigo_expediente,'id_ninnos'))){
                                                     echo '<a  class="btn btn-danger" href="javascript:borrado('.$codigo_expediente.',\'expediente\',\'codigo_expediente\',\'16\')"><span class="glyphicon glyphicon-trash"></span>  Eliminar</a>';} 
                                                     else{echo '<button class="btn btn-secundary  data-toggle="tooltip" data-placement="bottom" title="Elimine primero el expediente"><span class="glyphicon glyphicon-trash"></span> Eliminar</button>';}
-                                                ?>
+                                                 } ?>
                                         </td>
 
 

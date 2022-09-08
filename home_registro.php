@@ -20,7 +20,7 @@
  	  <div class="col-lg-3">
       <div class="col-md-12 col-sm-12 ps pi">
       <a href="main.php?key=51"><img src="iconos/expe2.png" alt="..." width="100" height="100" class="center-block pic"></a>
-      <h4 class="centrar letra azulo n400 ps"><strong>Consultar Expedientes </strong></h4>
+      <h4 class="centrar letra azulo n400 ps"><strong>Registrar Expedientes </strong></h4>
       </div>
 
       <div class="col-md-12 col-sm-12 ps pi">
@@ -33,4 +33,6 @@
       <a href="main.php?key=13" class="btn btn-warning"><i class="fa fa-exclamation-circle"class="center-block pic"></i> Notificaciones</a>
       <h4 class="centrar letra azulo n400 ps"></h4>
       </div>
+  <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+  <div class="container" style="padding-top: 4%;"></div>
     </section>

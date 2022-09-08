@@ -33,4 +33,6 @@
       <a href="main.php?key=13" class="btn btn-warning"><i class="fa fa-exclamation-circle"class="center-block pic"></i> Notificaciones</a>
       <h4 class="centrar letra azulo n400 ps"></h4>
       </div>
+  <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+  <div class="container" style="padding-top: 4%;"></div>
     </section>

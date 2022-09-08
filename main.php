@@ -380,7 +380,6 @@ if ($verdato == 119){include("admin/victimas_ver.php");}
 
 
 
-
 if ($verdato == 102) {include("user_list.php");}
 if ($verdato == 105) {include("user_update.php");}
 if ($verdato == 106) {include("user_update_pos.php");}
