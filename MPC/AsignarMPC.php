@@ -99,10 +99,12 @@
                     
                     <div class="col-md-7 col-sm-4 col-xs-12">
                     <button id="singlebutton" name="singlebutton" class="btn btn-warning" >Asignar Cuidador</button>
-                </div>
-                <div class="container" style="padding-top: 60%;"></div>
+ 
                 </fieldset>
+
             </form>
+                     <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+                     <div class="container" style="padding-top: 37%;"></div>            
         </div>
         <?php 
 

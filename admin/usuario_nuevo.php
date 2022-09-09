@@ -84,7 +84,7 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 	 } while ($row_mun = mysqli_fetch_assoc($municipio));
 		echo '</select>';
 	}
-	//Si es el registro, cargue el listado de municipios
+	//Encriptar la clave y verificación de esta
 	else if($r_fieldi_tit['Field'] == "clave"){
 		//Se construye select campo
 		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';

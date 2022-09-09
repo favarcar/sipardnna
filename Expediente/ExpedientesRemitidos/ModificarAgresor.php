@@ -251,6 +251,8 @@ echo "Agresor desconocido";
 
                 </fieldset>
             </form>
+          <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+          <div class="container" style="padding-top: 10%;"></div>     
         </div>
     </section>
 

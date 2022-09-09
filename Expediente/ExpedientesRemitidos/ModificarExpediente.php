@@ -323,7 +323,7 @@ echo "No tiene cuidador";
         </div>
 
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victimas</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Víctimas</label>
           <div class="col-md-8">
 
             <?php

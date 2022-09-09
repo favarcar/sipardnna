@@ -1,3 +1,11 @@
+<!doctype html>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="Text/html; charset=utf-8">
+</head>
+
+
 <?php
 $id_usuario = $_SESSION['numero_documento'];
 
@@ -89,14 +97,16 @@ date_default_timezone_set('America/Bogota');
                     echo '<span style="color: red;">'.$interval->format('%a días').'</span>';
                     
                 } ?></td>
-                <td align="center"><a href="main.php?key=19&codigo_expediente=<?php echo $datos['codigo_expediente'];?>&id_ninnos=<?php echo $datos['id_ninnos'];?>" class="linku">Ver</a></td>
+                <td align="center"><a href="main.php?key=19&codigo_expediente=<?php echo $datos['codigo_expediente'];?>&id_ninnos=<?php echo $datos['id_ninnos'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar expediente"><span class="glyphicon glyphicon-search" ></span> Consultar</a></td>
+
             </tr>  
                 <?php } } ?>
 
         </table>
         </div>                                                     
         </fieldset>
-        <div class="container" style="padding-top: 13%;"></div>
+         <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+        <div class="container" style="padding-top: 5%;"></div>
     <div class="clearfix"></div>
             </section>
             

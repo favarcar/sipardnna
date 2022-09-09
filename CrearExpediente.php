@@ -185,7 +185,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Victimas</label>
+                                        <label>Víctimas</label>
                                         <select name="victima_exp" id="victima_exp" class="form-control" font style="text-transform: uppercase;" required>
                                             <option value="">Seleccione</option>
                                             <?php

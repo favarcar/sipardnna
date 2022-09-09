@@ -353,7 +353,7 @@ self.location = "index.html"
           </div>
 
           <div class="form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victimas</label>
+            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Víctimas</label>
             <div class="col-md-4">
 
               <?php $busqueda1 = mysqli_query($con, "SELECT * FROM victimas where id_victima='$id_victima' ");

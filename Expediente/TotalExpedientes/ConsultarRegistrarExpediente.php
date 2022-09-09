@@ -2,7 +2,7 @@
         <div class="container ps ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-                    <h2 class="centrar letra n600 azulo pi">Registrar Expedientes</h2>
+                    <h2 class="centrar letra n600 azulo pi">Registrar o Consultar Expedientes</h2>
                 </div>
             </div>        
         </div>        
@@ -33,10 +33,7 @@
         <div class="container ps3x ">
             <div class="row clearfix centrar">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">                  
-                    <ul class="nav nav-tabs">
-                        <li role="presentation" class="letra n500"><a href="#" >Registrar Expedientes</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=15">Consultar Expedientes</a></li>    
-                    </ul>
+                    
                     <input type="button" id="refresh"value="Actualizar" onclick="location.reload()"style="display:none"/>
                 </div>
             </div>        
@@ -215,6 +212,7 @@
                                 </table>
                                 
                                 </form>   
+                                
                                 <div class="clearfix"></div>
     </section>
 

@@ -225,7 +225,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Victimas</label>
+                                        <label>Víctimas</label>
                                         <select name="victima_exp" id="victima_exp" class="form-control" font style="text-transform: uppercase;" required>
                                             <option value="">Seleccione</option>
                                             <?php
@@ -470,7 +470,7 @@
                                         <input id='maltratos_show_exp' name='num_pro' min="0" class="form-control" placeholder="Maltrato " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Victimas</label>
+                                        <label>Víctimas</label>
                                         <input id='victima_show_exp' name='num_pro' min="0" class="form-control" placeholder="Victimas " font style="text-transform: uppercase;" onkeypress="return valida(event)" readonly>
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group">

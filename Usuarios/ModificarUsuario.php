@@ -233,7 +233,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
             $tel_usu=$_POST['tel_usu'];
             $email_usu=$_POST['email_usu'];
             $usuario_usu=$_POST['usuario_usu'];
-            $clave=$_POST['clave'];
+            $clave=md5($_POST['clave']);
             $id_entidad=$_POST['id_entidad'];
             $estado=$_POST['estado'];
             $fecha_ing =$_POST['fecha'];

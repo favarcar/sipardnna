@@ -364,7 +364,7 @@ self.location = "index.html"
           </div>
 
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victimas</label>
+            <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Víctimas</label>
             <div >
 
               <select name="victima_exp" id="victima_exp" class="form-control" style="text-transform: uppercase;" required>

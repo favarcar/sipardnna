@@ -203,7 +203,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
           <li><a href="main.php?key=90">Tipo de maltrato</a></li>
           <li><a href="main.php?key=95">Motivo de ingreso</a></li>
           <li><a href="main.php?key=110">Perfiles</a></li>
-          <li><a href="main.php?key=115">Victimas</a></li>
+          <li><a href="main.php?key=115">Víctimas</a></li>
         </ul>        
         <li><a href="main.php?key=4">Mi usuario</a></li>
       </li>

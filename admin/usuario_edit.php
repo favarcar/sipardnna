@@ -91,14 +91,19 @@ do {
 	 } while ($row_mun = mysqli_fetch_assoc($municipio));
 		echo '</select>';
 	}
-	//Si es el registro, cargue el listado de municipios
-	/*else if($r_fieldi_tit['Field'] == "clave"){
+
+  
+	//Encriptar la clave y verificación de esta
+	/*	else if($r_fieldi_tit['Field'] == "clave"){
 		//Se construye select campo
 		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
-		echo '<input type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave ?>">';
-        while ($row_cla = mysqli_fetch_assoc($clave));
+		echo '<input type="password" name="'.$r_fieldi_tit['Field'].'" placeholder="" class="form-control input-md" required >';
 
-	}*/
+		echo '<label>Repita '.mask_field($r_fieldi_tit['Field']).'</label>';
+		echo '<input type="password" placeholder="" name="clave2" class="form-control input-md" required >';
+  }*/
+
+
 	//Si es el registro, cargue el listado de perfil
 	else if($r_fieldi_tit['Field'] == "id_perfil"){
 		//Se construye select campo

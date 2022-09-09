@@ -346,7 +346,7 @@ while($row1=mysql_fetch_array($busqueda1)){
                 </div>   
                 
                  <div class="form-group">
-                  <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victimas</label>
+                  <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Víctimas</label>
                   <div class="col-md-4">
                     <div class="input-group">
                     

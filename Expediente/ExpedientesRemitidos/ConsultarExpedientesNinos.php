@@ -44,6 +44,7 @@ self.location = "index.html"
 
 
     ?>
+    <br><br>
     <form name="form1" method="post" action="main.php?key=16" id="cdr">
         <center>
             <h3 class="centrar letra n600 azulo pi">Consultar Expedientes de Ni&ntilde;os, Ni&ntilde;as o Adolescentes</h3>
@@ -53,6 +54,8 @@ self.location = "index.html"
 
         <section class="fblanco">
             <div class="container pi3x">
+ 
+
 
 
 
@@ -111,8 +114,8 @@ self.location = "index.html"
                             <tbody>
                                 <?php
 
-                                $busqueda = mysqli_query($con, "SELECT * FROM expediente where id_ninnos = '$id_ninnos' order by id_ninnos  asc "); //cambiar nombre de la tabla de busqueda
-                                while ($row = mysqli_fetch_array($busqueda)) {
+                                $busquedaexpe = mysqli_query($con, "SELECT * FROM expediente where id_ninnos = '$id_ninnos' order by id_ninnos  asc "); //cambiar nombre de la tabla de busqueda
+                                while ($row = mysqli_fetch_array($busquedaexpe)) {
 
                                     $id_ninnos1 = $row['id_ninnos'];
                                     $codigo_expediente = $row['codigo_expediente'];
@@ -184,8 +187,14 @@ self.location = "index.html"
                                     ?>
                                     </tr>
                             </table>
+                            <a href="main.php?key=51" class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Volver a Registro o consulta de expediente"><span class="glyphicon glyphicon-arrow-left" ></span> Volver</a>
+
                                         </section>
+
                                         </form>   
+                     <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+                     <div class="container" style="padding-top: 15%;"></div>                                               
+
                                 <div class="clearfix"></div>
     </section>
 
