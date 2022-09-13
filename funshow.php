@@ -285,39 +285,52 @@ function rrmdir($dir) {
 }
 // Funcion para describir los campos de forma legible para el usuario
 function mask_val($val, $campo){
-
+	
 	switch ($campo){
-		case "Atipico":
-	    return	ati_option('',$val,'text');
+		case "id_genero":
+			return consulta_campo("generos","id_genero",$val,"descripcion");
+			return "listado genero";
+				break;
+
+		case "id_tipo_documento":
+			return consulta_campo("tipos_documentos","id_tipo_documento",$val,"descripcion");
+			return "Tipo de documento";
+						break;		
+
+		case "fecha_registro":
+	    return	fecha_h($val);
 			break;
-		case "Fecha_exp":
-		return fecha($val);
-		    break;
-	    case "Despues_de":
-		return fecha($val);
-		    break;
-	    case "Antes_de":
-		return fecha($val);
-		    break;
-	case "Fecha":
-		return fecha_h($val);
-	    break;
+
+			case "id_perfil":
+				return consulta_campo("perfiles","id_perfil",$val,"descripcion");
+				return "Perfiles";
+				break;
+
+				case "id_entidad":
+					return consulta_campo("entidades","id_entidad",$val,"descripcion_entidades");
+					return "Entidades";
+					break;				
+
+		case "id_municipio":
+			return consulta_campo("municipios","id_municipio",$val,"descripcion");
 		default:
 			return $val;
-	}
-
-
+	}	
 }
+
+
+
+
 // Funcion para describir los campos de forma legible para el usuario
 function mask_field($campo){
 
 	switch ($campo){
 	case "id_municipio":
-		return "Codigo municipo";
+		return "Municipo";
 	break;
 
 	case "id_genero":
-		return "Genero";
+		return "Género";
 	break;
 
 		case "nombres":
@@ -327,6 +340,10 @@ function mask_field($campo){
 	case "apellidos":
 		return "Apellidos";
 	break;	
+
+	case "id_tipo_documento":
+		return "Tipo de documento";
+		break;
 
 	case "numero_documento":
 		return "N. de documento";
@@ -339,6 +356,27 @@ function mask_field($campo){
 	case "usuario":
 		return "Usuario";
 	break;	
+
+	case "clave":
+		return "Clave";
+	break;	
+
+	case "correo":
+		return "Correo";
+	break;	
+
+	case "id_perfil":
+		return "Perfil";
+	break;	
+
+	case "id_entidad":
+		return "Entidad";
+	break;	
+
+	case "estado":
+		return "Estado";
+	break;	
+
 		default:
 			return str_replace("_"," ",$campo);		
 	}
@@ -417,29 +455,6 @@ $visible = "none";
 }
 else{$visible = "table-cell";}
 return $visible;
-}
-
-// Funcion para describir los campos de forma legible para el usuario
-function mask_val($val, $campo){
-
-	switch ($campo){
-		case "fecha_registro":
-	    return	fecha_h($val);
-			break;
-		case "id_usuario":
-		return consulta_campo("usuarios","id_usuario",$val,"nombres");
-		    break;
-		case "id_usuario":
-		 return consulta_campo("usuarios","id_usuario",$val,"apellidos");
-		break;
-		case "Id_usuario":
-		 return consulta_campo("usuarios","id_usuario",$val,"numero_documento");
-		break;
-			case "id_usuario":
-			return consulta_campo("usuarios","id_usuario",$val,"usuario");
-		default:
-			return $val;
-	}	
 }
 }
 

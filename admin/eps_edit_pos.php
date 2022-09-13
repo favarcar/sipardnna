@@ -4,13 +4,13 @@
 
 $tabla="eps";
 $id="id_e";
-$keydes = 71;
+$keydes = 74;
 $cod_uso = $_GET['Id'];
 // Se listan todos los campos de la tabla
 $usosql = mysqli_query($con,"DESCRIBE $tabla");
 $rusosql = mysqli_fetch_assoc($usosql);
 
-//Se realiza consulta para identificar registro en SUI
+//Se realiza consulta para identificar registro en Sipardnna
      $uso = mysqli_query($con,"SELECT * FROM $tabla WHERE $id = '$cod_uso'")or die(mysqli_error($con));
 	 $row_uso = mysqli_fetch_assoc($uso);
       $total_uso = mysqli_num_rows($uso);?>

@@ -34,9 +34,8 @@ while ($row50 = mysqli_fetch_array($busqueda50)) {
       <div class="row clearfix centrar">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
           <h2 class=" letra n600 azulo pi">
-           <?php
-            echo'<h5 class="letra n500  azulo " align="right"><a href="Expediente/ExportarPDF.php?codigo_expediente='.$codigo_expediente.'" target="_blank" rel="noopener noreferrer" class=" btn btn-primary">Exportar PDF</a></h5>';
-          ?>
+           
+              <h5 class="letra n500  azulo " align="right"><a href="main.php?key=24&codigo_expediente=<?php echo $row50['codigo_expediente']; ?>" class=" btn btn-primary">Exportar PDF</a></h5>         
             </h2>
         </div>
       </div>
@@ -114,7 +113,7 @@ while ($row1 = mysqli_fetch_array($busqueda1)) {
           </div>
         </div>
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Ni&ntilde;o, Ni&ntilde;a o Adolecente</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de Ni&ntilde;o, Ni&ntilde;a o Adolescente</label>
           <div class="col-md-8">
             <input id="textinput" name="nom_nna_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if($Apellidos>0){echo $Apellidos;}else{echo "No tiene cuidador";} ?> <?php echo $Nombres; ?>" readonly>
 

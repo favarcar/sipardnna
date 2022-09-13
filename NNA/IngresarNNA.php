@@ -284,7 +284,7 @@
             </div>
 
             <div class="form-group">
-              <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
+              <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Género</label>
               <div class="col-md-4">
                 <select name="genero_nna" id="genero_nna" required class="form-control" font style="text-transform: uppercase;">
                   <option value="">Seleccione</option>

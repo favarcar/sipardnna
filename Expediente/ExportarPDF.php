@@ -2,7 +2,7 @@
 // Cargamos la librería dompdf que hemos instalado en la carpeta dompdf
 $codigo_expediente=$_GET['codigo_expediente'];
 
-$busqueda_pdf=mysqli_query($con,"SELECT * FROM expediente where codigo_expediente='$codigo_expediente' ");//cambiar nombre de la tabla de busqueda
+$busqueda_pdf=mysqli_query($con,"SELECT * FROM expediente where codigo_expediente='$codigo_expediente' ");
 while($row50=mysqli_fetch_array($busqueda_pdf)){
 	
 	 $codigo_expediente=$row50['codigo_expediente'];
@@ -25,8 +25,8 @@ while($row50=mysqli_fetch_array($busqueda_pdf)){
 	
 }
 
-$busqueda=mysqli_query($con,"SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' ");//cambiar nombre de la tabla de busqueda
-while($row=mysqli_fetch_array($busqueda)){
+$busquedanna=mysqli_query($con,"SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' ");
+while($row=mysqli_fetch_array($busquedanna)){
 		
           $id_ninnos1=$row['id_ninnos'];
 		  $No_identificacion=$row['No_identificacion'];
@@ -36,8 +36,8 @@ while($row=mysqli_fetch_array($busqueda)){
  $NombresCuida="";
  $ApellidosCuida="";
  $No_Cedula="";
-$busqueda1=mysqli_query($con,"SELECT * FROM cuidadores where id_ninos='$id_ninnos' ");//cambiar nombre de la tabla de busqueda
-while($row1=mysqli_fetch_array($busqueda1)){
+$busqueCuidadores=mysqli_query($con,"SELECT * FROM cuidadores where id_ninos='$id_ninnos' ");//cambiar nombre de la tabla de busqueda
+while($row1=mysqli_fetch_array($busqueCuidadores)){
 
 		  //// cuidadores
 		 $id_cuidadores=$row1['id_cuidadores'];
@@ -72,8 +72,8 @@ while($row1=mysqli_fetch_array($busqueda1)){
 }
 
 $des_derecho ="";
-$busqueda1=mysqli_query($con,"SELECT * FROM derechos where id_derecho='$id_derecho' ");
-while($row1=mysqli_fetch_array($busqueda1)){
+$busqueDerecho=mysqli_query($con,"SELECT * FROM derechos where id_derecho='$id_derecho' ");
+while($row1=mysqli_fetch_array($busqueDerecho)){
 		  
 		  $id_derecho=$row1['id_derecho'];		
           $des_derecho=$row1['descripcion_derechos'];             

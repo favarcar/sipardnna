@@ -52,12 +52,12 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
   <table id="datatable-buttons"  class="table table-striped table-bordered" align="center" border="1" style="width:auto; height:20px;" >
       <thead>
 	<tr>
-	  <td colspan="10" class="letra n600 azulo" bgcolor="#ff9933">Usuarios Registrados:
+	  <td colspan="10" class="letra n600 azulo" bgcolor="#ff9933">Entidades registradas:
 	  <!--Traer el numero de usuarios registrados en la tabla usuarios -->
 	  <?php
-                                                $con4 = mysqli_query($con, "SELECT count(id_usuario) FROM usuarios");
+                                                $con4 = mysqli_query($con, "SELECT count(id_entidad) FROM entidades");
                                                 while ($row4 = mysqli_fetch_array($con4)) {
-                                                    echo $nom_asignatura11 = $row4['count(id_usuario)'];
+                                                    echo $nom_asignatura11 = $row4['count(id_entidad)'];
                                                 } ?>
 												
     </td></tr>

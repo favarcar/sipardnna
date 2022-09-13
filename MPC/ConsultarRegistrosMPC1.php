@@ -224,7 +224,7 @@ while($row2=mysqli_fetch_array($busqueda2)){
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
+                  <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Género</label>
                   <div class="col-md-4">
                     <div class="input-group">
                     

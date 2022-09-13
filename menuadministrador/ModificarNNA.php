@@ -125,7 +125,7 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Género</label>
                         <div class="col-md-8">
                             <?php
 
@@ -388,7 +388,7 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
                         </div>
                         </div>  
                         <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Núcleo Familiar</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Composición familiar</label>
                         <div class="col-md-8">
                             <input id="descripcion_nucleoF" name="descripcion_nucleoF" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $descripcion_nucleo  ?>" <?= $dis ?>>
                         </div>                                          

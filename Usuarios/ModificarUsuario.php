@@ -6,8 +6,8 @@ date_default_timezone_set('UTC');
 
 ///Consultar la tabla usuarios
 
-$busqueda = mysqli_query($con, "SELECT * FROM usuarios WHERE numero_documento = '$id_usuario' ");//cambiar nombre de la tabla de busqueda
-while($row = mysqli_fetch_array($busqueda)){			
+$busqueUsuario = mysqli_query($con, "SELECT * FROM usuarios WHERE numero_documento = '$id_usuario' ");//cambiar nombre de la tabla de busqueda
+while($row = mysqli_fetch_array($busqueUsuario)){			
     $id_usuario1        = $row['id_usuario'];        
     $apellidos          = $row['apellidos'];
     $nombres            = $row['nombres'];
@@ -18,6 +18,7 @@ while($row = mysqli_fetch_array($busqueda)){
     $telefono           = $row['telefono'];
     $usuario            = $row['usuario']; 
     $clave              = $row['clave'];
+    $clave2              = $row['clave'];
     $correo             = $row['correo'];
     $id_perfil          = $row['id_perfil'];
     $id_entidad         = $row['id_entidad'];
@@ -110,7 +111,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
+                    <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Género</label>
                     <div class="col-md-8">
                         <div class="input-group">
                             <select name="genero_usu" id="genero_usu" disabled> 
@@ -191,6 +192,12 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                         <input id="textinput" name="clave" type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave ?>">                      
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label letra n600 azulo" for="textinput">Contraseña</label>  
+                    <div class="col-md-8">
+                        <input id="textinput" name="clave2" type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave2 ?>">                      
+                    </div>
+                </div>
                                 </div>
                                 <!--Actualizar informacion en la tabla usuarios excepto el nivel 3-->
                                 <?php if($nuser == 1 || $nuser == 2){?>
@@ -233,11 +240,22 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
             $tel_usu=$_POST['tel_usu'];
             $email_usu=$_POST['email_usu'];
             $usuario_usu=$_POST['usuario_usu'];
-            $clave=md5($_POST['clave']);
+
+            if ($clave == "clave" || $clave2 == "clave2"){
+                continue;
+           }
+           $clave = md5($_POST['clave']);
+           $clave2 = md5($_POST['clave2']);
+           if($clave != $clave2){
+            exit('<div class="alert alert-danger">No coiciden las contraseñas</div>');
+        }
+
             $id_entidad=$_POST['id_entidad'];
             $estado=$_POST['estado'];
             $fecha_ing =$_POST['fecha'];
             
+
+
             mysqli_query($con,"UPDATE `usuarios` SET 
                 clave='$clave'
                 WHERE numero_documento='$id_usuario'");
@@ -250,7 +268,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
         }
     ?>
           <!-- Configuracion para que el pie de pagina no quede tan arriba-->
-  <div class="container" style="padding-top: 10%;"></div>
+  <div class="container" style="padding-top: 8%;"></div>
 
     <div class="clearfix"></div>
     </section>

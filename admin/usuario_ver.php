@@ -34,8 +34,12 @@ $uso = mysqli_query($con, "SELECT * FROM $tabla WHERE $id = '$cod_uso'")or die(m
     <td width="56%">
 <?php 
 	
-
+  if($rusosql['Field'] == "clave"){
+    echo "******";
+    continue;
+  }
 	echo mask_val($row_uso[$rusosql['Field']], $rusosql['Field']); 
+
 	
 	?></td>
   </tr>

@@ -111,7 +111,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                     </div>
                 </div>
                  <div class="form-group">
-                    <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
+                    <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Género</label>
                     <div class="col-md-8">
                         <div class="input-group">
                             <select name="id_genero" id="id_genero"> 

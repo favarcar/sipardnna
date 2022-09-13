@@ -27,7 +27,7 @@ $row_mun = mysqli_fetch_assoc($municipio);
 
 //password
 $clave  = mysqli_query($con, "SELECT * FROM usuarios")or die(mysqli_error($con));
-$row_cla = mysqli_fetch_assoc($clave); 
+$row_cla = mysqli_fetch_assoc($clave);
 
 //listado de perfil
 $perfil  = mysqli_query($con, "SELECT * FROM perfiles")or die(mysqli_error($con));
@@ -84,7 +84,8 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 	 } while ($row_mun = mysqli_fetch_assoc($municipio));
 		echo '</select>';
 	}
-	//Encriptar la clave y verificación de esta
+
+	//Confirmacion de clave
 	else if($r_fieldi_tit['Field'] == "clave"){
 		//Se construye select campo
 		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
@@ -113,12 +114,11 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>
 		<select name="'.$r_fieldi_tit['Field'].'" class="form-control" required="required" >
 		 <option value="" selected="selected" >Seleccionar...</option>;
-		 <option value="1">1</option>
-		 <option value="2">2</option>
-		 <option value="3">3</option>
+		 <option value="1">Usuario Administrador</option>
+		 <option value="2">Usuario de Reporte</option>
+		 <option value="3">Usuario Invitado</option>
 		echo </select>';
 	}
-
 	//Si es el registro, cargue el listado de entidad
 	else if($r_fieldi_tit['Field'] == "id_entidad"){
 		//Se construye select campo
@@ -130,18 +130,17 @@ if($r_fieldi_tit['Field'] == "id_tipo_documento"){
 	 } while ($row_ent = mysqli_fetch_assoc($entidad));
 		echo '</select>';
 
-	}
+	}else if($r_fieldi_tit['Field'] == "estado"){
+			//Se construye select campo
+			echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>
+			<select name="'.$r_fieldi_tit['Field'].'" class="form-control" required="required" >
+			 <option value="" selected="selected" >Seleccionar...</option>;
+			 <option value="1">Activo</option>
+			 <option value="0">No Activo</option>
+			echo </select>';
 
-	else if($r_fieldi_tit['Field'] == "estado"){
-		//Se construye select campo
-		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>
-		<select name="'.$r_fieldi_tit['Field'].'" class="form-control" required="required" >
-		 <option value="" selected="selected" >Seleccionar...</option>;
-		 <option value="1">Activo</option>
-		 <option value="0">No Activo</option>
-		echo </select>';
-	
-		
+
+//No mostrar en la pagina
 }elseif($r_fieldi_tit['Key'] == "PRI"){
    continue;
 }elseif($r_fieldi_tit['Field'] == "fecha_registro"){

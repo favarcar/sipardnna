@@ -10,16 +10,11 @@ $a = array();
 //Se incia el blucle para formar la cadena del UPDATE
 foreach ($_POST as $campo => $valor) {
 	
+ if ($campo == "clave" || $campo == "clave2"){
+      continue;
+ }
  
- switch ($campo){
-    case "clave":
-    continue;
-    break;
-    case "clave2":
-    continue;
-    break;
-  }
-
+  
   $a[] = $campo;
   $b[] = "'".$valor."'";	
   //Se va almacenando en el arreglo, el update por variable

@@ -101,7 +101,7 @@
 
                     <!-- Multiple Radios (inline) -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Genero</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Género</label>
                         <div class="col-md-4">
                             <select name="genero_usu" id="genero_usu" required class="form-control" font style="text-transform: uppercase;">
                                 <option value="">Seleccione</option>

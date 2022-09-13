@@ -361,7 +361,7 @@
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                    <label>Genero</label>
+                                    <label>Género</label>
                                     <select name="genero_nna" id="genero_nna" class="form-control" style="text-transform: uppercase;" required>
                                         <option value="">Seleccione</option>
                                         <?php
@@ -489,7 +489,7 @@
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group"> 
-                                    <label>Núcleo familiar</label>                        
+                                    <label>Composición familiar</label>                        
                                     <input id="textinput" name="descripcion_nu" type="descripcion_nu" placeholder="Escriba con quién vive el NNA" class="form-control input-md">
                                 </div> 
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">

@@ -27,11 +27,15 @@ $row_mun = mysqli_fetch_assoc($municipio);
 
 //password
 $clave  = mysqli_query($con, "SELECT * FROM usuarios")or die(mysqli_error($con));
-$row_cla = mysqli_fetch_assoc($clave); 
+$row_cla = mysqli_fetch_assoc($clave);  
 
 //listado de perfil
 $perfil  = mysqli_query($con, "SELECT * FROM perfiles")or die(mysqli_error($con));
 $row_per = mysqli_fetch_assoc($perfil);
+
+//listado de entidades
+$nivel  = mysqli_query($con, "SELECT * FROM usuarios")or die(mysqli_error($con));
+$row_niv = mysqli_fetch_assoc($nivel);
 
 //listado de entidades
 $entidad  = mysqli_query($con, "SELECT * FROM entidades")or die(mysqli_error($con));
@@ -58,31 +62,35 @@ $row_fecha = mysqli_fetch_assoc($fecha);
 
   		<strong><?php echo mask_field($r_fieldi_tit['Field']) ?></strong></div>
     <?php
-  //Si es la actividad, cargue el listado de actividades
+
+//No muestre la id
   if($r_fieldi_tit['Key'] == "PRI"){
   		continue;
-  }else if($r_fieldi_tit['Field'] == "id_tipo_documento"){
+
+        //Si es el usuario, todos los datos
+
+ /* }else if($r_fieldi_tit['Field'] == "id_tipo_documento"){
         //Se traen el dato de la tabla usuario y de tipo de documento
-        echo '<select name="'.$r_fieldi_tit['Field'].'" class="form-control js-example-basic-single" required="required">';
+        echo '<select name="'.$r_fieldi_tit['Field'].'" class="form-control js-example-basic-single">';
         echo '<option value="'.$row_gen[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
           do {
          echo '<option value="'.$row_doc['id_tipo_documento'].'">'.$row_doc['descripcion'].'</option>';
        } while ($row_doc = mysqli_fetch_assoc($documento));
-        echo '</select>';
+        echo '</select>';*/
       
 
-}else if($r_fieldi_tit['Field'] == "id_genero"){
+/*}else if($r_fieldi_tit['Field'] == "id_genero"){
   //Se traen el dato de la tabla usuario y de genero
 echo '<select name="'.$r_fieldi_tit['Field'].'" class="form-control js-example-basic-single">';
 echo '<option value="'.$row_gen[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
 do {
   echo '<option value="'.$row_gen['id_genero'].'">'.$row_gen['descripcion'].'</option>';
 } while ($row_gen = mysqli_fetch_assoc($genero));
- echo '</select>';
-}
+ echo '</select>';*/
+
 
 	//Si es el registro, cargue el listado de municipios
-	else if($r_fieldi_tit['Field'] == "id_municipio"){
+}else if($r_fieldi_tit['Field'] == "id_municipio"){
 		//Se construye select campo
     echo '<select name="'.$r_fieldi_tit['Field'].'" class="form-control js-example-basic-single">';
     echo '<option value="'.$row_mun[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
@@ -94,14 +102,23 @@ do {
 
   
 	//Encriptar la clave y verificación de esta
-	/*	else if($r_fieldi_tit['Field'] == "clave"){
-		//Se construye select campo
-		echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
-		echo '<input type="password" name="'.$r_fieldi_tit['Field'].'" placeholder="" class="form-control input-md" required >';
 
-		echo '<label>Repita '.mask_field($r_fieldi_tit['Field']).'</label>';
-		echo '<input type="password" placeholder="" name="clave2" class="form-control input-md" required >';
-  }*/
+	else if($r_fieldi_tit['Field'] == "clave"){
+		//Se construye select campo
+
+		echo '<input id="textinput" name="clave" type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave ?>">'; 
+    do {
+      
+    } while ($row_cla = mysqli_fetch_assoc($clave));
+     
+    echo '<label>Repita '.mask_field($r_fieldi_tit['Field']).'</label>';
+		echo '<input id="textinput" name="clave2" type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave ?>">'; 
+    do {
+    } while ($row_cla = mysqli_fetch_assoc($clave));
+
+  }
+
+	
 
 
 	//Si es el registro, cargue el listado de perfil
@@ -115,6 +132,7 @@ do {
 		echo '</select>';
 
 	}
+
 
 
 
@@ -143,7 +161,7 @@ do {
   <p align="center"><input  class="btn btn-warning pull-left" type="submit" id="nuevo" value="Editar">
   </form>
       <!-- Configuracion para que el pie de pagina no quede tan arriba-->
-      <div class="container" style="padding-top: 10%;"></div>
+      <div class="container" style="padding-top: 5%;"></div>
 
 </div>
 </div>

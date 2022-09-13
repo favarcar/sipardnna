@@ -170,7 +170,7 @@ Alerta faltan <b>$contador</b> calendario para resolver el caso por Restablecimi
 En caso de no ser resuelto el caso caduca por vencimiento de términos.
 <br>
 <br>
-<b>Nombre de Niño, Niña o Adolecente:</b> $Apellidos $Nombres 
+<b>Nombre de Niño, Niña o Adolescente:</b> $Apellidos $Nombres 
 <br>
 <b>No. de Documento de N.N.A.:</b> $No_identificacion
 <br>

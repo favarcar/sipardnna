@@ -85,7 +85,7 @@ id.style.height=id.contentDocument.body.scrollHeight+"px";
                     <div class="col-xs-12 col-sm-4 col-md-6 col-lg-6">
 <br>
  <div align="center" class="letra n700  azulo centrar">
-   <h1><b>Sistema de Informaci&oacute;n para el Restablecimiento de Derechos de Ni&ntilde;os, Ni&ntilde;as y         Adolescentes</b></h1></div>
+   <h1><b>Sistema de Informaci&oacute;n para el Restablecimiento de Derechos de Ni&ntilde;os, Ni&ntilde;as y Adolescentes</b></h1></div>
                    </div>        
                  
                   <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 ps pi">
