@@ -289,7 +289,7 @@ if ($verdato == 20){include("IngresarNuevoDerecho/ConsultarDerecho.php");}
 if ($verdato == 21){include("IngresarNuevoDerecho/IngresarDerecho.php");}
 if ($verdato == 22){include("IngresarNuevoDerecho/ModificarDerecho.php");}
 if ($verdato == 23){include("MPC/ConsultarMPC.php");}
-if ($verdato == 24){include("Expediente/ExportarPDF.php");}
+//if ($verdato == 24){include("Expediente/ExportarPDF.php");}
 if ($verdato == 25){include("Expediente/RegistrarConsularExpediente.php");}
 if ($verdato == 26){include("redireexpe.php");}
 if ($verdato == 27){include("EliminarRegistrosMPC.php");}

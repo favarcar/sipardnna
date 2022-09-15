@@ -22,32 +22,54 @@ $rusosql = mysqli_fetch_assoc($usosql);
 
   <?php
 
-
+print_r($_POST);
 //Codigo para automatizar el Update de registros
 $a = array();
 //Se incia el blucle para formar la cadena del UPDATE
 foreach ($_POST as $campo => $valor) {
 
-      if ($campo == "clave" || $campo == "clave2"){
-            continue;
-       }
+      
+       //Si alguno de estos campos no existe continue
+            if ($campo == "clave" || $campo == "clave2" || $campo == "check"){
+                  continue;
+             
+
+             
+             
+
+
+      }
+      
+      
+       
 
  $a[] = $campo." = '".$valor."'";
  //Se va almacenando en el arreglo, el update por variable
 }
 
-$pass1 = md5($_POST['clave']);
-$pass2 = md5($_POST['clave2']);
 
-if($pass1 != $pass2){
+if($_POST['check']){
+
+      $pass1 = md5($_POST['clave']);             
+             $pass2 = md5($_POST['clave2']);
+
+             $valorq = ", clave='$pass1'";
+            
+   if($pass1 != $pass2){
     exit('<div class="alert alert-warning">No coiciden las contraseñas<button class="btn btn-success" onclick="javascript: history.go(-1)"><i class="fa fa-arrow-left"></i>Regresar</button></div>');
-}
+              }
+
+      }else{
+            $valorq ="";
+      }
+
+
 
 
       $valorsupdate = implode(", ", $a);
-//echo "UPDATE usosdesuelo SET $valorsupdate, Grupo = '$grupo', Impacto = '$impacto', Uso = '{$row_sect['Uso']}'  WHERE Id_uso = '$cod_uso'";
+echo $valorsupdate;
 
-mysqli_query($con,"UPDATE $tabla SET $valorsupdate, clave='$pass1' WHERE $id = '$cod_uso'")or die(mysqli_error($con));
+mysqli_query($con,"UPDATE $tabla SET $valorsupdate $valorq  WHERE $id = '$cod_uso'")or die(mysqli_error($con));
 
 echo '<div class="alert alert-success">El registro se ha actualizado <a href="main.php?key='.$keydes.'&Id='.$cod_uso.'" class="btn btn-success"><i class="fa fa-arrow-left"></i>Regresar</a></div>';
   ?>

@@ -1,3 +1,17 @@
+<head>
+<script type="text/javascript">
+    function showContent() {
+        element = document.getElementById("content");
+        check = document.getElementById("check");
+        if (check.checked) {
+            element.style.display='block';
+        }
+        else {
+            element.style.display='none';
+        }
+    }
+</script>
+</head>
 <?php
 $tabla="usuarios";
 $id="id_usuario";
@@ -33,13 +47,17 @@ $row_cla = mysqli_fetch_assoc($clave);
 $perfil  = mysqli_query($con, "SELECT * FROM perfiles")or die(mysqli_error($con));
 $row_per = mysqli_fetch_assoc($perfil);
 
-//listado de entidades
+//listado de nivel
 $nivel  = mysqli_query($con, "SELECT * FROM usuarios")or die(mysqli_error($con));
 $row_niv = mysqli_fetch_assoc($nivel);
 
 //listado de entidades
 $entidad  = mysqli_query($con, "SELECT * FROM entidades")or die(mysqli_error($con));
 $row_ent = mysqli_fetch_assoc($entidad);
+
+//listado de estado
+$estado  = mysqli_query($con, "SELECT * FROM usuarios")or die(mysqli_error($con));
+$row_est = mysqli_fetch_assoc($estado);
 
 //fecha
 $fecha  = mysqli_query($con, "SELECT * FROM usuarios")or die(mysqli_error($con));
@@ -69,31 +87,33 @@ $row_fecha = mysqli_fetch_assoc($fecha);
 
         //Si es el usuario, todos los datos
 
- /* }else if($r_fieldi_tit['Field'] == "id_tipo_documento"){
+        
+
+  }else if($r_fieldi_tit['Field'] == "id_tipo_documento"){
         //Se traen el dato de la tabla usuario y de tipo de documento
         echo '<select name="'.$r_fieldi_tit['Field'].'" class="form-control js-example-basic-single">';
-        echo '<option value="'.$row_gen[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
+        echo '<option value="'.$row_sql[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
           do {
          echo '<option value="'.$row_doc['id_tipo_documento'].'">'.$row_doc['descripcion'].'</option>';
        } while ($row_doc = mysqli_fetch_assoc($documento));
-        echo '</select>';*/
+        echo '</select>';
       
 
-/*}else if($r_fieldi_tit['Field'] == "id_genero"){
+}else if($r_fieldi_tit['Field'] == "id_genero"){
   //Se traen el dato de la tabla usuario y de genero
 echo '<select name="'.$r_fieldi_tit['Field'].'" class="form-control js-example-basic-single">';
-echo '<option value="'.$row_gen[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
+echo '<option value="'.$row_sql[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
 do {
   echo '<option value="'.$row_gen['id_genero'].'">'.$row_gen['descripcion'].'</option>';
 } while ($row_gen = mysqli_fetch_assoc($genero));
- echo '</select>';*/
+ echo '</select>';
 
 
 	//Si es el registro, cargue el listado de municipios
 }else if($r_fieldi_tit['Field'] == "id_municipio"){
 		//Se construye select campo
     echo '<select name="'.$r_fieldi_tit['Field'].'" class="form-control js-example-basic-single">';
-    echo '<option value="'.$row_mun[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
+    echo '<option value="'.$row_sql[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
 			do {
 		 echo '<option value="'.$row_mun['id_municipio'].'">'.$row_mun['descripcion'].'</option>';
 	 } while ($row_mun = mysqli_fetch_assoc($municipio));
@@ -106,26 +126,25 @@ do {
 	else if($r_fieldi_tit['Field'] == "clave"){
 		//Se construye select campo
 
-		echo '<input id="textinput" name="clave" type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave ?>">'; 
+		echo '
+    <input type="checkbox" name="check" id="check" value="1" onchange="javascript:showContent()" /><div id="content" style="display: none;"><input id="textinput" name="clave" type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave ?>">'; 
     do {
       
     } while ($row_cla = mysqli_fetch_assoc($clave));
      
     echo '<label>Repita '.mask_field($r_fieldi_tit['Field']).'</label>';
-		echo '<input id="textinput" name="clave2" type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave ?>">'; 
+		echo '<input id="textinput" name="clave2" type="password" placeholder="" class="form-control input-md" onkeyup = "this.value=this.value.toUpperCase()" required value="<?php echo $clave ?>"></div><br>'; 
     do {
     } while ($row_cla = mysqli_fetch_assoc($clave));
 
   }
-
-	
 
 
 	//Si es el registro, cargue el listado de perfil
 	else if($r_fieldi_tit['Field'] == "id_perfil"){
 		//Se construye select campo
     echo '<select name="'.$r_fieldi_tit['Field'].'" class="form-control js-example-basic-single">';
-    echo '<option value="'.$row_per[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
+    echo '<option value="'.$row_sql[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
 			do {
 		 echo '<option value="'.$row_per['id_perfil'].'">'.$row_per['descripcion'].'</option>';
 	 } while ($row_per = mysqli_fetch_assoc($perfil));
@@ -133,20 +152,42 @@ do {
 
 	}
 
-
-
-
-  	//Si es el registro, cargue el listado de entidad
-	else if($r_fieldi_tit['Field'] == "id_entidad"){
+	else if($r_fieldi_tit['Field'] == "Nivel"){
 		//Se construye select campo
     echo '<select name="'.$r_fieldi_tit['Field'].'" class="form-control js-example-basic-single">';
-    echo '<option value="'.$row_ent[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
+    echo '<option value="'.$row_sql[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].'
+		 <option value="1">1. Usuario Administrador</option>
+		 <option value="2">2. Usuario de Reporte</option>
+		 <option value="3">3. Usuario Invitado</option>';
+     do {
+      echo ''.$row_niv['Nivel'].'';
+    } while ($row_niv = mysqli_fetch_assoc($nivel));
+    echo '</select>';
+	
+
+
+}
+  	//Si es el registro, cargue el listado de entidad
+else if($r_fieldi_tit['Field'] == "id_entidad"){
+		//Se construye select campo
+    echo '<select name="'.$r_fieldi_tit['Field'].'" class="form-control js-example-basic-single">';
+    echo '<option value="'.$row_sql[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].' </option>';
 			do {
 		 echo '<option value="'.$row_ent['id_entidad'].'">'.$row_ent['descripcion_entidades'].'</option>';
 	 } while ($row_ent = mysqli_fetch_assoc($entidad));
 		echo '</select>';
 
-	
+
+  }else if($r_fieldi_tit['Field'] == "estado"){
+    //Se construye select campo
+    echo '<select name="'.$r_fieldi_tit['Field'].'" class="form-control js-example-basic-single">';
+    echo '<option value="'.$row_sql[$r_fieldi_tit['Field']].'" selected> '.$row_sql[$r_fieldi_tit['Field']].'
+     <option value="1">1. Activo</option>
+     <option value="0">0. No Activo</option>';
+     do {
+      echo ''.$row_est['estado'].'</option>';
+    } while ($row_est = mysqli_fetch_assoc($estado));
+    echo '</select>';
 
      }else{
 

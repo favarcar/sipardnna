@@ -36,9 +36,9 @@ while ($row50 = mysqli_fetch_array($buscarExpe)) {
       <div class="row clearfix centrar">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
           <h2 class=" letra n600 azulo pi">
-           <?php
-            echo'<h5 class="letra n500  azulo " align="right"><a href="main.php?key=24&codigo_expediente='.$codigo_expediente.'" target="_blank" rel="noopener noreferrer" class=" btn btn-primary">Exportar PDF</a></h5>';
-          ?>
+           
+            <h5 class="letra n500  azulo " align="right"><a href="Expediente/ExportarPDF.php?codigo_expediente=<?php echo $codigo_expediente; ?>&id_ninnos=<?php echo $id_ninnos; ?>'" target="_blank" rel="noopener noreferrer" class=" btn btn-primary">Exportar PDF</a></h5>
+          
 
             </h2>
         </div>

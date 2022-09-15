@@ -16,6 +16,9 @@ $nombres = $fila['nombres'];
 $apellido = $fila['apellidos'];
 $id_municipio = $fila['id_municipio'];
 
+$nivel="SELECT * FROM usuarios where Nivel='$nuser' "; 
+$resultado2= mysqli_query($con,$nivel) or die (mysqli_error($con));
+
 date_default_timezone_set('America/Bogota');
     $time = time();
     $fecha=  date("Y-m-d", $time);
@@ -43,6 +46,7 @@ date_default_timezone_set('America/Bogota');
             </tr>
         <?php
 	include("conexion/conexion.php");
+
         $sql="select * from expediente where id_usuario_exp='$id_usuario' ORDER BY codigo_expediente ASC";
         $resultado=$mysqli->query($sql); 
         while($datos=$resultado->fetch_assoc()){			

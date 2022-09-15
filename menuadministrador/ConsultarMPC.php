@@ -43,8 +43,7 @@
                                 $busca = "";
                                 $busca = $_POST['busca'];
                                 if ($busca != "") {
-                                    $busqueda = mysqli_query($con, "SELECT * FROM cuidadores WHERE Apellidos_cuidadores LIKE '%" . $busca . "%' OR No_Cedula LIKE '%" . $busca . "%'"); //cambiar nombre de la tabla de busqueda
-                                    while ($row = mysqli_fetch_array($busqueda)) {
+                                    $busqueexpediente = mysqli_query($con, "SELECT * FROM cuidadores WHERE Apellidos_cuidadores LIKE '%" . $busca . "%' OR No_Cedula LIKE '%" . $busca . "%'");
                                         $apellidos          = $row['Apellidos_cuidadores'];
                                         $nombres            = $row['Nombres_cuidadores'];
                                         $numero_documento   = $row['No_Cedula'];
@@ -121,7 +120,7 @@
                                                         ?>
                                                     </td>
                                             <?php
-                                            }
+                                            
                                         } ?>
                                                 </tr>
                         </table>

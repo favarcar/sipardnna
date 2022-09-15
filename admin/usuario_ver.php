@@ -30,13 +30,14 @@ $uso = mysqli_query($con, "SELECT * FROM $tabla WHERE $id = '$cod_uso'")or die(m
     
   <tr style="display:<?php echo  $rusosql['Field'];?>">
      
-    <td width="44%" align="right"><strong><?php echo strtoupper(str_replace("_"," ", $rusosql['Field']))?></strong></td>
+    <td width="44%" align="right"><strong><?php echo strtoupper(str_replace("_"," ", mask_field($rusosql['Field'])))?></strong></td>
     <td width="56%">
 <?php 
 	
   if($rusosql['Field'] == "clave"){
     echo "******";
     continue;
+ 
   }
 	echo mask_val($row_uso[$rusosql['Field']], $rusosql['Field']); 
 
