@@ -167,10 +167,10 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
 
 <div class="table-responsive">
 
-  <table id="datatable-buttons"  class="table table-striped table-bordered" align="center" border="1" style="width:auto; height:20px;" >
+  <table id="datatable-buttons"  class="table-striped table-bordered" align="center" border="1" >
       <thead>
 	<tr>
-	  <td colspan="10" class="letra n600 azulo" bgcolor="#ff9933">Usuarios Registrados:
+	  <td colspan="10" class="letra n600 azulo" bgcolor="#ff9933"><p><p> &nbsp Usuarios Registrados:
 	  <!--Traer el numero de usuarios registrados en la tabla usuarios -->
 	  <?php
                                                 $con4 = mysqli_query($con, "SELECT count(id_usuario) FROM usuarios");

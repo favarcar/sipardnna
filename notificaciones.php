@@ -15,9 +15,10 @@ $fila=mysqli_fetch_array($resultado);
 $nombres = $fila['nombres'];
 $apellido = $fila['apellidos'];
 $id_municipio = $fila['id_municipio'];
+$nivel = $fila['Nivel'];
 
-$nivel="SELECT * FROM usuarios where Nivel='$nuser' "; 
-$resultado2= mysqli_query($con,$nivel) or die (mysqli_error($con));
+//$nivel="SELECT * FROM usuarios where Nivel='$nuser' "; 
+//$resultado2= mysqli_query($con,$nivel) or die (mysqli_error($con));
 
 date_default_timezone_set('America/Bogota');
     $time = time();
@@ -104,7 +105,68 @@ date_default_timezone_set('America/Bogota');
                 <td align="center"><a href="main.php?key=19&codigo_expediente=<?php echo $datos['codigo_expediente'];?>&id_ninnos=<?php echo $datos['id_ninnos'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar expediente"><span class="glyphicon glyphicon-search" ></span> Consultar</a></td>
 
             </tr>  
-                <?php } } ?>
+            <?php } } ?>
+<?php
+            if ($nuser == 1 || $id_usuario == 'id_usuario_exp'  ){
+
+$sql="select * from expediente ORDER BY codigo_expediente ASC";
+$resultado=$mysqli->query($sql); 
+while($datos=$resultado->fetch_assoc()){			
+    $codigo_expediente=$datos['codigo_expediente'];
+    $Fecha_inicio_expediente=$datos['Fecha_inicio_expediente'];
+    $id_ninnos=$datos['id_ninnos'];
+    $id_cuidadores=$datos['id_cuidadores'];
+    $id_discapacidad=$datos['id_discapacidad'];
+    $id_indicador=$datos['id_indicador'];
+    $id_maltrato=$datos['id_maltrato'];
+    $id_victima=$datos['id_victima'];
+    $Descripcion_expediente=$datos['Descripcion_expediente'];
+    $id_derecho=$datos['id_derecho'];
+    $Observacion=$datos['Observacion'];
+    $Veredicto_Caso=$datos['Veredicto_Caso'];
+    $Fecha_finalizacion_expediente=$datos['Fecha_finalizacion_expediente'];
+    $id_entidad=$datos['id_entidad'];
+    $id_usuario_exp=$datos['id_usuario_exp'];
+    $id_estadocaso=$datos['id_estadocaso'];
+    $fecha_limite=$datos['Fecha_finalizacion_expediente'];
+    
+    if($id_estadocaso == 2 ){
+    } else{                    
+        ?>
+    <tr>
+        <td align="center" ><?php  echo $codigo_expediente ?></td>
+        <td><?php echo fecha($Fecha_inicio_expediente) ?></td>
+        <td align="center"><?php echo'<div class="wrap2">'.$Descripcion_expediente.'</div>'?></td>              
+        <td align="center"><?php $busqueda1=mysqli_query($con,"SELECT * FROM estado_caso where id_estadocaso='$id_estadocaso' ");
+            while($row1=mysqli_fetch_array($busqueda1)){
+                $id_estadocaso=$row1['id_estadocaso'];		
+                echo $descripcion=$row1['descripcion_estado_caso'];     
+            } ?></td>
+        <td align="center"><?php echo $fecha_limite; ?></td>
+
+        <td align="center">
+         <?php
+            $datetime1 = new DateTime($fecha_limite);
+            $datetime2 = new DateTime($fecha);
+            $interval = $datetime2->diff($datetime1);
+            $dias = $interval->format('%a');
+        if($dias>=135){
+          echo'<span style="color: green;">'.$interval->format('%a días').'</span>';
+        }else if($fecha > $fecha_limite ){
+            echo'<span style="color: Cyan";>'.$interval->format('%a días').' vencido</span> ';
+        }else if($dias>=90&&$dias<135){
+          echo'<span style="color: yellow;">'.$interval->format('%a días').'</span>';
+        }else if($dias>=45&&$dias<90){
+          echo'<span style="color: orange;">'.$interval->format('%a días').'</span>';
+        
+        }else{
+            echo '<span style="color: red;">'.$interval->format('%a días').'</span>';
+            
+        } ?></td>
+        <td align="center"><a href="main.php?key=19&codigo_expediente=<?php echo $datos['codigo_expediente'];?>&id_ninnos=<?php echo $datos['id_ninnos'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar expediente"><span class="glyphicon glyphicon-search" ></span> Consultar</a></td>
+
+    </tr>  
+                <?php } } } ?>
 
         </table>
         </div>                                                     

@@ -377,7 +377,59 @@ function mask_field($campo){
 		return "Estado";
 	break;	
 
-		default:
+	case "descripcion_discapacidades":
+		return "Discapacidades";
+	break;	
+
+	case "descripcion_entidades":
+		return "Entidades";
+	break;	
+
+	case "id_eps":
+		return "Código EPS";
+	break;	
+
+	case "descripcion":
+		return "Descripción";
+	break;	
+	
+	case "id_regimen":
+		return "Código";
+	break;
+
+	case "regimen":
+		return "Régimen";
+	break;
+
+	case "descripcion_indicadores":
+		return "Clasificación del proceso";
+	break;
+
+	case "codigo_lugar":
+		return "Código";
+	break;
+
+	case "desc_lugar":
+		return "Lugar de los hechos";
+	break;
+
+	case "descripcion_maltratos":
+		return "Tipo de maltrato";
+	break;
+
+	case "id_motivo_ingreso":
+		return "Código";
+	break;	
+
+	case "desc_motivo_ingreso":
+		return "Motivo de ingreso";
+	break;	
+
+	case "descripcion_victimas":
+		return "Descripción";
+	break;
+
+	default:
 			return str_replace("_"," ",$campo);		
 	}
 

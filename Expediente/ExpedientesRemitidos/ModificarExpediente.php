@@ -4,6 +4,7 @@
         <![endif]-->
         <?php
 
+
 $codigo_expediente = $_GET['codigo_expediente'];
 //$id_ninnos = $_GET['id_ninnos'];
 
@@ -37,8 +38,7 @@ while ($row50 = mysqli_fetch_array($buscarExpe)) {
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
           <h2 class=" letra n600 azulo pi">
            
-            <h5 class="letra n500  azulo " align="right"><a href="Expediente/ExportarPDF.php?codigo_expediente=<?php echo $codigo_expediente; ?>&id_ninnos=<?php echo $id_ninnos; ?>'" target="_blank" rel="noopener noreferrer" class=" btn btn-primary">Exportar PDF</a></h5>
-          
+            <h5 class="letra n500  azulo " align="right"><a href="Expediente/ExportarPDF.php?codigo_expediente=<?php echo $row50['codigo_expediente']; ?>" class=" btn btn-primary">Exportar PDF</a></h5>
 
             </h2>
         </div>
@@ -208,7 +208,7 @@ echo "No tiene cuidador";
               ?>
 
               <select name="derechos_exp" id="derechos_exp" required class="form-control" style="text-transform: uppercase;">
-                <option value="<?php echo $id_derecho ?>"><?php echo $des_derecho ?></option>
+                <option value="<?php echo isset($id_derecho) ?>"><?php echo isset($des_derecho) ?></option>
                 <?php
                 $con1 = mysqli_query($con, "select * from  derechos");
                 $reg = mysqli_fetch_array($con1);
@@ -240,7 +240,7 @@ echo "No tiene cuidador";
             }
             ?>
             <select name="discapacidad_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;" required>
-              <option value="<?php echo $id_discapacidad ?>"><?php echo $des_discapacidad ?></option>
+              <option value="<?php echo isset($id_discapacidad)  ?>"><?php echo isset($des_discapacidad) ?></option>
               <?php
               $con55 = mysqli_query($con, "select * from  discapacidades");
               $reg55 = mysqli_fetch_array($con55);
@@ -280,7 +280,7 @@ echo "No tiene cuidador";
                 $id_indicador = $reg65['id_indicador'];
                 $descripcion_indicadores = $reg65['descripcion_indicadores'];
               ?>
-                <option value="<?php echo $id_indicador; ?>"><?php echo $descripcion_indicadores; ?> </option>
+                <option value="<?php echo isset($id_indicador); ?>"><?php echo isset($descripcion_indicadores); ?> </option>
               <?php
               } while ($reg65 = mysqli_fetch_array($con65));
               ?>
@@ -305,7 +305,7 @@ echo "No tiene cuidador";
             ?>
 
             <select name="maltratos_exp" id="maltratos_exp" class="form-control" style="text-transform: uppercase;" required>
-              <option value="<?php echo $id_maltrato  ?>"><?php echo $des_maltrato  ?></option>
+              <option value="<?php echo isset($id_maltrato)  ?>"><?php echo isset($des_maltrato)  ?></option>
               <?php
               $con1 = mysqli_query($con, "select * from  maltratos");
               $reg = mysqli_fetch_array($con1);
@@ -337,7 +337,7 @@ echo "No tiene cuidador";
             ?>
 
             <select name="victima_exp" id="victima_exp" class="form-control" style="text-transform: uppercase;" required>
-              <option value="<?php echo  $id_victima  ?>"><?php echo  $des_victima  ?></option>
+              <option value="<?php echo  isset($id_victima)  ?>"><?php echo  isset($des_victima)  ?></option>
               <?php
               $con2 = mysqli_query($con, "select * from  victimas");
               $reg = mysqli_fetch_array($con2);
@@ -409,7 +409,7 @@ echo "No tiene cuidador";
             ?>
 
             <select name="entidad_exp" id="entidad_exp" class="form-control" style="text-transform: uppercase;" required>
-              <option value="<?php echo $id_entidad  ?>"><?php echo $des_entidad  ?></option>
+              <option value="<?php echo isset($id_entidad)  ?>"><?php echo isset($des_entidad)  ?></option>
               <?php
               $con3 = mysqli_query($con, "select * from  entidades");
               $reg = mysqli_fetch_array($con3);
@@ -441,7 +441,7 @@ echo "No tiene cuidador";
             ?>
 
             <select name="estadocaso_exp" id="estadocaso_exp" class="form-control" style="text-transform: uppercase;" required>
-              <option value="<?php echo $id_estadocaso  ?>"><?php echo  $des_estadocaso  ?></option>
+              <option value="<?php echo isset($id_estadocaso)  ?>"><?php echo  isset($des_estadocaso)  ?></option>
               <?php
               $estado_con = mysqli_query($con, "select * from  estado_caso");
               $reg = mysqli_fetch_array($estado_con);

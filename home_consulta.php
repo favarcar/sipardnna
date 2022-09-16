@@ -29,6 +29,5 @@
 	  </div>
    </div>
 </div>
-  <!-- Configuracion para que el pie de pagina no quede tan arriba-->
-  <div class="container" style="padding-top: 4%;"></div>
+
     </section>

@@ -128,7 +128,7 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
     <tr>
 
 	  
-      <th style="width: 500px;">Consultar, editar o eliminar</th>
+      <th style="width: 200px;">Consultar, editar o eliminar</th>
       <?php
 	//se crea el encabezado
 	foreach ($columnas as $valor){
