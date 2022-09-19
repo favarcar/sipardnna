@@ -54,7 +54,7 @@
                                     <td class="col-md-4 control-label letra n600 azulo">Edad</td>
                                     <td class="col-md-4 control-label letra n600 azulo">Registrar MPC</td>
                                     <td class="col-md-4 control-label letra n600 azulo">Asignar MPC</td>
-                                    <td class="col-md-4 control-label letra n600 azulo">Consultar NNA</td>
+                                    <td class="col-md-4 control-label letra n600 azulo">Consultar o editar NNA</td>
                                 </tr>
                                 
                                 <tbody>
@@ -120,7 +120,7 @@
                                             <td align="center">
             
                                                         
-                                                        <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
+                                            <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar<br>o editar</a>
 
                                            </td>     
                                            </td> <?php
@@ -153,7 +153,7 @@
                             <td class="col-md-4 control-label letra n600 azulo">Edad</td>
                             <td class="col-md-4 control-label letra n600 azulo">Registrar MPC</td>
                             <td class="col-md-4 control-label letra n600 azulo">Asignar MPC</td>
-                            <td class="col-md-4 control-label letra n600 azulo">Consultar NNA</td>
+                            <td class="col-md-4 control-label letra n600 azulo">Consultar o editar NNA</td>
                         </tr>
                         <tbody>
                         <?php $busqueda = mysqli_query($con,"SELECT * FROM ninnosnna  WHERE id_municipio_hechos ='$id_municipio' ORDER BY Apellidos ASC " ); //cambiar nombre de la tabla de busqueda
@@ -213,7 +213,7 @@
                                                         }
                                                         ?>
                                                 <td align="center">
-                                                        <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
+                                                <a href="main.php?key=5&id_ninnos=<?php echo $row['id_ninnos']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar<br>o editar</a>
 
                                            </td>                                       
                                         <?php

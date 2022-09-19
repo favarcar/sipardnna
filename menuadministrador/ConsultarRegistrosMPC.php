@@ -1,16 +1,9 @@
     <title>Menú Principal dos</title>
     <!-- Traemos los datos de la base de datos de la tabla ninnosnna para mostrar el documento en la consulta -->
     <?php
-    $id_ninnos = $_GET['id_ninnos'];
-    $busqueda = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_ninnos = '$id_ninnos' "); //cambiar nombre de la tabla de busqueda 
-    while ($row = mysqli_fetch_array($busqueda)) {
-        $id_ninnos1         = $row['id_ninnos'];
-        $No_identificacion  = $row['No_identificacion'];
-        $Nombres            = $row['Nombres'];
-        $Apellidos          = $row['Apellidos'];
-    }  //Traemos los datos de la base de datos de la tabla cuidadores para mostrar el documento en la consulta 
-    $busqueda1 = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_ninos = '$id_ninnos' "); //cambiar nombre de la tabla de busqueda
-    while ($row1 = mysqli_fetch_array($busqueda1)) {
+
+    $busquecui= mysqli_query($con, "SELECT * FROM cuidadores"); //cambiar nombre de la tabla de busqueda
+    while ($row1 = mysqli_fetch_array($busquecui)) {
         // cuidadores
         $id_cuidadores      = $row1['id_cuidadores'];
         $id_tipo_documento  = $row1['id_tipo_documento'];
@@ -73,7 +66,7 @@
                     <div class="form-group" style="display:none">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. Documento N.N.A.</label>
                         <div class="col-md-8">
-                            <input id="nom_nna1" name="nom_nna1" type="text" placeholder="" class=" form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>" readonly>
+                            <input id="nom_nna1" name="nom_nna1" type="text" placeholder="" class=" form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $Apellidos;  ?> <?php echo $Nombres; ?>"  >
                         </div>
                     </div>
 
@@ -83,14 +76,14 @@
                             <input id="num_nino" name="num_nino" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php if (isset($No_identificacion)) {
 echo $No_identificacion;
 } else {
-echo "No tiene N.N.A. a cargo"; }?>" readonly>                        
+echo "No tiene N.N.A. a cargo"; }?>"  >                        
 </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombres</label>
                         <div class="col-md-8">
-                            <input id="nom_nna" name="nom_nna" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $NombresCuida ?>" readonly>
+                            <input id="nom_nna" name="nom_nna" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $NombresCuida ?>"  >
                         </div>
                     </div>
 
@@ -98,7 +91,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Apellidos</label>
                         <div class="col-md-8">
-                            <input id="ape_nna" name="ape_nna" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $ApellidosCuida ?>" readonly>
+                            <input id="ape_nna" name="ape_nna" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php echo $ApellidosCuida ?>"  >
                         </div>
                     </div>
 
@@ -111,7 +104,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                                 $id_tipo_documento = $row2['id_tipo_documento'];
                                 $des_id_tipo = $row2['descripcion'];
                             } ?>
-                            <select name="tip_doc_nna" id="tip_doc_nna" class="form-control" style="text-transform: uppercase;" disabled>
+                            <select name="tip_doc_nna" id="tip_doc_nna" class="form-control" style="text-transform: uppercase;"  >
                                 <option value="<?php echo $id_tipo_documento ?>"><?php echo $des_id_tipo ?></option>
                                 <?php
                                 $con4 = mysqli_query($con, "select * from  tipos_documentos");
@@ -132,7 +125,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento</label>
                         <div class="col-md-8">
-                            <input id="num_nna" name="num_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_Cedula ?>" readonly>
+                            <input id="num_nna" name="num_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $No_Cedula ?>"  >
                         </div>
                     </div>
 
@@ -140,7 +133,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha Nacimiento</label>
                         <div class="col-md-8">
-                            <input id="fecha_nna" name="fecha_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Fecha_Nacimiento; ?>" readonly>
+                            <input id="fecha_nna" name="fecha_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Fecha_Nacimiento; ?>"  >
                         </div>
                     </div>
 
@@ -148,7 +141,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Edad</label>
                         <div class="col-md-8">
-                            <input id="edad_nna" name="edad_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Edad ?>" readonly>
+                            <input id="edad_nna" name="edad_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Edad ?>"  >
                         </div>
                     </div>
 
@@ -161,7 +154,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                                 $id_genero = $row3['id_genero'];
                                 $des_genero = $row3['descripcion'];
                             } ?>
-                            <select name="genero_nna" id="genero_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="genero_nna" id="genero_nna"   class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_genero ?>"><?php echo $des_genero  ?></option>
                                 <?php
                                 $con1 = mysqli_query($con, "SELECT * FROM  generos");
@@ -179,20 +172,27 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                     </div>
 
                     <?php
-                    $consulta_Pais = $mysqli->query("SELECT Id_Pais,Nombre FROM paises ORDER BY Nombre");
+                    $consulta_paises = $mysqli->query("SELECT Id_Pais, Nombre FROM paises ORDER BY Nombre");
                     $consulta_departamentos = $mysqli->query("SELECT id, descripcion FROM departamentos ORDER BY descripcion");
                     ?>
 
-                    <div class="form-group">
+                    <div class="form-group" style="display:none">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Pais de nacimiento</label>
                         <div class="col-md-8">
-                            <select name="pais_nna" id="pais_nna" class="form-control" required disabled>
-                                <option value=''>SELECCIONE</option>
+                            <select name="pais_nna" id="pais_nna" class="form-control" style="text-transform: uppercase;" required >
+                            <?php
+                                $busqueda20 = mysqli_query($con, "SELECT * FROM paises WHERE Id_Pais = '$Id_Pais' ");
+                                while ($row20 = mysqli_fetch_array($busqueda20)) {
+                                    $Nombre = $row20['Nombre'];
+                                }
+                                ?>
+                                <option value="<?php echo $Id_Pais; ?>"><?php echo $Nombre; ?></option>
                                 <?php
-                                while ($row = $consulta_Pais->fetch_object()) {
+                                while ($row = $consulta_paises->fetch_object()) {
                                     echo "<option value = '" . $row->Id_Pais . "' >" . $row->Nombre . "</option>";
                                 }
                                 ?>
+
                             </select>
                         </div>
                     </div>
@@ -200,7 +200,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Departamento de nacimiento</label>
                         <div class="col-md-8">
-                            <select name="departamento_nna" id="departamento_nna" class="form-control" style="text-transform: uppercase;" required disabled>
+                            <select name="departamento_nna" id="departamento_nna" class="form-control" style="text-transform: uppercase;" required  >
                                 <?php
                                 $busqueda13 = mysqli_query($con, "SELECT * FROM departamentos WHERE id = '$id_departamento' ");
                                 while ($row13 = mysqli_fetch_array($busqueda13)) {
@@ -222,12 +222,12 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Municipio</label>
                         <div class="col-md-8">
                             <?php
-                            $busqueda1 = mysqli_query($con, "SELECT * FROM municipios where id_municipio='$id_municipio' ");
-                            while ($row1 = mysqli_fetch_array($busqueda1)) {
+                            $busquemun= mysqli_query($con, "SELECT * FROM municipios where id_municipio='$id_municipio' ");
+                            while ($row1 = mysqli_fetch_array($busquemun)) {
                                 $id_municipio = $row1['id_municipio'];
                                 $des_municipio = $row1['descripcion'];
                             } ?>
-                            <select name="municipio_nna" id="municipio_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="municipio_nna" id="municipio_nna"   class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_municipio ?>"><?php echo $des_municipio ?></option>
                                 <?php
                                 $con2 = mysqli_query($con, "SELECT * FROM municipios");
@@ -248,12 +248,12 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Provincia</label>
                         <div class="col-md-8">
                             <?php
-                            $busqueda1 = mysqli_query($con, "SELECT * FROM provincias WHERE id_provincia='$id_provincia' ");
-                            while ($row1 = mysqli_fetch_array($busqueda1)) {
+                            $busquepro= mysqli_query($con, "SELECT * FROM provincias WHERE id_provincia='$id_provincia' ");
+                            while ($row1 = mysqli_fetch_array($busquepro)) {
                                 $id_provincia = $row1['id_provincia'];
                                 $des_provincia = $row1['descripcion_prov'];
                             } ?>
-                            <select name="provincia_nna" id="provincia_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="provincia_nna" id="provincia_nna"   class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_provincia ?>"><?php echo $des_provincia ?></option>
                                 <?php
                                 $con3 = mysqli_query($con, "SELECT * FROM provincias");
@@ -273,21 +273,21 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección</label>
                         <div class="col-md-8">
-                            <input id="dir_nna" name="dir_nna" type="text" placeholder="" class="form-control input-md" value="<?php echo $Direccion ?>" readonly>
+                            <input id="dir_nna" name="dir_nna" type="text" placeholder="" class="form-control input-md" value="<?php echo $Direccion ?>"  >
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Teléfono móvil</label>
                         <div class="col-md-8">
-                            <input id="tel_nna" name="tel_nna" type="tel" minlength="10" maxlength="10"placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil ?>" readonly>
+                            <input id="tel_nna" name="tel_nna" type="tel" minlength="10" maxlength="10"placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $telefono_movil ?>"  >
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Email</label>
                         <div class="col-md-8">
-                            <input id="email_nna" name="email_nna" type="email" placeholder="" class="form-control input-md" value="<?php echo $correo_electronico ?>" readonly>
+                            <input id="email_nna" name="email_nna" type="email" placeholder="" class="form-control input-md" value="<?php echo $correo_electronico ?>"  >
                         </div>
                     </div>
 
@@ -295,13 +295,13 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Estrato</label>
                         <div class="col-md-8">
                             <?php
-                            $busqueda1 = mysqli_query($con, "SELECT * FROM estratos WHERE id_estrato='$id_estrato' ");
-                            while ($row1 = mysqli_fetch_array($busqueda1)) {
+                            $busqueestra= mysqli_query($con, "SELECT * FROM estratos WHERE id_estrato='$id_estrato' ");
+                            while ($row1 = mysqli_fetch_array($busqueestra)) {
                                 $id_estrato = $row1['id_estrato'];
                                 $des_estrato = $row1['descripcion'];
                             } ?>
 
-                            <select name="estrato_nna" id="estrato_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="estrato_nna" id="estrato_nna"   class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_estrato ?>"><?php echo $des_estrato ?></option>
                                 <?php
                                 $con4 = mysqli_query($con, "SELECT * FROM estratos");
@@ -323,13 +323,13 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Nivel Educativo</label>
                         <div class="col-md-8">
                             <?php
-                            $busqueda1 = mysqli_query($con, "SELECT * FROM nivel_educativo WHERE id_niveleducativo='$id_niveleducativo' ");
-                            while ($row1 = mysqli_fetch_array($busqueda1)) {
+                            $busqueniv= mysqli_query($con, "SELECT * FROM nivel_educativo WHERE id_niveleducativo='$id_niveleducativo' ");
+                            while ($row1 = mysqli_fetch_array($busqueniv)) {
                                 $id_niveleducativo = $row1['id_niveleducativo'];
                                 $des_niveleducativo = $row1['descripcion'];
                             }
                             ?>
-                            <select name="nivel_educa_nna" id="nivel_educa_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="nivel_educa_nna" id="nivel_educa_nna"   class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_niveleducativo ?>"><?php echo $des_niveleducativo ?></option>
                                 <?php
                                 $con5 = mysqli_query($con, "SELECT * FROM nivel_educativo");
@@ -351,13 +351,13 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Régimen</label>
                         <div class="col-md-8">
                             <?php
-                            $busqueda1 = mysqli_query($con, "SELECT * FROM regimenes WHERE id_regimen='$id_regimen' ");
-                            while ($row1 = mysqli_fetch_array($busqueda1)) {
+                            $busquereg= mysqli_query($con, "SELECT * FROM regimenes WHERE id_regimen='$id_regimen' ");
+                            while ($row1 = mysqli_fetch_array($busquereg)) {
                                 $id_regimen = $row1['id_regimen'];
                                 $des_regimen = $row1['descripcion'];
                             }
                             ?>
-                            <select name="regimen_nna" id="regimen_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="regimen_nna" id="regimen_nna"   class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_regimen ?>"><?php echo $des_regimen ?></option>
                                 <?php
                                 $con6 = mysqli_query($con, "SELECT * FROM regimenes");
@@ -379,13 +379,13 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">EPS</label>
                         <div class="col-md-8">
                             <?php
-                            $busqueda1 = mysqli_query($con, "SELECT * FROM eps WHERE id_eps='$id_eps' ");
-                            while ($row1 = mysqli_fetch_array($busqueda1)) {
+                            $busqueeps= mysqli_query($con, "SELECT * FROM eps WHERE id_eps='$id_eps' ");
+                            while ($row1 = mysqli_fetch_array($busqueeps)) {
                                 $id_eps1 = $row1['id_eps'];
                                 $des_eps = $row1['descripcion'];
                             }
                             ?>
-                            <select name="eps_nna" id="eps_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="eps_nna" id="eps_nna"   class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_eps1 ?>"><?php echo $des_eps ?></option>
                                 <?php
                                 $con7 = mysqli_query($con, "SELECT * FROM eps");
@@ -406,14 +406,14 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Etnias</label>
                         <div class="col-md-8">
-                            <?php $busqueda1 = mysqli_query($con, "SELECT * FROM etnias WHERE id_etnia='$id_etnia' ");
-                            while ($row1 = mysqli_fetch_array($busqueda1)) {
+                            <?php $busqueetnia= mysqli_query($con, "SELECT * FROM etnias WHERE id_etnia='$id_etnia' ");
+                            while ($row1 = mysqli_fetch_array($busqueetnia)) {
                                 $id_etnia = $row1['id_etnia'];
                                 $des_etnia = $row1['descripcion'];
                             }
                             ?>
 
-                            <select name="etnias_nna" id="etnias_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="etnias_nna" id="etnias_nna"   class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_etnia ?>"><?php echo $des_etnia ?></option>
                                 <?php
                                 $con8 = mysqli_query($con, "SELECT * FROM etnias");
@@ -434,7 +434,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Categoría del Sisb&eacute;n</label>
                         <div class="col-md-8">
-                            <input id="sisben_nna" name="sisben_nna" type="text" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$[a][1-5]{1}$|[b][1-7]{1}$|([c]([1-9]|1[0-8])$)|[d]([1-9]|1[0-9]|2[0-1])$" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" readonly>
+                            <input id="sisben_nna" name="sisben_nna" type="text" style="text-transform: uppercase;" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$[a][1-5]{1}$|[b][1-7]{1}$|([c]([1-9]|1[0-8])$)|[d]([1-9]|1[0-9]|2[0-1])$" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>"  >
                         </div>
                     </div>
 
@@ -449,7 +449,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                             }
                             ?>
 
-                            <select name="zona_nna" id="zona_nna" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="zona_nna" id="zona_nna"   class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_zona ?>"><?php echo $des_zona ?></option>
                                 <?php
                                 $con9 = mysqli_query($con, "SELECT * FROM zonas");
@@ -477,7 +477,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                             }
                             ?>
 
-                            <select name="parentescos" id="parentescos" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="parentescos" id="parentescos"   class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_parentesco10 ?>"><?php echo $des_parentesco10 ?></option>
                                 <?php
                                 $con10 = mysqli_query($con, "SELECT * FROM parentescos");
@@ -504,7 +504,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                                 $des_estado = $row6['descripcion'];
                             }
                             ?>
-                            <select name="estado_civil" id="estado_civil" disabled class="form-control" style="text-transform: uppercase;">
+                            <select name="estado_civil" id="estado_civil"   class="form-control" style="text-transform: uppercase;">
                                 <option value="<?php echo $id_estado; ?>"><?php echo $des_estado; ?> </option>
                                 <?php
                                 $con21 = mysqli_query($con, "SELECT * FROM estados_civiles");
@@ -524,17 +524,64 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                     <div class="form-group" style="display:none">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha Ingreso</label>
                         <div class="col-md-8">
-                            <input id="fecha_ingre" name="fecha_ingre" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $fecha_cuida ?>" required>
+                            <input id="fecha_ingre" name="fecha_ingre" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $fecha_cuida ?>" >
                         </div>
                     </div>
 
                     <div class="form-group" style="display:none">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">id_usuario </label>
                         <div class="col-md-8">
-                            <input id="id_usuario" name="id_usuario" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $id_usuario ?>" required>
+                            <input id="textinput" name="id_usuario" type="sisben_nna" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $id_usuario ?>" >
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-8">
+                            <button id="singlebutton" name="actualizar" class="btn btn-primary">Actualizar</button>
                         </div>
                     </div>
                 </fieldset>
+                <?php
+                if (isset($_POST['actualizar'])) { //si se ha presionado enviar                    
+                    $tip_doc_nna = $_POST['tip_doc_nna'];
+                    $num_nna = $_POST['num_nna'];
+                    $nom_nna = $_POST['nom_nna'];
+                    $ape_nna = $_POST['ape_nna'];
+                    $fecha_nna = $_POST['fecha_nna'];
+                    $edad_nna = $_POST['edad_nna'];
+                    $dir_nna = $_POST['dir_nna'];
+                    $tel_nna = $_POST['tel_nna'];
+                    $email_nna = $_POST['email_nna'];
+                    $parentescos = $_POST['parentescos'];
+                    $estado_civil = $_POST['estado_civil'];
+                    $estrato_nna = $_POST['estrato_nna'];
+                    $etnias_nna = $_POST['etnias_nna'];
+                    $genero_nna = $_POST['genero_nna'];
+                    $nivel_educa_nna = $_POST['nivel_educa_nna'];
+                    $regimen_nna = $_POST['regimen_nna'];
+                    $eps_nna = $_POST['eps_nna'];
+                    $municipio_nna = $_POST['municipio_nna'];
+                    $provincia_nna = $_POST['provincia_nna'];
+                    $zona_nna = $_POST['zona_nna'];
+                    $sisben_nna = $_POST['sisben_nna'];
+                    $fecha_ingre = $_POST['fecha_ingre'];
+                    $id_usuario = $_POST['id_usuario'];
+                    $num_nino = $_POST['num_nino'];
+                    $Id_Pais = $_POST['pais_nna'];
+                    $dep = $_POST['departamento_nna'];
+                    mysqli_query($con, "UPDATE `cuidadores` SET `id_tipo_documento`='$tip_doc_nna',`No_Cedula`='$num_nna',`Nombres_cuidadores`='$nom_nna',`Apellidos_cuidadores`='$ape_nna',`Fecha_Nacimiento`='$fecha_nna',`Edad`='$edad_nna',`Direccion`='$dir_nna',`telefono_movil`='$tel_nna',`correo_electronico`='$email_nna',`id_parentesco`='$parentescos',`id_estado`='$estado_civil',`id_estrato`='$estrato_nna',`id_etnia`='$etnias_nna',`id_genero`='$genero_nna',`id_niveleducativo`='$nivel_educa_nna',`id_regimen`='$regimen_nna',`id_eps`='$eps_nna',`id_municipio`='$municipio_nna',`id_provincia`='$provincia_nna',`id_zona`='$zona_nna',`Puntaje_Sisben`='$sisben_nna',`fecha_cuida`='$fecha_ingre',`id_usuario`='$id_usuario',`Id_Pais`='$Id_Pais',id_departamento='$dep' WHERE id_cuidadores='$id_cuidadores'");
+
+                    mysqli_close($con);
+
+
+                    echo '<script language = javascript>
+alert("la Informacion ha sido Guardada Correctamente")
+self.location = "main.php?key=18&id_cuidadoress='.$id_cuidadores.'""
+</script>';
+                }
+                ?>
             </form>
         </div>
     </section>

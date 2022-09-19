@@ -378,11 +378,11 @@ function mask_field($campo){
 	break;	
 
 	case "descripcion_discapacidades":
-		return "Discapacidades";
+		return "Discapacidad";
 	break;	
 
 	case "descripcion_entidades":
-		return "Entidades";
+		return "Entidad";
 	break;	
 
 	case "id_eps":

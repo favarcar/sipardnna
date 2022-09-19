@@ -381,7 +381,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Categoría del Sisb&eacute;n</label>
                         <div class="col-md-8">
-                            <input id="textinput" name="sisben_nna" type="text" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$[a][1-5]{1}$|[b][1-7]{1}$|([c]([1-9]|1[0-8])$)|[d]([1-9]|1[0-9]|2[0-1])$"class="form-control input-md" required>
+                            <input id="textinput" name="sisben_nna" type="text" style="text-transform: uppercase;" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" pattern="[A][1-5]{1}$|[B][1-7]{1}$|([C]([1-9]|1[0-8])$)|[D]([1-9]|1[0-9]|2[0-1])$[a][1-5]{1}$|[b][1-7]{1}$|([c]([1-9]|1[0-8])$)|[d]([1-9]|1[0-9]|2[0-1])$"class="form-control input-md" required>
                         </div>
                     </div>
 

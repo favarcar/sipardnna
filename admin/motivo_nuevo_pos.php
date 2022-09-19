@@ -23,4 +23,4 @@ echo '<div class="alert alert-success">El registro se ha creado <a href="main.ph
 	
   ?>
       <!-- Configuracion para que el pie de pagina no quede tan arriba-->
-      <div class="container" style="padding-top: 55%;"></div>
+      <div class="container" style="padding-top: 48%;"></div>

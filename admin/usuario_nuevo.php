@@ -183,7 +183,7 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
     <tr>
 
 	  
-      <th style="width: 500px;">Consultar, editar o eliminar</th>
+      <th style="width: 500px;">Consultar, editar o eliminar </th>
       <?php
 	//se crea el encabezado
 	foreach ($columnas as $valor){
@@ -196,7 +196,8 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
     <tbody>
 	<?php
 	do { ?>
-    <tr>
+    <tr> 
+		<?php if($nuser == 1){ ?>
      <td  align="center">
 		 <span>
 			<!--botones agrupados-->
@@ -209,13 +210,13 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
 	<a href="javascript:borrado(<?php echo $row_sql[$id];?>,'<?= $tabla ?>','<?= $id ?>',<?php echo $verdato; ?>)"class="btn btn-danger btn-sm" style="display:<?=$visible;?>"><i class="fa fa-trash"> </i></a>
 	</div>
 </div>
-
+<?php }?>
 	      </td>
      <?php
 		//Contenido
 		foreach ($columnas as $valor){
 			if($valor->name == $id){continue;}
-			echo  '<td style="display:'.colvisible($valor->name).'">'.mask_val($row_sql[$valor->name],$valor->name).'</td>';
+			echo  '<td style="display:'.colvisible($valor->name).'"><p><p>'.mask_val($row_sql[$valor->name],$valor->name).'</td>';
 	}
      
 
@@ -225,4 +226,4 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
     </tbody>
   </table>
   <!-- Configuracion para que el pie de pagina no quede tan arriba-->
-  <div class="container" style="padding-top: 18%;"></div>
+  <div class="container" style="padding-top: 3%;"></div>

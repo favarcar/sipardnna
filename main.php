@@ -276,7 +276,7 @@ if ($verdato == 6){include("menuadministrador/TotalExpedientes/ConsultarTotalExp
 if ($verdato == 8){include("MenuNinosNinasAdo.php");}
 if ($verdato == 9){include("MenuComisariaFamilia.php");}
 if ($verdato == 10){include("MPC/IngresarMPC.php");}
-//if ($verdato == 11){include("MPC/ConsultarMPC.php");}
+if ($verdato == 11){include("MPC/ConsultarRegistrosMPC1");}
 if ($verdato == 12){include("MenuExpediente.php");}
 if ($verdato == 13){include("notificaciones.php");}
 if ($verdato == 14){include("NNA/ConsultarNNA.php");}

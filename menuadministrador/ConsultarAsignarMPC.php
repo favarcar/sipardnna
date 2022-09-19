@@ -52,7 +52,7 @@
                                 <td class="col-md-4 control-label letra n600 azulo">Edad</td>                                
                                 <td class="col-md-4 control-label letra n600 azulo">Registrar NNA</td>
                                 <td class="col-md-4 control-label letra n600 azulo">Asignar NNA</td>
-                                <td class="col-md-4 control-label letra n600 azulo">Consultar MPC</td>
+                                <td class="col-md-4 control-label letra n600 azulo">Consultar o editar MPC</td>
                             </tr>
 
                             <tbody>
@@ -133,7 +133,7 @@
                                                         }
                                                         ?>
                                                         <td align="center">
-                                                        <a href="main.php?key=45&id_cuidadores=<?php echo $row['id_cuidadores']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
+                                                        <a href="main.php?key=18&id_cuidadores=<?php echo $row['id_cuidadores']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar<br>o editar</a>
 
                                                     </td>
                                             <?php
@@ -167,7 +167,7 @@
                                             <td class="col-md-4 control-label letra n600 azulo">Edad</td>
                                             <td class="col-md-4 control-label letra n600 azulo">Registrar NNA</td>
                                             <td class="col-md-4 control-label letra n600 azulo">Asignar NNA</td>
-                                            <td class="col-md-4 control-label letra n600 azulo">Consultar MPC</td>
+                                            <td class="col-md-4 control-label letra n600 azulo">Consultar o editar MPC</td>
                                         </tr>
 
                                         <tbody>
@@ -246,7 +246,7 @@
                                                         ?>
                                                         <td align="center">
 
-                                                             <a href="main.php?key=45&id_cuidadores=<?php echo $row['id_cuidadores'];?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar</a>
+                                                        <a href="main.php?key=18&id_cuidadores=<?php echo $row['id_cuidadores']; ?>" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="Consultar o editar registro"><span class="glyphicon glyphicon-search"></span> Consultar<br>o editar</a>
 
                                                     </td>
                                             <?php

@@ -1,60 +1,6 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Menú Principal dos</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        
-        <link rel="stylesheet" href="../css/bootstrap.css">
 
-        <style>
-            body {
-                padding-top: 0px;
-                padding-bottom: 0px;
-            }
-        </style>
-
-
-        <link rel="stylesheet" href="../css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="../css/main.css">
-        <link rel="stylesheet" href="../css/font-awesome.min.css">
-
-
-        <link href='https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,600italic' rel='stylesheet' type='text/css'>
-
-        <script src="../js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-         <!-- Start WOWSlider.com HEAD section -->
-        <link rel="stylesheet" type="text/css" href="engine1/style.css" />
-        <script type="text/javascript" src="engine1/jquery.js"></script>
-        <!-- End WOWSlider.com HEAD section -->
-
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
             <?php
-include("../conexion/conexion.php");
 
-
-	 $id_ninos=$_GET['id_ninos'];
-	
-			
-	
-	$busqueda=mysqli_query($con,"SELECT * FROM ninnosnna where id_ninnos='$id_ninos' ");//cambiar nombre de la tabla de busqueda
-while($row=mysqli_fetch_array($busqueda)){
-		
-          $id_ninnos1=$row['id_ninnos'];
-		  $No_identificacion=$row['No_identificacion'];
-		  $Nombres=$row['Nombres'];
-		  $Apellidos=$row['Apellidos'];
-}
 $busqueda1=mysqli_query($con,"SELECT * FROM cuidadores where id_ninos='$id_ninos' ");//cambiar nombre de la tabla de busqueda
 while($row1=mysqli_fetch_array($busqueda1)){
 
@@ -93,8 +39,7 @@ while($row1=mysqli_fetch_array($busqueda1)){
  <?php
    
 
-//Iniciar Sesión
-session_start();
+
 
 //Validar si se está ingresando con sesión correctamente
 if (!$_SESSION){
@@ -229,7 +174,6 @@ while($row2=mysqli_fetch_array($busqueda2)){
                     <div class="input-group">
                     
                      <?php  
-					 include("../conexion/conexion.php");
 					 
 					 $busqueda33=mysqli_query($con,"SELECT * FROM generos where id_genero='$id_genero' ");
 while($row33=mysqli_fetch_array($busqueda33)){

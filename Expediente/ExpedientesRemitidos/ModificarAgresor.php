@@ -159,7 +159,7 @@ echo "Agresor desconocido";
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento del P.A.</label>
           <div class="col-md-8">
-            <input id="textinput" name="documeto_agresor" type="int" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($documeto_agresor)) {
+            <input id="textinput" name="documeto_agresor" type="text" maxlength="10"  placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($documeto_agresor)) {
 echo $documeto_agresor;
 } else {
 echo "Agresor desconocido";
@@ -212,7 +212,7 @@ echo "Agresor desconocido";
 echo $nivel_academico;
 } else {
 echo "Agresor desconocido";
-} ?> " readonly>
+} ?> " >
             </select>
           </div>
         </div>
@@ -220,7 +220,7 @@ echo "Agresor desconocido";
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Número telefónico del P.A.</label>
           <div class="col-md-8">
-            <input id="textinput" name="telefono_agresor" type="int" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($telefono_agresor)) {
+            <input id="textinput" name="telefono_agresor" type="text" maxlength="10"  placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($telefono_agresor)) {
 echo $telefono_agresor;
 } else {
 echo "Agresor desconocido";
@@ -236,7 +236,8 @@ echo "Agresor desconocido";
 echo $parentesco_victima;
 } else {
 echo "Agresor desconocido";
-} ?> " readonly>
+} ?> " >
+
             </select>
           </div>
         </div>
@@ -251,8 +252,7 @@ echo "Agresor desconocido";
 
                 </fieldset>
             </form>
-          <!-- Configuracion para que el pie de pagina no quede tan arriba-->
-          <div class="container" style="padding-top: 10%;"></div>     
+
         </div>
     </section>
 

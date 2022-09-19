@@ -261,7 +261,7 @@
             <div class="form-group">
               <label class="col-md-4 control-label letra n600 azulo" for="textinput">No. de Documento</label>
               <div class="col-md-4">
-                <input id="textinput" name="num_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" required>
+                <input id="textinput" name="num_nna" type="text" placeholder=""  maxlength="10"  class="form-control input-md" onkeypress="return numeros(event)" required>
 
               </div>
             </div>
@@ -440,7 +440,7 @@
         <div class="form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Categoría del Sisb&eacute;n</label>
           <div class="col-md-4">
-            <input id="textinput" name="sisben_nna" type="sisben_nna" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" class="form-control input-md" onkeypress="return numeros(event)" required>
+            <input id="textinput" name="sisben_nna" type="sisben_nna" style="text-transform: uppercase;" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" class="form-control input-md" onkeypress="return numeros(event)" required>
 
           </div>
         </div>

@@ -464,7 +464,7 @@ while($row1=mysqli_fetch_array($busqueda1)){
                                                 <div class="form-group">
                   <label class="col-md-4 control-label letra n600 azulo" for="textinput">Categorías del Sisb&eacute;n</label>  
                   <div class="col-md-4">
-                  <input id="textinput" name="sisben_nna" type="sisben_nna" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" disabled >
+                  <input id="textinput" name="sisben_nna" type="sisben_nna" style="text-transform: uppercase;" placeholder="Categorías [A1-A5] [B1-B7] [C1-C18] [D1-D21]" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Puntaje_Sisben ?>" disabled >
                     
                   </div>
                 </div>
