@@ -438,9 +438,7 @@ self.location = "index.html"
             <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Clasificación del proceso</label>
             <div >
 
-                  
-
-              <select name="indicadores_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;">
+              <select name="indicadores_exp" id="indicadores_exp" class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
                 <?php
                 $con77 = mysqli_query($con, "select * from  indicadores");
@@ -455,7 +453,6 @@ self.location = "index.html"
                 ?>
               </select>
 
-              <!--<h5 class="letra n500  azulo "><button href="main.php?key=20" class=" btn btn-primary">Agregar indicador al expediente</button></h5>-->
             </div>
           </div>
 

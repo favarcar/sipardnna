@@ -224,7 +224,13 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
                         </label>                  
                     </div>
                 </div>  
-                               
+                <div class="form-group" >
+                        <label class="col-md-4 control-label"></label>
+                        
+                <a href="main.php?key=0" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Volver al inicio"><span class="glyphicon glyphicon-arrow-left" ></span> Volver</a>
+                                </div>     
+                             </div>
+                             <br>
                 </fieldset>                
 
     <?php 
@@ -267,8 +273,7 @@ $con2 = mysqli_query($con,"SELECT * FROM municipios WHERE id_departamento = '15'
             </script>'; 
         }
     ?>
-          <!-- Configuracion para que el pie de pagina no quede tan arriba-->
-  <div class="container" style="padding-top: 8%;"></div>
+
 
     <div class="clearfix"></div>
     </section>

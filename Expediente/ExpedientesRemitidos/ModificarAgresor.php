@@ -144,17 +144,17 @@ echo "No tiene cuidador";
           </div>
         </div>
 
+
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Victima del hecho</label>
           <div class="col-md-8">
-            <input id="textinput" name="vic_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($victima_hecho)) {
-echo $victima_hecho;
-} else {
-echo "Agresor desconocido";
-} ?> " readonly>
-            </select>
-          </div>
-        </div>
+          <select name="victima_hecho" id="textinput" class="form-control" style="text-transform: uppercase;">
+            <option value="<?php  echo $victima_hecho; ?>" ><?php  echo $victima_hecho; ?></option>   
+                                            <option value="SI">SI</option>
+                                            <option value="NO">NO</option>
+                                        </select>
+                                    </div>
+                                  </div>
 
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">N. de Documento del P.A.</label>
@@ -173,9 +173,7 @@ echo "Agresor desconocido";
             <input id="textinput" name="nombre_agresor" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($nombre_agresor)) {
 echo $nombre_agresor;
 
-} else {
-echo "Agresor desconocido";
-} ?> " >
+}?> " >
             </select>
           </div>
         </div>
@@ -185,8 +183,6 @@ echo "Agresor desconocido";
             <input id="textinput" name="apellido_agresor" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($apellido_agresor)) {
 
 echo $apellido_agresor;
-} else {
-echo "Agresor desconocido";
 } ?> " >
 
 </select>
@@ -198,25 +194,40 @@ echo "Agresor desconocido";
           <div class="col-md-8">
             <input id="textinput" name="edad_agresor" type="int" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if (isset($edad_agresor)) {
 echo $edad_agresor;
-} else {
-echo "Agresor desconocido";
 } ?>" >
             </select>
           </div>
         </div>
 
+
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nivel academico del P.A.</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Nivel academico del P.A.</label>
           <div class="col-md-8">
-            <input id="textinput" name="nivel_academico" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($nivel_academico)) {
-echo $nivel_academico;
-} else {
-echo "Agresor desconocido";
-} ?> " >
+
+            <?php
+
+            $busqueExpe = mysqli_query($con, "SELECT * FROM nivel_escolaridad");
+            while ($row1 = mysqli_fetch_array($busqueExpe)) {
+
+              $id_niveleducativo = $row1['codigo_escolaridad'];
+              $des_niv = $row1['desc_escolaridad'];
+            }
+            ?>
+
+            <select name="nivel_academico" id="textinput" class="form-control" style="text-transform: uppercase;">
+            <option value="<?php  echo $nivel_academico; ?>" ><?php  echo $nivel_academico; ?></option>                            
+                                            <option value="SIN ESCOLARIDAD">SIN ESCOLARIDAD</option>
+                                            <option value="BASICA PRIMARIA">BASICA PRIMARIA</option>
+                                            <option value="BASICA SECUNDARIA">BASICA SECUNDARIA</option>
+                                            <option value="EDUCACION MEDIA">EDUCACION MEDIA</option>
+                                            <option value="BACHILLER">BACHILLER</option>
+                                            <option value="PREGRADO">PREGRADO</option>
+                                            <option value="POSTGRADO">POSTGRADO</option>
+                                        </select>
+
             </select>
           </div>
         </div>
-
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Número telefónico del P.A.</label>
           <div class="col-md-8">
@@ -232,23 +243,36 @@ echo "Agresor desconocido";
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Vínculo con la víctima</label>
           <div class="col-md-8">
-            <input id="textinput" name="vinculo_agre" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($parentesco_victima)) {
-echo $parentesco_victima;
-} else {
-echo "Agresor desconocido";
-} ?> " >
-
+<select name="parentesco_victima" id="textinput" class="form-control" style="text-transform: uppercase;" >
+                                            <option value="<?php  echo $parentesco_victima; ?>" ><?php  echo $parentesco_victima; ?></option>                            
+                                            <option value="PADRE">Padre</option>
+                                            <option value="MADRE">Madre</option>
+                                            <option value="CUIDADOR">Cuidador/a</option>
+                                            <option value="ABUELO">Abuelo/a</option>
+                                            <option value="TIO">Tio/a</option>
+                                            <option value="AMIGO">Amigo/a</option>
+                                            <option value="CONOCIDO">Conocido/a</option>
+                                            <option value="PRIMO">Primo/a</option>
+                                            <option value="PROFESOR">Profesor/a</option>
+                                            <option value="AGRESOR DESCONOCIDO">Agresor Desconocido/a</option>
+                                            <option value="OTRO">Otro</option>
+                                        </select>
             </select>
           </div>
         </div>
 
-
+<br><br>
         <div class="form-group <?= $visiblemod ?>" >
-                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <label class="col-md-8 control-label" for="singlebutton"></label>
                         <div class="col-md-4">
                             <button id="singlebutton" name="singlebutton" class="btn btn-primary" >Actualizar Datos</button>
                         </div>
                     </div>
+                    <div class="col-md-4">
+  <!--Redireccionar a los expedientes-->
+<?php echo '<a href="main.php?key=29&id_ninnos='.$id_ninnos.'"  class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Consultar"><span class="glyphicon glyphicon-arrow-left"></span> Volver a los expedientes</a>';
+ ?>
+                      </div>
 
                 </fieldset>
             </form>
@@ -266,19 +290,26 @@ echo "Agresor desconocido";
     //print_r($_POST);
         if ($_POST){ //si se ha presionado enviar
 
+          $victima_hecho = $_POST['victima_hecho'];
+          $parentesco_victima = $_POST['parentesco_victima'];
           $documeto_agresor = $_POST['documeto_agresor'];
           $nombre_agresor = $_POST['nombre_agresor'];
           $apellido_agresor = $_POST['apellido_agresor'];
           $edad_agresor = $_POST['edad_agresor'];
+          $nivel_academico =$_POST['nivel_academico'];
           $telefono_agresor = $_POST['telefono_agresor'];
+
 
 
           
           mysqli_query($con, "UPDATE hecho_agresor SET 
+          victima_hecho = '$victima_hecho',
+          parentesco_victima = '$parentesco_victima',
           documeto_agresor = '$documeto_agresor',
           nombre_agresor = '$nombre_agresor', 
           apellido_agresor = '$apellido_agresor', 
           edad_agresor = '$edad_agresor', 
+          nivel_academico= '$nivel_academico',
           telefono_agresor = '$telefono_agresor' 
 
           

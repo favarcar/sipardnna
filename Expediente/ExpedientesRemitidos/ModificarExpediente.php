@@ -9,7 +9,7 @@ $codigo_expediente = $_GET['codigo_expediente'];
 //$id_ninnos = $_GET['id_ninnos'];
 
 //Traer los datos de la tabla expediente
-$buscarExpe = mysqli_query($con, "SELECT * FROM expediente where codigo_expediente='$codigo_expediente' "); 
+$buscarExpe = mysqli_query($con, "SELECT * FROM expediente WHERE codigo_expediente='$codigo_expediente' "); 
 while ($row50 = mysqli_fetch_array($buscarExpe)) {
 
   $codigo_expediente1 = $row50['codigo_expediente'];
@@ -50,7 +50,7 @@ while ($row50 = mysqli_fetch_array($buscarExpe)) {
 
   //Traer los datos de la tabla ninnosnna
 
-$busnna = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' ");
+$busnna = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_ninnos='$id_ninnos' ");
 while ($row = mysqli_fetch_array($busnna)) {
 
   $id_ninnos1 = $row['id_ninnos'];
@@ -59,7 +59,7 @@ while ($row = mysqli_fetch_array($busnna)) {
   $Apellidos = $row['Apellidos'];
 }
   //Traer los datos de la tabla hecho_agresor
-  $buscaragre = mysqli_query($con, "SELECT * FROM hecho_agresor where id_ninnos='$id_ninnos' ");
+  $buscaragre = mysqli_query($con, "SELECT * FROM hecho_agresor WHERE id_ninnos='$id_ninnos' ");
   while ($row51 = mysqli_fetch_array($buscaragre)){
     $id_victimahe = $row51['id_victimahe'];
     $victima_hecho = $row51['victima_hecho'];
@@ -76,7 +76,7 @@ while ($row = mysqli_fetch_array($busnna)) {
   }
   
   //Traer los datos de la tabla cuida  
-$busnna = mysqli_query($con, "SELECT * FROM cuida where id_ninnos='$id_ninnos' ");
+$busnna = mysqli_query($con, "SELECT * FROM cuida WHERE id_ninnos='$id_ninnos' ");
 while ($row = mysqli_fetch_array($busnna)) {
 
   $id_cuida = $row['id_cuida'];
@@ -86,7 +86,7 @@ while ($row = mysqli_fetch_array($busnna)) {
   //Traer los datos de la tabla cuidadores  
   
 
-$busquecuidador = mysqli_query($con, "SELECT * FROM cuidadores where id_cuidadores='$id_cuidanna' "); 
+$busquecuidador = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_cuidadores='$id_cuidanna' "); 
 while ($row1 = mysqli_fetch_array($busquecuidador)) {
 
   //// cuidadores
@@ -128,7 +128,7 @@ while ($row1 = mysqli_fetch_array($busquecuidador)) {
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Codigo del NNA</label>
           <div class="col-md-8">
             <input id="textinput" name="cod_exp" type="text" placeholder="" class="form-control input-md" value="<?php
-                                                                                                                  $busnna = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); 
+                                                                                                                  $busnna = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_ninnos='$id_ninnos' "); 
                                                                                                                while ($row = mysqli_fetch_array($busnna)) {
 
                                                                                                                     echo $id_ninnos11 = $row['id_ninnos'];
@@ -199,7 +199,7 @@ echo "No tiene cuidador";
           <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Restablecimiento de Derechos</label>
           <div class="col-md-8">
 
-          <?php $busqueExpe = mysqli_query($con, "SELECT * FROM derechos where id_derecho='$id_derecho' ");
+          <?php $busqueExpe = mysqli_query($con, "SELECT * FROM derechos WHERE id_derecho='$id_derecho' ");
               while ($row1 = mysqli_fetch_array($busqueExpe)) if (isset($id_derecho)){
 
                 $id_derecho = $row1['id_derecho'];
@@ -208,7 +208,7 @@ echo "No tiene cuidador";
               ?>
 
               <select name="derechos_exp" id="derechos_exp" required class="form-control" style="text-transform: uppercase;">
-                <option value="<?php echo isset($id_derecho) ?>"><?php echo isset($des_derecho) ?></option>
+                <option value="<?php echo $id_derecho ?>"><?php echo $des_derecho ?></option>
                 <?php
                 $con1 = mysqli_query($con, "select * from  derechos");
                 $reg = mysqli_fetch_array($con1);
@@ -232,7 +232,7 @@ echo "No tiene cuidador";
           <div class="col-md-8">
             <?php
 
-            $busqueExpe = mysqli_query($con, "SELECT * FROM discapacidades where id_discapacidad='$id_discapacidad' ");
+            $busqueExpe = mysqli_query($con, "SELECT * FROM discapacidades WHERE id_discapacidad='$id_discapacidad' ");
             while ($row1 = mysqli_fetch_array($busqueExpe)) {
  
               $id_discapacidad = $row1['id_discapacidad'];
@@ -240,7 +240,7 @@ echo "No tiene cuidador";
             }
             ?>
             <select name="discapacidad_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;" required>
-              <option value="<?php echo isset($id_discapacidad)  ?>"><?php echo isset($des_discapacidad) ?></option>
+              <option value="<?php echo $id_discapacidad  ?>"><?php echo $des_discapacidad ?></option>
               <?php
               $con55 = mysqli_query($con, "select * from  discapacidades");
               $reg55 = mysqli_fetch_array($con55);
@@ -264,15 +264,15 @@ echo "No tiene cuidador";
           <div class="col-md-8">
             <?php
 
-            $busqueExpe = mysqli_query($con, "SELECT * FROM indicadores where id_indicador='$id_indicador' ");
+            $busqueExpe = mysqli_query($con, "SELECT * FROM indicadores WHERE id_indicador='$id_indicador' ");
             while ($row1 = mysqli_fetch_array($busqueExpe)) {
  
               $id_indicador = $row1['id_indicador'];
               $descripcion_indicadores = $row1['descripcion_indicadores'];
             }
             ?>
-            <select name="indicadores_exp" id="indicadores_exp" class="form-control" style="text-transform: uppercase;" required>
-              <option value="<?php echo $descripcion_indicadores ?></option>
+            <select name="id_indicador" id="id_indicador" class="form-control" style="text-transform: uppercase;" required>
+            <option value="<?php echo $id_indicador  ?>"><?php echo $descripcion_indicadores ?></option>
               <?php
               $con65 = mysqli_query($con, "select * from  indicadores");
               $reg65 = mysqli_fetch_array($con65);
@@ -280,7 +280,7 @@ echo "No tiene cuidador";
                 $id_indicador = $reg65['id_indicador'];
                 $descripcion_indicadores = $reg65['descripcion_indicadores'];
               ?>
-                <option value="<?php echo isset($id_indicador); ?>"><?php echo isset($descripcion_indicadores); ?> </option>
+                <option value="<?php echo $id_indicador; ?>"><?php echo $descripcion_indicadores; ?> </option>
               <?php
               } while ($reg65 = mysqli_fetch_array($con65));
               ?>
@@ -296,7 +296,7 @@ echo "No tiene cuidador";
 
             <?php
 
-            $busqueExpe = mysqli_query($con, "SELECT * FROM maltratos where id_maltrato='$id_maltrato' ");
+            $busqueExpe = mysqli_query($con, "SELECT * FROM maltratos WHERE id_maltrato='$id_maltrato' ");
             while ($row1 = mysqli_fetch_array($busqueExpe)) {
 
               $id_maltrato = $row1['id_maltrato'];
@@ -305,7 +305,7 @@ echo "No tiene cuidador";
             ?>
 
             <select name="maltratos_exp" id="maltratos_exp" class="form-control" style="text-transform: uppercase;" required>
-              <option value="<?php echo isset($id_maltrato)  ?>"><?php echo isset($des_maltrato)  ?></option>
+              <option value="<?php echo $id_maltrato  ?>"><?php echo $des_maltrato  ?></option>
               <?php
               $con1 = mysqli_query($con, "select * from  maltratos");
               $reg = mysqli_fetch_array($con1);
@@ -328,7 +328,7 @@ echo "No tiene cuidador";
 
             <?php
 
-            $busqueExpe = mysqli_query($con, "SELECT * FROM victimas where id_victima='$id_victima' ");
+            $busqueExpe = mysqli_query($con, "SELECT * FROM victimas WHERE id_victima='$id_victima' ");
             while ($row1 = mysqli_fetch_array($busqueExpe)) {
 
               $id_victima = $row1['id_victima'];
@@ -337,7 +337,7 @@ echo "No tiene cuidador";
             ?>
 
             <select name="victima_exp" id="victima_exp" class="form-control" style="text-transform: uppercase;" required>
-              <option value="<?php echo  isset($id_victima)  ?>"><?php echo  isset($des_victima)  ?></option>
+              <option value="<?php echo  $id_victima  ?>"><?php echo  $des_victima  ?></option>
               <?php
               $con2 = mysqli_query($con, "select * from  victimas");
               $reg = mysqli_fetch_array($con2);
@@ -400,7 +400,7 @@ echo "No tiene cuidador";
 
             <?php
 
-            $busqueExpe = mysqli_query($con, "SELECT * FROM entidades where id_entidad='$id_entidad' ");
+            $busqueExpe = mysqli_query($con, "SELECT * FROM entidades WHERE id_entidad='$id_entidad' ");
             while ($row1 = mysqli_fetch_array($busqueExpe)) {
 
               $id_entidad = $row1['id_entidad'];
@@ -409,7 +409,7 @@ echo "No tiene cuidador";
             ?>
 
             <select name="entidad_exp" id="entidad_exp" class="form-control" style="text-transform: uppercase;" required>
-              <option value="<?php echo isset($id_entidad)  ?>"><?php echo isset($des_entidad)  ?></option>
+              <option value="<?php echo $id_entidad  ?>"><?php echo $des_entidad  ?></option>
               <?php
               $con3 = mysqli_query($con, "select * from  entidades");
               $reg = mysqli_fetch_array($con3);
@@ -432,7 +432,7 @@ echo "No tiene cuidador";
 
             <?php
 
-            $busqueExpe = mysqli_query($con, "SELECT * FROM estado_caso where id_estadocaso='$id_estadocaso' ");
+            $busqueExpe = mysqli_query($con, "SELECT * FROM estado_caso WHERE id_estadocaso='$id_estadocaso' ");
             while ($row1 = mysqli_fetch_array($busqueExpe)) {
 
               $id_estadocaso = $row1['id_estadocaso'];
@@ -441,7 +441,7 @@ echo "No tiene cuidador";
             ?>
 
             <select name="estadocaso_exp" id="estadocaso_exp" class="form-control" style="text-transform: uppercase;" required>
-              <option value="<?php echo isset($id_estadocaso)  ?>"><?php echo  isset($des_estadocaso)  ?></option>
+              <option value="<?php echo $id_estadocaso  ?>"><?php echo  $des_estadocaso  ?></option>
               <?php
               $estado_con = mysqli_query($con, "select * from  estado_caso");
               $reg = mysqli_fetch_array($estado_con);
@@ -580,7 +580,7 @@ echo "Agresor desconocido";
           $cod_exp = $_POST['cod_exp'];
           $cuidadores_exp = $_POST['cuidadores_exp'];
           $discapacidad_exp = $_POST['discapacidad_exp'];
-          $indicadores_exp = $_POST['indicadores_exp'];
+          $id_indicador = $_POST['id_indicador'];
           $maltratos_exp = $_POST['maltratos_exp'];
           $victima_exp = $_POST['victima_exp'];
           $descripcion_exp = $_POST['descripcion_exp'];
@@ -599,7 +599,7 @@ echo "Agresor desconocido";
           id_ninnos='$cod_exp',
           id_cuidadores='$cuidadores_exp',
           id_discapacidad='$discapacidad_exp',
-          id_indicador='$indicadores_exp',
+          id_indicador='$id_indicador',
           id_maltrato='$maltratos_exp',
           id_victima='$victima_exp',
           Descripcion_expediente='$descripcion_exp',

@@ -481,7 +481,7 @@ echo "No tiene N.N.A. a cargo"; }?>"  >
                                 <option value="<?php echo $id_parentesco10 ?>"><?php echo $des_parentesco10 ?></option>
                                 <?php
                                 $con10 = mysqli_query($con, "SELECT * FROM parentescos");
-                                $reg10 = mysqli_fetch_array($con10);
+                                $reg20 = mysqli_fetch_array($con10);
                                 do {
                                     $id_parentesco20     = $reg20['id_parentesco'];
                                     $des_parentesco20    = $reg20['descripcion'];
