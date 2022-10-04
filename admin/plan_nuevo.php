@@ -66,7 +66,7 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
      <td align="center">
 		 <span>
 <!--botones agrupados-->
-<div id="botones_com" style="display:<?php echo  $visiblevisit ?>; style="float: left;">
+<div id="botones_com" style="float: left;">
 	<!--boton editar-->
 <a href="main.php?key=62&Id=<?php echo $row_sql[$id]; ?>" class="btn btn-warning btn-lg float-left"><i class="fa fa-edit"></i></a>
 	<!--boton eliminar-->
