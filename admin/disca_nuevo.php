@@ -145,7 +145,7 @@ echo '<label>'.mask_field($r_fieldi_tit['Field']).'</label>';
      <td  align="center">
 		 <span>
 			<!--botones agrupados-->
-<div id="botones_com" style="display:<?php echo  $visiblevisit ?>; style="float: left;">
+<div id="botones_com" style="float: left;">
    <!--boton ver-->
   <a href="main.php?key=68&Id=<?= $row_sql[$id] ?>"  class="btn btn-primary btn-sm" style="display:<?=$visible;?>"><span class="glyphicon glyphicon-search"></span></a>
 	<!--boton editar-->
