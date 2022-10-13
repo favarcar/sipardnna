@@ -21,6 +21,9 @@ while ($row50 = mysqli_fetch_array($buscarExpe)) {
   $id_maltrato = $row50['id_maltrato'];
   $id_victima = $row50['id_victima'];
   $Descripcion_expediente = $row50['Descripcion_expediente'];
+  $funcionario_actuacion_exp = $row50['funcionario_actuacion_exp'];
+  $concepto_verificacion = $row50['concepto_verificacion'];
+  $juzgamiento = $row50['juzgamiento'];
   $id_derecho = $row50['id_derecho'];
   $Observacion = $row50['Observacion'];
   $Veredicto_Caso = $row50['Veredicto_Caso'];
@@ -28,6 +31,15 @@ while ($row50 = mysqli_fetch_array($buscarExpe)) {
   $id_entidad = $row50['id_entidad'];
   $id_usuario_exp = $row50['id_usuario_exp'];
   $id_estadocaso = $row50['id_estadocaso'];
+
+
+/*Traer los datos de la tabla actuacion
+$buscarActuacion = mysqli_query($con, "SELECT * FROM actuacion WHERE id_expediente='$codigo_expediente' "); 
+while ($row60 = mysqli_fetch_array($buscarActuacion)) {
+
+  $id_actuacion = $row60['id_actuacion'];
+  $id_expediente1 = $row60['id_expediente'];
+  $funcionario_actuacion = $row60['funcionario_actuacion'];*/
 
 
 ?>
@@ -147,7 +159,7 @@ while ($row1 = mysqli_fetch_array($busquecuidador)) {
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Nombre de N.N.A.</label>
           <div class="col-md-8">
-            <input id="textinput" name="nom_nna_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if($Apellidos>0){echo $Apellidos;}else{echo "No tiene cuidador";} ?> <?php echo $Nombres; ?>" readonly>
+            <input id="textinput" name="nom_nna_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php if($Apellidos>0){echo $Apellidos;}else{echo "";} ?> <?php echo $Nombres; echo " "; echo $Apellidos; ?>" readonly>
 
           </div>
         </div>
@@ -224,6 +236,18 @@ echo "No tiene cuidador";
 
             </select>
 
+          </div>
+        </div>
+
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Juzgamiento</label>
+          <div class="col-md-8">
+            <input id="textinput" name="vinculo_agre" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($juzgamiento)) {
+echo $juzgamiento;
+} else {
+echo "Desconocido";
+} ?> " readonly>
+            </select>
           </div>
         </div>
 
@@ -355,14 +379,35 @@ echo "No tiene cuidador";
         </div>
 
         <!-- Text input-->
+
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Concepto de verificaci&oacute;n </label>
+          <div class="col-md-8">
+            <textarea class="form-control input-md" name="concepto_verificacion" readonly><?php echo $concepto_verificacion ?></textarea>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Funcionario</label>
+          <div class="col-md-8">
+            <input id="textinput" name="funcionario_actuacion_exp" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($funcionario_actuacion_exp)) {
+echo $funcionario_actuacion_exp;
+} else {
+echo "No registrado";
+} ?> " readonly>
+            </select>
+          </div>
+        </div>
+
+
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Descripci&oacute;n de los hechos</label>
           <div class="col-md-8">
             <textarea class="form-control input-md" name="descripcion_exp" required><?php echo $Descripcion_expediente ?></textarea>
-
-
           </div>
         </div>
+
+
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Observaciones</label>
           <div class="col-md-8">
@@ -584,6 +629,7 @@ echo "Agresor desconocido";
           $maltratos_exp = $_POST['maltratos_exp'];
           $victima_exp = $_POST['victima_exp'];
           $descripcion_exp = $_POST['descripcion_exp'];
+          $concepto_verificacion = $_POST['concepto_verificacion'];
           $derechos_exp = $_POST['derechos_exp'];
           $obs_exp = $_POST['obs_exp'];
           $veredicto_exp = $_POST['veredicto_exp'];
@@ -603,6 +649,7 @@ echo "Agresor desconocido";
           id_maltrato='$maltratos_exp',
           id_victima='$victima_exp',
           Descripcion_expediente='$descripcion_exp',
+          concepto_verificacion='$concepto_verificacion',
           id_derecho='$derechos_exp',
           Observacion='$obs_exp',
           Veredicto_Caso='$veredicto_exp',

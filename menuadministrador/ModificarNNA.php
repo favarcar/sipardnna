@@ -14,7 +14,7 @@ while ($row = mysqli_fetch_array($busqueda_nna)) {
     $Direccion          = $row['Direccion'];
     $telefono_movil     = $row['telefono_movil'];
     $correo_electronico = $row['correo_electronico'];
-    $id_genero          = $row['id_genero'];
+    $id_sexo          = $row['id_sexo'];
     $id_estrato         = $row['id_estrato'];
     $id_niveleducativo  = $row['id_niveleducativo'];
     $id_cuidadores      = $row['id_cuidadores'];
@@ -27,6 +27,7 @@ while ($row = mysqli_fetch_array($busqueda_nna)) {
     $id_zona            = $row['id_zona'];
     $fecha_ingreso      = $row['fecha_ingreso'];
     $id_usuario         = $row['id_usuario'];
+    $id_municipio_hechos = $row['id_municipio_hechos'];
 } 
 
 $busqueda_nucleo = mysqli_query($con, "SELECT * FROM nucleo_familiar");
@@ -46,7 +47,7 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
     ?>
 
     <section class="fblanco">
-        <div class="container pi3x">
+        <div class="container pi3x"><br><br>
           <h3 class="centrar letra n600 azulo pi">Consultar Formulario Ni&ntilde;os Ni&ntilde;as y Adolescentes</h3>
           <!--Mostrar en dos columnas-->  
           <form class="form-horizontal num-columnas2 ps2x" method="post" enctype="multipart/form-data">
@@ -114,7 +115,7 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
                         <div class="col-md-8">
                             <input id="fecha_nna" name="fecha_nna" type="text" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $Fecha_Nacimiento; ?>" <?= $dis ?>>
                         </div>
-                    </div>
+                    </div><br><br>
 
                     <!-- Text input-->
                     <div class="form-group">
@@ -125,25 +126,25 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Género</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Sexo</label>
                         <div class="col-md-8">
                             <?php
 
-                            $busqueda2 = mysqli_query($con, "SELECT * FROM generos WHERE id_genero = '$id_genero' ");
+                            $busqueda2 = mysqli_query($con, "SELECT * FROM sexo WHERE id_sexo ='$id_sexo'");
                             while ($row2 = mysqli_fetch_array($busqueda2)) {
-                                $id_genero = $row2['id_genero'];
+                                $id_sexo = $row2['id_sexo'];
                                 $des_genero = $row2['descripcion'];
                             } ?>
                             <select name="genero_nna" id="genero_nna" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
-                                <option value="<?php echo $id_genero; ?>"><?php echo $des_genero;  ?></option>
+                                <option value="<?php echo $id_sexo; ?>"><?php echo $des_genero;  ?></option>
                                 <?php
-                                $con1 = mysqli_query($con, "SELECT * FROM generos");
+                                $con1 = mysqli_query($con, "SELECT * FROM sexo");
                                 $reg1 = mysqli_fetch_array($con1);
                                 do {
-                                    $id_genero = $reg1['id_genero'];
+                                    $id_sexo = $reg1['id_sexo'];
                                     $descripcion = $reg1['descripcion'];
                                 ?>
-                                    <option value="<?php echo $id_genero; ?>"><?php echo $descripcion; ?> </option>
+                                    <option value="<?php echo $id_sexo; ?>"><?php echo $descripcion; ?> </option>
                                 <?php
                                 } while ($reg1 = mysqli_fetch_array($con1));
                                 ?>
@@ -205,7 +206,7 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección y barrio</label>
                         <div class="col-md-8">
                             <input id="textinput" name="dir_nna" type="text" placeholder="" class="form-control input-md" value="<?php echo $Direccion ?>" <?= $dis ?>>
                         </div>
@@ -393,6 +394,33 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
                             <input id="descripcion_nucleoF" name="descripcion_nucleoF" placeholder="" class="form-control input-md" onkeypress="return numeros(event)" value="<?php echo $descripcion_nucleo  ?>" <?= $dis ?>>
                         </div>                                          
                     </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Municipio de notificación</label>
+                        <div class="col-md-8">
+                            <?php
+                            $busqueda1 = mysqli_query($con, "SELECT * FROM ninnosnna WHERE id_municipio_hechos='$id_municipio_hechos' ");
+                            while ($row1 = mysqli_fetch_array($busqueda1)) {
+                                $id_municipio_hechos = $row1['id_municipio_hechos'];
+                              
+                            }
+
+                            ?>
+                            <select name="municipio_hechos" id="municipio_hechos" <?= $dis ?> class="form-control" style="text-transform: uppercase;">
+                                <option value="<?php echo $id_municipio_hechos; ?>"><?php echo $id_municipio_hechos; ?></option>
+                                <?php
+                                $con22 = mysqli_query($con, "SELECT * FROM municipios");
+                                $reg22 = mysqli_fetch_array($con22);
+                                do {
+                                    $id_muncipio = $reg22['id_municipio'];
+                                    $des_muncipio = $reg22['descripcion'];
+                                ?>
+                                    <option value="<?php echo $id_muncipio; ?>"><?php echo $des_muncipio; ?> </option>
+                                <?php
+                                } while ($reg22 = mysqli_fetch_array($con22));
+                                ?>
+                            </select>
+                        </div>
+                    </div>
 
                     <div class="form-group" style="display:none">
                         <label class="col-md-4 control-label letra n600 azulo" for="textinput">Fecha de Ingreso</label>
@@ -416,6 +444,8 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
                     </div>
                 </fieldset>
             </form>
+                     <!-- Configuracion para que el pie de pagina no quede tan arriba-->
+        <div class="container" style="padding-top: 3%;"></div>
         </div>
     </section>
 
@@ -451,10 +481,11 @@ while ($row3 = mysqli_fetch_array($busqueda_nucleo)){
         $fecha_ing          = $_POST['fecha_ingre_nna'];
         $id_usuario_nna     = $_POST['id_usuario_nna'];
         $descripcion_nucleoF = $_POST['descripcion_nucleoF'];
+        $id_municipio_hechos = $_POST['municipio_hechos'];
 
         
       //modificar NNA
-        $modificarNna=mysqli_query($con, "UPDATE `ninnosnna` SET `id_tipo_documento`='$tip_doc_nna',`No_identificacion`='$num_nna',`Nombres`='$nom_nna',`Apellidos`='$ape_nna',`Fecha_Nacimiento`='$fecha_nna',`Edad`='$edad_nna',`Direccion`='$dir_nna',`telefono_movil`='$tel_nna',`correo_electronico`='$email_nna',`id_genero`='$genero_nna',`id_estrato`='$estrato_nna',`id_niveleducativo`='$nivel_educa_nna',`id_municipio`='$municipio_nna',`id_provincia`='$provincia_nna',`id_regimen`='$regimen_nna',`id_eps`='$eps_nna',`id_etnia`='$etnias_nna',`Puntaje_Sisben`='$sisben_nna',`id_zona`='$zona_nna',`fecha_ingreso`='$fecha_ing',`id_usuario`='$id_usuario_nna' WHERE id_ninnos='$id_ninnos'") or die(mysqli_error($con));
+        $modificarNna=mysqli_query($con, "UPDATE `ninnosnna` SET `id_tipo_documento`='$tip_doc_nna',`No_identificacion`='$num_nna',`Nombres`='$nom_nna',`Apellidos`='$ape_nna',`Fecha_Nacimiento`='$fecha_nna',`Edad`='$edad_nna',`Direccion`='$dir_nna',`telefono_movil`='$tel_nna',`correo_electronico`='$email_nna',`id_sexo`='$genero_nna',`id_estrato`='$estrato_nna',`id_niveleducativo`='$nivel_educa_nna',`id_municipio`='$municipio_nna',`id_provincia`='$provincia_nna',`id_regimen`='$regimen_nna',`id_eps`='$eps_nna',`id_etnia`='$etnias_nna',`Puntaje_Sisben`='$sisben_nna',`id_zona`='$zona_nna',`fecha_ingreso`='$fecha_ing',`id_usuario`='$id_usuario_nna',`id_municipio_hechos`='$id_municipio_hechos' WHERE id_ninnos='$id_ninnos'") or die(mysqli_error($con));
        //Modificar tabla nucleo_familiar
         $modificarNucleo=mysqli_query($con, "UPDATE `nucleo_familiar` SET `descripcion_nucleo`='$descripcion_nucleoF' WHERE Id_nucleo='$Id_nucleo_fam'") or die(mysqli_error($con));
         

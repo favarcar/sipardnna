@@ -298,7 +298,6 @@ self.location = "index.html"
 
              </div>
              </div>
-             <div class="col-md-8 col-sm-4 col-xs-12 form-group">
                                         
            <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Veredicto del caso</label>
@@ -308,14 +307,39 @@ self.location = "index.html"
                                         <option value="Requiere Pard">Requiere Pard</option>
                                         </select>
            </div>
-                                    </div>
+           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+            <label class="control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
+            <div >
+
+              <select name="discapacidad_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;">
+                <option value="">Seleccione</option>
+                <?php
+                include("../conexion/conexion.php");
+
+                $con11 = mysqli_query($con, "select * from  discapacidades");
+                $reg11 = mysqli_fetch_array($con11);
+                do {
+                  $id_discapacidad11 = $reg11['id_discapacidad'];
+                  $des_discapacidad11 = $reg11['descripcion_discapacidades'];
+                ?>
+                  <option value="<?php echo $id_discapacidad11; ?>"><?php echo $des_discapacidad11; ?> </option>
+                <?php
+                } while ($reg11 = mysqli_fetch_array($con11));
+                ?>
+
+              </select>
             </div>
           </div>
+                                    </div>
+                                    
+            </div>
+          </div>
+          <div class="col-md-8 col-sm-4 col-xs-12 form-group">
 
         </div>
     </div>
     <br>
-    
+
         <!-- Ocultar datos del presunto agresor con data-toggle-->
         <div class="container">
       <button type="button" class="btn btn-warning btn-block" data-toggle="collapse" data-target="#datosAgresor"  aria-expanded="false" aria-controls="#datosAgresor"><span class="glyphicon glyphicon-circle-arrow-down"></span> DATOS DEL AGRESOR</button>
@@ -456,7 +480,7 @@ self.location = "index.html"
             </div>
           </div>
 
-
+         <!--Traer datos de la tabla maltratos-->
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Maltrato</label>
             <div >
@@ -480,7 +504,7 @@ self.location = "index.html"
               </select>
             </div>
           </div>
-
+          <!--Traer datos de la tabla victimas-->
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-4 control-label letra n600 azulo" for="buttondropdown">Victima</label>
             <div >
@@ -512,29 +536,7 @@ self.location = "index.html"
                                     </div>
 
 
-          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label class="control-label letra n600 azulo" for="buttondropdown">Discapacidad</label>
-            <div >
-
-              <select name="discapacidad_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;">
-                <option value="">Seleccione</option>
-                <?php
-                include("../conexion/conexion.php");
-
-                $con11 = mysqli_query($con, "select * from  discapacidades");
-                $reg11 = mysqli_fetch_array($con11);
-                do {
-                  $id_discapacidad11 = $reg11['id_discapacidad'];
-                  $des_discapacidad11 = $reg11['descripcion_discapacidades'];
-                ?>
-                  <option value="<?php echo $id_discapacidad11; ?>"><?php echo $des_discapacidad11; ?> </option>
-                <?php
-                } while ($reg11 = mysqli_fetch_array($con11));
-                ?>
-
-              </select>
-            </div>
-          </div>
+          <!--Traer datos de la tabla derechos-->
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
             <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown" >Restablecimiento de Derechos</label>
             <div >
@@ -557,7 +559,15 @@ self.location = "index.html"
               <a href="main.php?key=20" class=" btn btn-primary" data-toggle="tooltip" data-placement="bottom" title=" Verifique si el Derecho se encuentra en la lista desplegable"><span class="glyphicon glyphicon-edit"></span> Registrar Nuevo Derecho</a>
             </div>
           </div>
-
+          <!--Mostrar tipo de juzgamiento con select-->
+          <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+                                        <label>Juzgamiento</label>
+                                        <select name="juzgamiento" id="juzgamiento" class="form-control" style="text-transform: uppercase;" >
+                                            <option value="">Seleccione</option>
+                                            <option value="Amenaza">Amenaza</option>
+                                            <option value="Vulneración">Vulneración</option>
+                                        </select>
+                                    </div>
           <!-- Text input-->
 
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
@@ -583,9 +593,9 @@ self.location = "index.html"
               </select>
             </div>
           </div>
-
+          <!--Traer datos de la tabla de estado_caso-->
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Estado del Expeidente</label>
+            <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Estado del Expediente</label>
             <div >
 
               <select name="estadocaso_exp" id="estadocaso_exp"  class="form-control" style="text-transform: uppercase;">
@@ -622,10 +632,17 @@ self.location = "index.html"
                                             <option value="Psicologo">Psicologo</option>
                                         </select>
                                     </div>
+                                    <!--Campos de texto-->
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
+                                        <label>Concepto de verificaci&oacute;n</label>
+                                        <textarea id="concepto_verificacion" class="form-control" name="concepto_verificacion" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el concepto de verificaci&oacute;n"></textarea>
+                                    </div>
+
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Descripci&oacute;n</label>
                                         <textarea id="descripcion_actuacion_exp" class="form-control" name="descripcion_actuacion_exp" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba los detalles del PARD"></textarea>
                                     </div>
+
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
 
                                         <label>Compromisos</label>
@@ -688,6 +705,8 @@ self.location = "index.html"
           $fecha_actuacion_exp = $_POST['fecha_actuacion_exp'];
           $funcionario_actuacion_exp = $_POST['funcionario_actuacion_exp'];
           $descripcion_actuacion_exp = $_POST['descripcion_actuacion_exp'];
+          $concepto_verificacion = $_POST['concepto_verificacion'];
+          $juzgamiento = $_POST['juzgamiento'];
           $compromisos_exp = $_POST['compromisos_exp'];
           $id_victimahe = $_POST['id_victimahec'];
           $victima_hecho = $_POST['victima_hechos'];
@@ -728,8 +747,8 @@ self.location = "index.html"
 
 
          //Guardar cambios en la tabla expediente
-          $sql1 = "INSERT INTO `expediente`(`codigo_expediente`,`NUMERO_PROCESO`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) 
-          VALUES ('$codigo_expediente','$numero_proex','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp',' $indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
+          $sql1 = "INSERT INTO `expediente`(`codigo_expediente`,`NUMERO_PROCESO`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `funcionario_actuacion_exp`, `concepto_verificacion`, `juzgamiento`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) 
+          VALUES ('$codigo_expediente','$numero_proex','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp',' $indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$funcionario_actuacion_exp','$concepto_verificacion', '$juzgamiento','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
          
           //Guardar cambios en la tabla actuación mediante  mysqli_insert_id
           if (mysqli_query($con, $sql1)) {
@@ -739,6 +758,7 @@ self.location = "index.html"
           VALUES ('$cod_expul','$fecha_actuacion_exp','$funcionario_actuacion_exp','$descripcion_actuacion_exp','$compromisos_exp')";
             mysqli_query($con, $sql2);
 
+          //Guardar cambios en la tabla hecho_agresor
             $cod_expul=mysqli_insert_id($con);
             $sql3 = "INSERT INTO `hecho_agresor`(`id_victimahe`,`victima_hecho`,`parentesco_victima`,`codigo_expediente`,`id_ninnos`,`tipos_docagresor`,`documeto_agresor`,`nombre_agresor`,`apellido_agresor`,`edad_agresor`,`nivel_academico`,`telefono_agresor`)
           VALUES ('$id_victimahe', '$victima_hecho','$parentesco','$cod_expul','$id_ninnos1','$tipos_docagresor','$documeto_agresor','$nombre_agresor','$apellido_agresor','$edad_agresor','$nivel_academico','$telefono_agresor')";

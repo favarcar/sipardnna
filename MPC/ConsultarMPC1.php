@@ -16,7 +16,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500"><a href="main.php?key=43">Registrar MPC</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=49">Registrar o Asignar NNA</a></li>                        
+                        <li role="presentation" class="letra n500"><a href="main.php?key=49">Editar MPC / Registrar o Asignar NNA</a></li>                        
                         <li role="presentation" class="letra n500"><a href="#">Eliminar MPC</a></li>
                     </ul>
                 </div>

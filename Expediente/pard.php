@@ -445,7 +445,7 @@ self.location = "index.html"
           </div>
 
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-            <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Estado del Expeidente</label>
+            <label class="col-md-8 control-label letra n600 azulo" for="buttondropdown">Estado del Expediente</label>
             <div >
 
               <select name="estadocaso_exp" id="estadocaso_exp" required class="form-control" style="text-transform: uppercase;">

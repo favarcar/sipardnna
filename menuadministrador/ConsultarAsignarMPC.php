@@ -19,7 +19,7 @@
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500"><a href="main.php?key=43">Registrar MPC</a></li>
                         <!--<li role="presentation" class="letra n500"><a href="main.php?key=23">Consultar MPC con NNA</a></li>-->
-                        <li role="presentation" class="letra n500"><a href="#">Registrar o Asignar NNA</a></li>                        
+                        <li role="presentation" class="letra n500"><a href="#">Editar MPC / Registrar o Asignar NNA</a></li>                        
                         <li role="presentation" class="letra n500"><a href="main.php?key=42">Eliminar MPC</a></li>
                     </ul>
                 </div>

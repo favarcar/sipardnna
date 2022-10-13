@@ -266,7 +266,7 @@ while($row1=mysqli_fetch_array($busqueda1)){
                   </div>
                 </div>      
                   <div class="form-group">
-                  <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección</label>  
+                  <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección y barrio</label>  
                   <div class="col-md-4">
                   <input id="textinput" name="dir_nna" type="text" placeholder="" class="form-control input-md" value="<?php echo $Direccion ?>" >
                     

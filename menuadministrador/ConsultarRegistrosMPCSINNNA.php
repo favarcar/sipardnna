@@ -267,7 +267,7 @@ echo "No tiene N.N.A. a cargo"; }?>" readonly>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección y barrio</label>
                         <div class="col-md-8">
                             <input id="dir_nna" name="dir_nna" type="text" placeholder="" class="form-control input-md" value="<?php echo $Direccion ?>" readonly>
                         </div>
