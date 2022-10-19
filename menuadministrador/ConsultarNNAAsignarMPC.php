@@ -9,7 +9,7 @@
 
     <form name="form1" method="post" action="main.php?key=48" id="cdr">
         <center><br>
-            <h2 class="centrar letra n600 azulo pi">Registrar o Asignar MPC a Ni&ntilde;os Ni&ntilde;as o Adolescentes</h2>
+            <h2 class="centrar letra n600 azulo pi">Editar NNA / Registrar o Asignar MPC a Ni&ntilde;os Ni&ntilde;as o Adolescentes</h2>
             <h5 class="centrar letra n600 azulo pi">Introduzca Apellido o N&uacute;mero de Documento </h5>
             <input name="busca" type="text" id="busqueda">
             <input type="submit" name="Submit" value="buscar" class="btn btn-primary" />
@@ -21,7 +21,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                 <ul class="nav nav-tabs">
                 <li role="presentation" class="letra n500"><a href="main.php?key=8">Registrar NNA</a></li>
-                <li role="presentation" class="letra n500"><a href="#">Registrar o Asignar MPC</a></li>
+                <li role="presentation" class="letra n500"><a href="#">Editar NNA / Registrar o Asignar MPC</a></li>
                     <li role="presentation" class="letra n500"><a href="main.php?key=14">Eliminar NNA</a></li>
                 </ul>
             </div>

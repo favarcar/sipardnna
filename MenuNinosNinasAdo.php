@@ -96,7 +96,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500"><a href="#">Registrar NNA</a></li>
-                        <li role="presentation" class="letra n500"><a href="main.php?key=48">Registrar o Asignar MPC</a></li>
+                        <li role="presentation" class="letra n500"><a href="main.php?key=48">Editar NNA / Registrar o Asignar MPC</a></li>
                         <li role="presentation" class="letra n500"><a href="main.php?key=14">Eliminar NNA</a></li>
 
                     </ul>
@@ -361,19 +361,19 @@
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                    <label>Género</label>
+                                    <label>Sexo</label>
                                     <select name="genero_nna" id="genero_nna" class="form-control" style="text-transform: uppercase;" required>
                                         <option value="">Seleccione</option>
                                         <?php
                                         include("../conexion/conexion.php");
 
-                                        $con22 = mysqli_query($con, "select * from  generos");
+                                        $con22 = mysqli_query($con, "select * from  sexo");
                                         $reg22 = mysqli_fetch_array($con22);
                                         do {
-                                            $id_genero22 = $reg22['id_genero'];
+                                            $id_sexo22 = $reg22['id_sexo'];
                                             $descripcion22 = $reg22['descripcion'];
                                         ?>
-                                            <option value="<?php echo $id_genero22; ?>"><?php echo $descripcion22; ?> </option>
+                                            <option value="<?php echo $id_sexo22; ?>"><?php echo $descripcion22; ?> </option>
                                         <?php
                                         } while ($reg22 = mysqli_fetch_array($con22));
                                         ?>
@@ -381,7 +381,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                    <label>Dirección</label>
+                                    <label>Dirección y barrio</label>
                                     <input id='dir_nna' name='dir_nna' class="form-control" placeholder="Ingrese la dirección" style="text-transform: uppercase;" required>
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>
@@ -640,7 +640,7 @@
 
         $sql1 = "INSERT INTO ninnosnna (id_tipo_documento, No_identificacion, Nombres,
 					Apellidos, Fecha_Nacimiento, Edad, Direccion, telefono_movil, correo_electronico,
-					id_genero, id_estrato, id_niveleducativo, id_cuidadores, id_departamento, id_municipio, id_provincia,
+					id_sexo, id_estrato, id_niveleducativo, id_cuidadores, id_departamento, id_municipio, id_provincia,
 					id_regimen, id_eps, id_etnia, Puntaje_Sisben, id_zona, id_usuario,
 					id_motivo_ingreso, fecha_hechos, id_municipio_hechos, id_lugar_hechos, vinculo_agresor,
 					edad_agresor, nivel_escolaridad,id_pais) VALUES('$tip_doc_nna','$num_nna','$nom_nna',

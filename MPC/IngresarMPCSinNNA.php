@@ -87,7 +87,7 @@
                     <ul class="nav nav-tabs">
                         <li role="presentation" class="letra n500"><a href="#">Registrar MPC</a></li>
                         <!--<li role="presentation" class="letra n500"><a href="main.php?key=23">Consultar MPC con NNA</a></li>-->
-                        <li role="presentation" class="letra n500"><a href="main.php?key=49">Registrar o Asignar NNA</a></li>                        
+                        <li role="presentation" class="letra n500"><a href="main.php?key=49">Editar MPC / Registrar o Asignar NNA</a></li>                        
                         <li role="presentation" class="letra n500"><a href="main.php?key=42">Eliminar MPC</a></li>
                     </ul>
                 </div>
@@ -260,7 +260,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección y barrio</label>
                         <div class="col-md-8">
                             <input id="textinput" name="dir_nna" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;">
                         </div>

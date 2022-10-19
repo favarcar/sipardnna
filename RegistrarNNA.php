@@ -78,7 +78,7 @@
 
         <?php
     $id_cuidadores = $_GET['id_cuidadores'];
-    $ingresar_mpc = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_cuidadores = '$id_cuidadores' "); //cambiar nombre de la tabla de busqueda
+    $ingresar_mpc = mysqli_query($con, "SELECT * FROM cuidadores WHERE id_cuidadores = '$id_cuidadores' "); 
     while ($row = mysqli_fetch_array($ingresar_mpc)) {
         $id_cuidadores1 = $row['id_cuidadores'];
         $id_tipo_documento = $row['id_tipo_documento'];
@@ -426,7 +426,7 @@
                                     </select>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12 form-group">
-                                    <label>Dirección</label>
+                                    <label>Dirección y barrio</label>
                                     <input id='dir_nna' name='dir_nna' class="form-control" placeholder="Ingrese la dirección" style="text-transform: uppercase;" required>
                                     <!--<p class="help-block">Example block-level help text here.</p> -->
                                 </div>

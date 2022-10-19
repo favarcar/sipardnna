@@ -198,7 +198,7 @@ body {
 <br>
 <b>Fecha de Inicio del Expediente:</b> '.$Fecha_inicio_expediente.'
 <br>
-<b>Fecha limite del Expeidente:</b> '.$fecha_limite.'
+<b>Fecha limite del Expediente:</b> '.$fecha_limite.'
 <br>
 <br>
 Alerta faltan <b>'.$contador.'</b> calendario para resolver el caso por Restablecimiento de Derechos.

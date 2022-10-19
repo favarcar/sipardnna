@@ -192,7 +192,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección</label>
+                        <label class="col-md-4 control-label letra n600 azulo" for="textinput">Dirección y barrio</label>
                         <div class="col-md-8">
                             <input id="textinput" name="dir_usu" type="text" placeholder="" class="form-control input-md" style="text-transform: uppercase;">
                         </div>
