@@ -32,7 +32,7 @@ while ($row50 = mysqli_fetch_array($buscarExpe)) {
   $id_usuario_exp = $row50['id_usuario_exp'];
   $id_estadocaso = $row50['id_estadocaso'];
 
-
+    
 /*Traer los datos de la tabla actuacion
 $buscarActuacion = mysqli_query($con, "SELECT * FROM actuacion WHERE id_expediente='$codigo_expediente' "); 
 while ($row60 = mysqli_fetch_array($buscarActuacion)) {
