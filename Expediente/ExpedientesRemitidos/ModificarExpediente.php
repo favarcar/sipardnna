@@ -29,7 +29,7 @@ while ($row50 = mysqli_fetch_array($buscarExpe)) {
   $Veredicto_Caso = $row50['Veredicto_Caso'];
   $Fecha_finalizacion_expediente = $row50['Fecha_finalizacion_expediente'];
   $id_entidad = $row50['id_entidad'];
-  $id_usuario_exp = $row50['id_usuario_exp'];
+  $id_usuario_exp = $row50['id_usuario_exp'];  
   $id_estadocaso = $row50['id_estadocaso'];
 
     
