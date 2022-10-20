@@ -561,7 +561,7 @@ self.location = "index.html"
           </div>
           <!--Mostrar tipo de juzgamiento con select-->
           <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-                                        <label>Juzgamiento</label>
+                                        <label>Definición del derecho</label>
                                         <select name="juzgamiento" id="juzgamiento" class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Seleccione</option>
                                             <option value="Amenaza">Amenaza</option>

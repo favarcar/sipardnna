@@ -240,7 +240,7 @@ echo "No tiene cuidador";
         </div>
 
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Juzgamiento</label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Definición del derecho</label>
           <div class="col-md-8">
             <input id="textinput" name="vinculo_agre" type="text" placeholder="" class="form-control input-md" onkeyup="this.value=this.value.toUpperCase()" value="<?php  if (isset($juzgamiento)) {
 echo $juzgamiento;
