@@ -23,6 +23,8 @@ while ($row50 = mysqli_fetch_array($buscarExpe)) {
   $Descripcion_expediente = $row50['Descripcion_expediente'];
   $funcionario_actuacion_exp = $row50['funcionario_actuacion_exp'];
   $concepto_verificacion = $row50['concepto_verificacion']; 
+  $concepto_psicologico = $row50['concepto_psicologico'];
+  $concepto_social = $row50['concepto_social'];
   $juzgamiento = $row50['juzgamiento'];
   $id_derecho = $row50['id_derecho'];
   $Observacion = $row50['Observacion'];
@@ -381,11 +383,26 @@ echo "Desconocido";
         <!-- Text input-->
 
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
-          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Concepto de verificaci&oacute;n </label>
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Concepto de verificaci&oacute;n Comisar&iacute;a</label>
           <div class="col-md-8">
-            <textarea class="form-control input-md" name="concepto_verificacion" readonly><?php echo $concepto_verificacion ?></textarea>
+            <textarea class="form-control input-md" name="concepto_verificacion" ><?php echo $concepto_verificacion ?></textarea>
             </div>
         </div>
+
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Concepto de Verificaci&oacute;n Psicol&oacute;gico </label>
+          <div class="col-md-8">
+            <textarea class="form-control input-md" name="concepto_psicologico" ><?php echo $concepto_psicologico ?></textarea>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-sm-4 col-xs-12 form-group">
+          <label class="col-md-4 control-label letra n600 azulo" for="textinput">Concepto de Verificaci&oacute;n Trabajador/a Social</label>
+          <div class="col-md-8">
+            <textarea class="form-control input-md" name="concepto_social" ><?php echo $concepto_social ?></textarea>
+            </div>
+        </div>
+
 
         <div class="col-md-6 col-sm-4 col-xs-12 form-group">
           <label class="col-md-4 control-label letra n600 azulo" for="textinput">Funcionario/a</label>
@@ -394,7 +411,7 @@ echo "Desconocido";
 echo $funcionario_actuacion_exp;
 } else {
 echo "No registrado";
-} ?> " readonly>
+} ?> ">
             </select>
           </div>
         </div>
@@ -629,7 +646,10 @@ echo "Agresor desconocido";
           $maltratos_exp = $_POST['maltratos_exp'];
           $victima_exp = $_POST['victima_exp'];
           $descripcion_exp = $_POST['descripcion_exp'];
+          $funcionario_actuacion_exp = $_POST['funcionario_actuacion_exp']; 
           $concepto_verificacion = $_POST['concepto_verificacion'];
+          $concepto_psicologico = $_POST['concepto_psicologico'];
+          $concepto_social = $_POST['concepto_social'];
           $derechos_exp = $_POST['derechos_exp'];
           $obs_exp = $_POST['obs_exp'];
           $veredicto_exp = $_POST['veredicto_exp'];
@@ -649,7 +669,10 @@ echo "Agresor desconocido";
           id_maltrato='$maltratos_exp',
           id_victima='$victima_exp',
           Descripcion_expediente='$descripcion_exp',
+          funcionario_actuacion_exp='$funcionario_actuacion_exp',
           concepto_verificacion='$concepto_verificacion',
+          concepto_psicologico ='$concepto_psicologico',
+          concepto_social = '$concepto_social',
           id_derecho='$derechos_exp',
           Observacion='$obs_exp',
           Veredicto_Caso='$veredicto_exp',

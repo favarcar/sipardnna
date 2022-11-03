@@ -211,7 +211,7 @@
                                         <select name="nivel_escolaridad" id="nivel_escolaridad" class="form-control" style="text-transform: uppercase;" >
                                             <option value="">Seleccione</option>
                                             <?php
-                                            $con11 = mysqli_query($con, "select * from  nivel_escolaridad");
+                                            $con11 = mysqli_query($con, "select * from  nivel_escolaridad order by ID_ESCOLARIDAD asc ");
                                             $reg11 = mysqli_fetch_array($con11);
                                             do {
                                                 $idNivelEs = $reg11['codigo_escolaridad'];
@@ -422,7 +422,7 @@
                                     <select name="nivel_educa_nna" id="nivel_educa_nna" class="form-control" style="text-transform: uppercase;" required>
                                         <option value="">Seleccione</option>
                                         <?php
-                                        $con66 = mysqli_query($con, "select * from nivel_educativo");
+                                        $con66 = mysqli_query($con, "select * from nivel_educativo order by id_niveleducativo");
                                         $reg66 = mysqli_fetch_array($con66);
                                         do {
                                             $id_niveleducativo66 = $reg66['id_niveleducativo'];

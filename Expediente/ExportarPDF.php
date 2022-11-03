@@ -7,7 +7,7 @@ $codigo_expediente=$_GET['codigo_expediente'];
 $busqueda_pdf=mysqli_query($con,"SELECT * FROM expediente where codigo_expediente='$codigo_expediente' ");
 while($row50=mysqli_fetch_array($busqueda_pdf)){
 	
-	 $codigo_expediente=$row50['codigo_expediente'];
+	$codigo_expediente=$row50['codigo_expediente'];
 	$Fecha_inicio_expediente=$row50['Fecha_inicio_expediente'];
 	$id_ninnos=$row50['id_ninnos'];
 	$id_cuidadores=$row50['id_cuidadores'];
@@ -18,6 +18,8 @@ while($row50=mysqli_fetch_array($busqueda_pdf)){
 	$Descripcion_expediente=$row50['Descripcion_expediente'];
 	$funcionario_actuacion_exp=$row50['funcionario_actuacion_exp'];
 	$concepto_verificacion=$row50['concepto_verificacion'];
+	$concepto_psicologico = $row50['concepto_psicologico'];
+	$concepto_social = $row50['concepto_social'];
 	$juzgamiento=$row50['juzgamiento'];
 	$id_derecho=$row50['id_derecho'];
 	$Observacion=$row50['Observacion'];
@@ -221,6 +223,8 @@ body {
   width:100px;
 }
 
+
+
 </style>
 </head><body>
 <div>
@@ -237,9 +241,10 @@ body {
 <br>
 <b>Nombre:</b>  $nombres_usuario $apellidos_usuario
 <br>
-<b>Cargo:</b> $funcionario_actuacion_exp 
-<br>
 <b>Municipio:</b> $des_municipio_hechos 
+<br>
+<b>Funcionarios a cargo:</b> $funcionario_actuacion_exp 
+<br>
 <br>
 <br>
 Alerta faltan <b>$contador</b> calendario para resolver el caso por Restablecimiento de Derechos.
@@ -249,7 +254,6 @@ En caso de no ser resuelto el caso caduca por vencimiento de términos.
 <b>Nombre de Niño, Niña o Adolescente:</b> $Apellidos $Nombres 
 <br>
 <b>No. de Documento de N.N.A.:</b> $No_identificacion
-<br>
 <br>
 <b>Nombre de Madre, Padre o Acudiente:</b> $ApellidosCuida $NombresCuida
 <br>
@@ -267,7 +271,11 @@ En caso de no ser resuelto el caso caduca por vencimiento de términos.
 <br>
 <div><b>Descripción</b></div>  <div class='wrap' align='justify'> $Descripcion_expediente </div>  
 <br>
-<div><b>Concepto de verificación</b></div><div class='wrap' align='justify'> $concepto_verificacion</div>  
+<div><b>Concepto de Verificación Comisar&iacute;a</b></div><div class='wrap' align='justify'> $concepto_verificacion</div>  
+<br>
+<div><b>Concepto de Verificaci&oacute;n Psicol&oacute;gico </b></div><div class='wrap' align='justify'> $concepto_psicologico</div>  
+<br>
+<div><b>Concepto de Verificaci&oacute;n Trabajador/a Social</b></div><div class='wrap' align='justify'> $concepto_social</div>  
 <br>
 <div><b>Juzgamiento</b></div><div class='wrap' align='justify'> $juzgamiento</div>  
 <br>

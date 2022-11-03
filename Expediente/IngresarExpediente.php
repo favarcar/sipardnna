@@ -1,10 +1,6 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="">
-<!--<![endif]-->
+
 
 <head>
   <meta charset="utf-8">
@@ -64,7 +60,7 @@
 
 
    //Traer datos de la tabla de ninnosnna
-  $busnna = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); //cambiar nombre de la tabla de busqueda
+  $busnna = mysqli_query($con, "SELECT * FROM ninnosnna where id_ninnos='$id_ninnos' "); 
   while ($row = mysqli_fetch_array($busnna)) {
 
     $id_ninnos1 = $row['id_ninnos'];
@@ -314,9 +310,9 @@ self.location = "index.html"
               <select name="discapacidad_exp" id="discapacidad_exp" class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
                 <?php
-                include("../conexion/conexion.php");
+               // include("../conexion/conexion.php");
 
-                $con11 = mysqli_query($con, "select * from  discapacidades");
+                $con11 = mysqli_query($con, "select * from  discapacidades ORDER BY descripcion_discapacidades ASC");
                 $reg11 = mysqli_fetch_array($con11);
                 do {
                   $id_discapacidad11 = $reg11['id_discapacidad'];
@@ -465,7 +461,7 @@ self.location = "index.html"
               <select name="indicadores_exp" id="indicadores_exp" class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
                 <?php
-                $con77 = mysqli_query($con, "select * from  indicadores");
+                $con77 = mysqli_query($con, "select * from  indicadores ORDER BY descripcion_indicadores ASC");
                 $reg77 = mysqli_fetch_array($con77);
                 do {
                   $id_indicador77 = $reg77['id_indicador'];
@@ -488,9 +484,9 @@ self.location = "index.html"
               <select name="maltratos_exp" id="maltratos_exp" class="form-control" style="text-transform: uppercase;" >
                 <option value="">Seleccione</option>
                 <?php
-                include("../conexion/conexion.php");
+             //   include("../conexion/conexion.php");
 
-                $con22 = mysqli_query($con, "select * from  maltratos");
+                $con22 = mysqli_query($con, "select * from  maltratos ORDER BY descripcion_maltratos ASC");
                 $reg22 = mysqli_fetch_array($con22);
                 do {
                   $id_maltrato22 = $reg22['id_maltrato'];
@@ -512,7 +508,7 @@ self.location = "index.html"
               <select name="victima_exp" id="victima_exp" class="form-control" style="text-transform: uppercase;" >
                 <option value="">Seleccione</option>
                 <?php
-                $con88 = mysqli_query($con, "select * from  victimas");
+                $con88 = mysqli_query($con, "select * from  victimas ORDER BY descripcion_victimas ASC");
                 $reg88 = mysqli_fetch_array($con88);
                 do {
                   $id_victima88 = $reg88['id_victima'];
@@ -577,9 +573,9 @@ self.location = "index.html"
               <select name="entidad_exp" id="entidad_exp" class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
                 <?php
-                include("../conexion/conexion.php");
+              // include("../conexion/conexion.php");
 
-                $con33 = mysqli_query($con, "select * from  entidades");
+                $con33 = mysqli_query($con, "select * from  entidades ORDER BY descripcion_entidades ASC");
                 $reg33 = mysqli_fetch_array($con33);
                 do {
                   $id_entidad33 = $reg33['id_entidad'];
@@ -601,7 +597,7 @@ self.location = "index.html"
               <select name="estadocaso_exp" id="estadocaso_exp"  class="form-control" style="text-transform: uppercase;">
                 <option value="">Seleccione</option>
                 <?php
-                $con99 = mysqli_query($con, "select * from  estado_caso");
+                $con99 = mysqli_query($con, "select * from  estado_caso ORDER BY descripcion_estado_caso ASC");
                 $reg99 = mysqli_fetch_array($con99);
                 do {
                   $id_estadocaso99 = $reg99['id_estadocaso'];
@@ -622,21 +618,27 @@ self.location = "index.html"
                                         <label>Fecha Actuacion</label>
                                         <input id="fecha_actuacion_exp" name="fecha_actuacion_exp" type="date" placeholder="AAAA-MM-DD" class="form-control input-md" onkeypress="return numeros(event)">
                                     </div>
+
+                                     <!--Campo de texto-->
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Funcionario/a</label>
-
-                                        <select name="funcionario_actuacion_exp" id="funcionario_actuacion_exp" class="form-control" font style="text-transform: uppercase;" style=" width:100px">
-                                            <option value="">Seleccione</option>
-                                            <option value="Comisario">Comisario</option>
-                                            <option value="Trabajador Social">Trabajador Social</option>
-                                            <option value="Psicologo">Psicologo</option>
-                                        </select>
+                                        <textarea id="funcionario_actuacion_exp" class="form-control" name="funcionario_actuacion_exp" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Cargo de los o las funcionarios/as a responsables del caso"></textarea>
                                     </div>
-                                    <!--Campos de texto-->
+                                    <!--Campo de texto-->
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
-                                        <label>Concepto de verificaci&oacute;n</label>
+                                        <label>Concepto de Verificaci&oacute;n Comisar&iacute;a</label>
                                         <textarea id="concepto_verificacion" class="form-control" name="concepto_verificacion" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el concepto de verificaci&oacute;n"></textarea>
                                     </div>
+
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
+                                        <label>Concepto de Verificaci&oacute;n Psicol&oacute;gico </label>
+                                        <textarea id="concepto_psicologico" class="form-control" name="concepto_psicologico" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el concepto de verificaci&oacute;n"></textarea>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
+                                        <label>Concepto de Verificaci&oacute;n Trabajador/a Social</label>
+                                        <textarea id="concepto_social" class="form-control" name="concepto_social" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el concepto de verificaci&oacute;n"></textarea>
+                                    </div>                                   
 
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Descripci&oacute;n</label>
@@ -706,9 +708,11 @@ self.location = "index.html"
           $funcionario_actuacion_exp = $_POST['funcionario_actuacion_exp'];
           $descripcion_actuacion_exp = $_POST['descripcion_actuacion_exp'];
           $concepto_verificacion = $_POST['concepto_verificacion'];
+          $concepto_psicologico = $_POST['concepto_psicologico'];
+          $concepto_social = $_POST['concepto_social'];
           $juzgamiento = $_POST['juzgamiento'];
           $compromisos_exp = $_POST['compromisos_exp'];
-          $id_victimahe = $_POST['id_victimahec'];
+          $id_victimahe = $_POST['id_victimahe'];
           $victima_hecho = $_POST['victima_hechos'];
           $tipos_docagresor = $_POST['doc_agresor'];
           $documeto_agresor = $_POST['documeto_agre'];
@@ -719,7 +723,7 @@ self.location = "index.html"
           $nivel_academico = $_POST['nivel_aca'];
           $telefono_agresor = $_POST['telefono_agre'];
           
-        if ($_POST['municipio_in'] == "OTRO") {
+       /* if ($_POST['municipio_in'] == "OTRO") {
           $municipio_in = $_POST['mun_aux'];
           $query = "INSERT INTO municipios (id_municipio, descripcion) VALUES ('$municipio_in', '$municipio_in');";
           mysqli_query($con, $query);
@@ -733,7 +737,7 @@ self.location = "index.html"
           $vinculo_agresor = $_POST['vinculo_aux'];
       } else {
           $vinculo_agresor = $_POST['vinculo_agresor'];
-      }
+      }*/
 
 
 
@@ -747,8 +751,8 @@ self.location = "index.html"
 
 
          //Guardar cambios en la tabla expediente
-          $sql1 = "INSERT INTO `expediente`(`codigo_expediente`,`NUMERO_PROCESO`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `funcionario_actuacion_exp`, `concepto_verificacion`, `juzgamiento`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) 
-          VALUES ('$codigo_expediente','$numero_proex','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp',' $indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$funcionario_actuacion_exp','$concepto_verificacion', '$juzgamiento','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
+          $sql1 = "INSERT INTO `expediente`(`codigo_expediente`,`NUMERO_PROCESO`, `Fecha_inicio_expediente`, `id_ninnos`, `id_cuidadores`, `id_discapacidad`, `id_indicador`, `id_maltrato`, `id_victima`, `Descripcion_expediente`, `funcionario_actuacion_exp`, `concepto_verificacion`,`concepto_psicologico`,`concepto_social`, `juzgamiento`, `id_derecho`, `Observacion`, `Veredicto_Caso`, `Fecha_finalizacion_expediente`, `id_entidad`, `id_usuario_exp`, `id_estadocaso`, `fecha_limite`) 
+          VALUES ('$codigo_expediente','$numero_proex','$fecha_exp','$cod_exp','$cuidadores_exp','$discapacidad_exp',' $indicadores_exp','$maltratos_exp','$victima_exp','$descripcion_exp','$funcionario_actuacion_exp','$concepto_verificacion','$concepto_psicologico','$concepto_social', '$juzgamiento','$derechos_exp','$obs_exp','$veredicto_exp','$finalizacion_exp','$entidad_exp','$id_usuario_exp','$estadocaso_exp','$fecha_limite')";
          
           //Guardar cambios en la tabla actuación mediante  mysqli_insert_id
           if (mysqli_query($con, $sql1)) {
@@ -760,8 +764,8 @@ self.location = "index.html"
 
           //Guardar cambios en la tabla hecho_agresor
             $cod_expul=mysqli_insert_id($con);
-            $sql3 = "INSERT INTO `hecho_agresor`(`id_victimahe`,`victima_hecho`,`parentesco_victima`,`codigo_expediente`,`id_ninnos`,`tipos_docagresor`,`documeto_agresor`,`nombre_agresor`,`apellido_agresor`,`edad_agresor`,`nivel_academico`,`telefono_agresor`)
-          VALUES ('$id_victimahe', '$victima_hecho','$parentesco','$cod_expul','$id_ninnos1','$tipos_docagresor','$documeto_agresor','$nombre_agresor','$apellido_agresor','$edad_agresor','$nivel_academico','$telefono_agresor')";
+            $sql3 = "INSERT INTO `hecho_agresor`(`victima_hecho`,`parentesco_victima`,`codigo_expediente`,`id_ninnos`,`tipos_docagresor`,`documeto_agresor`,`nombre_agresor`,`apellido_agresor`,`edad_agresor`,`nivel_academico`,`telefono_agresor`)
+          VALUES ('$victima_hecho','$parentesco','$cod_expul','$id_ninnos1','$tipos_docagresor','$documeto_agresor','$nombre_agresor','$apellido_agresor','$edad_agresor','$nivel_academico','$telefono_agresor')";
             mysqli_query($con, $sql3);
 
             //Alerta despues de guardar exitosamente el expediente
