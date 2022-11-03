@@ -131,7 +131,7 @@ abstract class AbstractRenderer
         if (Helpers::is_percent($bg_x)) {
             // The point $bg_x % from the left edge of the image is placed
             // $bg_x % from the left edge of the background rectangle
-            $p = ((float)$bg_x) / 100.0;
+            $p = ((float)$bg_x) / 120.0;
             $x1 = $p * $img_w;
             $x2 = $p * $bg_width;
 

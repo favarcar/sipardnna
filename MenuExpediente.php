@@ -307,7 +307,7 @@
                                         <label>Fecha Actuacion</label>
                                         <input id="FechaActuacion" name="FechaActuacion" type="date" placeholder="AAAA-MM-DD" class="form-control input-md" onkeypress="return numeros(event)">
 
-                                        <label>Funcionario</label>
+                                        <label>Funcionario/a</label>
 
                                         <select name="funcionario_actua" id="funcionario_actua" class="form-control" font style="text-transform: uppercase;" style=" width:100px">
                                             <option value="">Seleccione</option>

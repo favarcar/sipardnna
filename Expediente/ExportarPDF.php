@@ -1,6 +1,7 @@
 <?php
 // Cargamos la librería dompdf que hemos instalado en la carpeta dompdf
 include("../conexion/conexion.php");
+include ("../funshow.php");
 $codigo_expediente=$_GET['codigo_expediente'];
 
 $busqueda_pdf=mysqli_query($con,"SELECT * FROM expediente where codigo_expediente='$codigo_expediente' ");
@@ -15,10 +16,13 @@ while($row50=mysqli_fetch_array($busqueda_pdf)){
 	$id_maltrato=$row50['id_maltrato'];
 	$id_victima=$row50['id_victima'];
 	$Descripcion_expediente=$row50['Descripcion_expediente'];
+	$funcionario_actuacion_exp=$row50['funcionario_actuacion_exp'];
+	$concepto_verificacion=$row50['concepto_verificacion'];
+	$juzgamiento=$row50['juzgamiento'];
 	$id_derecho=$row50['id_derecho'];
 	$Observacion=$row50['Observacion'];
 	$Veredicto_Caso=$row50['Veredicto_Caso'];
-	$Fecha_finalizacion_expediente=$row50['Fecha_finalizacion_expediente'];
+	$Fecha_finalizacion_expediente=fecha($row50['Fecha_finalizacion_expediente']);
 	$id_entidad=$row50['id_entidad'];
 	$id_usuario_exp=$row50['id_usuario_exp'];
 	$id_estadocaso=$row50['id_estadocaso'];
@@ -33,11 +37,13 @@ while($row=mysqli_fetch_array($busquedanna)){
 		  $No_identificacion=$row['No_identificacion'];
 		  $Nombres=$row['Nombres'];
 		  $Apellidos=$row['Apellidos'];
+		  $id_municipio_hechos=$row['id_municipio_hechos'];
+
 }
  $NombresCuida="";
  $ApellidosCuida="";
  $No_Cedula="";
-$busqueCuidadores=mysqli_query($con,"SELECT * FROM cuidadores where id_ninos='$id_ninnos' ");//cambiar nombre de la tabla de busqueda
+$busqueCuidadores=mysqli_query($con,"SELECT * FROM cuidadores where id_ninos='$id_ninnos' ");
 while($row1=mysqli_fetch_array($busqueCuidadores)){
 
 		  //// cuidadores
@@ -63,7 +69,7 @@ while($row1=mysqli_fetch_array($busqueCuidadores)){
 		 $id_provincia=$row1['id_provincia'];
 		 $id_zona=$row1['id_zona'];
 		 $Puntaje_Sisben=$row1['Puntaje_Sisben'];
-		 $fecha_cuida=$row1['fecha_cuida'];
+		 $fecha_cuida=fecha($row1['fecha_cuida']);
 		 $id_usuario=$row1['id_usuario'];
 		 $id_ninos=$row1['id_ninos'];
 		 
@@ -72,12 +78,38 @@ while($row1=mysqli_fetch_array($busqueCuidadores)){
           	  
 }
 
+/*$id_usuario_exp ="";
+$id_municipio ="";*/
+$apellidos_usuario=""; 
+$nombres_usuario=""; 
+$busqueUsuario=mysqli_query($con,"SELECT * FROM usuarios where numero_documento='$id_usuario_exp' ");
+while($row8=mysqli_fetch_array($busqueUsuario)){
+		  
+		  $id_usuario=$row8['id_usuario'];		
+          $apellidos_usuario=$row8['apellidos'];    
+		  $nombres_usuario=$row8['nombres']; 
+		  $id_municipiousu=$row8['id_municipio']; 
+
+
+}
+
 $des_derecho ="";
 $busqueDerecho=mysqli_query($con,"SELECT * FROM derechos where id_derecho='$id_derecho' ");
 while($row1=mysqli_fetch_array($busqueDerecho)){
 		  
 		  $id_derecho=$row1['id_derecho'];		
           $des_derecho=$row1['descripcion_derechos'];             
+	  
+}
+
+
+
+$des_municipio_hechos ="";
+$busqueMunicipio=mysqli_query($con,"SELECT * FROM municipios where id_municipio='$id_municipiousu' ");
+while($row9=mysqli_fetch_array($busqueMunicipio)){
+		  
+		  $id_municipio_hechos=$row9['id_municipio'];		
+          $des_municipio_hechos=$row9['descripcion'];             
 	  
 }
  
@@ -134,16 +166,21 @@ while($row1=mysqli_fetch_array($busqueda1)){
 	  
 }
 
+
+
+
 date_default_timezone_set('America/Bogota');
     $time = time();
-    $fecha=  date("Y-m-d", $time);
-	$fecha_actual=  date("Y-m-d  (H:i:s)", $time);
-
+    $fecha=  date("d-m-Y", $time);
+	$fecha_actual=  date("d-m-Y  (H:i:s)", $time);
+	
+//Fechas
 
 $datetime1 = new DateTime($fecha_limite);
 $datetime2 = new DateTime($fecha);
 $interval = $datetime2->diff($datetime1);
 $contador=  $interval->format('%a días');
+
 
 require_once ('dompdf/autoload.inc.php');
 
@@ -154,7 +191,7 @@ use Dompdf\Dompdf;
 
 
  
-// Introducimos HTML de prueba
+// Introducimos HTML con los datos del expoediente
 
 $html = "<html><head>
 <title></title>
@@ -185,20 +222,24 @@ body {
 }
 
 </style>
-</head><body >
+</head><body>
 <div>
-<img class='img-responsive  center-block  borde_blanco'  src='../img/Logos_01.png' width='30%' alt=''/>
+
+
+<img class='img-responsive  center-block  borde_blanco'  src='../img/Logos_01.png' width='55%' alt=''/>
 </div>
 <br>
 <br>
-$fecha_actual
+<b>Fecha: </b>$fecha_actual
 <br>
 <br>
 <b>Codigo del Expediente:</b> $codigo_expediente
 <br>
-<b>Fecha de Inicio del Expediente:</b> $Fecha_inicio_expediente
+<b>Nombre:</b>  $nombres_usuario $apellidos_usuario
 <br>
-<b>Fecha limite del Expediente:</b> $fecha_limite
+<b>Cargo:</b> $funcionario_actuacion_exp 
+<br>
+<b>Municipio:</b> $des_municipio_hechos 
 <br>
 <br>
 Alerta faltan <b>$contador</b> calendario para resolver el caso por Restablecimiento de Derechos.
@@ -224,22 +265,35 @@ En caso de no ser resuelto el caso caduca por vencimiento de términos.
 <b>Victimas:</b> $des_victima
 <br>
 <br>
-<div align='center'><b>Descripción</b></div> <br> <div class='wrap' align='justify'> $Descripcion_expediente </div>  
+<div><b>Descripción</b></div>  <div class='wrap' align='justify'> $Descripcion_expediente </div>  
 <br>
+<div><b>Concepto de verificación</b></div><div class='wrap' align='justify'> $concepto_verificacion</div>  
 <br>
-<div align='center'><b>Observaciones</b> </div>  <br> <div class='wrap' align='justify'> $Observacion </div> 
+<div><b>Juzgamiento</b></div><div class='wrap' align='justify'> $juzgamiento</div>  
 <br>
+<div><b>Observaciones</b> </div><div class='wrap' align='justify'> $Observacion </div> 
 <br>
-<div align='center'><b>Veredicto del Caso</b></div> <br> <div align='justify'> $Veredicto_Caso </div>
-<br>
-<b>Fecha De Finalización del Expediente:</b> $Fecha_finalizacion_expediente
-<br>
-<b>Entidad:</b>  $des_entidad
+<div><b>Veredicto del Caso</b></div><div align='justify'> $Veredicto_Caso </div>
 <br>
 <b>Estado del Expediente:</b> $des_estadocaso
+<br>
+<br>
+<b>Fecha de Inicio del Expediente:</b> $Fecha_inicio_expediente
+<br>
+<b>Fecha limite del Expediente:</b> $fecha_limite
+<br>
+<br>
+<br>
+<br>
+<footer>
+<div>
+<img class='img-responsive  center-block  borde_blanco'  src='../img/footer.png' width='100%' alt=''/>
+</div>
+</footer>
+
 
 </body></html>" ;
- 
+
 // Instanciamos un objeto de la clase DOMPDF.
 $pdf = new Dompdf();
  

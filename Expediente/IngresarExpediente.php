@@ -623,7 +623,7 @@ self.location = "index.html"
                                         <input id="fecha_actuacion_exp" name="fecha_actuacion_exp" type="date" placeholder="AAAA-MM-DD" class="form-control input-md" onkeypress="return numeros(event)">
                                     </div>
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
-                                        <label>Funcionario</label>
+                                        <label>Funcionario/a</label>
 
                                         <select name="funcionario_actuacion_exp" id="funcionario_actuacion_exp" class="form-control" font style="text-transform: uppercase;" style=" width:100px">
                                             <option value="">Seleccione</option>
