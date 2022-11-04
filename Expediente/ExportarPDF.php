@@ -242,8 +242,7 @@ body {
 <b>Nombre:</b>  $nombres_usuario $apellidos_usuario
 <br>
 <b>Municipio:</b> $des_municipio_hechos 
-<br>
-<b>Funcionarios a cargo:</b> $funcionario_actuacion_exp 
+
 <br>
 <br>
 <br>
@@ -258,41 +257,37 @@ En caso de no ser resuelto el caso caduca por vencimiento de términos.
 <b>Nombre de Madre, Padre o Acudiente:</b> $ApellidosCuida $NombresCuida
 <br>
 <b>No. de Documento de Madre, Padre o Acudiente:</b> $No_Cedula
-<br> 
-<br>
-<b>Restablecimiento de Derechos:</b> $des_derecho
-<br>
-<b>Discapacidad:</b> $des_discapacidad
-<br>
-<b>Maltrato:</b> $des_maltrato
-<br>
-<b>Victimas:</b> $des_victima
-<br>
-<br>
-<div><b>Descripción</b></div>  <div class='wrap' align='justify'> $Descripcion_expediente </div>  
-<br>
-<div><b>Concepto de Verificación Comisar&iacute;a</b></div><div class='wrap' align='justify'> $concepto_verificacion</div>  
-<br>
-<div><b>Concepto de Verificaci&oacute;n Psicol&oacute;gico </b></div><div class='wrap' align='justify'> $concepto_psicologico</div>  
-<br>
-<div><b>Concepto de Verificaci&oacute;n Trabajador/a Social</b></div><div class='wrap' align='justify'> $concepto_social</div>  
-<br>
-<div><b>Juzgamiento</b></div><div class='wrap' align='justify'> $juzgamiento</div>  
-<br>
-<div><b>Observaciones</b> </div><div class='wrap' align='justify'> $Observacion </div> 
-<br>
-<div><b>Veredicto del Caso</b></div><div align='justify'> $Veredicto_Caso </div>
-<br>
-<b>Estado del Expediente:</b> $des_estadocaso
-<br>
-<br>
+<br><br><br>
+<table>
+<tr>
+<td><b>Restablecimiento de Derechos:</b><br> $des_derecho </td>
+<td><b>Discapacidad:</b><br> $des_discapacidad</td>
+<td><b>Maltrato:</b><br> $des_maltrato</td>
+</tr>
+
+
+<tr>
+<td><br><b>Concepto de Verificación Comisar&iacute;a</b><br>$concepto_verificacion</td>
+<td><br><b>Concepto de Verificaci&oacute;n Psicol&oacute;gico </b><br> $concepto_psicologico</td>
+<td><br><b>Concepto de Verificaci&oacute;n Trabajador/a Social</b><br> $concepto_social</td>
+</tr>
+
+<tr>
+<td><br><b>Victimas:</b><br> $des_victima</td>
+<td><br><b>Descripción</b><br> $Descripcion_expediente   </td>
+<td><b>Juzgamiento</b><br> $juzgamiento</td>
+</tr>
+
+<br><br><br>
+<tr>
+<td><br><b>Observaciones</b><br>$Observacion </td>
+<td><br><b>Veredicto del Caso</b><br>$Veredicto_Caso </td>
+<td><br><b>Estado del Expediente:</b><br> $des_estadocaso</td>
+</tr>
+</table>
 <b>Fecha de Inicio del Expediente:</b> $Fecha_inicio_expediente
-<br>
-<b>Fecha limite del Expediente:</b> $fecha_limite
-<br>
-<br>
-<br>
-<br>
+<br><b>Fecha limite del Expediente:</b> $fecha_limite
+<br><br><br><br>
 <footer>
 <div>
 <img class='img-responsive  center-block  borde_blanco'  src='../img/footer.png' width='100%' alt=''/>
