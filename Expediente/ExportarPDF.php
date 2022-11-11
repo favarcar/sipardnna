@@ -236,14 +236,12 @@ body {
 <br>
 <b>Fecha: </b>$fecha_actual
 <br>
-<br>
 <b>Codigo del Expediente:</b> $codigo_expediente
 <br>
 <b>Nombre:</b>  $nombres_usuario $apellidos_usuario
 <br>
 <b>Municipio:</b> $des_municipio_hechos 
-
-<br>
+<b>Comisaria de $des_municipio_hechos<b> 
 <br>
 <br>
 Alerta faltan <b>$contador</b> calendario para resolver el caso por Restablecimiento de Derechos.
@@ -257,37 +255,31 @@ En caso de no ser resuelto el caso caduca por vencimiento de términos.
 <b>Nombre de Madre, Padre o Acudiente:</b> $ApellidosCuida $NombresCuida
 <br>
 <b>No. de Documento de Madre, Padre o Acudiente:</b> $No_Cedula
-<br><br><br>
+<br><br>
 <table>
 <tr>
 <td><b>Restablecimiento de Derechos:</b><br> $des_derecho </td>
 <td><b>Discapacidad:</b><br> $des_discapacidad</td>
 <td><b>Maltrato:</b><br> $des_maltrato</td>
 </tr>
-
-
-<tr>
-<td><br><b>Concepto de Verificación Comisar&iacute;a</b><br>$concepto_verificacion</td>
-<td><br><b>Concepto de Verificaci&oacute;n Psicol&oacute;gico </b><br> $concepto_psicologico</td>
-<td><br><b>Concepto de Verificaci&oacute;n Trabajador/a Social</b><br> $concepto_social</td>
-</tr>
-
 <tr>
 <td><br><b>Victimas:</b><br> $des_victima</td>
 <td><br><b>Descripción</b><br> $Descripcion_expediente   </td>
-<td><b>Juzgamiento</b><br> $juzgamiento</td>
+<td><b>Estado del derecho</b><br> $juzgamiento</td>
 </tr>
-
-<br><br><br>
 <tr>
 <td><br><b>Observaciones</b><br>$Observacion </td>
 <td><br><b>Veredicto del Caso</b><br>$Veredicto_Caso </td>
 <td><br><b>Estado del Expediente:</b><br> $des_estadocaso</td>
 </tr>
 </table>
-<b>Fecha de Inicio del Expediente:</b> $Fecha_inicio_expediente
-<br><b>Fecha limite del Expediente:</b> $fecha_limite
-<br><br><br><br>
+<br><b>Concepto de Verificación Comisar&iacute;a</b><br>$concepto_verificacion<br>
+<br><b>Concepto de Verificaci&oacute;n Psicol&oacute;gico </b><br> $concepto_psicologico<br>
+<br><b>Concepto de Verificaci&oacute;n Trabajador/a Social</b><br> $concepto_social<br>
+<br>
+<div><b>Fecha de Inicio del Expediente:</b> $Fecha_inicio_expediente</div>
+<div>Fecha limite del Expediente:</b> $fecha_limite</div>
+<br><br><br>
 <footer>
 <div>
 <img class='img-responsive  center-block  borde_blanco'  src='../img/footer.png' width='100%' alt=''/>

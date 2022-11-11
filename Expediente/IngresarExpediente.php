@@ -622,33 +622,33 @@ self.location = "index.html"
                                      <!--Campo de texto-->
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Funcionario/a</label>
-                                        <textarea id="funcionario_actuacion_exp" class="form-control" name="funcionario_actuacion_exp" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Cargo de los o las funcionarios/as a responsables del caso"></textarea>
+                                        <textarea id="funcionario_actuacion_exp" class="form-control" name="funcionario_actuacion_exp" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="10" data-parsley-maxlength="600" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Cargo de los o las funcionarios/as a responsables del caso"></textarea>
                                     </div>
                                     <!--Campo de texto-->
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Concepto de Verificaci&oacute;n Comisar&iacute;a</label>
-                                        <textarea id="concepto_verificacion" class="form-control" name="concepto_verificacion" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el concepto de verificaci&oacute;n"></textarea>
+                                        <textarea id="concepto_verificacion" class="form-control" name="concepto_verificacion" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="10" data-parsley-maxlength="600" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba su nombre, número de cédula, número de tarjeta profesional y el concepto de verificaci&oacute;n"></textarea>
                                     </div>
 
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Concepto de Verificaci&oacute;n Psicol&oacute;gico </label>
-                                        <textarea id="concepto_psicologico" class="form-control" name="concepto_psicologico" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el concepto de verificaci&oacute;n"></textarea>
+                                        <textarea id="concepto_psicologico" class="form-control" name="concepto_psicologico" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="10" data-parsley-maxlength="600" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba su nombre, número de cédula, número de tarjeta profesional y el concepto de verificaci&oacute;n"></textarea>
                                     </div>
 
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Concepto de Verificaci&oacute;n Trabajador/a Social</label>
-                                        <textarea id="concepto_social" class="form-control" name="concepto_social" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el concepto de verificaci&oacute;n"></textarea>
+                                        <textarea id="concepto_social" class="form-control" name="concepto_social" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="600" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba su nombre, número de cédula, número de tarjeta profesional y el concepto de verificaci&oacute;n"></textarea>
                                     </div>                                   
 
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
                                         <label>Descripci&oacute;n</label>
-                                        <textarea id="descripcion_actuacion_exp" class="form-control" name="descripcion_actuacion_exp" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba los detalles del PARD"></textarea>
+                                        <textarea id="descripcion_actuacion_exp" class="form-control" name="descripcion_actuacion_exp" style=" resize: none;" cols="40" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="600" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba los detalles del PARD"></textarea>
                                     </div>
 
                                     <div class="col-md-6 col-sm-4 col-xs-12 form-group" id="addActuacion">
 
                                         <label>Compromisos</label>
-                                        <textarea id="compromisos_exp" font style="text-transform: uppercase;" class="form-control" name="compromisos_exp" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="500" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del requerimiento"></textarea>
+                                        <textarea id="compromisos_exp" font style="text-transform: uppercase;" class="form-control" name="compromisos_exp" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="600" data-parsley-minlength-message="Escribir como mínimo 20 letras ..." data-parsley-validation-threshold="10" placeholder="Escriba el detalle del requerimiento"></textarea>
                                         <!--<p class="help-block">Example block-level help text here.</p> -->
                                         <br>
                                     </div>
