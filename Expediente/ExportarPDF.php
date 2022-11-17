@@ -200,7 +200,15 @@ $html = "<html><head>
 <style>
 body {
   font-family: Arial, Helvetica, Verdana;
+
 }
+
+div {
+	width: 600px;
+}
+
+
+
 .wrap,
 .wrap2{ 
   width:680px;
@@ -209,7 +217,11 @@ body {
   white-space: -pre-wrap;     /* Opera <7 */   
   white-space: -o-pre-wrap;   /* Opera 7 */    
   word-wrap: break-word;      /* IE */
+
+
+
 }
+
 
 .wrap{
 
@@ -217,12 +229,23 @@ body {
 }
 
 .wrap2 { 
-  border:1px solid blue;
+  border:2px solid blue;
   height:100px;
   overflow: auto;
   width:100px;
 }
 
+	.wrapper {
+		margin: 0;
+		margin-bottom: 40px;
+	}
+	footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 40px;
+		color: white;
+	}
 
 
 </style>
@@ -230,7 +253,7 @@ body {
 <div>
 
 
-<img class='img-responsive  center-block  borde_blanco'  src='../img/Logos_01.png' width='55%' alt=''/>
+<img class='img-responsive  center-block  borde_blanco'  src='../img/Logos_01.png' width='80%' alt=''/>
 </div>
 <br>
 <br>
@@ -264,7 +287,7 @@ En caso de no ser resuelto el caso caduca por vencimiento de términos.
 </tr>
 <tr>
 <td><br><b>Victimas:</b><br> $des_victima</td>
-<td><br><b>Descripción</b><br> $Descripcion_expediente   </td>
+<td><br><b>Descripción</b><br> $Descripcion_expediente</td>
 <td><b>Estado del derecho</b><br> $juzgamiento</td>
 </tr>
 <tr>
@@ -282,12 +305,14 @@ En caso de no ser resuelto el caso caduca por vencimiento de términos.
 <br><br><br>
 <footer>
 <div>
-<img class='img-responsive  center-block  borde_blanco'  src='../img/footer.png' width='100%' alt=''/>
-</div>
+<img class='img-responsive  center-block  borde_blanco'  src='../img/footer.png' width='120%' alt=''/>
+<div>
 </footer>
 
+</body>
 
-</body></html>" ;
+</html>" ;
+
 
 // Instanciamos un objeto de la clase DOMPDF.
 $pdf = new Dompdf();
