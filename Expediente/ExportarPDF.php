@@ -204,7 +204,7 @@ body {
 }
 
 div {
-	width: 600px;
+	width: 700px;
 }
 
 
@@ -264,7 +264,7 @@ div {
 <b>Nombre:</b>  $nombres_usuario $apellidos_usuario
 <br>
 <b>Municipio:</b> $des_municipio_hechos 
-<b>Comisaria de $des_municipio_hechos<b> 
+<b>Comisaria de $des_municipio_hechos</b>
 <br>
 <br>
 Alerta faltan <b>$contador</b> calendario para resolver el caso por Restablecimiento de Derechos.
@@ -305,7 +305,7 @@ En caso de no ser resuelto el caso caduca por vencimiento de términos.
 <br><br><br>
 <footer>
 <div>
-<img class='img-responsive  center-block  borde_blanco'  src='../img/footer.png' width='120%' alt=''/>
+<img class='img-responsive  center-block  borde_blanco'  src='../img/footer.png' width='100%' alt=''/>
 <div>
 </footer>
 
